@@ -1,13 +1,13 @@
 import { z } from "zod";
-import { ApiError } from "./base";
+import { ApiError } from "../errors/base";
 import { HttpStatus } from "../http";
 import { injectable } from "inversify";
 import { Dependency } from "../di";
 
 @injectable()
 @Dependency()
-export class ApiErrorValidator {
-  validateSchema<T>(schema: z.Schema<T>, payload: any) {
+export class ApiSchemaValidator {
+  validate<T>(schema: z.Schema<T>, payload: any) {
     const { success, error } = schema.safeParse(payload);
     if (!success) {
       const firstIssue = error.issues[0];
