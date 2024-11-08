@@ -1,0 +1,25 @@
+{
+    "watch": [
+        "./src/**/*.ts",
+        ".env"
+    ],
+    "ext": "js,ts",
+    "ignore": [
+        "**/*.test.ts",
+        "**/*.spec.ts",
+        ".git",
+        "node_modules",
+        "dist",
+        "coverage",
+        ".vscode",
+        ".idea",
+        ".DS_Store",
+        "logs",
+        "public"
+    ],
+    "delay": "2",
+    "execMap": {
+        "ts": "node"
+    },
+    "exec": "node --watch ./dist/src/index.js"
+}
