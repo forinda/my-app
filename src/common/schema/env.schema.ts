@@ -10,6 +10,7 @@ export const envSchema = z.object({
   MODE: env.default("development"),
   PORT: numberString.default("8080"),
   HOST: z.string().default("localhost"),
+  DATABASE_URL: z.string(),
 });
 
 export type EnvType = z.infer<typeof envSchema>;

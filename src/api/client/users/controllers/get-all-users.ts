@@ -19,7 +19,9 @@ export class GetAllUsersController implements BaseControllerType {
   @ApiControllerMethod({})
   async get({ res, query }: ApiRequestContext) {
     return res.status(HttpStatus.OK).json({ message: "API works", query });
-  } @ApiControllerMethod({})
+  }
+
+  @ApiControllerMethod({})
   async post({ res, query }: ApiRequestContext) {
     return res.status(HttpStatus.OK).json({ message: "API works", query });
   }
