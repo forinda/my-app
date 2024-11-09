@@ -4,13 +4,9 @@ const createdTimestamps = timestamp('created_at', { mode: 'string' })
   .notNull()
   .default('now()');
 
-const updatedTimestamps = timestamp('updated_at', { mode: 'string' })
-  .notNull()
-  .defaultNow();
+const updatedTimestamps = timestamp('updated_at', { mode: 'string' }).notNull();
 
-const deletedTimestamps = timestamp('deleted_at', { mode: 'string' })
-  .notNull()
-  .defaultNow();
+const deletedTimestamps = timestamp('deleted_at', { mode: 'string' });
 
 export function getTableTimestamps() {
   return {
