@@ -1,13 +1,12 @@
-import type { z } from "zod";
-import { ApiError } from "../errors/base";
-import { HttpStatus } from "../http";
-import { injectable } from "inversify";
-import { Dependency } from "../di";
+import type { z } from 'zod';
+import { ApiError } from '../errors/base';
+import { HttpStatus } from '../http';
+import { injectable } from 'inversify';
+import { Dependency } from '../di';
 
 @injectable()
 @Dependency()
 export class ApiSchemaValidator {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   validate(schema: z.Schema, payload: any) {
     const { success, error } = schema.safeParse(payload);
 
@@ -20,8 +19,8 @@ export class ApiSchemaValidator {
         : `[${firstIssue.path}] ${firstIssue.message}`;
 
       throw new ApiError(message, HttpStatus.BAD_REQUEST, {
-        status: "error",
-        type: "validation_error",
+        status: 'error',
+        type: 'validation_error'
       });
     }
 

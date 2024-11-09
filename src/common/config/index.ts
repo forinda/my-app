@@ -1,8 +1,8 @@
-import { config as envConf } from "dotenv";
-import type { EnvType } from "../schema/env.schema";
-import { envSchema } from "../schema/env.schema";
-import { injectable } from "inversify";
-import { Dependency } from "../di";
+import { config as envConf } from 'dotenv';
+import type { EnvType } from '../schema/env.schema';
+import { envSchema } from '../schema/env.schema';
+import { injectable } from 'inversify';
+import { Dependency } from '../di';
 envConf();
 
 @injectable()

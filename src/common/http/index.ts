@@ -1,5 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import type { NextFunction, Request, Response } from "express";
+import type { NextFunction, Request, Response } from 'express';
 
 export type HttpStatusCodes =
   | 100 // Continue - The server has received the request headers and the client should proceed to send the request body

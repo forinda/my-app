@@ -1,12 +1,11 @@
 function boundMethod(
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   target: any,
   key: string | symbol,
   descriptor: PropertyDescriptor
 ): PropertyDescriptor {
   const originalMethod = descriptor.value;
 
-  if (typeof originalMethod !== "function") {
+  if (typeof originalMethod !== 'function') {
     throw new TypeError(
       `@boundMethod decorator can only be applied to methods and not: ${typeof originalMethod}`
     );
@@ -26,13 +25,13 @@ function boundMethod(
           Object.defineProperty(this, key, {
             value,
             configurable: true,
-            writable: true,
+            writable: true
           });
-        },
+        }
       });
 
       return boundFn;
-    },
+    }
   };
 }
 
@@ -40,15 +39,15 @@ function boundMethod(
 function boundClass<T extends Function>(target: T) {
   const propertyNames = Object.getOwnPropertyNames(target.prototype);
   const symbolKeys =
-    typeof Object.getOwnPropertySymbols === "function"
+    typeof Object.getOwnPropertySymbols === 'function'
       ? Object.getOwnPropertySymbols(target.prototype)
       : [];
 
   [...propertyNames, ...symbolKeys].forEach((key) => {
-    if (key !== "constructor") {
+    if (key !== 'constructor') {
       const descriptor = Object.getOwnPropertyDescriptor(target.prototype, key);
 
-      if (descriptor?.value && typeof descriptor.value === "function") {
+      if (descriptor?.value && typeof descriptor.value === 'function') {
         Object.defineProperty(
           target.prototype,
           key,
@@ -68,11 +67,10 @@ export function autoBind() {
     descriptor?: PropertyDescriptor
   ) => {
     if (key === undefined && descriptor === undefined) {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       return boundClass(target as any);
     } else if (key !== undefined && descriptor !== undefined) {
       return boundMethod(target, key, descriptor);
     }
-    throw new Error("Invalid usage for @autoBind decorator");
+    throw new Error('Invalid usage for @autoBind decorator');
   };
 }

@@ -1,7 +1,6 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import type { z } from "zod";
-import type { ApiRequestContext } from "../interfaces/controller";
-import { ApiSchemaValidator } from "../schema/validator";
+import type { z } from 'zod';
+import type { ApiRequestContext } from '../interfaces/controller';
+import { ApiSchemaValidator } from '../schema/validator';
 
 export function ApiController() {
   return function (
@@ -10,13 +9,13 @@ export function ApiController() {
     //   descriptor: PropertyDescriptor
   ) {
     const apiMethods = [
-      "post",
-      "get",
-      "delete",
-      "patch",
-      "put",
-      "options",
-      "head",
+      'post',
+      'get',
+      'delete',
+      'patch',
+      'put',
+      'options',
+      'head'
     ];
     const original = target;
     const properties = Object.getOwnPropertyNames(original.prototype);
@@ -36,7 +35,7 @@ export function ApiController() {
           next,
           params,
           query,
-          body,
+          body
         };
 
         try {
@@ -47,9 +46,9 @@ export function ApiController() {
           if (next) {
             next(error);
           } else {
-            console.error("Unhandled error in controller method:", error);
+            console.error('Unhandled error in controller method:', error);
 
-            return res.status(500).send("An unexpected error occurred.");
+            return res.status(500).send('An unexpected error occurred.');
           }
         }
       };

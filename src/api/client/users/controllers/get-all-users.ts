@@ -1,16 +1,14 @@
 import {
   ApiController,
-  ApiControllerMethod,
-} from "@/common/decorators/controller.decorator";
-import { Dependency } from "@/common/di";
-import { HttpStatus } from "@/common/http";
+  ApiControllerMethod
+} from '@/common/decorators/controller.decorator';
+import { Dependency } from '@/common/di';
+import { HttpStatus } from '@/common/http';
 import type {
   ApiRequestContext,
-  BaseControllerType,
-} from "@/common/interfaces/controller";
-import { injectable } from "inversify";
-
-
+  BaseControllerType
+} from '@/common/interfaces/controller';
+import { injectable } from 'inversify';
 
 @injectable()
 @Dependency()
@@ -18,11 +16,11 @@ import { injectable } from "inversify";
 export class GetAllUsersController implements BaseControllerType {
   @ApiControllerMethod({})
   async get({ res, query }: ApiRequestContext) {
-    return res.status(HttpStatus.OK).json({ message: "API works", query });
+    return res.status(HttpStatus.OK).json({ message: 'API works', query });
   }
 
   @ApiControllerMethod({})
   async post({ res, query }: ApiRequestContext) {
-    return res.status(HttpStatus.OK).json({ message: "API works", query });
+    return res.status(HttpStatus.OK).json({ message: 'API works', query });
   }
 }

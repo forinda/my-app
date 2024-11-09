@@ -1,19 +1,19 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { injectable } from "inversify";
-import { Dependency } from "../di";
-import type { ApiNext, ApiReq, ApiRes} from "../http";
-import { HttpStatus } from "../http";
-import { ApiError } from "./base";
-import type { Router } from "express";
+
+import { injectable } from 'inversify';
+import { Dependency } from '../di';
+import type { ApiNext, ApiReq, ApiRes } from '../http';
+import { HttpStatus } from '../http';
+import { ApiError } from './base';
+import type { Router } from 'express';
 
 @injectable()
 @Dependency()
 export class ApiErrorRouteHandler {
   private catchAllErrorRouteHandler(req: ApiReq, res: ApiRes, next: ApiNext) {
     return res.status(HttpStatus.METHOD_NOT_ALLOWED).json({
-      message: "Method not allowed",
-      status: "error",
+      message: 'Method not allowed',
+      status: 'error'
     });
   }
 
@@ -35,7 +35,7 @@ export class ApiErrorRouteHandler {
   }
 
   plugin({ app }: { app: Router }) {
-    app.all("*", this.catchAllErrorRouteHandler);
+    app.all('*', this.catchAllErrorRouteHandler);
     app.use(this.httpErrorRouteHandler);
   }
 }
