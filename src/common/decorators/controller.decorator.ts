@@ -23,7 +23,7 @@ export function ApiController() {
     const validProperties = properties.filter((p) => apiMethods.includes(p));
 
     validProperties.forEach((propertyKey) => {
-      console.log("propertyKey", { propertyKey });
+      // console.log("propertyKey", { propertyKey });
 
       const originalMethod = original.prototype[propertyKey];
 
