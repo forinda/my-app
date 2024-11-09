@@ -1,4 +1,6 @@
-import { HttpStatus, HttpStatusCodes } from "../http";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import type { HttpStatusCodes } from "../http";
+import { HttpStatus } from "../http";
 
 type ErrorType = "error" | "warning" | "info";
 export class ApiError extends Error {

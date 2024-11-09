@@ -1,5 +1,5 @@
-import { NextFunction } from "express";
-import { ApiReq, ApiRes } from "../http";
+import type { NextFunction } from "express";
+import type { ApiReq, ApiRes } from "../http";
 
 export type ApiRequestContext = {
   req: ApiReq;
@@ -9,10 +9,12 @@ export type ApiRequestContext = {
   query?: Pick<ApiReq, "query">["query"];
   body?: Pick<ApiReq, "body">["body"];
 };
+
 // Define a generic ControllerMethod type
 export type ControllerMethod = (
   context: ApiRequestContext
 ) => Promise<void | ApiRes>;
+
 export type BaseControllerType = {
   post?: ControllerMethod;
   get?: ControllerMethod;

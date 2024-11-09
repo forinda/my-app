@@ -1,5 +1,6 @@
-import { z } from "zod";
-import { ApiRequestContext } from "../interfaces/controller";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import type { z } from "zod";
+import type { ApiRequestContext } from "../interfaces/controller";
 import { ApiSchemaValidator } from "../schema/validator";
 
 export function ApiController() {
@@ -25,6 +26,7 @@ export function ApiController() {
       console.log("propertyKey", { propertyKey });
 
       const originalMethod = original.prototype[propertyKey];
+
       original.prototype[propertyKey] = async function (...args: any[]) {
         const [req, res, next] = args;
         const { params, query, body } = req;
@@ -36,6 +38,7 @@ export function ApiController() {
           query,
           body,
         };
+
         try {
           // Execute the original method within the try block
           await originalMethod.apply(this, [context]);
@@ -45,11 +48,13 @@ export function ApiController() {
             next(error);
           } else {
             console.error("Unhandled error in controller method:", error);
+
             return res.status(500).send("An unexpected error occurred.");
           }
         }
       };
     });
+
     return original;
   };
 }
@@ -64,9 +69,11 @@ export function ApiControllerMethod(props: MethodProps = {}) {
   return function (target: any, key: string, descriptor: PropertyDescriptor) {
     const originalMethod = descriptor.value;
     const validator = new ApiSchemaValidator();
+
     descriptor.value = async function (...args: any[]) {
       const [context] = args;
       const { params, query, body } = context;
+
       try {
         context.params = props.paramSchema
           ? validator.validate(props.paramSchema, params)
@@ -83,6 +90,7 @@ export function ApiControllerMethod(props: MethodProps = {}) {
         return context.next(error);
       }
     };
+
     return descriptor;
   };
 }

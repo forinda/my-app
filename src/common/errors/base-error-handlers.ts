@@ -1,8 +1,11 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { injectable } from "inversify";
 import { Dependency } from "../di";
-import { ApiNext, ApiReq, ApiRes, HttpStatus } from "../http";
+import type { ApiNext, ApiReq, ApiRes} from "../http";
+import { HttpStatus } from "../http";
 import { ApiError } from "./base";
-import { Router } from "express";
+import type { Router } from "express";
 
 @injectable()
 @Dependency()
@@ -18,10 +21,11 @@ export class ApiErrorRouteHandler {
     error: any,
     req: ApiReq,
     res: ApiRes,
-    next: ApiNext
+    _next: ApiNext
   ) {
     if (error instanceof ApiError) {
       const { statusCode } = error;
+
       return res.status(statusCode).json(error.toJSON());
     }
 
