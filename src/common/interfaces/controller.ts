@@ -1,13 +1,17 @@
 import type { NextFunction } from 'express';
 import type { ApiReq, ApiRes } from '../http';
 
+type ContextParams = Pick<ApiReq, 'params'>['params'];
+type ContextQuery = Pick<ApiReq, 'query'>['query'];
+type ContextBody = Pick<ApiReq, 'body'>['body'];
+
 export type ApiRequestContext = {
   req: ApiReq;
   res: ApiRes;
   next: NextFunction;
-  params?: Pick<ApiReq, 'params'>['params'];
-  query?: Pick<ApiReq, 'query'>['query'];
-  body?: Pick<ApiReq, 'body'>['body'];
+  params?: ContextParams;
+  query?: ContextQuery;
+  body?: ContextBody;
 };
 
 // Define a generic ControllerMethod type
