@@ -1,26 +1,19 @@
+import { BaseGetController } from '@/common/bases/controller';
 import {
   ApiController,
   ApiControllerMethod
 } from '@/common/decorators/controller.decorator';
 import { Dependency } from '@/common/di';
 import { HttpStatus } from '@/common/http';
-import type {
-  ApiRequestContext,
-  BaseControllerType
-} from '@/common/interfaces/controller';
+import type { ApiRequestContext } from '@/common/interfaces/controller';
 import { injectable } from 'inversify';
 
 @injectable()
 @Dependency()
 @ApiController()
-export class GetAllUsersController implements BaseControllerType {
+export class GetAllUsersController extends BaseGetController {
   @ApiControllerMethod({})
   async get({ res, query }: ApiRequestContext) {
-    return res.status(HttpStatus.OK).json({ message: 'API works', query });
-  }
-
-  @ApiControllerMethod({})
-  async post({ res, query }: ApiRequestContext) {
     return res.status(HttpStatus.OK).json({ message: 'API works', query });
   }
 }
