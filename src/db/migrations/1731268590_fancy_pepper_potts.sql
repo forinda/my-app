@@ -1,8 +1,9 @@
 CREATE TABLE IF NOT EXISTS "users" (
-	"id" integer PRIMARY KEY NOT NULL,
+	"id" integer PRIMARY KEY GENERATED ALWAYS AS IDENTITY (sequence name "users_id_seq" INCREMENT BY 1 MINVALUE 1 MAXVALUE 2147483647 START WITH 1 CACHE 1),
 	"first_name" varchar NOT NULL,
 	"last_name" varchar NOT NULL,
 	"email" varchar NOT NULL,
+	"gender" varchar NOT NULL,
 	"username" varchar NOT NULL,
 	"password" varchar NOT NULL,
 	"is_active" boolean DEFAULT false NOT NULL,
@@ -10,9 +11,10 @@ CREATE TABLE IF NOT EXISTS "users" (
 	"last_login_at" date,
 	"last_login_ip" varchar,
 	"needs_to_reset_password" boolean DEFAULT false NOT NULL,
-	"created_at" timestamp DEFAULT 'now()' NOT NULL,
+	"last_password_reset_at" date,
+	"created_at" timestamp DEFAULT now() NOT NULL,
 	"updated_at" timestamp DEFAULT now() NOT NULL,
-	"deleted_at" timestamp DEFAULT now() NOT NULL,
+	"deleted_at" timestamp,
 	CONSTRAINT "users_email_unique" UNIQUE("email"),
 	CONSTRAINT "users_username_unique" UNIQUE("username")
 );
