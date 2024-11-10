@@ -2,6 +2,7 @@ import { injectable } from 'inversify';
 import type { ApiRes } from '../http';
 import type { ApiRequestContext } from '../interfaces/controller';
 
+@injectable()
 export abstract class BasePostController {
   /**
    * The `post` method is an abstract method that must be implemented by any
