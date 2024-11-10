@@ -1,6 +1,7 @@
 import type { z } from 'zod';
 import type { ApiRequestContext } from '../interfaces/controller';
 import { ApiSchemaValidator } from '../schema/validator';
+import { extractPaginationParams } from '../utils/pagination';
 
 export function ApiController() {
   return function (
@@ -62,6 +63,7 @@ type MethodProps = {
   paramSchema?: z.Schema;
   querySchema?: z.Schema;
   bodySchema?: z.Schema;
+  paginate?: boolean;
 };
 
 export function ApiControllerMethod(props: MethodProps = {}) {
@@ -70,10 +72,14 @@ export function ApiControllerMethod(props: MethodProps = {}) {
     const validator = new ApiSchemaValidator();
 
     descriptor.value = async function (...args: any[]) {
-      const [context] = args;
+      const [context] = args as [ApiRequestContext];
       const { params, query, body } = context;
 
       try {
+        const pagination = props.paginate
+          ? extractPaginationParams(query!)
+          : null;
+
         context.params = props.paramSchema
           ? validator.validate(props.paramSchema, params)
           : params;
@@ -83,6 +89,10 @@ export function ApiControllerMethod(props: MethodProps = {}) {
         context.body = props.bodySchema
           ? validator.validate(props.bodySchema, body)
           : body;
+
+        if (pagination) {
+          context.pagination = pagination;
+        }
 
         return originalMethod.apply(this, args);
       } catch (error) {
