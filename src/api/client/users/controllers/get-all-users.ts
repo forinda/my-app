@@ -6,14 +6,20 @@ import {
 import { Dependency } from '@/common/di';
 import { HttpStatus } from '@/common/http';
 import type { ApiRequestContext } from '@/common/interfaces/controller';
-import { injectable } from 'inversify';
+import { inject, injectable } from 'inversify';
+import { GetUsersService } from '../services/get-users.service';
 
 @injectable()
 @Dependency()
 @ApiController()
 export class GetAllUsersController extends BaseGetController {
-  @ApiControllerMethod({})
-  async get({ res, query }: ApiRequestContext) {
-    return res.status(HttpStatus.OK).json({ message: 'API works', query });
+  @inject(GetUsersService) private getUsersService: GetUsersService;
+  @ApiControllerMethod({
+    paginate: true
+  })
+  async get({ res, pagination }: ApiRequestContext) {
+    const users = await this.getUsersService.get(pagination);
+
+    return res.status(HttpStatus.OK).json(users);
   }
 }
