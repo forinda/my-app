@@ -46,3 +46,7 @@ Publishing migrations to db
 ```sh
 yarn migrate:publish
 ```
+View DB in drizzle studio
+```sh
+yarn db:view
+```
