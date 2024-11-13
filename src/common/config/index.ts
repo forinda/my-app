@@ -13,7 +13,7 @@ export class Config {
     this._conf = envSchema.parse(process.env);
   }
 
-  get(k: keyof EnvType) {
-    return this._conf[k] as EnvType[keyof EnvType];
+  get conf() {
+    return this._conf;
   }
 }

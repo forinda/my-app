@@ -6,7 +6,8 @@ import type { Application } from 'express';
 import express from 'express';
 import { createServer } from 'http';
 import { inject, injectable } from 'inversify';
-
+import chalk from 'chalk';
+import moment from 'moment';
 @injectable()
 @Dependency()
 export class ApiServer {
@@ -34,10 +35,18 @@ export class ApiServer {
 
   private onListening() {
     // console.log({ config: this.config });
-
-    const message = `Server listening on http://localhost:${this.config.get(
-      'PORT'
-    )}`;
+    const listeningMessage = chalk.yellow(
+      `Listening on http://localhost:${this.config.conf.PORT}`
+    );
+    const envMessage = `App started on: ${
+      this.config.conf.NODE_ENV === 'development'
+        ? chalk.green(this.config.conf.NODE_ENV)
+        : chalk.red(this.config.conf.NODE_ENV)
+    }`;
+    const message = `\nServer started at ${moment().format('LLL')} ${
+      this.config.conf.NODE_ENV === 'development' ? '🚀' : '🔒'
+    }\n${listeningMessage}\n${envMessage}
+    `;
 
     console.log(message);
   }
@@ -45,6 +54,6 @@ export class ApiServer {
   public run() {
     const server = createServer(this.bootstrap());
 
-    server.listen(this.config.get('PORT'), this.onListening);
+    server.listen(this.config.conf.PORT, this.onListening);
   }
 }

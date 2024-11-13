@@ -8,7 +8,7 @@ type Props = {
 };
 
 export function setupUsersRoutes({ app }: Props) {
-  console.log('setupUsersRoutes');
+  // console.log('setupUsersRoutes');
 
   const router = Router();
 

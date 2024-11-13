@@ -6,6 +6,7 @@ import type { Application } from 'express';
 import { Router } from 'express';
 import { injectable } from 'inversify';
 import { setupUsersRoutes } from './client/users';
+import { setupAuthRoutes } from './client/auth';
 type Versions = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
 export type ApiVersions = `/api/v${Versions}`;
 
@@ -24,6 +25,7 @@ export class ApiV1 {
       return res.status(HttpStatus.OK).json({ message: 'API works' });
     });
     setupUsersRoutes({ app: this.router });
+    setupAuthRoutes({ app: this.router });
     app.use(this.version, this.router);
   }
 }

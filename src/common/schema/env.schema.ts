@@ -7,10 +7,14 @@ const numberString = z.string().refine((value) => {
 const env = z.enum(['development', 'production', 'test']);
 
 export const envSchema = z.object({
-  MODE: env.default('development'),
+  NODE_ENV: env.default('development'),
   PORT: numberString.default('8080'),
   HOST: z.string().default('localhost'),
-  DATABASE_URL: z.string()
+  DATABASE_URL: z.string(),
+  REF_JWT_SECRET: z.string(),
+  REF_JWT_EXPIRES_IN: z.string(),
+  AC_JWT_ACCESS_SECRET: z.string(),
+  AC_JWT_ACCESS_EXPIRES_IN: z.string()
 });
 
 export type EnvType = z.infer<typeof envSchema>;

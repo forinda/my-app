@@ -14,6 +14,7 @@ import { GetUsersService } from '../services/get-users.service';
 @ApiController()
 export class GetAllUsersController extends BaseGetController {
   @inject(GetUsersService) private getUsersService: GetUsersService;
+
   @ApiControllerMethod({
     paginate: true
   })
