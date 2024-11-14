@@ -1,6 +1,6 @@
-import path from "path";
-import { config as envConf } from "dotenv";
-import findRoot from "find-root";
+import path from 'path';
+import { config as envConf } from 'dotenv';
+import findRoot from 'find-root';
 
 envConf();
 

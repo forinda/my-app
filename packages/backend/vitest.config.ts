@@ -1,3 +1,4 @@
+import 'reflect-metadata';
 import { defineConfig } from 'vitest/config';
 import { fileURLToPath } from 'url';
 export default defineConfig({
