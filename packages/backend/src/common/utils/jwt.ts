@@ -1,35 +1,28 @@
-import { inject } from 'inversify';
+import { inject, injectable } from 'inversify';
 import jwt from 'jsonwebtoken';
 import { Config } from '../config';
 import { ApiError } from '../errors/base';
+import { Dependency } from '../di';
 
 type JwtUserPayload = {
-  id: string;
+  id: string | number;
   tokeType: 'access' | 'refresh';
 };
 
+@injectable()
+@Dependency()
 export class JWT {
-  private _access_secret: string;
-  private _refresh_secret: string;
-  private _aceess_expiresIn: string;
-  private _refresh_expiresIn: string;
-
   @inject(Config) private readonly config: Config;
 
-  constructor() {
-    this._access_secret = this.config.conf.AC_JWT_ACCESS_SECRET;
-    this._refresh_secret = this.config.conf.REF_JWT_SECRET;
-    this._aceess_expiresIn = this.config.conf.AC_JWT_ACCESS_EXPIRES_IN;
-    this._refresh_expiresIn = this.config.conf.REF_JWT_EXPIRES_IN;
-  }
+  constructor() {}
 
   signAccessToken(payload: JwtUserPayload) {
     if (payload.tokeType !== 'access') {
       throw new ApiError('Invalid token type');
     }
 
-    return jwt.sign(payload, this._access_secret, {
-      expiresIn: this._aceess_expiresIn
+    return jwt.sign(payload, this.config.conf.AC_JWT_ACCESS_SECRET, {
+      expiresIn: this.config.conf.AC_JWT_ACCESS_EXPIRES_IN
     });
   }
 
@@ -38,13 +31,16 @@ export class JWT {
       throw new ApiError('Invalid token type');
     }
 
-    return jwt.sign(payload, this._refresh_secret, {
-      expiresIn: this._refresh_expiresIn
+    return jwt.sign(payload, this.config.conf.AC_JWT_ACCESS_SECRET, {
+      expiresIn: this.config.conf.REF_JWT_EXPIRES_IN
     });
   }
 
   verifyAccessToken(token: string) {
-    const payload = jwt.verify(token, this._access_secret) as JwtUserPayload;
+    const payload = jwt.verify(
+      token,
+      this.config.conf.AC_JWT_ACCESS_SECRET
+    ) as JwtUserPayload;
 
     if (payload.tokeType !== 'access') {
       throw new ApiError('Invalid token type');
@@ -54,7 +50,10 @@ export class JWT {
   }
 
   verifyRefreshToken(token: string) {
-    const payload = jwt.verify(token, this._refresh_secret) as JwtUserPayload;
+    const payload = jwt.verify(
+      token,
+      this.config.conf.AC_JWT_ACCESS_SECRET
+    ) as JwtUserPayload;
 
     if (payload.tokeType !== 'refresh') {
       throw new ApiError('Invalid token type');
@@ -71,7 +70,7 @@ export class JWT {
     return jwt.decode(token) as JwtUserPayload;
   }
 
-  signTokens(payload: JwtUserPayload) {
+  signTokens(payload: Pick<JwtUserPayload, 'id'>) {
     return {
       accessToken: this.signAccessToken({
         ...payload,

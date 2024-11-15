@@ -6,11 +6,10 @@ import { injectable } from 'inversify';
 @Dependency()
 export class IpFinder {
   getClientIp(req: ApiReq) {
-    const ip =
-      req.headers?.['x-forwarded-for'] ||
-      req.ip ||
-      req.socket?.['remoteAddress'];
+    const ip = req.ip;
+    const socketRemoteAddress = req.socket?.remoteAddress;
+    const xForwardedFor = req.headers?.['x-forwarded-for'];
 
-    return ip;
+    return xForwardedFor || socketRemoteAddress || ip || '';
   }
 }

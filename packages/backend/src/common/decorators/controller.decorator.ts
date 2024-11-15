@@ -2,6 +2,7 @@ import type { z } from 'zod';
 import type { ApiRequestContext } from '../interfaces/controller';
 import { ApiSchemaValidator } from '../schema/validator';
 import { extractPaginationParams } from '../utils/pagination';
+import { IpFinder } from '@/api/client/auth/utils/get-client-ip';
 
 export function ApiController() {
   return function (
@@ -64,6 +65,7 @@ type MethodProps = {
   querySchema?: z.Schema;
   bodySchema?: z.Schema;
   paginate?: boolean;
+  injectIpInBody?: boolean;
 };
 
 export function ApiControllerMethod(props: MethodProps = {}) {
@@ -92,6 +94,15 @@ export function ApiControllerMethod(props: MethodProps = {}) {
 
         if (pagination) {
           context.pagination = pagination;
+        }
+        const { req } = context;
+        const clientIp = new IpFinder().getClientIp(req);
+
+        if (props.injectIpInBody) {
+          context.body = {
+            ...context.body,
+            ip: clientIp
+          };
         }
 
         return originalMethod.apply(this, args);

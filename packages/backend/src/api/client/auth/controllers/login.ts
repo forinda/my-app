@@ -18,11 +18,13 @@ import { LoginUserService } from '../services/login.service';
 @ApiController()
 export class CreateUserController extends BasePostController {
   @inject(LoginUserService) private service: LoginUserService;
+
   @ApiControllerMethod({
-    bodySchema: loginUserRequestSchema
+    bodySchema: loginUserRequestSchema,
+    injectIpInBody: true
   })
   async post({ res, body }: ApiRequestContext<LoginUserRequestBody>) {
-    console.log({ feedback: 'Some' });
+    console.log({ body });
     const feedback = await this.service.create({ data: body! });
 
     return res.status(HttpStatus.CREATED).json(feedback);
