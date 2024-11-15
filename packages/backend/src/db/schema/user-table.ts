@@ -2,7 +2,6 @@ import { getTableTimestamps } from '@/common/constants/table-timestamps';
 import { relations } from 'drizzle-orm';
 import {
   boolean,
-  date,
   integer,
   pgTable,
   timestamp,
@@ -24,7 +23,7 @@ export const User = pgTable('users', {
   last_login_at: timestamp({ mode: 'string' }),
   last_login_ip: varchar(),
   needs_to_reset_password: boolean().notNull().default(false),
-  last_password_reset_at: date({ mode: 'string' }),
+  last_password_reset_at: timestamp({ mode: 'string' }),
   ...getTableTimestamps()
 });
 

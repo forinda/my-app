@@ -1,6 +1,6 @@
 {
-  "id": "41e2ab35-f9ca-44f9-bbc1-766418095184",
-  "prevId": "46b63647-325c-4013-ab17-2133f4e79518",
+  "id": "07ec204b-5612-4156-9fbc-9df4e76d0c82",
+  "prevId": "de86d2b9-88d5-4a91-b6fe-edfc93cf83ea",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
@@ -37,6 +37,12 @@
           "primaryKey": false,
           "notNull": true
         },
+        "token_id": {
+          "name": "token_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
         "session_id": {
           "name": "session_id",
           "type": "uuid",
@@ -65,7 +71,21 @@
         }
       },
       "indexes": {},
-      "foreignKeys": {},
+      "foreignKeys": {
+        "login_sessions_user_id_users_id_fk": {
+          "name": "login_sessions_user_id_users_id_fk",
+          "tableFrom": "login_sessions",
+          "tableTo": "users",
+          "columnsFrom": [
+            "user_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "restrict",
+          "onUpdate": "cascade"
+        }
+      },
       "compositePrimaryKeys": {},
       "uniqueConstraints": {},
       "policies": {},
@@ -101,19 +121,13 @@
         },
         "token": {
           "name": "token",
-          "type": "varchar(6)",
+          "type": "varchar",
           "primaryKey": false,
           "notNull": true
         },
-        "expiry_date": {
-          "name": "expiry_date",
-          "type": "date",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "role": {
-          "name": "role",
-          "type": "varchar",
+        "created_by": {
+          "name": "created_by",
+          "type": "integer",
           "primaryKey": false,
           "notNull": true
         },
@@ -139,7 +153,34 @@
         }
       },
       "indexes": {},
-      "foreignKeys": {},
+      "foreignKeys": {
+        "tokens_user_id_users_id_fk": {
+          "name": "tokens_user_id_users_id_fk",
+          "tableFrom": "tokens",
+          "tableTo": "users",
+          "columnsFrom": [
+            "user_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "restrict",
+          "onUpdate": "cascade"
+        },
+        "tokens_created_by_users_id_fk": {
+          "name": "tokens_created_by_users_id_fk",
+          "tableFrom": "tokens",
+          "tableTo": "users",
+          "columnsFrom": [
+            "created_by"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "restrict",
+          "onUpdate": "cascade"
+        }
+      },
       "compositePrimaryKeys": {},
       "uniqueConstraints": {},
       "policies": {},
@@ -219,7 +260,7 @@
         },
         "last_login_at": {
           "name": "last_login_at",
-          "type": "date",
+          "type": "timestamp",
           "primaryKey": false,
           "notNull": false
         },
@@ -238,7 +279,7 @@
         },
         "last_password_reset_at": {
           "name": "last_password_reset_at",
-          "type": "date",
+          "type": "timestamp",
           "primaryKey": false,
           "notNull": false
         },

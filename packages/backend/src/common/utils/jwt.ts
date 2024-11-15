@@ -72,11 +72,11 @@ export class JWT {
 
   signTokens(payload: Pick<JwtUserPayload, 'id'>) {
     return {
-      accessToken: this.signAccessToken({
+      access_token: this.signAccessToken({
         ...payload,
         tokeType: 'access'
       }),
-      refreshToken: this.signRefreshToken({
+      refresh_token: this.signRefreshToken({
         ...payload,
         tokeType: 'refresh'
       })

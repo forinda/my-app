@@ -17,6 +17,8 @@
     "clean:ui": "yarn workspace frontend clean",
     "clean": "yarn workspace backend clean && yarn workspace frontend clean",
     "build": "yarn workspace backend build && yarn workspace frontend build",
+    "migrate:new": "yarn workspace backend migrate:new",
+    "migrate:deploy": "yarn workspace backend migrate:deploy",
     "prebuild": "yarn clean",
     "prestart": "yarn build",
     "start": "yarn start:backend"

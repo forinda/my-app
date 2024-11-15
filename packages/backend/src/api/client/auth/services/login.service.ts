@@ -5,7 +5,7 @@ import type { TransactionContext } from '@/common/decorators/service-transaction
 import { TransactionalService } from '@/common/decorators/service-transaction';
 import { createHttpSuccessResponse } from '@/common/utils/http-response';
 import { HttpStatus } from '@/common/http';
-import { LoginSession, User } from '@/db/schema';
+import { LoginSession, Token, User } from '@/db/schema';
 import type { InferInsertModel } from 'drizzle-orm';
 import { eq } from 'drizzle-orm';
 import { PasswordProcessor } from '@/common/utils/password';
@@ -56,15 +56,26 @@ export class LoginUserService {
     if (!user.is_active) {
       throw new ApiError('User account is not active', HttpStatus.BAD_REQUEST);
     }
-    // Create login session
     // generate token
     const tokens = this.jwt.signTokens({ id: user.id });
+    // Create session token
+    const token = await transaction
+      ?.insert(Token)
+      .values({
+        user_id: user.id,
+        token: tokens.access_token,
+        created_by: user.id
+      } as InferInsertModel<typeof Token>)
+      .returning();
+
+    // Create login session
     const session = await transaction
       ?.insert(LoginSession)
       .values({
         login_ip: data.ip ?? '',
         user_id: user.id,
-        session_id: this.uuid.generate()
+        session_id: this.uuid.generate(),
+        token_id: token![0].id
       } as InferInsertModel<typeof LoginSession>)
       .returning();
 

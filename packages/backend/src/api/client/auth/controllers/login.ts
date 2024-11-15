@@ -24,7 +24,6 @@ export class CreateUserController extends BasePostController {
     injectIpInBody: true
   })
   async post({ res, body }: ApiRequestContext<LoginUserRequestBody>) {
-    console.log({ body });
     const feedback = await this.service.create({ data: body! });
 
     return res.status(HttpStatus.CREATED).json(feedback);
