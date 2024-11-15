@@ -12,7 +12,7 @@ import moment from 'moment';
 @Dependency()
 export class ApiServer {
   app: Application;
-  name: string;
+  _name: string;
 
   @inject(ApiServerSetup) private readonly apiServerSetup: ApiServerSetup;
   @inject(ApiErrorRouteHandler)
@@ -20,13 +20,21 @@ export class ApiServer {
 
   @inject(Config) private readonly config: Config;
 
-  constructor(name: string = 'ApiServer') {
+  constructor() {
     this.app = express();
-    this.name = name;
+    this._name = 'ApiServer';
+  }
+
+  set name(name: string) {
+    this._name = name;
+  }
+
+  get name() {
+    return this._name;
   }
 
   bootstrap(name: string = 'default') {
-    this.name = name;
+    this._name = name;
     this.apiServerSetup.setupExpressApp(this.app);
     this.apiErrorRouteHandler.plugin({ app: this.app });
 
