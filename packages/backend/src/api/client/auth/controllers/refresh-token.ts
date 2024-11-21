@@ -16,7 +16,7 @@ import { LoginUserService } from '../services/login.service';
 @injectable()
 @Dependency()
 @ApiController()
-export class CreateUserController extends BasePostController {
+export class RefreshTokenController extends BasePostController {
   @inject(LoginUserService) private service: LoginUserService;
 
   @ApiControllerMethod({
