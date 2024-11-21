@@ -52,7 +52,13 @@ export function LoginRequired() {
       }
 
       const user = await db
-        .select()
+        .select({
+          id: User.id,
+          username: User.username,
+          email: User.email,
+          is_active: User.is_active,
+          is_email_verified: User.is_email_verified
+        })
         .from(User)
         .where(eq(User.id, user_id as number));
 

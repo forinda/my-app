@@ -14,7 +14,7 @@ export type ApiRequestContext<Body = any> = {
   query?: ContextQuery;
   body?: Body;
   pagination?: ApiPaginationParams;
-  user: any;
+  user?: any;
 };
 
 // Define a generic ControllerMethod type

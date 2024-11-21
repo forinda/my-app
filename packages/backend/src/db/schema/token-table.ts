@@ -10,7 +10,8 @@ export const Token = pgTable('tokens', {
     .notNull()
     .references(() => User.id, foreignKeyConstraints)
     .notNull(),
-  token: varchar().notNull(),
+  access_token: varchar(),
+  refresh_token: varchar(),
   created_by: integer()
     .notNull()
     .references(() => User.id, foreignKeyConstraints)

@@ -2,13 +2,13 @@ import { z } from 'zod';
 
 export const loginUserRequestSchema = z.object({
   password: z.string().min(8),
-  emailOrUsername: z.string(),
+  email_or_username: z.string(),
   ip: z.string().ip().optional()
 });
 
 export const refreshTokenRequestSchema = z.object({
-  refreshToken: z.string(),
-  sessionId: z.string()
+  refresh_token: z.string(),
+  session_id: z.string()
 });
 
 export type LoginUserRequestBody = z.infer<typeof loginUserRequestSchema>;
