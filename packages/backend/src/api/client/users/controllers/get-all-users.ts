@@ -8,6 +8,7 @@ import { HttpStatus } from '@/common/http';
 import type { ApiRequestContext } from '@/common/interfaces/controller';
 import { inject, injectable } from 'inversify';
 import { GetUsersService } from '../services/get-users.service';
+import { LoginRequired } from '@/common/decorators/login-required.decorator';
 
 @injectable()
 @Dependency()
@@ -18,6 +19,7 @@ export class GetAllUsersController extends BaseGetController {
   @ApiControllerMethod({
     paginate: true
   })
+  @LoginRequired()
   async get({ res, pagination }: ApiRequestContext) {
     const users = await this.getUsersService.get(pagination);
 
