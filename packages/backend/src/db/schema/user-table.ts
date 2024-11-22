@@ -9,6 +9,7 @@ import {
 } from 'drizzle-orm/pg-core';
 import { Token } from './token-table';
 import { LoginSession } from './login-session';
+import { UserRole } from './user-role';
 
 export const User = pgTable('users', {
   id: integer().primaryKey().generatedAlwaysAsIdentity(),
@@ -29,5 +30,6 @@ export const User = pgTable('users', {
 
 export const userRelations = relations(User, ({ many }) => ({
   tokens: many(Token),
-  login_sessions: many(LoginSession)
+  login_sessions: many(LoginSession),
+  roles: many(UserRole)
 }));

@@ -29,6 +29,41 @@
       "when": 1732202097614,
       "tag": "1732202097_busy_eternals",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1732309189345,
+      "tag": "1732309189_misty_madripoor",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1732309230875,
+      "tag": "1732309230_left_wraith",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1732309268685,
+      "tag": "1732309268_chief_speedball",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "7",
+      "when": 1732309305171,
+      "tag": "1732309305_fair_bushwacker",
+      "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "7",
+      "when": 1732309345794,
+      "tag": "1732309345_sad_marauders",
+      "breakpoints": true
     }
   ]
 }
