@@ -18,8 +18,7 @@ export class RefreshTokenController extends BasePostController {
   @inject(RefreshTokenService) private service: RefreshTokenService;
 
   @ApiControllerMethod({
-    bodySchema: refreshTokenRequestSchema,
-    injectIpInBody: true
+    bodySchema: refreshTokenRequestSchema
   })
   // @LoginRequired()
   async post({ res, body }: ApiRequestContext<RefreshTokenRequestBody>) {

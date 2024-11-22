@@ -1,5 +1,6 @@
 export const permissionTable = {
   profile: ['edit', 'create'],
+  role: ['create', 'update', 'list'],
   users: ['edit', 'list', 'create', 'update', 'deactivate', 'assign-role']
 } as const;
 

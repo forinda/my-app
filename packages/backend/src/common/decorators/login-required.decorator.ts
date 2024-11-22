@@ -52,25 +52,45 @@ export function LoginRequired(authority?: AuthorityType | AuthorityType[]) {
         throw new ApiError('Invalid token type', HttpStatus.UNAUTHORIZED);
       }
 
-      const user = await db
-        .select({
-          id: User.id,
-          username: User.username,
-          email: User.email,
-          is_active: User.is_active,
-          is_email_verified: User.is_email_verified
-        })
-        .from(User)
-        .where(eq(User.id, user_id as number));
+      const user = await db.query.User.findFirst({
+        // .where(eq(User.id, user_id as number)); // .from(User) // }) //   is_email_verified: User.is_email_verified //   is_active: User.is_active, //   email: User.email, //   username: User.username, //   id: User.id, // .select({
+        where: eq(User.id, user_id as number),
+        columns: {
+          id: true,
+          username: true,
+          email: true,
+          is_active: true,
+          is_email_verified: true
+        },
+        with: {
+          user_roles: {
+            with: {
+              role: {
+                with: {
+                  role_permissions: {
+                    with: {
+                      permission: {
+                        columns: {
+                          name: true
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      });
 
-      if (user.length < 1) {
+      if (!user) {
         throw new ApiError('Invalid user', HttpStatus.UNAUTHORIZED);
       }
 
-      if (user[0].is_active === false) {
+      if (user.is_active === false) {
         throw new ApiError('User is inactive', HttpStatus.UNAUTHORIZED);
       }
-      args[0].user = user[0];
+      args[0].user = user;
 
       return originalMethod.apply(this, args);
     };

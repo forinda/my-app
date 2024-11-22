@@ -7,24 +7,21 @@ import { Dependency } from '@/common/di';
 import { HttpStatus } from '@/common/http';
 import type { ApiRequestContext } from '@/common/interfaces/controller';
 import { inject, injectable } from 'inversify';
-import { GetUsersService } from '../services/get-users.service';
+import type { RefreshTokenRequestBody } from '../schema/login-request.schema';
+import { SetupAuthService } from '../services/setup.service';
 import { LoginRequired } from '@/common/decorators/login-required.decorator';
 
 @injectable()
 @Dependency()
 @ApiController()
-export class GetAllUsersController extends BaseGetController {
-  @inject(GetUsersService) private getUsersService: GetUsersService;
+export class SetupAuthController extends BaseGetController {
+  @inject(SetupAuthService) private service: SetupAuthService;
 
-  @ApiControllerMethod({
-    paginate: true
-  })
-  @LoginRequired('users:list')
-  async get({ res, pagination, user }: ApiRequestContext) {
-    console.log({ user });
+  @ApiControllerMethod({})
+  @LoginRequired()
+  async get({ res }: ApiRequestContext<RefreshTokenRequestBody>) {
+    const feedback = await this.service.setup();
 
-    const users = await this.getUsersService.get(pagination);
-
-    return res.status(HttpStatus.OK).json(users);
+    return res.status(HttpStatus.OK).json(feedback);
   }
 }
