@@ -6,8 +6,9 @@ import { JWT } from '../utils/jwt';
 import { eq } from 'drizzle-orm';
 import db from '@/db';
 import { di } from '../di';
+import type { AuthorityType } from '../constants/persmission-table';
 
-export function LoginRequired() {
+export function LoginRequired(authority?: AuthorityType | AuthorityType[]) {
   return function (
     target: any,
     propertyKey: string,
