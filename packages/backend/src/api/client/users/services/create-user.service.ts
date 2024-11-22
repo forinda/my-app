@@ -4,7 +4,7 @@ import { User } from '@/db/schema';
 import db from '@/db';
 import { eq, or } from 'drizzle-orm';
 import {
-  createHttpErrorResponse,
+  raiseHttpErrorResponse,
   createHttpSuccessResponse
 } from '@/common/utils/http-response';
 import { HttpStatus } from '@/common/http';
@@ -25,7 +25,7 @@ export class CreateUserService {
     if (existingUser.length) {
       const [user] = existingUser;
 
-      createHttpErrorResponse(
+      raiseHttpErrorResponse(
         HttpStatus.CONFLICT,
         user.email === email
           ? 'Email already exists'

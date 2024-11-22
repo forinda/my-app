@@ -4,7 +4,6 @@ import {
   ApiControllerMethod
 } from '@/common/decorators/controller.decorator';
 import { Dependency } from '@/common/di';
-import { HttpStatus } from '@/common/http';
 import type { ApiRequestContext } from '@/common/interfaces/controller';
 import { inject, injectable } from 'inversify';
 import {
@@ -24,6 +23,6 @@ export class CreateUserController extends BasePostController {
   async post({ res, body }: ApiRequestContext<CreateUserRequestBody>) {
     const feedback = await this.createUserService.create(body!);
 
-    return res.status(HttpStatus.CREATED).json(feedback);
+    return res.status(feedback.statusCode).json(feedback);
   }
 }
