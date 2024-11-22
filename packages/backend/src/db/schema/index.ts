@@ -10,4 +10,6 @@ export * from './auth-permission';
 
 export * from './auth-role';
 
+export * from './role-permission';
+
 export * from './user-role';

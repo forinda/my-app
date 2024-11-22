@@ -6,7 +6,7 @@ import { relations } from 'drizzle-orm';
 
 export const AuthPermission = pgTable('auth_permissions', {
   id: integer().primaryKey().generatedAlwaysAsIdentity(),
-  name: varchar().notNull(),
+  name: varchar().notNull().unique(),
   description: varchar().notNull(),
   module_id: integer()
     .references(() => AuthModule.id, foreignKeyConstraints)
