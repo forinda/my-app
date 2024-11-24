@@ -17,6 +17,10 @@ export class GetRolesService {
       orderBy: desc(User.created_at),
       with: {
         role_permissions: {
+          columns: {
+            permission_id: true,
+            role_id: true
+          },
           with: {
             permission: {
               columns: {

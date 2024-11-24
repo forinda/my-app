@@ -1,45 +1,119 @@
 import { injectable } from 'inversify';
 import type { UpdateRoleRequestBody } from '../schema/create-role-request.schema';
-import { AuthRole } from '@/db/schema';
-import { eq } from 'drizzle-orm';
+import { AuthPermission, AuthRole, RolePermission } from '@/db/schema';
+import { and, eq, inArray } from 'drizzle-orm';
 import {
   raiseHttpErrorResponse,
   createHttpSuccessResponse
 } from '@/common/utils/http-response';
 import { HttpStatus } from '@/common/http';
 import { Dependency } from '@/common/di';
-import type { TransactionContext } from '@/common/decorators/service-transaction';
+import {
+  TransactionalService,
+  type TransactionContext
+} from '@/common/decorators/service-transaction';
+import { ApiError } from '@/common/errors/base';
 
 @injectable()
 @Dependency()
 export class UpdateRoleService {
-  async create({
+  @TransactionalService()
+  async update({
     data,
     transaction
   }: TransactionContext<UpdateRoleRequestBody>) {
-    const { name, description } = data!;
+    const { permissions, role_id, ...rest } = data!;
 
     const [existingAuthRole] = await transaction!
       .select()
       .from(AuthRole)
-      .where(eq(AuthRole.name, name!));
+      .where(eq(AuthRole.id, role_id!));
 
-    if (existingAuthRole) {
-      raiseHttpErrorResponse(HttpStatus.CONFLICT, 'Role already exists');
+    if (!existingAuthRole) {
+      raiseHttpErrorResponse(HttpStatus.BAD_REQUEST, 'Role not found');
     }
 
-    const createdRole = await transaction!
-      .insert(AuthRole)
-      .values({
-        name,
-        description
+    const updatedRole = await transaction!
+      .update(AuthRole)
+      .set({
+        ...rest
       } as any)
+      .where(eq(AuthRole.id, role_id!))
       .returning();
 
-    throw new Error('Not implemented');
+    if (permissions) {
+      // processs permissions
+      const preExistingRolePermissions = await transaction!
+        .select()
+        .from(RolePermission)
+        .where(eq(RolePermission.role_id, role_id!));
+
+      // We need to only remove permissions that are not in the new permissions
+      const permissionsToRemove = preExistingRolePermissions.filter(
+        (permission) => !permissions?.includes(permission.permission_id)
+      );
+
+      // We need to only add permissions that are not in the old permissions
+      const permissionsToAdd = permissions?.filter(
+        (permission) =>
+          !preExistingRolePermissions.find(
+            (prePermission) => prePermission.permission_id === permission
+          )
+      );
+      const formattedPermissionsToRemove = permissionsToRemove.map(
+        (permission) => permission.permission_id
+      );
+
+      if (permissionsToRemove.length) {
+        // We need to remove permissions
+        await transaction!
+          .delete(RolePermission)
+          .where(
+            and(
+              eq(RolePermission.role_id, role_id!),
+              inArray(
+                RolePermission.permission_id,
+                formattedPermissionsToRemove
+              )
+            )
+          );
+      }
+      const formattedPermissionsToAdd = permissionsToAdd?.map((permission) => ({
+        role_id,
+        permission_id: permission
+      }));
+
+      // const
+      const preExistingPermissionsInDb = await transaction
+        ?.select()
+        .from(AuthPermission)
+        .where(inArray(AuthPermission.id, permissions));
+
+      formattedPermissionsToAdd?.forEach((permission) => {
+        if (
+          !preExistingPermissionsInDb!.find(
+            ({ id }) => id === permission.permission_id
+          )
+        ) {
+          throw new ApiError(
+            'Permission does not exist',
+            HttpStatus.BAD_REQUEST,
+            {
+              id: permission.permission_id
+            }
+          );
+        }
+      });
+      if (formattedPermissionsToAdd?.length) {
+        // We need to add permissions
+        await transaction!
+          .insert(RolePermission)
+          .values(formattedPermissionsToAdd);
+      }
+    }
 
     return createHttpSuccessResponse(
-      createdRole,
+      updatedRole,
       HttpStatus.OK,
       'Role updated successfully'
     );

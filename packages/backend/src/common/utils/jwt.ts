@@ -37,8 +37,6 @@ export class JWT {
   }
 
   verifyAccessToken(token: string) {
-    console.log({ token });
-
     const payload = jwt.verify(
       token,
       this.config.conf.AC_JWT_ACCESS_SECRET,
