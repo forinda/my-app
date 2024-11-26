@@ -1,6 +1,7 @@
 import type { NextFunction } from 'express';
 import type { ApiReq, ApiRes } from '../http';
 import type { ApiPaginationParams } from '../utils/pagination';
+import type { SessionUser } from '../utils/get-sesion-user';
 
 type ContextParams = Pick<ApiReq, 'params'>['params'];
 type ContextQuery = Pick<ApiReq, 'query'>['query'];
@@ -14,7 +15,7 @@ export type ApiRequestContext<Body = any> = {
   query?: ContextQuery;
   body?: Body;
   pagination?: ApiPaginationParams;
-  user?: any;
+  user?: SessionUser;
 };
 
 // Define a generic ControllerMethod type

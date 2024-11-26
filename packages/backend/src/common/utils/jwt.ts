@@ -5,7 +5,7 @@ import { ApiError } from '../errors/base';
 import { Dependency } from '../di';
 
 type JwtUserPayload = {
-  id: string | number;
+  id: number;
   tokeType: 'access' | 'refresh';
 };
 

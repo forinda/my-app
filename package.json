@@ -30,7 +30,8 @@
     "format": "yarn workspace backend format && yarn workspace frontend format",
     "lint:fix:backend": "yarn workspace backend lint:fix",
     "lint:fix:frontend": "yarn workspace frontend lint:fix",
-    "lint:fix": "yarn workspace backend lint:fix && yarn workspace frontend lint:fix"
+    "lint:fix": "yarn workspace backend lint:fix && yarn workspace frontend lint:fix",
+    "db:view": "yarn workspace backend db:view"
   },
   "devDependencies": {
     "concurrently": "^9.1.0",

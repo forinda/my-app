@@ -10,4 +10,13 @@ export const createUserRequestSchema = z.object({
   password: z.string().min(8)
 });
 
+export const asssignOrRemoveUserRoleRequestSchema = z.object({
+  user_id: z.number(),
+  role_ids: z.array(z.number())
+});
+
 export type CreateUserRequestBody = z.infer<typeof createUserRequestSchema>;
+
+export type AssignOrRemoveUserRoleRequestBody = z.infer<
+  typeof asssignOrRemoveUserRoleRequestSchema
+>;

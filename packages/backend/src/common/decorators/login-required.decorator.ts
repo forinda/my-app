@@ -1,12 +1,11 @@
-import { User } from '@/db/schema';
 import { ApiError } from '../errors/base';
 import { HttpStatus } from '../http';
 import type { ApiRequestContext } from '../interfaces/controller';
 import { JWT } from '../utils/jwt';
-import { eq } from 'drizzle-orm';
-import db from '@/db';
 import { di } from '../di';
 import type { AuthorityType } from '../constants/persmission-table';
+import { AuthorityManager } from '../utils/permission-generator';
+import { getSessionUser } from '../utils/get-sesion-user';
 
 export function LoginRequired(authority?: AuthorityType | AuthorityType[]) {
   return function (
@@ -51,46 +50,33 @@ export function LoginRequired(authority?: AuthorityType | AuthorityType[]) {
       if (tokeType !== 'access') {
         throw new ApiError('Invalid token type', HttpStatus.UNAUTHORIZED);
       }
+      const user = await getSessionUser(user_id!);
 
-      const user = await db.query.User.findFirst({
-        // .where(eq(User.id, user_id as number)); // .from(User) // }) //   is_email_verified: User.is_email_verified //   is_active: User.is_active, //   email: User.email, //   username: User.username, //   id: User.id, // .select({
-        where: eq(User.id, user_id as number),
-        columns: {
-          id: true,
-          username: true,
-          email: true,
-          is_active: true,
-          is_email_verified: true
-        },
-        with: {
-          user_roles: {
-            with: {
-              role: {
-                with: {
-                  role_permissions: {
-                    with: {
-                      permission: {
-                        columns: {
-                          name: true
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      });
-
-      if (!user) {
-        throw new ApiError('Invalid user', HttpStatus.UNAUTHORIZED);
-      }
-
-      if (user.is_active === false) {
-        throw new ApiError('User is inactive', HttpStatus.UNAUTHORIZED);
-      }
       args[0].user = user;
+      if (user.is_admin) {
+        return originalMethod.apply(this, args);
+      }
+      const authManager = di.resolve(AuthorityManager);
+      const permissions = authManager.validateAuthority(authority);
+      const userPermissions = user.user_roles.flatMap(
+        ({ role: { role_permissions } }) =>
+          role_permissions.map(({ permission: { name } }) => name)
+      );
+
+      if (permissions.length < 1) {
+        return originalMethod.apply(this, args);
+      }
+
+      const hasAccess = permissions.every((permission) =>
+        userPermissions.includes(permission)
+      );
+
+      if (!hasAccess) {
+        throw new ApiError(
+          'You are not authorized to see this resource',
+          HttpStatus.FORBIDDEN
+        );
+      }
 
       return originalMethod.apply(this, args);
     };
