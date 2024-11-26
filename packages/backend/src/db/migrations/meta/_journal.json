@@ -71,6 +71,13 @@
       "when": 1732313342452,
       "tag": "1732313342_spooky_norman_osborn",
       "breakpoints": true
+    },
+    {
+      "idx": 10,
+      "version": "7",
+      "when": 1732624102217,
+      "tag": "1732624102_fuzzy_puff_adder",
+      "breakpoints": true
     }
   ]
 }
