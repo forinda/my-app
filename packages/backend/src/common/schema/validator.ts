@@ -7,7 +7,7 @@ import { Dependency } from '../di';
 @injectable()
 @Dependency()
 export class ApiSchemaValidator {
-  validate(schema: z.Schema, payload: any) {
+  validate<T = any>(schema: z.Schema, payload: T) {
     const { success, error } = schema.safeParse(payload);
 
     if (!success) {

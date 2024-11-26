@@ -1,10 +1,10 @@
 import db from '@/db';
-import type { PgTransaction } from 'drizzle-orm/pg-core';
 import { ApiError } from '../errors/base';
+import type { DbTransaction } from '../interfaces/db';
 
 export type TransactionContext<D = any> = {
   data: D;
-  transaction?: PgTransaction<any>;
+  transaction?: DbTransaction;
 };
 
 export function TransactionalService() {
