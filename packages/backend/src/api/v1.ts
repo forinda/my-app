@@ -7,6 +7,7 @@ import { Router } from 'express';
 import { injectable } from 'inversify';
 import { setupUsersRoutes } from './client/users';
 import { setupAuthRoutes } from './client/auth';
+import { setupRolesRoutes } from './client/roles';
 type Versions = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
 export type ApiVersions = `/api/v${Versions}`;
 
@@ -26,6 +27,7 @@ export class ApiV1 {
     });
     setupUsersRoutes({ app: this.router });
     setupAuthRoutes({ app: this.router });
+    setupRolesRoutes({ app: this.router });
     app.use(this.version, this.router);
   }
 }

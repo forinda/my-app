@@ -21,7 +21,17 @@
     "migrate:deploy": "yarn workspace backend migrate:deploy",
     "prebuild": "yarn clean",
     "prestart": "yarn build",
-    "start": "yarn start:backend"
+    "start": "yarn start:backend",
+    "lint:backend": "yarn workspace backend lint",
+    "lint:frontend": "yarn workspace frontend lint",
+    "lint": "yarn workspace backend lint && yarn workspace frontend lint",
+    "format:backend": "yarn workspace backend format",
+    "format:frontend": "yarn workspace frontend format",
+    "format": "yarn workspace backend format && yarn workspace frontend format",
+    "lint:fix:backend": "yarn workspace backend lint:fix",
+    "lint:fix:frontend": "yarn workspace frontend lint:fix",
+    "lint:fix": "yarn workspace backend lint:fix && yarn workspace frontend lint:fix",
+    "db:view": "yarn workspace backend db:view"
   },
   "devDependencies": {
     "concurrently": "^9.1.0",

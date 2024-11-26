@@ -7,19 +7,19 @@ import { Dependency } from '@/common/di';
 import { HttpStatus } from '@/common/http';
 import type { ApiRequestContext } from '@/common/interfaces/controller';
 import { inject, injectable } from 'inversify';
-import { GetUsersService } from '../services/get-users.service';
+import { GetRolesService } from '../services/get-roles.service';
 import { LoginRequired } from '@/common/decorators/login-required.decorator';
 
 @injectable()
 @Dependency()
 @ApiController()
-export class GetAllUsersController extends BaseGetController {
-  @inject(GetUsersService) private getUsersService: GetUsersService;
+export class GetAllRolesController extends BaseGetController {
+  @inject(GetRolesService) private getUsersService: GetRolesService;
 
   @ApiControllerMethod({
     paginate: true
   })
-  @LoginRequired('users:list')
+  @LoginRequired('role:list')
   async get({ res, pagination, user }: ApiRequestContext) {
     console.log({ user });
 

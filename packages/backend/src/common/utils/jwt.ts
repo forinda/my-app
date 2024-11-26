@@ -5,7 +5,7 @@ import { ApiError } from '../errors/base';
 import { Dependency } from '../di';
 
 type JwtUserPayload = {
-  id: string | number;
+  id: number;
   tokeType: 'access' | 'refresh';
 };
 
@@ -39,7 +39,8 @@ export class JWT {
   verifyAccessToken(token: string) {
     const payload = jwt.verify(
       token,
-      this.config.conf.AC_JWT_ACCESS_SECRET
+      this.config.conf.AC_JWT_ACCESS_SECRET,
+      {}
     ) as JwtUserPayload;
 
     if (payload.tokeType !== 'access') {

@@ -3,6 +3,7 @@ import type { ApiRequestContext } from '../interfaces/controller';
 import { ApiSchemaValidator } from '../schema/validator';
 import { extractPaginationParams } from '../utils/pagination';
 import { IpFinder } from '@/api/client/auth/utils/get-client-ip';
+import { convertToNumber, isNumber } from '../utils/numbers';
 
 export function ApiController() {
   return function (
@@ -66,6 +67,10 @@ type MethodProps = {
   bodySchema?: z.Schema;
   paginate?: boolean;
   injectIpInBody?: boolean;
+  //We need to transform the query to the body
+  transformParams?: {
+    [queryParameterKey: string]: string;
+  };
 };
 
 export function ApiControllerMethod(props: MethodProps = {}) {
@@ -78,6 +83,19 @@ export function ApiControllerMethod(props: MethodProps = {}) {
       const { params, query, body } = context;
 
       try {
+        const needToTransformParams =
+          typeof props.transformParams === 'object' &&
+          props.transformParams !== null
+            ? Object.keys(props.transformParams).length > 0
+            : false;
+
+        if (needToTransformParams) {
+          Object.keys(props.transformParams!).forEach((key) => {
+            body[props.transformParams![key]] = isNumber(params![key])
+              ? convertToNumber(params![key])
+              : params![key];
+          });
+        }
         const pagination = props.paginate
           ? extractPaginationParams(query!)
           : null;

@@ -20,7 +20,7 @@ export function createHttpSuccessResponse<T = unknown>(
   };
 }
 
-export function createHttpErrorResponse(
+export function raiseHttpErrorResponse(
   statusCode = HttpStatus.INTERNAL_SERVER_ERROR,
   message = 'An unexpected error occurred'
 ) {

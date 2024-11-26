@@ -28,7 +28,7 @@ export class LoginUserService {
   }: TransactionContext<LoginUserRequestBody>) {
     const BASE_ERROR_MESSAGE = 'Invalid login credentials';
 
-    const { password, emailOrUsername } = data;
+    const { password, email_or_username: emailOrUsername } = data;
 
     const loginType = emailOrUsername.includes('@') ? 'email' : 'username';
     const db_users = await transaction
@@ -63,7 +63,8 @@ export class LoginUserService {
       ?.insert(Token)
       .values({
         user_id: user.id,
-        token: tokens.access_token,
+        access_token: tokens.access_token,
+        refresh_token: tokens.refresh_token,
         created_by: user.id
       } as InferInsertModel<typeof Token>)
       .returning();
