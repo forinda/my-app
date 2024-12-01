@@ -23,7 +23,7 @@ import { Link } from 'react-router-dom';
 export default function LoginPage() {
   const form = useForm<LoginSchema>({
     defaultValues: {
-      emailOrUsername: '',
+      email_or_username: '',
       password: '',
     },
     resolver: zodResolver(loginSchema),
@@ -58,7 +58,7 @@ export default function LoginPage() {
               <form onSubmit={onSubmit} className="space-y-6">
                 <FormField
                   control={form.control}
-                  name="emailOrUsername"
+                  name="email_or_username"
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>Username/Email</FormLabel>
