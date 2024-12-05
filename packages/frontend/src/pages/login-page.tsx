@@ -71,7 +71,7 @@ export default function LoginPage() {
     <div className="bg-gray-100 min-h-screen flex items-center justify-center p-4 md:p-8 lg:p-12">
       {/* {JSON.stringify(state)} <br /> */}
       <MaxWidth className="w-full max-w-md">
-        {JSON.stringify(state)}
+    
         {is_authenticated ? (
           <div>
             <h1>Welcome {state.auth.user!.username}</h1>

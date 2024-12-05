@@ -7,8 +7,9 @@ export default function useAuth() {
   const {
     access_token: accessToken,
     refresh_token: refreshToken,
-    is_authenticated,
+    is_authenticated: isUserAuthenticated,
   } = state!.auth;
+  const needs_to_reset_password = state.auth.user ? state.auth.user.needs_to_reset_password : false
 
   // Local state to track seconds until token expires
   const [secondsUntilTokenExpires, setSecondsUntilTokenExpires] = useState(0);
@@ -41,15 +42,20 @@ export default function useAuth() {
     return Math.floor(secondsUntilTokenExpires / 60);
   }, [secondsUntilTokenExpires]);
 
+  const is_authenticated = useMemo(() => {
+    return isUserAuthenticated && !shouldRefreshToken;
+  }, [isUserAuthenticated, shouldRefreshToken]);
+
   return {
     state,
     actions,
     dispatch: dispatch!,
-    is_authenticated,
+    is_authenticated: is_authenticated,
     ac_token: accessToken,
     rf_token: refreshToken,
     should_refresh_token: shouldRefreshToken,
     minutes_until_token_expires: minutesUntilTokenExpires,
     seconds_until_token_expires: secondsUntilTokenExpires,
+    should_reset_password: needs_to_reset_password ?? false,
   };
 }
