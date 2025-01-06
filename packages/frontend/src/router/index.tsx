@@ -1,7 +1,8 @@
 /* eslint-disable react-refresh/only-export-components */
 import { lazy } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
-import { openAuthRoutes } from './auth.router';
+import { openAuthRoutes } from './open-auth.routes';
+import { protectedAuthRoutes } from './protected-auth.routes';
 
 
 const Homepage = lazy(() => import('@/pages/homepage'));
@@ -17,7 +18,8 @@ export const router = createBrowserRouter([
         path: '/',
         element: <Homepage />,
       },
-      openAuthRoutes
+      openAuthRoutes,
+      protectedAuthRoutes,
     ],
   },
 ]);

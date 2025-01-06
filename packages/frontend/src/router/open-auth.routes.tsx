@@ -19,4 +19,5 @@ export const openAuthRoutes: RouteObject = {
       element: <RegisterPage />,
     }
   ],
+  
 }

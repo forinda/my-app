@@ -12,7 +12,7 @@ export default function ProtectedLayout() {
       ) : is_authenticated && should_reset_password ? (
         <Navigate to="/reset-password" />
       ) : (
-        <Navigate to="/login" />
+        <Navigate to="/auth/login" />
       )}
     </>
   );
