@@ -16,7 +16,7 @@ export function setupAuthRoutes({ app }: Props) {
   router
     .post('/login', di.resolve(CreateUserController).post)
     .post('/refresh-token', di.resolve(RefreshTokenController).post)
-    .post('/setup', di.resolve(SetupAuthController).get);
+    .get('/setup', di.resolve(SetupAuthController).get);
 
   app.use('/auth', router);
 }

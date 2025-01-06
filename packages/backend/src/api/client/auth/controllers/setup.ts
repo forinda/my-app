@@ -9,7 +9,6 @@ import type { ApiRequestContext } from '@/common/interfaces/controller';
 import { inject, injectable } from 'inversify';
 import type { RefreshTokenRequestBody } from '../schema/login-request.schema';
 import { SetupAuthService } from '../services/setup.service';
-import { LoginRequired } from '@/common/decorators/login-required.decorator';
 
 @injectable()
 @Dependency()
@@ -18,7 +17,7 @@ export class SetupAuthController extends BaseGetController {
   @inject(SetupAuthService) private service: SetupAuthService;
 
   @ApiControllerMethod({})
-  @LoginRequired()
+  // @LoginRequired()
   async get({ res }: ApiRequestContext<RefreshTokenRequestBody>) {
     const feedback = await this.service.setup();
 
