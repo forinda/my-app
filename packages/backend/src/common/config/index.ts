@@ -3,6 +3,7 @@ import type { EnvType } from '../schema/env.schema';
 import { envSchema } from '../schema/env.schema';
 import { injectable } from 'inversify';
 import { Dependency } from '../di';
+import { PATHS } from './../../../paths';
 envConf();
 
 @injectable()
@@ -15,5 +16,9 @@ export class Config {
 
   get conf() {
     return this._conf;
+  }
+
+  get paths() {
+    return PATHS;
   }
 }

@@ -10,4 +10,5 @@ const resolvePath = (base: string, ...paths: string[]) => {
   return path.resolve(path.join(base, ...paths));
 };
 
-export const PATHS = { BASE_DIR, resolvePath };
+const LOGS_DIR = resolvePath(BASE_DIR, 'logs');
+export const PATHS = { BASE_DIR, resolvePath, LOGS_DIR };
