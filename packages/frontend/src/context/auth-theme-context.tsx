@@ -67,7 +67,7 @@ const AuthThemeContextProvider: React.FC<ProviderProps> = ({ children }) => {
   useEffect(() => {
     syncState();
   }, [state, syncState]);
-console.log({state});
+// console.log({state});
 
   return (
     <AuthThemeContext.Provider value={{ state, dispatch, actions: appActions }}>

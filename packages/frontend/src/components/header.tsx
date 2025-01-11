@@ -18,8 +18,13 @@ export default function Header() {
         </div>
         <div>
           {is_authenticated ? (
-            <div>
-              <Link to={'/auth/logout'}>Logout</Link>
+            <div className='flex items-center gap-2'>
+              <Link to={'/dashboard'}
+                className="bg-primary text-white px-4 py-2 rounded-md"
+              >Dashboard</Link>
+              <Link to={'/auth/logout'}
+                className="border border-red-300 text-red-500 px-4 py-2 rounded-md"
+              >Logout</Link>
             </div>
           ) : (
             <div className="flex items-center gap-2">
