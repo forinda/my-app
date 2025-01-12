@@ -8,7 +8,7 @@ const env = z.enum(['development', 'production', 'test']);
 
 export const envSchema = z.object({
   NODE_ENV: env.default('development'),
-  PORT: numberString.default('8080'),
+  PORT: numberString.default('5050'),
   HOST: z.string().default('localhost'),
   DATABASE_URL: z.string(),
   REF_JWT_SECRET: z.string(),
