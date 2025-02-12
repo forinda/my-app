@@ -1,0 +1,1 @@
+ALTER TABLE "users" ADD COLUMN "avatar" varchar DEFAULT '' NOT NULL;

@@ -11,6 +11,7 @@ export default tseslint.config(
   {
     rules: {
       '@typescript-eslint/consistent-type-imports': 'error',
+      '@typescript-eslint/no-empty-object-type': 'off',
       'max-lines': [
         'warn',
         {
@@ -64,8 +65,6 @@ export default tseslint.config(
     },
     files: ['src/**/*.ts'],
     ignores: ['dist/', 'node_modules', 'coverage'],
-    plugins: {
-      
-    }
+    plugins: {}
   }
 );

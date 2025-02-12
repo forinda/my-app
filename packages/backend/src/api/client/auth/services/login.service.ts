@@ -1,105 +1,75 @@
 import { inject, injectable } from 'inversify';
-import type { LoginUserRequestBody } from '../schema/login-request.schema';
 import { Dependency } from '@/common/di';
-import type { TransactionContext } from '@/common/decorators/service-transaction';
 import { TransactionalService } from '@/common/decorators/service-transaction';
-import { createHttpSuccessResponse } from '@/common/utils/http-response';
 import { HttpStatus } from '@/common/http';
-import { LoginSession, Token, User } from '@/db/schema';
-import type { InferInsertModel } from 'drizzle-orm';
+import { User } from '@/db/schema';
 import { eq } from 'drizzle-orm';
 import { PasswordProcessor } from '@/common/utils/password';
-import { ApiError } from '@/common/errors/base';
-import { JWT } from '@/common/utils/jwt';
-import { UUID } from '@/common/utils/uuid';
-import { LoginEntity } from '../entities/login-entity';
+import { CookieProcessor } from '@/common/utils/cookie';
+import { useDrizzle } from '@/db';
+import { Config } from '@/common/config';
+import type { LoginUserInput } from '../schema/schema';
 
 @injectable()
 @Dependency()
 export class LoginUserService {
   @inject(PasswordProcessor) private passwordProcessor: PasswordProcessor;
-  @inject(JWT) private jwt: JWT;
-  @inject(UUID) private uuid: UUID;
+  @inject(Config) private config: Config;
 
   @TransactionalService()
-  async create({
-    data,
-    transaction
-  }: TransactionContext<LoginUserRequestBody>) {
-    const BASE_ERROR_MESSAGE = 'Invalid login credentials';
+  async create(data: LoginUserInput) {
+    const db = useDrizzle();
+    const isEmail = data.emailOrUsername.includes('@');
+    const existingUser = await db.query.User.findFirst({
+      where: isEmail
+        ? eq(User.email, data.emailOrUsername)
+        : eq(User.username, data.emailOrUsername)
+    });
 
-    const { password, email_or_username: emailOrUsername } = data;
-
-    const loginType = emailOrUsername.includes('@') ? 'email' : 'username';
-    const db_users = await transaction
-      ?.select()
-      .from(User)
-      .where(
-        loginType === 'email'
-          ? eq(User.email, emailOrUsername)
-          : eq(User.email, emailOrUsername)
-      );
-
-    if (db_users!.length < 1) {
-      throw new ApiError(BASE_ERROR_MESSAGE, HttpStatus.BAD_REQUEST);
+    if (!existingUser) {
+      // return createHttpResponse(event, {
+      //   status: 400,
+      //   message: 'Account does not exist'
+      // });
+      return {
+        status: HttpStatus.BAD_REQUEST,
+        message: 'Account does not exist'
+      };
     }
-    const user = db_users![0];
-    const passwordMatch = await this.passwordProcessor.compare(
-      password,
-      user.password
+    const isPasswordValid = await this.passwordProcessor.compare(
+      data.password,
+      existingUser.password!
     );
 
-    if (!passwordMatch) {
-      throw new ApiError(BASE_ERROR_MESSAGE, HttpStatus.BAD_REQUEST);
+    if (!isPasswordValid) {
+      return {
+        status: HttpStatus.BAD_REQUEST,
+        message: 'Invalid login credentials'
+      };
     }
-
-    if (!user.is_active) {
-      throw new ApiError('User account is not active', HttpStatus.BAD_REQUEST);
-    }
-    // generate token
-    const tokens = this.jwt.signTokens({ id: user.id });
-    // Create session token
-    const token = await transaction
-      ?.insert(Token)
-      .values({
-        user_id: user.id,
-        access_token: tokens.access_token,
-        refresh_token: tokens.refresh_token,
-        created_by: user.id
-      } as InferInsertModel<typeof Token>)
-      .returning();
-
-    // Create login session
-    const session = await transaction
-      ?.insert(LoginSession)
-      .values({
-        login_ip: data.ip ?? '',
-        user_id: user.id,
-        session_id: this.uuid.generate(),
-        token_id: token![0].id
-      } as InferInsertModel<typeof LoginSession>)
-      .returning();
-
-    // Update user last login
-    await transaction
-      ?.update(User)
-      .set({
-        last_login_at: new Date().toUTCString(),
-        last_login_ip: data.ip ?? ''
-      })
-      .where(eq(User.id, user.id))
-      .execute();
-
-    //TODO: Implement session destroy on logout
-
-    return createHttpSuccessResponse(
-      {
-        tokens,
-        user: LoginEntity.createResponseEntity(user),
-        session: session![0].session_id
-      },
-      HttpStatus.OK,
-      'User login successful'
+    const { uuid } = existingUser;
+    const config = this.config.conf;
+    const session = CookieProcessor.serialize({ uid: uuid });
+    const signedSession = CookieProcessor.sign(session, config.COOKIE_SECRET);
+    const { rememberMeExpires, maxAge, ...otherCookieOptions } =
+      this.config.cookieOpts;
+    const expiry = new Date(
+      Date.now() +
+        (data.rememberMe ? parseInt(rememberMeExpires) : parseInt(maxAge))
     );
+
+    // setCookie(event, config.SESSION_COOKIE_NAME, signedSession, {
+    //   ...otherCookieOptions,
+    //   sameSite: (otherCookieOptions.sameSite ||
+    //     'lax')
+    //   expires: expiry
+    // });
+
+    return {
+      signedSession,
+      message: 'Login successful',
+      expiry,
+      otherCookieOptions
+    };
   }
 }

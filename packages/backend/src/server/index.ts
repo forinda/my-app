@@ -1,7 +1,7 @@
 import { ApiServerSetup } from '@/app';
 import { Config } from '@/common/config';
 import { Dependency } from '@/common/di';
-import { ApiErrorRouteHandler } from '@/common/errors/base-error-handlers';
+import { ApiErrorRouteHandler } from '@/common/errors/route-err-handler';
 import type { Application } from 'express';
 import express from 'express';
 import { createServer } from 'http';
