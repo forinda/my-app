@@ -1,12 +1,12 @@
 import { inject, injectable } from 'inversify';
 import { Dependency } from '@/common/di';
+import type { TransactionContext } from '@/common/decorators/service-transaction';
 import { TransactionalService } from '@/common/decorators/service-transaction';
 import { HttpStatus } from '@/common/http';
 import { User } from '@/db/schema';
 import { eq } from 'drizzle-orm';
 import { PasswordProcessor } from '@/common/utils/password';
 import { CookieProcessor } from '@/common/utils/cookie';
-import { useDrizzle } from '@/db';
 import { Config } from '@/common/config';
 import type { LoginUserInput } from '../schema/schema';
 
@@ -17,10 +17,9 @@ export class LoginUserService {
   @inject(Config) private config: Config;
 
   @TransactionalService()
-  async create(data: LoginUserInput) {
-    const db = useDrizzle();
+  async create({ data, transaction }: TransactionContext<LoginUserInput>) {
     const isEmail = data.emailOrUsername.includes('@');
-    const existingUser = await db.query.User.findFirst({
+    const existingUser = await transaction!.query.User.findFirst({
       where: isEmail
         ? eq(User.email, data.emailOrUsername)
         : eq(User.username, data.emailOrUsername)
@@ -47,7 +46,7 @@ export class LoginUserService {
         message: 'Invalid login credentials'
       };
     }
-    const { uuid } = existingUser;
+    const { uuid, password: _, ...userRest } = existingUser;
     const config = this.config.conf;
     const session = CookieProcessor.serialize({ uid: uuid });
     const signedSession = CookieProcessor.sign(session, config.COOKIE_SECRET);
@@ -58,18 +57,19 @@ export class LoginUserService {
         (data.rememberMe ? parseInt(rememberMeExpires) : parseInt(maxAge))
     );
 
-    // setCookie(event, config.SESSION_COOKIE_NAME, signedSession, {
-    //   ...otherCookieOptions,
-    //   sameSite: (otherCookieOptions.sameSite ||
-    //     'lax')
-    //   expires: expiry
-    // });
+    await transaction!
+      .update(User)
+      .set({ last_login_at: new Date().toISOString() })
+      .where(eq(User.uuid, uuid))
+      .execute();
 
     return {
       signedSession,
       message: 'Login successful',
       expiry,
-      otherCookieOptions
+      otherCookieOptions,
+      data: userRest,
+      cookieName: config.SESSION_COOKIE_NAME
     };
   }
 }

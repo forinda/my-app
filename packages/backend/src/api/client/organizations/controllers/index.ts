@@ -1,1 +1,1 @@
-export * from './get-all-organizations';
+export * from './get-all-organizations.controller';

@@ -27,6 +27,6 @@ export class GetAllOrganizationMembersController extends BaseGetController {
       req.params.id as string
     );
 
-    return createHttpResponse(res, feed);
+    return createHttpResponse(res, { ...feed, statusCode: feed.status });
   }
 }

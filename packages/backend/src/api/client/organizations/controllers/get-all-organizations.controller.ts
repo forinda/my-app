@@ -24,6 +24,6 @@ export class GetAllOrganizationsController extends BaseGetController {
   async get({ res, pagination, user }: ApiRequestContext) {
     const feed = await this.getUsersService.get(user!.id!, pagination);
 
-    return createHttpResponse(res, feed);
+    return createHttpResponse(res, { ...feed, statusCode: feed.status });
   }
 }

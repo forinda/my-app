@@ -25,16 +25,21 @@ export class LoginUserController extends BasePostController {
     injectIpInBody: true
   })
   async post({ res, body }: ApiRequestContext<LoginUserInput>) {
-    const { expiry, otherCookieOptions, ...rest } = await this.service.create(
-      body!
-    );
+    const { expiry, otherCookieOptions, signedSession, cookieName, ...rest } =
+      await this.service.create({
+        data: body!
+      });
 
-    res.cookie('session', 'signedSession', {
+    res.cookie(cookieName!, signedSession, {
       ...otherCookieOptions,
       sameSite: otherCookieOptions!.sameSite || 'lax',
       expires: expiry
     });
 
-    return createHttpResponse(res, { statusCode: HttpStatus.OK, ...rest });
+    return createHttpResponse(res, {
+      statusCode: HttpStatus.OK,
+
+      ...rest
+    });
   }
 }

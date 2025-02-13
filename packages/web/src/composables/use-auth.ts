@@ -15,7 +15,7 @@ export function useAuth() {
   const loginUser = async (values: LoginUserSchemaType, options: LoginOptions<any> = {}) => {
     try {
       const { data } = await axios.post<ArrayBuffer>('/auth/login', values, {
-        responseType: 'arraybuffer',
+        // responseType: 'arraybuffer',
         headers: {
           'Content-Type': 'application/json',
         },
@@ -28,10 +28,10 @@ export function useAuth() {
       }
       return
     } catch (error: any) {
-      console.log(error);
+      console.log(error)
 
       if (options.onError && typeof options.onError === 'function') {
-        options.onError(error?.response?.data?.message??error.message)
+        options.onError(error?.response?.data?.message ?? error.message)
       }
     }
   }

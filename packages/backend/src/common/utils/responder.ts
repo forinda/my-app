@@ -24,6 +24,7 @@ export function createHttpResponse<T = unknown>(
   { data, message = 'success', statusCode, access = true }: CreateRespProps<T>
 ) {
   res.statusCode = statusCode;
+  res.setHeader('Content-Type', 'application/octet-stream');
   const buffer = serializeToBuffer({
     statusCode,
     data: data as T,

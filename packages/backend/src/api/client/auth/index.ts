@@ -1,9 +1,9 @@
 import { di } from '@/common/di';
 import { Router } from 'express';
-import { LoginUserController } from './controllers/login';
+import { LoginUserController } from './controllers/login.controller';
 import { GetUserSessionController } from './controllers/session.controller';
-import { RegisterUserController } from './controllers/register';
-import { UserLogoutController } from './controllers/logout';
+import { RegisterUserController } from './controllers/register.controller';
+import { UserLogoutController } from './controllers/logout.controller';
 
 type Props = {
   app: Router;

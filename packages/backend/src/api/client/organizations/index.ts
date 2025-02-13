@@ -1,8 +1,8 @@
 import { di } from '@/common/di';
 import { Router } from 'express';
 import { GetAllOrganizationsController } from './controllers';
-import { CreateOrganizationController } from './controllers/create-organization';
-import { GetAllOrganizationMembersController } from './controllers/get-all-organization-members';
+import { CreateOrganizationController } from './controllers/create-organization.controller';
+import { GetAllOrganizationMembersController } from './controllers/get-all-organization-members.controller';
 
 type Props = {
   app: Router;
