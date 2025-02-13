@@ -4,7 +4,7 @@ import { envSchema } from '../schema/env.schema';
 import { injectable } from 'inversify';
 import { Dependency } from '../di';
 import { PATHS } from './../../../paths';
-envConf();
+envConf({ path: PATHS.ENV_FILE });
 
 @injectable()
 @Dependency()

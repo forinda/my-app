@@ -19,10 +19,10 @@ export const envSchema = z.object({
     .string()
     .default('f39c3e1f61e8dcd17ff18b09ef38c4bc4ea2b785374b459d4fa50389b6'),
   SESSION_COOKIE_NAME: z.string().default('_sid_lsd'),
-  COOKIE_SECURE: z.boolean().default(false),
+  COOKIE_SECURE: z.coerce.boolean().default(false),
   COOKIE_DOMAIN: z.string().default('localhost'),
   COOKIE_SAME_SITE: z.enum(['strict', 'lax', 'none']).default('strict'),
-  COOKIE_HTTP_ONLY: z.boolean().default(true),
+  COOKIE_HTTP_ONLY: z.coerce.boolean().default(true),
   RESEND_MAIL_KEY: z.string(),
   RESEND_MAIL_FROM: z.string()
 });
