@@ -34,7 +34,7 @@ const reasons = [
           :key="reason.title"
           class="flex flex-col items-center space-y-4 border p-4"
         >
-          <icon :name="reason.icon" class="text-4xl" />
+          <Icon :icon="reason.icon" class="text-4xl" />
           <h3 class="text-2xl font-bold">{{ reason.title }}</h3>
           <p class="text-center">{{ reason.description }}</p>
           <button class="text-primary bg-white px-4 py-2 rounded">

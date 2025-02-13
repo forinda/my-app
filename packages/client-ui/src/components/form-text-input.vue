@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { InputHTMLAttributes } from 'vue';
+import { Field } from 'vee-validate';
 
 type TextInputProps = {
   labelText: string;
@@ -34,7 +35,7 @@ defineProps<TextInputProps>();
     >
       <!-- Icon (if provided) -->
       <div v-if="iconName" class="icon-container px-3 border-r border-gray-300">
-        <icon :name="iconName" class="text-gray-400" />
+        <Icon :icon="iconName" class="text-gray-400" />
       </div>
 
       <!-- Input Field -->

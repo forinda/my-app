@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import type { DashboardSidebarMenuItem } from '~/types/dash';
+import type { DashboardSidebarMenuItem } from '@/types/dash';
+import { reactive } from 'vue';
+// import type { DashboardSidebarMenuItem } from '~/types/dash';
 
 const { currentOrg } = await useOrganizations();
 

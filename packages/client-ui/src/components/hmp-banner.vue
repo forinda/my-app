@@ -1,4 +1,6 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { Icon } from '@iconify/vue';
+</script>
 <template>
   <section class="max-w-7xl mx-auto grid grid-cols-2 min-h-[50vh] items-center">
     <div class="flex flex-col gap-4">
@@ -15,7 +17,7 @@
       <button
         class="text-light bg-primary px-4 py-2 rounded w-fit text-lg inline-flex items-center space-x-2"
       >
-        <icon :name="'lucide-circle-play'" class="h-6 w-6" />
+        <Icon :icon="'lucide-circle-play'" class="h-6 w-6" />
         <span> Request a demo </span>
       </button>
     </div>

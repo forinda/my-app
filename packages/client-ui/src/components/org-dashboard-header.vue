@@ -52,7 +52,7 @@ const notifications = [
       </div>
       <div class="flex items-center">
         <div class="flex items-center bg-gray-100 rounded-lg p-2">
-          <icon name="lucide-search" class="h-6 w-6 mr-2 text-gray-400" />
+          <Icon icon="lucide-search" class="h-6 w-6 mr-2 text-gray-400" />
           <input
             type="text"
             class="border-none focus:outline-none bg-transparent"
@@ -62,7 +62,7 @@ const notifications = [
         <div class="ml-4 relative">
           <menu as="div" class="relative">
             <menu-button class="flex items-center space-x-2">
-              <icon name="lucide-bell" class="h-6 w-6 text-gray-400" />
+              <Icon icon="lucide-bell" class="h-6 w-6 text-gray-400" />
             </menu-button>
             <menu-items
               class="bg-white p-4 absolute top-12 right-0 w-fit min-w-64 flex flex-col border shadow-lg"
@@ -76,7 +76,7 @@ const notifications = [
                   class="text-dark w-full flex items-center space-x-2"
                   :key="item.title"
                 >
-                  <icon :name="item.icon" class="h-4 w-4" />
+                  <Icon :icon="item.icon" class="h-4 w-4" />
                   <div>
                     <h3 class="text-sm font-medium">{{ item.title }}</h3>
                     <p class="text-xs text-gray-500">{{ item.description }}</p>
@@ -90,7 +90,7 @@ const notifications = [
           <menu as="div" class="relative">
             <menu-button class="flex items-center space-x-2">
               <img :src="sessionUser?.avatar" class="h-8 w-8 rounded-full" />
-              <icon name="lucide-chevron-down" class="h-4 w-4 text-primary" />
+              <Icon icon="lucide-chevron-down" class="h-4 w-4 text-primary" />
             </menu-button>
             <menu-items
               class="bg-white p-4 absolute top-12 right-0 w-fit min-w-64 flex flex-col border shadow-lg"
@@ -105,7 +105,7 @@ const notifications = [
                   class="text-dark w-full"
                   :key="item.href"
                 >
-                  <icon :name="item.icon" class="h-4 w-4" />
+                  <Icon :icon="item.icon" class="h-4 w-4" />
                   {{ item.name }}
                 </nuxt-link>
               </menu-item>

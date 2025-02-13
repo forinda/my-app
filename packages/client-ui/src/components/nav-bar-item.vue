@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import { computed } from 'vue';
+import { useRoute } from 'vue-router';
+
 const route = useRoute();
 type NavLink = {
   name: string;
@@ -21,7 +24,7 @@ const props = defineProps<NavLink>();
     <menu v-else as="div" class="relative">
       <menu-button class="flex items-center space-x-2">
         <span>{{ props.name }}</span>
-        <icon name="lucide-chevron-down" class="h-4 w-4 text-primary" />
+        <Icon icon="lucide-chevron-down" class="h-4 w-4 text-primary" />
       </menu-button>
       <menu-items
         class="bg-white p-4 absolute top-12 right-0 w-fit min-w-64 flex flex-col border shadow-lg"

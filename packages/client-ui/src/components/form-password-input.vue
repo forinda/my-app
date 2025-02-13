@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import type { InputHTMLAttributes } from 'vue';
-
+import { ref, computed } from 'vue';
+import { Field } from 'vee-validate';
+import { Icon } from '@iconify/vue';
 type TextInputProps = {
   labelText: string;
   placeholder?: string;
@@ -38,7 +39,7 @@ const iconName = computed(() =>
     >
       <!-- Icon (if provided) -->
       <!-- <div v-if="iconName" class="icon-container px-3 border-r border-gray-300">
-				<icon :name="'lucide-lock'" class="text-gray-400" />
+				<Icon :icon="'lucide-lock'" class="text-gray-400" />
 			</div> -->
 
       <!-- Input Field -->
@@ -56,7 +57,7 @@ const iconName = computed(() =>
           @click="togglePasswordVisibility"
           class="focus:outline-none"
         >
-          <icon :name="iconName" class="text-gray-400" />
+          <Icon :icon="iconName" class="text-gray-400" />
         </button>
       </div>
     </div>
