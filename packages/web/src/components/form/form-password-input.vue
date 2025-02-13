@@ -41,7 +41,7 @@ const iconName = computed(() =>
       <Field :type="inputType ?? 'text'" :id="id ?? name" :name="name" :placeholder="placeholder"
         :aria-label="labelText || name" class="input-field w-full px-3 py-2 focus:outline-none placeholder-gray-400" />
       <div class="icon-container px-3 border-l border-gray-300">
-        <button type="button" @click="togglePasswordVisibility" class="focus:outline-none">
+        <button type="button" @click="togglePasswordVisibility" class="focus:outline-none cursor-pointer">
           <Icon :icon="iconName" class="text-gray-400" />
         </button>
       </div>

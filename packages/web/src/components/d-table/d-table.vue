@@ -10,7 +10,7 @@ import {
   type SortingState,
 } from "@tanstack/vue-table";
 import { ref } from "vue";
-import DTableTBody from "./DTableTBody.vue";
+import DTableTBody from "./d-table-t-body.vue";
 type Props<T = any[], U = any> = {
   data: T[];
   columns: ColumnDef<U, any>[];

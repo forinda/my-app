@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 
 import { mount } from '@vue/test-utils'
-import HmpBanner from './HmpTeamMember.vue'
+import HmpBanner from './hmp-banner.vue'
 describe('HmpTeamMember Component', () => {
   describe('HmpTeamMember Component', () => {
     it('should render the component', () => {

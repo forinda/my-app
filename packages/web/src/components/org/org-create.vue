@@ -1,9 +1,5 @@
 <script setup lang="ts">
 import {
-  Menu,
-  MenuButton,
-  MenuItems,
-  MenuItem,
   Dialog,
   TransitionRoot,
   TransitionChild,

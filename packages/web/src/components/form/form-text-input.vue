@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { InputHTMLAttributes } from 'vue';
 import { Field, ErrorMessage } from 'vee-validate';
-
+import {Icon} from '@iconify/vue'
 type TextInputProps = {
   labelText: string;
   placeholder?: string;

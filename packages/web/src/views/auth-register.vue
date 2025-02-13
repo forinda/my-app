@@ -6,8 +6,8 @@ import type { CreateAccountResponseType } from '@/types/resp';
 import axios from 'axios';
 import { Form } from 'vee-validate';
 import { useRouter } from 'vue-router';
-import FormTextInput from '@/components/FormTextInput.vue';
-import FormPasswordInput from '@/components/FormPasswordInput.vue';
+import FormTextInput from '@/components/form/form-text-input.vue';
+import FormPasswordInput from '@/components/form/form-password-input.vue';
 
 const { $swal } = useNotification();
 const router = useRouter();

@@ -1,13 +1,12 @@
 <script setup lang="ts">
 import { useOrganizations } from '@/composables/use-organizations'
 import { ref, onMounted, computed } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
-import OrgDashboardSidebar from '@/components/OrgDashboardSidebar.vue'
-import OrgDashboardHeader from '@/components/OrgDashboardHeader.vue'
+import { useRoute } from 'vue-router'
+import OrgDashboardSidebar from '@/components/org/org-dashboard-sidebar.vue'
+import OrgDashboardHeader from '@/components/org/org-dashboard-header.vue'
 
-const { currentOrg, refresh, setCurrentOrganization } = await useOrganizations()
+const {  refresh, setCurrentOrganization } = await useOrganizations()
 const route = useRoute()
-const router = useRouter()
 const isSidebarOpen = ref(true)
 const orgId = computed(() => route.params.id as string)
 const toggleSidebar = () => {

@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 
 import { mount } from '@vue/test-utils'
-import Team from './HmpTeam.vue'
+import Team from './hmp-team.vue'
 
 describe('Homepage Team', () => {
   it('renders properly', () => {

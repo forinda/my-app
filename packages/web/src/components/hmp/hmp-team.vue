@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { TeamMemberInterface } from '@/lib/data/team'
-import HmpTeamMember from './HmpTeamMember.vue'
+import HmpTeamMember from './hmp-team-member.vue'
 
 defineOptions({
   layout: 'default',

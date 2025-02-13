@@ -5,7 +5,7 @@ import { createColumnHelper } from '@tanstack/vue-table';
 import moment from 'moment';
 import { onMounted } from 'vue';
 import { useRoute } from 'vue-router';
-import DTable from '@/components/DTable.vue';
+import DTable from '@/components/d-table/d-table.vue';
 const r = useRoute();
 const { data, refresh, setCurrentOrganization } =
   await useOrganizationMembers();

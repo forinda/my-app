@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { useOrganizations } from '@/composables/use-organizations';
 import { onMounted, ref } from 'vue';
-import OrgCreate from '@/components/OrgCreate.vue';
-import OrgLayoutHeader from '@/components/OrgLayoutHeader.vue';
+import OrgCreate from '@/components/org/org-create.vue';
+import OrgLayoutHeader from '@/components/org/org-layout-header.vue';
 const createOrgOpen = ref(false);
-const { data, create, refresh, currentOrg } = await useOrganizations();
+const { data, create, refresh } = await useOrganizations();
 
 const toggleCreateOrganizationModal = (state: boolean) => {
   createOrgOpen.value = state;

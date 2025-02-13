@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useAuth } from '@/composables/use-auth';
 
-const { sessionUser } = await useAuth();
+const { sessionUser } = useAuth();
 const profileLinks = [
   {
     name: 'Profile',
@@ -62,6 +62,7 @@ const notifications = [
             </menu-button>
             <menu-items class="bg-white p-4 absolute top-12 right-0 w-fit min-w-64 flex flex-col border shadow-lg">
               <menu-item v-for="item in notifications" as="div"
+              :key="item.title"
                 class="p-2 w-full flex flex-col space-y-2 hover:bg-dark/10">
                 <div class="text-dark w-full flex items-center space-x-2" :key="item.title">
                   <Icon :icon="item.icon" class="h-4 w-4" />
@@ -82,6 +83,7 @@ const notifications = [
             </menu-button>
             <menu-items class="bg-white p-4 absolute top-12 right-0 w-fit min-w-64 flex flex-col border shadow-lg">
               <menu-item v-for="item in profileLinks" as="div"
+              :key="item.href"
                 class="p-2 w-full flex flex-col space-y-2 hover:bg-dark/10">
                 <nuxt-link :to="item.href" class="text-dark w-full" :key="item.href">
                   <Icon :icon="item.icon" class="h-4 w-4" />

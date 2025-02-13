@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { navlinks } from '@/lib/data/nav'
-import navBarItem from './NavbarItem.vue'
+import navBarItem from './nav-bar-item.vue'
 </script>
 <template>
   <div class="bg-white border-b py-4">

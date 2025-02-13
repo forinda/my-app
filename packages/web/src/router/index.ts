@@ -1,6 +1,5 @@
 import DefaultLayout from '@/layouts/default-layout.vue'
 import EmptyLayout from '@/layouts/empty-layout.vue'
-import IndexPage from '@/views/IndexPage.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
 const router = createRouter({
@@ -13,9 +12,13 @@ const router = createRouter({
       children: [
         {
           path: '',
-          component: IndexPage,
+          component: () => import('@/views/index-page.vue'),
         },
       ],
+    },{
+      path: '/organizations',
+      name: 'organizations',
+      component: () => import('@/layouts/org-layout.vue'),
     },
     // {
     //   path: '/auth',
@@ -32,12 +35,12 @@ const router = createRouter({
         {
           name: 'auth-login',
           path: 'login',
-          component: () => import('@/views/AuthLogin.vue'),
+          component: () => import('@/views/auth-login.vue'),
         },
         {
           name: 'auth-register',
           path: 'register',
-          component: () => import('@/views/AuthRegister.vue'),
+          component: () => import('@/views/auth-register.vue'),
         },
       ],
     },
