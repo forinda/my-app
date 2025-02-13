@@ -1,0 +1,16 @@
+services:
+  backend:
+    build:
+      context: ../../packages/backend
+      dockerfile: ./Dockerfile
+    container_name: backend
+    ports:
+      - 4000:5050
+    networks:
+      - shared_network
+    environment:
+      - DATABASE_URL=${DATABASE_URL}
+
+networks:
+  shared_network:
+    external: true
