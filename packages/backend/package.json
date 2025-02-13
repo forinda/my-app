@@ -6,11 +6,11 @@
     "test": "vitest --run",
     "ts:dev": "tspc -p tsconfig.dev.json --watch",
     "start:dev": "nodemon",
-    "dev": "concurrently \"yarn ts:dev\" \"yarn start:dev\"",
+    "dev": "concurrently \"pnpm ts:dev\" \"pnpm start:dev\"",
     "clean": "rimraf dist",
-    "prebuild": "yarn clean",
+    "prebuild": "pnpm clean",
     "build": "tspc -p tsconfig.json ",
-    "prestart": "yarn build",
+    "prestart": "pnpm build",
     "start": "node ./dist/src/index.js",
     "prepare": "ts-patch install -s",
     "lint": "npx eslint ./src",
@@ -18,7 +18,7 @@
     "format": "prettier --write ./**/*.{ts,tsx,js,jsx,vue}",
     "migrate:new": "npx drizzle-kit generate",
     "migrate:deploy": "npx drizzle-kit migrate",
-    "db:view": "yarn drizzle-kit studio"
+    "db:view": "pnpm drizzle-kit studio"
   },
   "keywords": [],
   "author": "",
