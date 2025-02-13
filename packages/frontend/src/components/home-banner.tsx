@@ -1,4 +1,3 @@
-import React from 'react';
 import MaxWidth from './max-width';
 
 export default function HomeBanner() {
@@ -10,8 +9,12 @@ export default function HomeBanner() {
           <span className="text-primary font-bold">easy-use Payroll,</span>
           tracking software
         </h1>
-        <div className='w-full'>
-          <img src="/logo-003.svg" alt="home-banner" className="py-4 w-full max-h-80 h-full" />
+        <div className="w-full">
+          <img
+            src="/logo-003.svg"
+            alt="home-banner"
+            className="py-4 w-full max-h-80 h-full"
+          />
         </div>
       </MaxWidth>
     </div>
