@@ -1,3 +1,4 @@
+import image from '@/assets/img/tm-1.png'
 export interface TeamMemberInterface {
   name: string
   role: string
@@ -13,21 +14,21 @@ export const teamMembers: TeamMemberInterface[] = [
   {
     name: 'John Doe',
     role: 'CEO',
-    image: '@/assets/team/john-doe.jpg',
+    image,
   },
   {
     name: 'Jane Doe',
     role: 'CTO',
-    image: '@/assets/team/jane-doe.jpg',
+    image,
   },
   {
     name: 'John Smith',
     role: 'COO',
-    image: '@/assets/team/john-smith.jpg',
+    image,
   },
   {
     name: 'Jane Smith',
     role: 'CFO',
-    image: '@/assets/team/jane-smith.jpg',
+    image,
   },
 ]
