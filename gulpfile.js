@@ -10,7 +10,7 @@ function clean(cb) {
 
 // The `build` function is exported so it is public and can be run with the `gulp` command.
 // It can also be used within the `series()` composition.
-export function build(cb) {
+function build(cb) {
   console.log(':build:....');
 
   // body omitted
