@@ -37,10 +37,13 @@
     "lint:fix:admin": "pnpm --filter=admin lint:fix",
     "lint:fix:web": "pnpm --filter=web lint:fix",
     "lint:fix": "pnpm --filter=backend lint:fix && pnpm --filter=admin lint:fix",
-    "db:view": "pnpm --filter=backend db:view"
+    "db:view": "pnpm --filter=backend db:view",
+    "gulp": "gulp"
   },
   "devDependencies": {
+    "@types/gulp": "^4.0.17",
     "concurrently": "^9.1.0",
+    "gulp": "^5.0.0",
     "rimraf": "^6.0.1"
   },
   "keywords": [],
@@ -50,8 +53,5 @@
   "author": "",
   "license": "ISC",
   "description": "",
-  "packageManager": "pnpm@10.0.0+sha512.b8fef5494bd3fe4cbd4edabd0745df2ee5be3e4b0b8b08fa643aa3e4c6702ccc0f00d68fa8a8c9858a735a0032485a44990ed2810526c875e416f001b17df12b",
-  "dependencies": {
-    "gulp": "^5.0.0"
-  }
+  "packageManager": "pnpm@10.0.0+sha512.b8fef5494bd3fe4cbd4edabd0745df2ee5be3e4b0b8b08fa643aa3e4c6702ccc0f00d68fa8a8c9858a735a0032485a44990ed2810526c875e416f001b17df12b"
 }
