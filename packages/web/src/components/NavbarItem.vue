@@ -1,28 +1,29 @@
 <script setup lang="ts">
-import { computed } from 'vue';
-import { useRoute } from 'vue-router';
-
-const route = useRoute();
+import { computed } from 'vue'
+import { useRoute } from 'vue-router'
+import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
+import { Icon } from '@iconify/vue'
+const route = useRoute()
 type NavLink = {
-  name: string;
-  href: string;
-  children?: NavLink[];
-};
-const isMega = computed(() => props.children && props.children.length > 0);
-const isCurrent = computed(() => route.path === props.href);
-const props = defineProps<NavLink>();
+  name: string
+  href: string
+  children?: NavLink[]
+}
+const isMega = computed(() => props.children && props.children.length > 0)
+const isCurrent = computed(() => route.path === props.href)
+const props = defineProps<NavLink>()
 </script>
 <template>
   <div>
-    <nuxt-link
+    <router-link
       :to="props.href"
       class="text-dark/50"
       v-if="!isMega"
       :class="isCurrent ? 'text-primary' : 'text-dark'"
-      >{{ props.name }}</nuxt-link
+      >{{ props.name }}</router-link
     >
-    <menu v-else as="div" class="relative">
-      <menu-button class="flex items-center space-x-2">
+    <Menu v-else as="div" class="relative">
+      <menu-button class="flex items-center space-x-2 cursor-pointer">
         <span>{{ props.name }}</span>
         <Icon icon="lucide-chevron-down" class="h-4 w-4 text-primary" />
       </menu-button>
@@ -34,15 +35,12 @@ const props = defineProps<NavLink>();
           as="div"
           class="p-2 w-full flex flex-col space-y-2 hover:bg-dark/10"
         >
-          <nuxt-link
-            :to="child.href"
-            class="text-dark w-full"
-            :key="child.href"
-            >{{ child.name }}</nuxt-link
-          >
+          <router-link :to="child.href" class="text-dark w-full" :key="child.href">{{
+            child.name
+          }}</router-link>
         </menu-item>
       </menu-items>
-    </menu>
+    </Menu>
   </div>
 </template>
 
