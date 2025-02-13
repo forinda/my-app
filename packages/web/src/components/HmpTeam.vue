@@ -1,4 +1,13 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import type { TeamMemberInterface } from '@/lib/data/team'
+import HmpTeamMember from './HmpTeamMember.vue'
+
+defineOptions({
+  layout: 'default',
+  middleware: 'auth',
+})
+defineProps<{ members: TeamMemberInterface[] }>()
+</script>
 <template>
   <div>
     <!-- Our team -->
@@ -9,14 +18,8 @@
           <p class="text-dark/50">Meet the team behind Pay X</p>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
-          <div v-for="i in 4" class="bg-white border shadow-lg p-4 rounded-lg">
-            <div class="flex flex-col">
-              <img src="@/assets/img/tm-1.png" alt="Team Member" class="" />
-              <div>
-                <h3 class="text-xl font-bold">John Doe</h3>
-                <p class="text-dark/50">CEO</p>
-              </div>
-            </div>
+          <div v-for="member in members" class="bg-white border shadow-lg p-4 rounded-lg">
+            <HmpTeamMember v-bind="member" :key="member.name" />
           </div>
         </div>
       </div>

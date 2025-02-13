@@ -15,6 +15,112 @@ importers:
         specifier: ^6.0.1
         version: 6.0.1
 
+  packages/admin:
+    dependencies:
+      '@hookform/resolvers':
+        specifier: ^3.9.1
+        version: 3.10.0(react-hook-form@7.54.2(react@18.3.1))
+      '@radix-ui/react-checkbox':
+        specifier: ^1.1.2
+        version: 1.1.4(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@radix-ui/react-label':
+        specifier: ^2.1.0
+        version: 2.1.2(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@radix-ui/react-select':
+        specifier: ^2.1.2
+        version: 2.1.6(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@radix-ui/react-slot':
+        specifier: ^1.1.0
+        version: 1.1.2(@types/react@18.3.18)(react@18.3.1)
+      axios:
+        specifier: ^1.7.7
+        version: 1.7.9
+      class-variance-authority:
+        specifier: ^0.7.0
+        version: 0.7.1
+      clsx:
+        specifier: ^2.1.1
+        version: 2.1.1
+      jwt-decode:
+        specifier: ^4.0.0
+        version: 4.0.0
+      lucide-react:
+        specifier: ^0.460.0
+        version: 0.460.0(react@18.3.1)
+      react:
+        specifier: ^18.3.1
+        version: 18.3.1
+      react-dom:
+        specifier: ^18.3.1
+        version: 18.3.1(react@18.3.1)
+      react-hook-form:
+        specifier: ^7.53.2
+        version: 7.54.2(react@18.3.1)
+      react-hot-toast:
+        specifier: ^2.4.1
+        version: 2.5.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react-router-dom:
+        specifier: 6.24.0
+        version: 6.24.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      tailwind-merge:
+        specifier: ^2.5.4
+        version: 2.6.0
+      tailwindcss-animate:
+        specifier: ^1.0.7
+        version: 1.0.7(tailwindcss@3.4.17(ts-node@10.9.2(@swc/core@1.10.16)(@types/node@22.13.2)(typescript@5.6.3)))
+      zod:
+        specifier: ^3.23.8
+        version: 3.24.2
+    devDependencies:
+      '@eslint/js':
+        specifier: ^9.13.0
+        version: 9.20.0
+      '@tailwindcss/forms':
+        specifier: ^0.5.9
+        version: 0.5.10(tailwindcss@3.4.17(ts-node@10.9.2(@swc/core@1.10.16)(@types/node@22.13.2)(typescript@5.6.3)))
+      '@types/jwt-decode':
+        specifier: ^3.1.0
+        version: 3.1.0
+      '@types/react':
+        specifier: ^18.3.12
+        version: 18.3.18
+      '@types/react-dom':
+        specifier: ^18.3.1
+        version: 18.3.5(@types/react@18.3.18)
+      '@vitejs/plugin-react-swc':
+        specifier: ^3.5.0
+        version: 3.8.0(vite@5.4.14(@types/node@22.13.2)(lightningcss@1.29.1))
+      autoprefixer:
+        specifier: ^10.4.20
+        version: 10.4.20(postcss@8.5.2)
+      eslint:
+        specifier: ^9.13.0
+        version: 9.20.1(jiti@2.4.2)
+      eslint-plugin-react-hooks:
+        specifier: ^5.0.0
+        version: 5.1.0(eslint@9.20.1(jiti@2.4.2))
+      eslint-plugin-react-refresh:
+        specifier: ^0.4.14
+        version: 0.4.19(eslint@9.20.1(jiti@2.4.2))
+      globals:
+        specifier: ^15.11.0
+        version: 15.15.0
+      postcss:
+        specifier: ^8.4.49
+        version: 8.5.2
+      tailwindcss:
+        specifier: ^3.4.15
+        version: 3.4.17(ts-node@10.9.2(@swc/core@1.10.16)(@types/node@22.13.2)(typescript@5.6.3))
+      typescript:
+        specifier: ~5.6.2
+        version: 5.6.3
+      typescript-eslint:
+        specifier: ^8.11.0
+        version: 8.24.0(eslint@9.20.1(jiti@2.4.2))(typescript@5.6.3)
+      vite:
+        specifier: ^5.4.10
+        version: 5.4.14(@types/node@22.13.2)(lightningcss@1.29.1)
+
   packages/backend:
     dependencies:
       bcryptjs:
@@ -162,112 +268,6 @@ importers:
       vitest:
         specifier: ^2.1.5
         version: 2.1.9(@types/node@22.13.2)(jsdom@26.0.0)(lightningcss@1.29.1)
-
-  packages/frontend:
-    dependencies:
-      '@hookform/resolvers':
-        specifier: ^3.9.1
-        version: 3.10.0(react-hook-form@7.54.2(react@18.3.1))
-      '@radix-ui/react-checkbox':
-        specifier: ^1.1.2
-        version: 1.1.4(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@radix-ui/react-label':
-        specifier: ^2.1.0
-        version: 2.1.2(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@radix-ui/react-select':
-        specifier: ^2.1.2
-        version: 2.1.6(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@radix-ui/react-slot':
-        specifier: ^1.1.0
-        version: 1.1.2(@types/react@18.3.18)(react@18.3.1)
-      axios:
-        specifier: ^1.7.7
-        version: 1.7.9
-      class-variance-authority:
-        specifier: ^0.7.0
-        version: 0.7.1
-      clsx:
-        specifier: ^2.1.1
-        version: 2.1.1
-      jwt-decode:
-        specifier: ^4.0.0
-        version: 4.0.0
-      lucide-react:
-        specifier: ^0.460.0
-        version: 0.460.0(react@18.3.1)
-      react:
-        specifier: ^18.3.1
-        version: 18.3.1
-      react-dom:
-        specifier: ^18.3.1
-        version: 18.3.1(react@18.3.1)
-      react-hook-form:
-        specifier: ^7.53.2
-        version: 7.54.2(react@18.3.1)
-      react-hot-toast:
-        specifier: ^2.4.1
-        version: 2.5.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      react-router-dom:
-        specifier: 6.24.0
-        version: 6.24.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      tailwind-merge:
-        specifier: ^2.5.4
-        version: 2.6.0
-      tailwindcss-animate:
-        specifier: ^1.0.7
-        version: 1.0.7(tailwindcss@3.4.17(ts-node@10.9.2(@swc/core@1.10.16)(@types/node@22.13.2)(typescript@5.6.3)))
-      zod:
-        specifier: ^3.23.8
-        version: 3.24.2
-    devDependencies:
-      '@eslint/js':
-        specifier: ^9.13.0
-        version: 9.20.0
-      '@tailwindcss/forms':
-        specifier: ^0.5.9
-        version: 0.5.10(tailwindcss@3.4.17(ts-node@10.9.2(@swc/core@1.10.16)(@types/node@22.13.2)(typescript@5.6.3)))
-      '@types/jwt-decode':
-        specifier: ^3.1.0
-        version: 3.1.0
-      '@types/react':
-        specifier: ^18.3.12
-        version: 18.3.18
-      '@types/react-dom':
-        specifier: ^18.3.1
-        version: 18.3.5(@types/react@18.3.18)
-      '@vitejs/plugin-react-swc':
-        specifier: ^3.5.0
-        version: 3.8.0(vite@5.4.14(@types/node@22.13.2)(lightningcss@1.29.1))
-      autoprefixer:
-        specifier: ^10.4.20
-        version: 10.4.20(postcss@8.5.2)
-      eslint:
-        specifier: ^9.13.0
-        version: 9.20.1(jiti@2.4.2)
-      eslint-plugin-react-hooks:
-        specifier: ^5.0.0
-        version: 5.1.0(eslint@9.20.1(jiti@2.4.2))
-      eslint-plugin-react-refresh:
-        specifier: ^0.4.14
-        version: 0.4.19(eslint@9.20.1(jiti@2.4.2))
-      globals:
-        specifier: ^15.11.0
-        version: 15.15.0
-      postcss:
-        specifier: ^8.4.49
-        version: 8.5.2
-      tailwindcss:
-        specifier: ^3.4.15
-        version: 3.4.17(ts-node@10.9.2(@swc/core@1.10.16)(@types/node@22.13.2)(typescript@5.6.3))
-      typescript:
-        specifier: ~5.6.2
-        version: 5.6.3
-      typescript-eslint:
-        specifier: ^8.11.0
-        version: 8.24.0(eslint@9.20.1(jiti@2.4.2))(typescript@5.6.3)
-      vite:
-        specifier: ^5.4.10
-        version: 5.4.14(@types/node@22.13.2)(lightningcss@1.29.1)
 
   packages/web:
     dependencies:

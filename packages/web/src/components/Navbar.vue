@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { navlinks } from '@/data/nav';
-import navBarItem from './NavbarItem.vue';
+import { navlinks } from '@/lib/data/nav'
+import navBarItem from './NavbarItem.vue'
 </script>
 <template>
   <div class="bg-white border-b py-4">
@@ -15,7 +15,9 @@ import navBarItem from './NavbarItem.vue';
         </nav>
       </div>
       <div class="items-center space-x-4">
-        <router-link to="/auth/login" class="text-light bg-primary px-4 py-2 rounded">Get Started</router-link>
+        <router-link to="/auth/login" class="text-light bg-primary px-4 py-2 rounded"
+          >Get Started</router-link
+        >
       </div>
     </header>
   </div>
