@@ -11,7 +11,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
           <div v-for="i in 4" class="bg-white border shadow-lg p-4 rounded-lg">
             <div class="flex flex-col">
-              <img src="~/assets/img/tm-1.png" alt="Team Member" class="" />
+              <img src="@/assets/img/tm-1.png" alt="Team Member" class="" />
               <div>
                 <h3 class="text-xl font-bold">John Doe</h3>
                 <p class="text-dark/50">CEO</p>

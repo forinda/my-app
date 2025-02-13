@@ -65,7 +65,7 @@ const reasons = [
           </div>
           <div class="max-h-80 flex-[6] overflow-hidden">
             <img
-              src="~/assets/img/card-pay.jpeg"
+              src="@/assets/img/card-pay.jpeg"
               alt=""
               class="object-cover w-full h-full rounded-lg"
             />

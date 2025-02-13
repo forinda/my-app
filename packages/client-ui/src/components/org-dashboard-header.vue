@@ -60,14 +60,14 @@ const notifications = [
           />
         </div>
         <div class="ml-4 relative">
-          <hui-menu as="div" class="relative">
-            <hui-menu-button class="flex items-center space-x-2">
+          <menu as="div" class="relative">
+            <menu-button class="flex items-center space-x-2">
               <icon name="lucide-bell" class="h-6 w-6 text-gray-400" />
-            </hui-menu-button>
-            <hui-menu-items
+            </menu-button>
+            <menu-items
               class="bg-white p-4 absolute top-12 right-0 w-fit min-w-64 flex flex-col border shadow-lg"
             >
-              <hui-menu-item
+              <menu-item
                 v-for="item in notifications"
                 as="div"
                 class="p-2 w-full flex flex-col space-y-2 hover:bg-dark/10"
@@ -82,20 +82,20 @@ const notifications = [
                     <p class="text-xs text-gray-500">{{ item.description }}</p>
                   </div>
                 </div>
-              </hui-menu-item>
-            </hui-menu-items>
-          </hui-menu>
+              </menu-item>
+            </menu-items>
+          </menu>
         </div>
         <div class="ml-4 relative">
-          <hui-menu as="div" class="relative">
-            <hui-menu-button class="flex items-center space-x-2">
+          <menu as="div" class="relative">
+            <menu-button class="flex items-center space-x-2">
               <img :src="sessionUser?.avatar" class="h-8 w-8 rounded-full" />
               <icon name="lucide-chevron-down" class="h-4 w-4 text-primary" />
-            </hui-menu-button>
-            <hui-menu-items
+            </menu-button>
+            <menu-items
               class="bg-white p-4 absolute top-12 right-0 w-fit min-w-64 flex flex-col border shadow-lg"
             >
-              <hui-menu-item
+              <menu-item
                 v-for="item in profileLinks"
                 as="div"
                 class="p-2 w-full flex flex-col space-y-2 hover:bg-dark/10"
@@ -108,9 +108,9 @@ const notifications = [
                   <icon :name="item.icon" class="h-4 w-4" />
                   {{ item.name }}
                 </nuxt-link>
-              </hui-menu-item>
-            </hui-menu-items>
-          </hui-menu>
+              </menu-item>
+            </menu-items>
+          </menu>
         </div>
       </div>
     </div>

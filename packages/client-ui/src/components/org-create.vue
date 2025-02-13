@@ -1,4 +1,15 @@
 <script setup lang="ts">
+import {
+  Menu,
+  MenuButton,
+  MenuItems,
+  MenuItem,
+  Dialog,
+  TransitionRoot,
+  TransitionChild,
+  DialogPanel,
+  DialogTitle,
+} from '@headlessui/vue';
 defineProps<{
   show: boolean;
 }>();
@@ -9,9 +20,9 @@ const emit = defineEmits<{
 }>();
 </script>
 <template>
-  <hui-transition-root appear :show="show" as="template">
-    <hui-dialog as="div" @close="emit('close', false)" class="relative z-10">
-      <hui-transition-child
+  <transition-root appear :show="show" as="template">
+    <Dialog as="div" @close="emit('close', false)" class="relative z-10">
+      <transition-child
         as="template"
         enter="duration-300 ease-out"
         enter-from="opacity-0"
@@ -21,13 +32,13 @@ const emit = defineEmits<{
         leave-to="opacity-0"
       >
         <div class="fixed inset-0 bg-black/25" />
-      </hui-transition-child>
+      </transition-child>
 
       <div class="fixed inset-0 overflow-y-auto">
         <div
           class="flex min-h-full items-center justify-center p-4 text-center"
         >
-          <hui-transition-child
+          <transition-child
             as="template"
             enter="duration-300 ease-out"
             enter-from="opacity-0 scale-95"
@@ -36,24 +47,24 @@ const emit = defineEmits<{
             leave-from="opacity-100 scale-100"
             leave-to="opacity-0 scale-95"
           >
-            <hui-dialog-panel
+            <dialog-panel
               class="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all"
             >
-              <hui-dialog-title
+              <dialog-title
                 as="h3"
                 class="text-lg font-medium leading-6 text-gray-900"
               >
                 Create Organization
-              </hui-dialog-title>
+              </dialog-title>
               <div class="mt-2">
                 <modal-form-create-organization @submit="emit('submit')" />
               </div>
-            </hui-dialog-panel>
-          </hui-transition-child>
+            </dialog-panel>
+          </transition-child>
         </div>
       </div>
-    </hui-dialog>
-  </hui-transition-root>
+    </Dialog>
+  </transition-root>
 </template>
 
 <style scoped></style>

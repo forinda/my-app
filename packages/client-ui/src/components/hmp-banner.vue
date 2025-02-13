@@ -21,7 +21,7 @@
     </div>
     <div class="ralative overflow-hidden">
       <img
-        src="~/assets/img/banner-user.png"
+        src="@/assets/img/banner-user.png"
         alt="Banner"
         class="object-contain left-0 top-0 right-0"
       />
