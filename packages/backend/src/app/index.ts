@@ -22,10 +22,26 @@ export class ApiServerSetup {
     app.disable('x-powered-by');
     app.use(cookieParser(this.config.conf.COOKIE_SECRET));
     app.use(
+      (
+        req: express.Request,
+        res: express.Response,
+        next: express.NextFunction
+      ) => {
+        req.headers['Access-Control-Allow-Origin'] = '*';
+        req.headers['Access-Control-Allow-Headers'] = 'Content-Type';
+        req.headers['Access-Control-Allow-Methods'] = 'GET, POST, PUT, DELETE';
+        next();
+      },
       cors({
         origin: this.config.conf.NODE_ENV === 'development' ? '*' : [],
         credentials: true,
-        methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS']
+        methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+        allowedHeaders: [
+          'Content-Type',
+          'Authorization',
+          'Access-Control-Allow-Origin',
+          'Access-Control-Allow-Headers'
+        ]
         // preflightContinue: false,
       })
     );

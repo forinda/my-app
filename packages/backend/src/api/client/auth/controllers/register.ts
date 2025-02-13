@@ -25,6 +25,6 @@ export class RegisterUserController extends BasePostController {
   async post({ res, body }: ApiRequestContext<RegisterUserInput>) {
     const feed = await this.service.create({ data: body! });
 
-    return createHttpResponse(res, feed);
+    return createHttpResponse(res, { ...feed, statusCode: feed.status });
   }
 }

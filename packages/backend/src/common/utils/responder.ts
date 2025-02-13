@@ -2,14 +2,14 @@ import { ApiError } from '../errors/base';
 import type { ApiRes } from '../http';
 
 type HttpResp<T> = {
-  status: number;
+  statusCode: number;
   data: T;
   message: string;
   access: boolean;
 };
 
 type CreateRespProps<T> = {
-  status: number;
+  statusCode: number;
   data?: T;
   message?: string;
   access?: boolean;
@@ -21,11 +21,11 @@ export function serializeToBuffer(payload: any) {
 
 export function createHttpResponse<T = unknown>(
   res: ApiRes,
-  { data, message = 'success', status, access = true }: CreateRespProps<T>
+  { data, message = 'success', statusCode, access = true }: CreateRespProps<T>
 ) {
-  res.statusCode = status;
+  res.statusCode = statusCode;
   const buffer = serializeToBuffer({
-    status,
+    statusCode,
     data: data as T,
     message,
     access
@@ -39,15 +39,15 @@ export function createHttpResponseWithPagination<T = unknown>(
   {
     data,
     message = 'success',
-    status,
+    statusCode,
     access = true,
     total
   }: CreateRespProps<T> & { total: number }
 ): HttpResp<T> & { total: number } {
-  res.node.res.statusCode = status;
+  res.node.res.statusCode = statusCode;
 
   return {
-    status,
+    statusCode,
     data: data as T,
     message,
     access,
@@ -66,14 +66,14 @@ export function createHttpErrorResponse(
     res.node.res.statusCode = statusCode;
 
     return createHttpResponse(res, {
-      status: statusCode,
+      statusCode: statusCode,
       message: error.message
     });
   }
 
   // return createHttpResponse(500, null, error.message);
   return createHttpResponse(res, {
-    status: 'status' in error ? error.status : 500,
+    statusCode: 'status' in error ? error.status : 500,
     message: error.message,
     access
   });

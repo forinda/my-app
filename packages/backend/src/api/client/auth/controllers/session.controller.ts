@@ -21,14 +21,14 @@ export class GetUserSessionController extends BasePostController {
   async post({ user, res }: ApiRequestContext<LoginUserInput>) {
     if (!user) {
       return createHttpResponse(res, {
-        status: HttpStatus.UNAUTHORIZED,
+        statusCode: HttpStatus.UNAUTHORIZED,
         message: 'Invalid token',
         access: false
       });
     }
 
     return createHttpResponse(res, {
-      status: HttpStatus.OK,
+      statusCode: HttpStatus.OK,
       data: user,
       message: 'Token is valid',
       access: true

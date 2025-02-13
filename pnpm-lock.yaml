@@ -381,7 +381,7 @@ importers:
         specifier: ^3.4.2
         version: 3.5.0
       typescript:
-        specifier: ~5.5.2
+        specifier: ~5.5.4
         version: 5.5.4
       vite:
         specifier: ^6.0.11

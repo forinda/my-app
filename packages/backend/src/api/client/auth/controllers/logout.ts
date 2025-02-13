@@ -25,7 +25,7 @@ export class UserLogoutController extends BasePostController {
     res.clearCookie(this.conf.conf.SESSION_COOKIE_NAME, other);
 
     return createHttpResponse(res, {
-      status: HttpStatus.OK,
+      statusCode: HttpStatus.OK,
       message: 'Logged out'
     });
   }

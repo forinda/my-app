@@ -35,6 +35,6 @@ export class LoginUserController extends BasePostController {
       expires: expiry
     });
 
-    return createHttpResponse(res, { status: HttpStatus.OK, ...rest });
+    return createHttpResponse(res, { statusCode: HttpStatus.OK, ...rest });
   }
 }

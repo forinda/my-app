@@ -6,14 +6,15 @@ import type { ApiNext, ApiReq, ApiRes } from '../http';
 import { HttpStatus } from '../http';
 import { ApiError } from './base';
 import type { Router } from 'express';
+import { createHttpResponse } from '../utils/responder';
 
 @injectable()
 @Dependency()
 export class ApiErrorRouteHandler {
   private catchAllErrorRouteHandler(req: ApiReq, res: ApiRes, next: ApiNext) {
-    return res.status(HttpStatus.METHOD_NOT_ALLOWED).json({
+    return createHttpResponse(res, {
       message: 'Method not allowed',
-      status: 'error'
+      statusCode: HttpStatus.METHOD_NOT_ALLOWED
     });
   }
 
@@ -26,12 +27,14 @@ export class ApiErrorRouteHandler {
     if (error instanceof ApiError) {
       const { statusCode } = error;
 
-      return res.status(statusCode).json(error.toJSON());
+      return createHttpResponse(res, { ...error.toJSON(), statusCode });
     }
 
-    return res
-      .status(HttpStatus.INTERNAL_SERVER_ERROR)
-      .json(ApiError.fromError(error).toJSON());
+    return createHttpResponse(res, {
+      statusCode:
+        'status' in error ? error.status : HttpStatus.INTERNAL_SERVER_ERROR,
+      message: error.message
+    });
   }
 
   plugin({ app }: { app: Router }) {

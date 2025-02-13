@@ -59,7 +59,7 @@ const submit = async (values: any) => {
         </div>
       </div>
       <div>
-        <button type="submit" class="btn bg-primary text-light px-4 py-2 rounded">
+        <button type="submit" class="btn bg-primary text-light px-4 py-2 rounded cursor-pointer">
           Login
         </button>
         <hr class="my-4" />
