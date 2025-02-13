@@ -4,151 +4,394 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+catalogs:
+  default:
+    '@headlessui/vue':
+      specifier: ^1.7.23
+      version: 1.7.23
+    '@hookform/resolvers':
+      specifier: ^3.9.1
+      version: 3.10.0
+    '@radix-ui/react-checkbox':
+      specifier: ^1.1.2
+      version: 1.1.4
+    '@radix-ui/react-label':
+      specifier: ^2.1.0
+      version: 2.1.2
+    '@radix-ui/react-select':
+      specifier: ^2.1.2
+      version: 2.1.6
+    '@radix-ui/react-slot':
+      specifier: ^1.1.0
+      version: 1.1.2
+    '@tailwindcss/forms':
+      specifier: ^0.5.9
+      version: 0.5.10
+    '@tailwindcss/postcss':
+      specifier: ^4.0.6
+      version: 4.0.6
+    '@tailwindcss/vite':
+      specifier: ^4.0.6
+      version: 4.0.6
+    '@tanstack/vue-table':
+      specifier: ^8.21.2
+      version: 8.21.2
+    '@types/bcryptjs':
+      specifier: ^2.4.6
+      version: 2.4.6
+    '@types/cookie-parser':
+      specifier: ^1.4.8
+      version: 1.4.8
+    '@types/cors':
+      specifier: ^2.8.17
+      version: 2.8.17
+    '@types/eslint__js':
+      specifier: ^8.42.3
+      version: 8.42.3
+    '@types/express':
+      specifier: 4.17.21
+      version: 4.17.21
+    '@types/find-root':
+      specifier: ^1.1.4
+      version: 1.1.4
+    '@types/helmet':
+      specifier: ^4.0.0
+      version: 4.0.0
+    '@types/jsonwebtoken':
+      specifier: ^9.0.7
+      version: 9.0.8
+    '@types/jwt-decode':
+      specifier: ^3.1.0
+      version: 3.1.0
+    '@types/morgan':
+      specifier: ^1.9.9
+      version: 1.9.9
+    '@types/node':
+      specifier: ^22.9.0
+      version: 22.13.2
+    '@types/pg':
+      specifier: ^8.11.10
+      version: 8.11.11
+    '@types/react':
+      specifier: ^18.3.12
+      version: 18.3.18
+    '@types/react-dom':
+      specifier: ^18.3.1
+      version: 18.3.5
+    '@types/request-ip':
+      specifier: ^0.0.41
+      version: 0.0.41
+    '@vitejs/plugin-react-swc':
+      specifier: ^3.5.0
+      version: 3.8.0
+    '@vitejs/plugin-vue':
+      specifier: ^5.2.1
+      version: 5.2.1
+    '@vue/tsconfig':
+      specifier: ^0.7.0
+      version: 0.7.0
+    autoprefixer:
+      specifier: ^10.4.20
+      version: 10.4.20
+    axios:
+      specifier: ^1.7.7
+      version: 1.7.9
+    bcryptjs:
+      specifier: ^2.4.3
+      version: 2.4.3
+    chalk:
+      specifier: 4.1.2
+      version: 4.1.2
+    class-variance-authority:
+      specifier: ^0.7.0
+      version: 0.7.1
+    clsx:
+      specifier: ^2.1.1
+      version: 2.1.1
+    concurrently:
+      specifier: ^9.1.0
+      version: 9.1.2
+    cookie-parser:
+      specifier: ^1.4.7
+      version: 1.4.7
+    cors:
+      specifier: ^2.8.5
+      version: 2.8.5
+    dotenv:
+      specifier: ^16.4.5
+      version: 16.4.7
+    drizzle-kit:
+      specifier: ^0.28.0
+      version: 0.28.1
+    drizzle-orm:
+      specifier: ^0.36.1
+      version: 0.36.4
+    eslint-config-prettier:
+      specifier: ^9.1.0
+      version: 9.1.0
+    eslint-plugin-prettier:
+      specifier: ^5.2.1
+      version: 5.2.3
+    eslint-plugin-react-hooks:
+      specifier: ^5.0.0
+      version: 5.1.0
+    eslint-plugin-react-refresh:
+      specifier: ^0.4.14
+      version: 0.4.19
+    express:
+      specifier: ^4.21.1
+      version: 4.21.2
+    find-root:
+      specifier: ^1.1.0
+      version: 1.1.0
+    globals:
+      specifier: ^15.11.0
+      version: 15.15.0
+    helmet:
+      specifier: ^8.0.0
+      version: 8.0.0
+    inversify:
+      specifier: ^6.0.3
+      version: 6.2.2
+    jsonwebtoken:
+      specifier: ^9.0.2
+      version: 9.0.2
+    jwt-decode:
+      specifier: ^4.0.0
+      version: 4.0.0
+    lucide-react:
+      specifier: ^0.460.0
+      version: 0.460.0
+    lucide-vue:
+      specifier: ^0.475.0
+      version: 0.475.0
+    moment:
+      specifier: ^2.30.1
+      version: 2.30.1
+    morgan:
+      specifier: ^1.10.0
+      version: 1.10.0
+    nodemon:
+      specifier: ^3.1.7
+      version: 3.1.9
+    pg:
+      specifier: ^8.13.1
+      version: 8.13.3
+    prettier:
+      specifier: ^3.3.3
+      version: 3.5.0
+    react:
+      specifier: ^18.3.1
+      version: 18.3.1
+    react-dom:
+      specifier: ^18.3.1
+      version: 18.3.1
+    react-hook-form:
+      specifier: ^7.53.2
+      version: 7.54.2
+    react-hot-toast:
+      specifier: ^2.4.1
+      version: 2.5.1
+    react-router-dom:
+      specifier: 6.24.0
+      version: 6.24.0
+    reflect-metadata:
+      specifier: ^0.2.2
+      version: 0.2.2
+    request-ip:
+      specifier: ^3.3.0
+      version: 3.3.0
+    resend:
+      specifier: ^4.1.2
+      version: 4.1.2
+    rimraf:
+      specifier: ^6.0.1
+      version: 6.0.1
+    tailwind-merge:
+      specifier: ^2.5.4
+      version: 2.6.0
+    tailwindcss-animate:
+      specifier: ^1.0.7
+      version: 1.0.7
+    ts-node:
+      specifier: ^10.9.2
+      version: 10.9.2
+    ts-patch:
+      specifier: ^3.2.1
+      version: 3.3.0
+    tsx:
+      specifier: ^4.19.2
+      version: 4.19.2
+    typescript-transform-paths:
+      specifier: ^3.5.2
+      version: 3.5.3
+    uuid:
+      specifier: ^11.0.3
+      version: 11.0.5
+    vitest:
+      specifier: ^2.1.5
+      version: 2.1.9
+    vue:
+      specifier: ^3.5.13
+      version: 3.5.13
+    vue-router:
+      specifier: ^4.5.0
+      version: 4.5.0
+    vue-tsc:
+      specifier: ^2.2.0
+      version: 2.2.0
+    winston:
+      specifier: 2.4.6
+      version: 2.4.6
+    zod:
+      specifier: ^3.23.8
+      version: 3.24.2
+
 importers:
 
   .:
     devDependencies:
       concurrently:
-        specifier: ^9.1.0
+        specifier: 'catalog:'
         version: 9.1.2
       rimraf:
-        specifier: ^6.0.1
+        specifier: 'catalog:'
         version: 6.0.1
 
   packages/backend:
     dependencies:
       bcryptjs:
-        specifier: ^2.4.3
+        specifier: 'catalog:'
         version: 2.4.3
       chalk:
-        specifier: 4.1.2
+        specifier: 'catalog:'
         version: 4.1.2
       cookie-parser:
-        specifier: ^1.4.7
+        specifier: 'catalog:'
         version: 1.4.7
       cors:
-        specifier: ^2.8.5
+        specifier: 'catalog:'
         version: 2.8.5
       dotenv:
-        specifier: ^16.4.5
+        specifier: 'catalog:'
         version: 16.4.7
       drizzle-orm:
-        specifier: ^0.36.1
+        specifier: 'catalog:'
         version: 0.36.4(@types/pg@8.11.11)(@types/react@18.3.18)(pg@8.13.3)(react@18.3.1)
       express:
-        specifier: ^4.21.1
+        specifier: 'catalog:'
         version: 4.21.2
       find-root:
-        specifier: ^1.1.0
+        specifier: 'catalog:'
         version: 1.1.0
       helmet:
-        specifier: ^8.0.0
+        specifier: 'catalog:'
         version: 8.0.0
       inversify:
-        specifier: ^6.0.3
+        specifier: 'catalog:'
         version: 6.2.2(reflect-metadata@0.2.2)
       jsonwebtoken:
-        specifier: ^9.0.2
+        specifier: 'catalog:'
         version: 9.0.2
       moment:
-        specifier: ^2.30.1
+        specifier: 'catalog:'
         version: 2.30.1
       morgan:
-        specifier: ^1.10.0
+        specifier: 'catalog:'
         version: 1.10.0
       pg:
-        specifier: ^8.13.1
+        specifier: 'catalog:'
         version: 8.13.3
       reflect-metadata:
-        specifier: ^0.2.2
+        specifier: 'catalog:'
         version: 0.2.2
       request-ip:
-        specifier: ^3.3.0
+        specifier: 'catalog:'
         version: 3.3.0
       resend:
-        specifier: ^4.1.2
+        specifier: 'catalog:'
         version: 4.1.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       uuid:
-        specifier: ^11.0.3
+        specifier: 'catalog:'
         version: 11.0.5
       winston:
-        specifier: 2.4.6
+        specifier: 'catalog:'
         version: 2.4.6
       zod:
-        specifier: ^3.23.8
+        specifier: 'catalog:'
         version: 3.24.2
     devDependencies:
       '@eslint/js':
         specifier: ^9.14.0
         version: 9.20.0
       '@types/bcryptjs':
-        specifier: ^2.4.6
+        specifier: 'catalog:'
         version: 2.4.6
       '@types/cookie-parser':
-        specifier: ^1.4.8
+        specifier: 'catalog:'
         version: 1.4.8(@types/express@4.17.21)
       '@types/cors':
-        specifier: ^2.8.17
+        specifier: 'catalog:'
         version: 2.8.17
       '@types/eslint__js':
-        specifier: ^8.42.3
+        specifier: 'catalog:'
         version: 8.42.3
       '@types/express':
-        specifier: 4.17.21
+        specifier: 'catalog:'
         version: 4.17.21
       '@types/find-root':
-        specifier: ^1.1.4
+        specifier: 'catalog:'
         version: 1.1.4
       '@types/helmet':
-        specifier: ^4.0.0
+        specifier: 'catalog:'
         version: 4.0.0
       '@types/jsonwebtoken':
-        specifier: ^9.0.7
+        specifier: 'catalog:'
         version: 9.0.8
       '@types/morgan':
-        specifier: ^1.9.9
+        specifier: 'catalog:'
         version: 1.9.9
       '@types/node':
-        specifier: ^22.9.0
+        specifier: 'catalog:'
         version: 22.13.2
       '@types/pg':
-        specifier: ^8.11.10
+        specifier: 'catalog:'
         version: 8.11.11
       '@types/request-ip':
-        specifier: ^0.0.41
+        specifier: 'catalog:'
         version: 0.0.41
       concurrently:
-        specifier: ^9.1.0
+        specifier: 'catalog:'
         version: 9.1.2
       drizzle-kit:
-        specifier: ^0.28.0
+        specifier: 'catalog:'
         version: 0.28.1
       eslint:
         specifier: ^9.14.0
         version: 9.20.1(jiti@2.4.2)
       eslint-config-prettier:
-        specifier: ^9.1.0
+        specifier: 'catalog:'
         version: 9.1.0(eslint@9.20.1(jiti@2.4.2))
       eslint-plugin-prettier:
-        specifier: ^5.2.1
+        specifier: 'catalog:'
         version: 5.2.3(@types/eslint@9.6.1)(eslint-config-prettier@9.1.0(eslint@9.20.1(jiti@2.4.2)))(eslint@9.20.1(jiti@2.4.2))(prettier@3.5.0)
       nodemon:
-        specifier: ^3.1.7
+        specifier: 'catalog:'
         version: 3.1.9
       prettier:
-        specifier: ^3.3.3
+        specifier: 'catalog:'
         version: 3.5.0
       rimraf:
-        specifier: ^6.0.1
+        specifier: 'catalog:'
         version: 6.0.1
       ts-node:
-        specifier: ^10.9.2
+        specifier: 'catalog:'
         version: 10.9.2(@swc/core@1.10.16)(@types/node@22.13.2)(typescript@5.7.3)
       ts-patch:
-        specifier: ^3.2.1
+        specifier: 'catalog:'
         version: 3.3.0
       tsx:
-        specifier: ^4.19.2
+        specifier: 'catalog:'
         version: 4.19.2
       typescript:
         specifier: ^5.6.3
@@ -157,28 +400,28 @@ importers:
         specifier: ^8.13.0
         version: 8.24.0(eslint@9.20.1(jiti@2.4.2))(typescript@5.7.3)
       typescript-transform-paths:
-        specifier: ^3.5.2
+        specifier: 'catalog:'
         version: 3.5.3(typescript@5.7.3)
       vitest:
-        specifier: ^2.1.5
+        specifier: 'catalog:'
         version: 2.1.9(@types/node@22.13.2)(lightningcss@1.29.1)
 
   packages/client-ui:
     dependencies:
       '@headlessui/vue':
-        specifier: ^1.7.23
+        specifier: 'catalog:'
         version: 1.7.23(vue@3.5.13(typescript@5.7.3))
       '@tailwindcss/postcss':
-        specifier: ^4.0.6
+        specifier: 'catalog:'
         version: 4.0.6
       '@tailwindcss/vite':
-        specifier: ^4.0.6
+        specifier: 'catalog:'
         version: 4.0.6(vite@6.1.0(@types/node@22.13.2)(jiti@2.4.2)(lightningcss@1.29.1)(tsx@4.19.2)(yaml@2.7.0))
       '@tanstack/vue-table':
-        specifier: ^8.21.2
+        specifier: 'catalog:'
         version: 8.21.2(vue@3.5.13(typescript@5.7.3))
       lucide-vue:
-        specifier: ^0.475.0
+        specifier: 'catalog:'
         version: 0.475.0(vue@3.5.13(typescript@5.7.3))
       postcss:
         specifier: ^8.5.2
@@ -187,17 +430,17 @@ importers:
         specifier: ^4.0.6
         version: 4.0.6
       vue:
-        specifier: ^3.5.13
+        specifier: 'catalog:'
         version: 3.5.13(typescript@5.7.3)
       vue-router:
-        specifier: ^4.5.0
+        specifier: 'catalog:'
         version: 4.5.0(vue@3.5.13(typescript@5.7.3))
     devDependencies:
       '@vitejs/plugin-vue':
-        specifier: ^5.2.1
+        specifier: 'catalog:'
         version: 5.2.1(vite@6.1.0(@types/node@22.13.2)(jiti@2.4.2)(lightningcss@1.29.1)(tsx@4.19.2)(yaml@2.7.0))(vue@3.5.13(typescript@5.7.3))
       '@vue/tsconfig':
-        specifier: ^0.7.0
+        specifier: 'catalog:'
         version: 0.7.0(typescript@5.7.3)(vue@3.5.13(typescript@5.7.3))
       typescript:
         specifier: ~5.7.2
@@ -206,98 +449,98 @@ importers:
         specifier: ^6.1.0
         version: 6.1.0(@types/node@22.13.2)(jiti@2.4.2)(lightningcss@1.29.1)(tsx@4.19.2)(yaml@2.7.0)
       vue-tsc:
-        specifier: ^2.2.0
+        specifier: 'catalog:'
         version: 2.2.0(typescript@5.7.3)
 
   packages/frontend:
     dependencies:
       '@hookform/resolvers':
-        specifier: ^3.9.1
+        specifier: 'catalog:'
         version: 3.10.0(react-hook-form@7.54.2(react@18.3.1))
       '@radix-ui/react-checkbox':
-        specifier: ^1.1.2
+        specifier: 'catalog:'
         version: 1.1.4(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@radix-ui/react-label':
-        specifier: ^2.1.0
+        specifier: 'catalog:'
         version: 2.1.2(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@radix-ui/react-select':
-        specifier: ^2.1.2
+        specifier: 'catalog:'
         version: 2.1.6(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@radix-ui/react-slot':
-        specifier: ^1.1.0
+        specifier: 'catalog:'
         version: 1.1.2(@types/react@18.3.18)(react@18.3.1)
       axios:
-        specifier: ^1.7.7
+        specifier: 'catalog:'
         version: 1.7.9
       class-variance-authority:
-        specifier: ^0.7.0
+        specifier: 'catalog:'
         version: 0.7.1
       clsx:
-        specifier: ^2.1.1
+        specifier: 'catalog:'
         version: 2.1.1
       jwt-decode:
-        specifier: ^4.0.0
+        specifier: 'catalog:'
         version: 4.0.0
       lucide-react:
-        specifier: ^0.460.0
+        specifier: 'catalog:'
         version: 0.460.0(react@18.3.1)
       react:
-        specifier: ^18.3.1
+        specifier: 'catalog:'
         version: 18.3.1
       react-dom:
-        specifier: ^18.3.1
+        specifier: 'catalog:'
         version: 18.3.1(react@18.3.1)
       react-hook-form:
-        specifier: ^7.53.2
+        specifier: 'catalog:'
         version: 7.54.2(react@18.3.1)
       react-hot-toast:
-        specifier: ^2.4.1
+        specifier: 'catalog:'
         version: 2.5.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-router-dom:
-        specifier: 6.24.0
+        specifier: 'catalog:'
         version: 6.24.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       tailwind-merge:
-        specifier: ^2.5.4
+        specifier: 'catalog:'
         version: 2.6.0
       tailwindcss-animate:
-        specifier: ^1.0.7
+        specifier: 'catalog:'
         version: 1.0.7(tailwindcss@3.4.17(ts-node@10.9.2(@swc/core@1.10.16)(@types/node@22.13.2)(typescript@5.6.3)))
       zod:
-        specifier: ^3.23.8
+        specifier: 'catalog:'
         version: 3.24.2
     devDependencies:
       '@eslint/js':
         specifier: ^9.13.0
         version: 9.20.0
       '@tailwindcss/forms':
-        specifier: ^0.5.9
+        specifier: 'catalog:'
         version: 0.5.10(tailwindcss@3.4.17(ts-node@10.9.2(@swc/core@1.10.16)(@types/node@22.13.2)(typescript@5.6.3)))
       '@types/jwt-decode':
-        specifier: ^3.1.0
+        specifier: 'catalog:'
         version: 3.1.0
       '@types/react':
-        specifier: ^18.3.12
+        specifier: 'catalog:'
         version: 18.3.18
       '@types/react-dom':
-        specifier: ^18.3.1
+        specifier: 'catalog:'
         version: 18.3.5(@types/react@18.3.18)
       '@vitejs/plugin-react-swc':
-        specifier: ^3.5.0
+        specifier: 'catalog:'
         version: 3.8.0(vite@5.4.14(@types/node@22.13.2)(lightningcss@1.29.1))
       autoprefixer:
-        specifier: ^10.4.20
+        specifier: 'catalog:'
         version: 10.4.20(postcss@8.5.2)
       eslint:
         specifier: ^9.13.0
         version: 9.20.1(jiti@2.4.2)
       eslint-plugin-react-hooks:
-        specifier: ^5.0.0
+        specifier: 'catalog:'
         version: 5.1.0(eslint@9.20.1(jiti@2.4.2))
       eslint-plugin-react-refresh:
-        specifier: ^0.4.14
+        specifier: 'catalog:'
         version: 0.4.19(eslint@9.20.1(jiti@2.4.2))
       globals:
-        specifier: ^15.11.0
+        specifier: 'catalog:'
         version: 15.15.0
       postcss:
         specifier: ^8.4.49

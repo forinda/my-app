@@ -39,8 +39,8 @@
     "db:view": "pnpm --filter=backend db:view"
   },
   "devDependencies": {
-    "concurrently": "^9.1.0",
-    "rimraf": "^6.0.1"
+    "concurrently": "catalog:",
+    "rimraf": "catalog:"
   },
   "keywords": [],
   "workspaces": [
