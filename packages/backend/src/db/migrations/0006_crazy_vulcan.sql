@@ -1,0 +1,1 @@
+ALTER TABLE "organization_members" ALTER COLUMN "designation_id" DROP NOT NULL;

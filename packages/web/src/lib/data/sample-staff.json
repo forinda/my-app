@@ -1,0 +1,129 @@
+{
+	"staff": {
+	  "personal_information": {
+		"full_name": "John Doe",
+		"date_of_birth": "1990-05-15",
+		"gender": "Male",
+		"national_id": "123456789",
+		"contact_details": {
+		  "phone": "+254712345678",
+		  "email": "johndoe@example.com"
+		},
+		"address": "123 Main Street, Nairobi, Kenya",
+		"emergency_contact": {
+		  "name": "Jane Doe",
+		  "relationship": "Spouse",
+		  "phone": "+254798765432"
+		}
+	  },
+	  "employment_details": {
+		"employee_id": "EMP12345",
+		"job_title": "Software Engineer",
+		"department": "IT",
+		"date_of_hire": "2020-06-01",
+		"employment_type": "Full-time",
+		"reporting_manager": "Manager Name",
+		"work_location": "Head Office"
+	  },
+	  "payroll_compensation": {
+		"salary": {
+		  "basic": 120000,
+		  "allowances": {
+			"housing": 20000,
+			"transport": 10000
+		  }
+		},
+		"bank_details": {
+		  "account_number": "1234567890",
+		  "bank_name": "Equity Bank",
+		  "branch": "Nairobi West"
+		},
+		"tax_information": {
+		  "tax_id": "KRA123456",
+		  "paye": true
+		},
+		"benefits": {
+		  "health_insurance": "NHIF",
+		  "retirement_plan": "NSSF"
+		},
+		"deductions": {
+		  "nhif": 1500,
+		  "nssf": 2000,
+		  "loan_repayment": 5000
+		}
+	  },
+	  "attendance_leave": {
+		"work_schedule": "Monday - Friday, 8AM - 5PM",
+		"leave_entitlement": {
+		  "annual_leave_days": 30,
+		  "sick_leave_days": 10
+		},
+		"leave_history": [
+		  {
+			"leave_type": "Annual",
+			"start_date": "2024-04-10",
+			"end_date": "2024-04-20",
+			"status": "Approved"
+		  }
+		],
+		"overtime_records": [
+		  {
+			"date": "2024-03-15",
+			"hours": 3,
+			"approved": true
+		  }
+		]
+	  },
+	  "performance_appraisals": {
+		"kpis": {
+		  "projects_completed": 5,
+		  "client_satisfaction_score": 90
+		},
+		"performance_reviews": [
+		  {
+			"year": 2023,
+			"rating": "Excellent",
+			"comments": "Great performance and teamwork"
+		  }
+		],
+		"promotions": [
+		  {
+			"date": "2023-08-01",
+			"previous_position": "Junior Software Engineer",
+			"new_position": "Software Engineer"
+		  }
+		],
+		"training_certifications": [
+		  {
+			"certification": "AWS Certified Developer",
+			"date_obtained": "2022-12-10",
+			"valid_until": "2025-12-10"
+		  }
+		]
+	  },
+	  "roles_permissions": {
+		"system_roles": ["Admin", "HR"],
+		"erp_access_levels": {
+		  "financial_data": "Read-Only",
+		  "hr_data": "Full Access",
+		  "it_systems": "Restricted"
+		},
+		"approval_authority": ["Leave Requests", "Expense Reports"]
+	  },
+	  "contract_documents": {
+		"employment_contract": "contract.pdf",
+		"work_permit": "N/A",
+		"confidentiality_agreement": "signed"
+	  },
+	  "termination_exit": {
+		"status": "Active",
+		"exit_details": {
+		  "termination_date": null,
+		  "resignation_date": null,
+		  "exit_interview_notes": null,
+		  "final_settlement_details": null
+		}
+	  }
+	}
+  }
+  

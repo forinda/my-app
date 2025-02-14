@@ -1,10 +1,9 @@
-import db from '@/db';
+import { useDrizzle, type DrizzleTransaction } from '@/db';
 import { ApiError } from '../errors/base';
-import type { DbTransaction } from '../interfaces/db';
 
 export type TransactionContext<D = any> = {
   data: D;
-  transaction?: DbTransaction;
+  transaction?: DrizzleTransaction;
 };
 
 export function TransactionalService() {
@@ -12,6 +11,8 @@ export function TransactionalService() {
     const originalMethod = descriptor.value;
 
     descriptor.value = async function (...args: any[]) {
+      const db = useDrizzle();
+
       return await db.transaction(async (tx) => {
         if (args.length > 1) {
           throw new ApiError('Method on requires a single argument');

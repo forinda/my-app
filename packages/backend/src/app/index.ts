@@ -7,6 +7,7 @@ import { inject, injectable } from 'inversify';
 import { Config } from '@/common/config';
 import morgan from 'morgan';
 import helmet from 'helmet';
+import cookieParser from 'cookie-parser';
 
 @injectable()
 @Dependency()
@@ -19,12 +20,26 @@ export class ApiServerSetup {
     app.use(express.urlencoded({ extended: true }));
     app.set('trust proxy', 1);
     app.disable('x-powered-by');
+    app.use(cookieParser(this.config.conf.COOKIE_SECRET));
     app.use(
       cors({
-        origin: this.config.conf.NODE_ENV === 'development' ? '*' : [],
+        origin:
+          this.config.conf.NODE_ENV === 'development'
+            ? ['http://localhost:3002', 'http://localhost:3004']
+            : [
+                // 'https://app.example.com',
+                // 'https://api.example.com',
+                // 'https://example.com'
+              ],
         credentials: true,
-        methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS']
-        // preflightContinue: false,
+        methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+        // allowedHeaders: [
+        //   'Content-Type',
+        //   'Authorization',
+        //   'Access-Control-Allow-Origin',
+        //   'Access-Control-Allow-Headers'
+        // ]
+        preflightContinue: true
       })
     );
     app.use(helmet());

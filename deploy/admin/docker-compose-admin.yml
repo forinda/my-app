@@ -1,0 +1,15 @@
+services:
+  admin:
+    build:
+      context: ../../packages/admin
+      dockerfile: ./Dockerfile
+    container_name: admin_ui
+    env_file:
+      - ./../../.env
+    networks:
+      - shared_network
+    ports:
+      - 8002:80
+networks:
+  shared_network:
+    external: true

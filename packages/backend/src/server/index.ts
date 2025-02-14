@@ -1,13 +1,13 @@
 import { ApiServerSetup } from '@/app';
 import { Config } from '@/common/config';
 import { Dependency } from '@/common/di';
-import { ApiErrorRouteHandler } from '@/common/errors/base-error-handlers';
+import { ApiErrorRouteHandler } from '@/common/errors/route-err-handler';
 import type { Application } from 'express';
 import express from 'express';
 import { createServer } from 'http';
 import { inject, injectable } from 'inversify';
 import chalk from 'chalk';
-import moment from 'moment';
+import { baseLogger } from '@/common/logger';
 @injectable()
 @Dependency()
 export class ApiServer {
@@ -46,17 +46,11 @@ export class ApiServer {
     const listeningMessage = chalk.yellow(
       `Listening on http://localhost:${this.config.conf.PORT}`
     );
-    const envMessage = `App started on: ${
-      this.config.conf.NODE_ENV === 'development'
-        ? chalk.green(this.config.conf.NODE_ENV)
-        : chalk.red(this.config.conf.NODE_ENV)
-    }`;
-    const message = `\nServer started at ${moment().format('LLL')} ${
-      this.config.conf.NODE_ENV === 'development' ? '🚀' : '🔒'
-    }\n${listeningMessage}\n${envMessage}
+
+    const message = `(${this.config.conf.NODE_ENV}):${listeningMessage} ${this.config.conf.NODE_ENV === 'development' ? '🚀' : '🔒'} 
     `;
 
-    console.log(message);
+    baseLogger.info('[API]', message);
   }
 
   public run() {

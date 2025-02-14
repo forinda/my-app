@@ -1,86 +1,82 @@
 import { inject, injectable } from 'inversify';
 import jwt from 'jsonwebtoken';
 import { Config } from '../config';
-import { ApiError } from '../errors/base';
 import { Dependency } from '../di';
 
-type JwtUserPayload = {
-  id: number;
-  tokeType: 'access' | 'refresh';
+/**
+ * Defines the structure of a JWT payload.
+ */
+type JwtPayload = {
+  claims: {
+    id: string;
+    email: string;
+    username: string;
+  };
+  type: 'access' | 'refresh';
 };
-
 @injectable()
 @Dependency()
 export class JWT {
   @inject(Config) private readonly config: Config;
 
   constructor() {}
-
-  signAccessToken(payload: JwtUserPayload) {
-    if (payload.tokeType !== 'access') {
-      throw new ApiError('Invalid token type');
-    }
-
-    return jwt.sign(payload, this.config.conf.AC_JWT_ACCESS_SECRET, {
-      expiresIn: this.config.conf.AC_JWT_ACCESS_EXPIRES_IN
+  /**
+   * Creates an access token with a short expiration time.
+   * @param payload - The JWT payload containing user claims and token type.
+   * @returns A signed JWT access token.
+   */
+  createAccessToken(payload: JwtPayload): string {
+    return jwt.sign(payload, this.config.conf.AC_JWT_ACCESS_SECRET!, {
+      expiresIn: '15m'
     });
   }
 
-  signRefreshToken(payload: JwtUserPayload) {
-    if (payload.tokeType !== 'refresh') {
-      throw new ApiError('Invalid token type');
-    }
-
-    return jwt.sign(payload, this.config.conf.AC_JWT_ACCESS_SECRET, {
-      expiresIn: this.config.conf.REF_JWT_EXPIRES_IN
+  /**
+   * Creates a refresh token with a longer expiration time.
+   * @param payload - The JWT payload containing user claims and token type.
+   * @returns A signed JWT refresh token.
+   */
+  createRefreshToken(payload: JwtPayload): string {
+    return jwt.sign(payload, this.config.conf.REF_JWT_SECRET!, {
+      expiresIn: '7d',
+      algorithm: 'HS256'
     });
   }
 
-  verifyAccessToken(token: string) {
-    const payload = jwt.verify(
+  /**
+   * Verifies the validity of a JWT token.
+   * @param token - The JWT token to verify.
+   * @param type - The type of token: `"access"` or `"refresh"`.
+   * @returns The decoded JWT payload if the token is valid.
+   * @throws An error if the token is invalid or expired.
+   */
+  verifyToken(token: string, type: 'access' | 'refresh'): JwtPayload {
+    return jwt.verify(
       token,
-      this.config.conf.AC_JWT_ACCESS_SECRET,
-      {}
-    ) as JwtUserPayload;
-
-    if (payload.tokeType !== 'access') {
-      throw new ApiError('Invalid token type');
-    }
-
-    return payload;
+      type === 'access'
+        ? process.env.ACCESS_TOKEN_SECRET!
+        : process.env.REFRESH_TOKEN_SECRET!
+    ) as JwtPayload;
   }
 
-  verifyRefreshToken(token: string) {
-    const payload = jwt.verify(
-      token,
-      this.config.conf.AC_JWT_ACCESS_SECRET
-    ) as JwtUserPayload;
+  /**
+   * Generates both an access token and a refresh token for a given user.
+   * @param payload - The user claims containing `id`, `email`, and `username`.
+   * @returns An object containing both access and refresh tokens.
+   */
+  generateTokens(payload: Pick<JwtPayload, 'claims'>['claims']): {
+    accessToken: string;
+    refreshToken: string;
+  } {
+    const accessToken = this.createAccessToken({
+      claims: payload,
+      type: 'access'
+    });
+    const refreshToken = this.createRefreshToken({
+      claims: payload,
+      type: 'refresh'
+    });
 
-    if (payload.tokeType !== 'refresh') {
-      throw new ApiError('Invalid token type');
-    }
-
-    return payload;
-  }
-
-  decodeAccessToken(token: string) {
-    return jwt.decode(token) as JwtUserPayload;
-  }
-
-  decodeRefreshToken(token: string) {
-    return jwt.decode(token) as JwtUserPayload;
-  }
-
-  signTokens(payload: Pick<JwtUserPayload, 'id'>) {
-    return {
-      access_token: this.signAccessToken({
-        ...payload,
-        tokeType: 'access'
-      }),
-      refresh_token: this.signRefreshToken({
-        ...payload,
-        tokeType: 'refresh'
-      })
-    };
+    return { accessToken, refreshToken };
   }
 }

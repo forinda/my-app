@@ -1,22 +1,22 @@
 import { di } from '@/common/di';
 import { Router } from 'express';
-import { CreateUserController } from './controllers/login';
-import { RefreshTokenController } from './controllers/refresh-token';
-import { SetupAuthController } from './controllers/setup';
+import { LoginUserController } from './controllers/login.controller';
+import { GetUserSessionController } from './controllers/session.controller';
+import { RegisterUserController } from './controllers/register.controller';
+import { UserLogoutController } from './controllers/logout.controller';
 
 type Props = {
   app: Router;
 };
 
 export function setupAuthRoutes({ app }: Props) {
-  // console.log('setupUsersRoutes');
-
   const router = Router();
 
   router
-    .post('/login', di.resolve(CreateUserController).post)
-    .post('/refresh-token', di.resolve(RefreshTokenController).post)
-    .post('/setup', di.resolve(SetupAuthController).get);
+    .post('/login', di.resolve(LoginUserController).post)
+    .get('/session', di.resolve(GetUserSessionController).get)
+    .post('/logout', di.resolve(UserLogoutController).post)
+    .post('/register', di.resolve(RegisterUserController).post);
 
   app.use('/auth', router);
 }
