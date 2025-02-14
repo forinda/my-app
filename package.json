@@ -38,13 +38,18 @@
     "lint:fix:web": "pnpm --filter=web lint:fix",
     "lint:fix": "pnpm --filter=backend lint:fix && pnpm --filter=admin lint:fix",
     "db:view": "pnpm --filter=backend db:view",
-    "gulp": "gulp"
+    "gulp": "gulp --gulpfile gulpfile.ts --tasks",
+    "docker-web": "gulp docker_build_client_web",
+    "gc:build": "gulp build_apps"
   },
   "devDependencies": {
     "@types/gulp": "^4.0.17",
+    "@types/shelljs": "^0.8.15",
+    "chalk": "4.1.2",
     "concurrently": "^9.1.0",
     "gulp": "^5.0.0",
-    "rimraf": "^6.0.1"
+    "rimraf": "^6.0.1",
+    "shelljs": "^0.8.5"
   },
   "keywords": [],
   "workspaces": [
