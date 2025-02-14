@@ -5,11 +5,11 @@ import type {
 } from '@/types/org'
 import { decodeArrayBuffer } from '@/utils/resp-decode'
 import { ref, watch } from 'vue'
-import axios from 'axios'
 import type { ResponseObject } from '@/types/utils'
+import { useAxios } from './use-axios'
 export async function useOrganizations() {
   const currentOrg = ref<SelectOrganizationInterface | null>(null)
-
+  const axios = useAxios()
   async function fetchOrganizations() {
     const data = ref<SelectOrganizationInterface[] | undefined>(undefined)
     const error = ref<any | undefined>(undefined)
@@ -18,7 +18,7 @@ export async function useOrganizations() {
 
     try {
       status.value = 'loading'
-      const resp = await axios.get<ArrayBuffer>('/api/v1/organizations', {
+      const resp = await axios.get<ArrayBuffer>('/organizations', {
         method: 'GET',
         responseType: 'arraybuffer',
       })
@@ -43,10 +43,7 @@ export async function useOrganizations() {
     { onSuccess, onError }: CreateOptionParams = {},
   ) {
     try {
-      const feed = await axios.post<CreateOrganizationResponseType>(
-        '/api/v1/organizations',
-        organization,
-      )
+      const feed = await axios.post<CreateOrganizationResponseType>('/organizations', organization)
       // await refresh()
       if (typeof onSuccess === 'function') onSuccess!(feed.data as any)
     } catch (error) {

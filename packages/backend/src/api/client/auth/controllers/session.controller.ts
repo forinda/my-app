@@ -1,4 +1,4 @@
-import { BasePostController } from '@/common/bases/controller';
+import { BaseGetController } from '@/common/bases/controller';
 import {
   ApiController,
   ApiControllerMethod
@@ -15,10 +15,10 @@ import type { LoginUserInput } from '../schema/schema';
 @injectable()
 @Dependency()
 @ApiController()
-export class GetUserSessionController extends BasePostController {
+export class GetUserSessionController extends BaseGetController {
   @ApiControllerMethod()
   @LoginRequired()
-  async post({ user, res }: ApiRequestContext<LoginUserInput>) {
+  async get({ user, res }: ApiRequestContext<LoginUserInput>) {
     if (!user) {
       return createHttpResponse(res, {
         statusCode: HttpStatus.UNAUTHORIZED,

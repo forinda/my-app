@@ -1,16 +1,17 @@
 <script setup lang="ts">
-import { useOrganizations } from '@/composables/use-organizations';
-import type { DashboardSidebarMenuItem } from '@/types/dash';
-import { reactive } from 'vue';
+import { useOrganizations } from '@/composables/use-organizations'
+import type { DashboardSidebarMenuItem } from '@/types/dash'
+import { reactive } from 'vue'
 // import type { DashboardSidebarMenuItem } from '~/types/dash';
-
-const { currentOrg } = await useOrganizations();
+import orgSidebarMenuItem from './org-sidebar-menu-item.vue'
+import { Icon } from '@iconify/vue'
+const { currentOrg } = await useOrganizations()
 
 const props = defineProps<{
-  isSidebarOpen: boolean;
-  orgId: string;
-  routePath: string;
-}>();
+  isSidebarOpen: boolean
+  orgId: string
+  routePath: string
+}>()
 const menuItems = reactive<DashboardSidebarMenuItem[]>([
   {
     name: 'Dashboard',
@@ -73,28 +74,37 @@ const menuItems = reactive<DashboardSidebarMenuItem[]>([
     icon: 'lucide-settings',
     route: `/organizations/${props.orgId}/settings`,
   },
-]);
+])
 
 const emit = defineEmits<{
-  (event: 'toggleSidebar'): void;
-}>(); // 2️⃣
+  (event: 'toggleSidebar'): void
+}>() // 2️⃣
 </script>
 <template>
-  <div class="bg-white shadow-lg transition-all duration-300 overflow-hidden border-r"
-    :class="isSidebarOpen ? 'w-64' : 'w-16'">
+  <div
+    class="bg-white shadow-lg transition-all duration-300 overflow-hidden border-r"
+    :class="isSidebarOpen ? 'w-64' : 'w-16'"
+  >
     <div class="p-4 flex items-center justify-between">
       <h1 v-if="isSidebarOpen" class="text-xl font-bold text-gray-800">
         {{ currentOrg?.name }}
       </h1>
       <button @click="emit('toggleSidebar')" class="text-gray-500 hover:text-gray-700">
-        <icon :name="isSidebarOpen ? 'lucide-panel-right-open' : 'lucide-panel-left-open'
-          " size="24" />
+        <Icon
+          :icon="isSidebarOpen ? 'lucide-panel-right-open' : 'lucide-panel-left-open'"
+          size="24"
+        />
       </button>
     </div>
     <nav class="mt-8">
       <ul>
-        <org-sidebar-menu-item v-for="item in menuItems" :is-sidebar-open="isSidebarOpen" :item="item"
-          :route-path="routePath" :depth="0" />
+        <org-sidebar-menu-item
+          v-for="item in menuItems"
+          :is-sidebar-open="isSidebarOpen"
+          :item="item"
+          :route-path="routePath"
+          :depth="0"
+        />
       </ul>
     </nav>
   </div>

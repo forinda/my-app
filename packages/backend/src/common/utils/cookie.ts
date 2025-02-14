@@ -46,7 +46,7 @@ export class CookieProcessor {
    * @param value - The base64-encoded string to deserialize.
    * @returns The deserialized object.
    */
-  static deserialize(value: string) {
+  static deserialize<Resp = any>(value: string): Resp {
     return JSON.parse(Buffer.from(value, 'base64').toString('utf-8'));
   }
 

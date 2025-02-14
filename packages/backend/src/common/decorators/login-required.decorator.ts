@@ -13,39 +13,6 @@ export function LoginRequired(authority?: AuthorityType | AuthorityType[]) {
     descriptor.value = async function (...args: any[]) {
       const { req } = args[0] as ApiRequestContext;
 
-      // const authHeader = req.headers.authorization;
-
-      // if (!authHeader) {
-      //   throw new ApiError(
-      //     'Authorization header is required',
-      //     HttpStatus.UNAUTHORIZED
-      //   );
-      // }
-
-      // const [scheme, headerToken] = (authHeader || '').split(' ') ?? [];
-      // // console.log('', authHeader);
-
-      // // Check for scheme validity
-      // if (!/^Bearer$/i.test(scheme)) {
-      //   throw new ApiError(
-      //     'Invalid authorization scheme',
-      //     HttpStatus.UNAUTHORIZED
-      //   );
-      // }
-
-      // // Check for token validity
-      // if (!headerToken) {
-      //   throw new ApiError('Auth Token is required', HttpStatus.UNAUTHORIZED);
-      // }
-
-      // const jWT = di.resolve(JWT);
-      // // Check for token validity
-      // const { id: user_id, tokeType } = jWT.verifyToken(headerToken, 'access');
-
-      // if (tokeType !== 'access') {
-      //   throw new ApiError('Invalid token type', HttpStatus.UNAUTHORIZED);
-      // }
-      // const user = await getSessionUser(user_id!);
       const user = await getSessionUser(req, { throwError: true });
 
       args[0].user = user;

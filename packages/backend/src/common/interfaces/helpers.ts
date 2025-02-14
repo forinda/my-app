@@ -6,3 +6,5 @@ export type PromisedAll<PromiseType> =
 
 export type PromisedReturnType<PromiseType> =
   PromiseType extends Promise<infer T> ? T : never;
+
+export type BareObject = Record<string, unknown>;

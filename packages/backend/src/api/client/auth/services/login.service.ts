@@ -9,6 +9,8 @@ import { PasswordProcessor } from '@/common/utils/password';
 import { CookieProcessor } from '@/common/utils/cookie';
 import { Config } from '@/common/config';
 import type { LoginUserInput } from '../schema/schema';
+import type { BareObject } from '@/common/interfaces/helpers';
+import { phoneValidator } from '@/common/utils/phone-number-format';
 
 @injectable()
 @Dependency()
@@ -19,17 +21,30 @@ export class LoginUserService {
   @TransactionalService()
   async create({ data, transaction }: TransactionContext<LoginUserInput>) {
     const isEmail = data.emailOrUsername.includes('@');
-    const existingUser = await transaction!.query.User.findFirst({
-      where: isEmail
-        ? eq(User.email, data.emailOrUsername)
-        : eq(User.username, data.emailOrUsername)
-    });
+
+    const isvalidPhone = phoneValidator.validatePhone.validate(
+      data.emailOrUsername
+    );
+
+    const userLookupQuery = isEmail
+      ? eq(User.email, data.emailOrUsername)
+      : isvalidPhone
+        ? eq(
+            User.phone_number,
+            phoneValidator.formatKenyanPhone(data.emailOrUsername)
+          )
+        : eq(User.username, data.emailOrUsername);
+    const existingUser = (
+      await transaction!
+        .select({
+          uuid: User.uuid,
+          password: User.password
+        })
+        .from(User)
+        .where(userLookupQuery)
+    )[0];
 
     if (!existingUser) {
-      // return createHttpResponse(event, {
-      //   status: 400,
-      //   message: 'Account does not exist'
-      // });
       return {
         status: HttpStatus.BAD_REQUEST,
         message: 'Account does not exist'
@@ -46,7 +61,8 @@ export class LoginUserService {
         message: 'Invalid login credentials'
       };
     }
-    const { uuid, password: _, ...userRest } = existingUser;
+    delete (existingUser as BareObject)['password'];
+    const { uuid } = existingUser;
     const config = this.config.conf;
     const session = CookieProcessor.serialize({ uid: uuid });
     const signedSession = CookieProcessor.sign(session, config.COOKIE_SECRET);
@@ -68,7 +84,7 @@ export class LoginUserService {
       message: 'Login successful',
       expiry,
       otherCookieOptions,
-      data: userRest,
+      data: {},
       cookieName: config.SESSION_COOKIE_NAME
     };
   }

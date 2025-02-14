@@ -14,7 +14,7 @@ export function setupAuthRoutes({ app }: Props) {
 
   router
     .post('/login', di.resolve(LoginUserController).post)
-    .post('/session', di.resolve(GetUserSessionController).post)
+    .get('/session', di.resolve(GetUserSessionController).get)
     .post('/logout', di.resolve(UserLogoutController).post)
     .post('/register', di.resolve(RegisterUserController).post);
 

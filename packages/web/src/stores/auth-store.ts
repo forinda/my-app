@@ -1,11 +1,18 @@
-import { decodeArrayBuffer } from '@/utils/resp-decode'
-import { useAuthUser } from './use-user-auth'
-import { API_URL } from '@/lib/constants/api'
-import { useAxios } from './use-axios'
+import { useAxios } from '@/composables/use-axios'
 import type { LoginUserSchemaType } from '@/schema/login-schema'
+import type { SessionUserType } from '@/types/session'
+import type { ResponseObject } from '@/types/utils'
+import { decodeArrayBuffer } from '@/utils/resp-decode'
+import { defineStore } from 'pinia'
+import { computed, ref } from 'vue'
 
-export function useAuth() {
-  const { setUser, user } = useAuthUser()
+export const useAuthStore = defineStore('auth:user', () => {
+  const user = ref<SessionUserType | null>(null)
+  const isAthenticated = computed(() => user.value !== null)
+  const setUser = (newUser: SessionUserType | null) => {
+    // console.warn('[useAuthUser] Setting user:', newUser)
+    user.value = newUser
+  }
   const axios = useAxios()
 
   type LoginOptions<Data = any, Err = Error> = {
@@ -20,8 +27,8 @@ export function useAuth() {
           'Content-Type': 'application/json',
         },
       })
-      const decodedData = decodeArrayBuffer<any>(data)
-      setUser(decodedData.data.user)
+      const decodedData = decodeArrayBuffer<ResponseObject<SessionUserType>>(data)
+      // setUser(decodedData.data)
 
       if (options.onSuccess && typeof options.onSuccess === 'function') {
         options.onSuccess(decodedData)
@@ -37,24 +44,22 @@ export function useAuth() {
   }
 
   const logout = async () => {
-    await axios.post(API_URL + '/auth/logout', {
-      withCredentials: true,
-    })
+    await axios.post('/auth/logout')
     setUser(null)
   }
 
   const getSession = async () => {
     if (user.value) return
     try {
-      const resp = await axios.get<ArrayBuffer>(API_URL + '/auth/session', {
+      const resp = await axios.get<ArrayBuffer>('/auth/session', {
         method: 'GET',
         responseType: 'arraybuffer',
-        withCredentials: true,
       })
-      setUser(decodeArrayBuffer<any>(resp.data).data as any)
+      setUser(decodeArrayBuffer<ResponseObject<SessionUserType>>(resp.data).data)
     } catch (error: any) {
       setUser(null)
     }
   }
-  return { loginUser, logout, getSession, sessionUser: user }
-}
+
+  return { user, setUser, isAthenticated, loginUser, logout, getSession }
+})

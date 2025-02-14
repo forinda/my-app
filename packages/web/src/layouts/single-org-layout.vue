@@ -5,7 +5,7 @@ import { useRoute } from 'vue-router'
 import OrgDashboardSidebar from '@/components/org/org-dashboard-sidebar.vue'
 import OrgDashboardHeader from '@/components/org/org-dashboard-header.vue'
 
-const {  refresh, setCurrentOrganization } = await useOrganizations()
+const { refresh, setCurrentOrganization } = await useOrganizations()
 const route = useRoute()
 const isSidebarOpen = ref(true)
 const orgId = computed(() => route.params.id as string)
@@ -33,9 +33,9 @@ onMounted(async () => {
     <!-- Main content -->
     <div class="flex-1 overflow-hidden">
       <org-dashboard-header />
-      <main class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
-        <router-view />
-      </main>
+      <!-- <main class=""> -->
+      <router-view />
+      <!-- </main> -->
     </div>
   </div>
 </template>
