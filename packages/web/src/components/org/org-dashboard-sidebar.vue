@@ -64,7 +64,7 @@ const menuItems = reactive<DashboardSidebarMenuItem[]>([
       },
       {
         name: 'Create Workspace',
-        icon: 'lucide-briefcase-plus',
+        icon: 'lucide-sparkle',
         route: `/organizations/${props.orgId}/workspaces/create`,
       },
     ],
