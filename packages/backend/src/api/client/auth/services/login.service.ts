@@ -3,7 +3,7 @@ import { Dependency } from '@/common/di';
 import type { TransactionContext } from '@/common/decorators/service-transaction';
 import { TransactionalService } from '@/common/decorators/service-transaction';
 import { HttpStatus } from '@/common/http';
-import { User } from '@/db/schema';
+import { AuthSession, User } from '@/db/schema';
 import { eq } from 'drizzle-orm';
 import { PasswordProcessor } from '@/common/utils/password';
 import { CookieProcessor } from '@/common/utils/cookie';
@@ -78,6 +78,18 @@ export class LoginUserService {
       .set({ last_login_at: new Date().toISOString() })
       .where(eq(User.uuid, uuid))
       .execute();
+    const authSession = await transaction!.query.AuthSession.findFirst({
+      where: eq(AuthSession.auth_session_user_id, uuid)
+    });
+
+    if (authSession) {
+      await transaction!.update(AuthSession).set({ ip: data.ip }).execute();
+    } else {
+      await transaction!.insert(AuthSession).values({
+        auth_session_user_id: uuid,
+        ip: data.ip
+      });
+    }
 
     return {
       signedSession,

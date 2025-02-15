@@ -10,6 +10,7 @@ import {
 } from 'drizzle-orm/pg-core';
 import { Organization } from './organization';
 import { getTableTimestamps } from '@/common/utils/drizzle';
+import { AuthSession } from './auth-session';
 
 export const User = pgTable('users', {
   id: integer().primaryKey().generatedAlwaysAsIdentity(),
@@ -30,7 +31,8 @@ export const User = pgTable('users', {
 });
 
 export const userRelationShips = relations(User, ({ many }) => ({
-  organizations: many(Organization)
+  organizations: many(Organization),
+  sessions: many(AuthSession)
 }));
 
 export interface SelectUserInterface extends InferSelectModel<typeof User> {}

@@ -1,5 +1,5 @@
 import { injectable } from 'inversify';
-import type { CreateOrganizationInputType } from '../schema/schema';
+import type { NewDepartmentPayload } from '../schema/schema';
 
 import { eq } from 'drizzle-orm';
 
@@ -15,12 +15,12 @@ import { Organization, OrganizationMember } from '@/db/schema';
 
 @injectable()
 @Dependency()
-export class CreateOrganizationService {
+export class DepartmentCreationService {
   @TransactionalService()
   async create({
     data,
     transaction
-  }: TransactionContext<CreateOrganizationInputType>) {
+  }: TransactionContext<NewDepartmentPayload>) {
     const exisiting = await transaction!.query.Organization.findFirst({
       where: eq(Organization.name, data.name)
     });
@@ -32,7 +32,6 @@ export class CreateOrganizationService {
         {}
       );
     }
-    // console.log({ data });
 
     const organization = (
       await transaction!

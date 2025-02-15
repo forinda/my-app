@@ -54,7 +54,8 @@ export const loginUserSchema = z.object({
       'Password must contain at least one special character'
     ),
 
-  rememberMe: z.boolean().default(false)
+  rememberMe: z.boolean().default(false),
+  ip: z.string({ message: 'IP address is required' })
 });
 
 export type LoginUserInput = z.infer<typeof loginUserSchema>;

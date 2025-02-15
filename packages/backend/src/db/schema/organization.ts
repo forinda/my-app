@@ -2,8 +2,7 @@ import type { InferInsertModel, InferSelectModel } from 'drizzle-orm';
 import { relations } from 'drizzle-orm';
 import { boolean, integer, pgTable, uuid, varchar } from 'drizzle-orm/pg-core';
 
-import { User } from './user';
-import { Department } from './department';
+import { Department, User } from '.';
 import {
   foreignKeyConstraints,
   getTableTimestamps

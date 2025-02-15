@@ -11,7 +11,6 @@ import { inject, injectable } from 'inversify';
 import { CreateOrganizationService } from '../services/create-organization.service';
 import type { CreateOrganizationInputType } from '../schema/schema';
 import { createOrganizationSchema } from '../schema/schema';
-import { populateUserMetadata } from '@/common/utils/request-pyload-injector';
 
 @injectable()
 @Dependency()
@@ -21,7 +20,6 @@ export class CreateOrganizationController extends BasePostController {
   private createUserService: CreateOrganizationService;
   @ApiControllerMethod({
     bodySchema: createOrganizationSchema,
-    auditPayloadInjector: populateUserMetadata('create'),
     auth: true
   })
   async post({ res, body }: ApiRequestContext<CreateOrganizationInputType>) {

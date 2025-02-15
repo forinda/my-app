@@ -42,25 +42,40 @@ export async function getSessionUser(
     uid: string;
   }>(unsignedSession);
 
-  const user = await db
-    .select({
-      id: User.id,
-      first_name: User.first_name,
-      last_name: User.last_name,
-      email: User.email,
-      gender: User.gender,
-      username: User.username,
-      is_active: User.is_active,
-      phone_number: User.phone_number,
-      is_email_verified: User.is_email_verified,
-      is_admin: User.is_admin,
-      avatar: User.avatar
-    })
-    .from(User)
-    .where(eq(User.uuid, session.uid))
-    .execute();
+  const user = await db.query.User.findFirst({
+    where: eq(User.uuid, session.uid),
+    columns: {
+      id: true,
+      first_name: true,
+      last_name: true,
+      email: true,
+      gender: true,
+      username: true,
+      is_active: true,
+      phone_number: true,
+      is_email_verified: true,
+      is_admin: true,
+      avatar: true
+    },
+    with: {
+      sessions: {
+        columns: {
+          id: true,
+          auth_session_organization_id: true
+        },
+        with: {
+          organization: {
+            columns: {
+              id: true,
+              name: true
+            }
+          }
+        }
+      }
+    }
+  });
 
-  return user[0];
+  return user;
 }
 
 export type SessionUser = Promised<ReturnType<typeof getSessionUser>>;

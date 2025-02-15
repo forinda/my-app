@@ -1,5 +1,5 @@
 import { injectable } from 'inversify';
-import type { CreateOrganizationInputType } from '../schema/schema';
+import type { UpdateDepartmentPayload } from '../schema/schema';
 
 import { eq } from 'drizzle-orm';
 
@@ -11,28 +11,23 @@ import {
 } from '@/common/decorators/service-transaction';
 import { ApiError } from '@/common/errors/base';
 import type { InsertOrganizationInterface } from '@/db/schema';
-import { Organization, OrganizationMember } from '@/db/schema';
+import { Department, Organization, OrganizationMember } from '@/db/schema';
 
 @injectable()
 @Dependency()
-export class CreateOrganizationService {
+export class UpdateDepartmentService {
   @TransactionalService()
-  async create({
-    data,
+  async update({
+    data: { id: dept_id, ...data },
     transaction
-  }: TransactionContext<CreateOrganizationInputType>) {
-    const exisiting = await transaction!.query.Organization.findFirst({
-      where: eq(Organization.name, data.name)
+  }: TransactionContext<UpdateDepartmentPayload>) {
+    const exisiting = await transaction!.query.Department.findFirst({
+      where: eq(Department.id, dept_id)
     });
 
-    if (exisiting) {
-      throw new ApiError(
-        'Organization with same name already exists',
-        HttpStatus.CONFLICT,
-        {}
-      );
+    if (!exisiting) {
+      throw new ApiError('Department does not exist', HttpStatus.CONFLICT, {});
     }
-    // console.log({ data });
 
     const organization = (
       await transaction!

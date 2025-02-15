@@ -127,6 +127,20 @@
       "when": 1739601533512,
       "tag": "1739601533_concerned_magus",
       "breakpoints": true
+    },
+    {
+      "idx": 18,
+      "version": "7",
+      "when": 1739635845839,
+      "tag": "1739635845_long_silk_fever",
+      "breakpoints": true
+    },
+    {
+      "idx": 19,
+      "version": "7",
+      "when": 1739636221372,
+      "tag": "1739636221_slimy_ravenous",
+      "breakpoints": true
     }
   ]
 }

@@ -32,7 +32,6 @@ export class CreateOrganizationService {
         {}
       );
     }
-    // console.log({ data });
 
     const organization = (
       await transaction!

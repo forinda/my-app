@@ -19,3 +19,5 @@ export * from './auth-role';
 export * from './role-permission';
 
 export * from './user-role';
+
+export * from './auth-session';

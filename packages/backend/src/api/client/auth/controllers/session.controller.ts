@@ -9,15 +9,13 @@ import type { ApiRequestContext } from '@/common/interfaces/controller';
 import { injectable } from 'inversify';
 
 import { createHttpResponse } from '@/common/utils/responder';
-import { LoginRequired } from '@/common/decorators/login-required.decorator';
 import type { LoginUserInput } from '../schema/schema';
 
 @injectable()
 @Dependency()
 @ApiController()
 export class GetUserSessionController extends BaseGetController {
-  @ApiControllerMethod()
-  @LoginRequired()
+  @ApiControllerMethod({ auth: true })
   async get({ user, res }: ApiRequestContext<LoginUserInput>) {
     if (!user) {
       return createHttpResponse(res, {
