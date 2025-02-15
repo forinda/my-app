@@ -1,7 +1,8 @@
 import SuspenseLayout from '@/layouts/suspense-layout.vue'
-import { useAuthStore } from '@/stores/auth-store'
 import { createRouter, createWebHistory } from 'vue-router'
 import { routeAfterEach, routeBeforeEach } from './before-and-after-each'
+import OrgLayout from '@/layouts/org-layout.vue'
+import SingleOrgLayout from '@/layouts/single-org-layout.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -26,7 +27,7 @@ const router = createRouter({
         {
           path: '/organizations',
           name: 'organizations',
-          component: () => import('@/layouts/org-layout.vue'),
+          component: OrgLayout,
           children: [
             {
               path: '',
@@ -39,7 +40,7 @@ const router = createRouter({
         {
           path: '/organizations/:id',
           name: 'organization-id-layout',
-          component: () => import('@/layouts/single-org-layout.vue'),
+          component: SingleOrgLayout,
           children: [
             {
               path: '',
