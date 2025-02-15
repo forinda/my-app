@@ -47,8 +47,7 @@ export class ApiServer {
       `Listening on http://localhost:${this.config.conf.PORT}`
     );
 
-    const message = `(${this.config.conf.NODE_ENV}):${listeningMessage} ${this.config.conf.NODE_ENV === 'development' ? '🚀' : '🔒'} 
-    `;
+    const message = `(${this.config.conf.NODE_ENV}):${listeningMessage} ${this.config.conf.NODE_ENV === 'development' ? '🚀' : '🔒'}`;
 
     baseLogger.info('[API]', message);
   }

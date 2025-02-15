@@ -78,6 +78,41 @@
       "when": 1739320140350,
       "tag": "0010_warm_scorpion",
       "breakpoints": true
+    },
+    {
+      "idx": 11,
+      "version": "7",
+      "when": 1739598973390,
+      "tag": "1739598973_brave_jackpot",
+      "breakpoints": true
+    },
+    {
+      "idx": 12,
+      "version": "7",
+      "when": 1739599160218,
+      "tag": "1739599160_solid_dreadnoughts",
+      "breakpoints": true
+    },
+    {
+      "idx": 13,
+      "version": "7",
+      "when": 1739599231782,
+      "tag": "1739599231_late_roland_deschain",
+      "breakpoints": true
+    },
+    {
+      "idx": 14,
+      "version": "7",
+      "when": 1739599636010,
+      "tag": "1739599636_simple_marvel_zombies",
+      "breakpoints": true
+    },
+    {
+      "idx": 15,
+      "version": "7",
+      "when": 1739599888026,
+      "tag": "1739599888_quiet_blonde_phantom",
+      "breakpoints": true
     }
   ]
 }
