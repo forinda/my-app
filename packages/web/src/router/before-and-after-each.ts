@@ -14,7 +14,7 @@ export function routeAfterEach(
 ) {
   // console.log('[router.afterEach]')
   if (failure) {
-    console.error(failure)
+    console.error(`[router.afterEach:[${_to.fullPath}]] ${failure}`)
   }
 }
 
