@@ -20,6 +20,13 @@ export const UserRole = pgTable(
     organization_id: integer()
       .references(() => Organization.id, foreignKeyConstraints)
       .notNull(),
+    created_by: integer()
+      .notNull()
+      .references(() => User.id, foreignKeyConstraints),
+    updated_by: integer()
+      .notNull()
+      .references(() => User.id, foreignKeyConstraints),
+    deleted_by: integer().references(() => User.id, foreignKeyConstraints),
     ...getTableTimestamps()
   },
   (t) => ({

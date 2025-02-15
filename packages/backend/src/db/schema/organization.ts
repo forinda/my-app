@@ -3,7 +3,7 @@ import { relations } from 'drizzle-orm';
 import { boolean, integer, pgTable, uuid, varchar } from 'drizzle-orm/pg-core';
 
 import { User } from './user';
-import { OrganizationDepartment } from './organization-department';
+import { Department } from './department';
 import {
   foreignKeyConstraints,
   getTableTimestamps
@@ -36,7 +36,7 @@ export const organizationRelationships = relations(
       fields: [Organization.updated_by],
       references: [User.id]
     }),
-    departments: many(OrganizationDepartment)
+    departments: many(Department)
   })
 );
 

@@ -2,7 +2,7 @@ import { boolean, integer, pgTable, timestamp } from 'drizzle-orm/pg-core';
 import { Organization } from './organization';
 import { User } from './user';
 import { OrganizationMemberDesignation } from './organization-member-designation';
-import { OrganizationDepartment } from './organization-department';
+import { Department } from './department';
 import {
   foreignKeyConstraints,
   getTableTimestamps
@@ -26,7 +26,7 @@ export const OrganizationMember = pgTable('organization_members', {
     foreignKeyConstraints
   ),
   department_id: integer().references(
-    () => OrganizationDepartment.id,
+    () => Department.id,
     foreignKeyConstraints
   ),
   date_joined: timestamp({ mode: 'string' }).notNull(),
@@ -55,9 +55,9 @@ export const organizationMemberRelations = relations(
       fields: [OrganizationMember.organization_id],
       references: [Organization.id]
     }),
-    department: one(OrganizationDepartment, {
+    department: one(Department, {
       fields: [OrganizationMember.department_id],
-      references: [OrganizationDepartment.id]
+      references: [Department.id]
     })
   })
 );
