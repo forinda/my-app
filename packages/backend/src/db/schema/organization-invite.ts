@@ -10,7 +10,7 @@ import type { InferInsertModel, InferSelectModel } from 'drizzle-orm';
 import { relations } from 'drizzle-orm';
 import { User } from './user';
 import { Organization } from './organization';
-import { OrganizationMemberDesignation } from './organization-member-designation';
+import { OrganizationDesignation } from './organization-member-designation';
 import {
   foreignKeyConstraints,
   getTableTimestamps
@@ -23,7 +23,7 @@ export const OrganizationInvite = pgTable('organization_invites', {
     .references(() => Organization.id, foreignKeyConstraints),
   designation_id: integer()
     .notNull()
-    .references(() => OrganizationMemberDesignation.id, foreignKeyConstraints),
+    .references(() => OrganizationDesignation.id, foreignKeyConstraints),
   email: varchar().notNull(),
   is_accepted: boolean().notNull().default(false),
   expiry_date: timestamp({ mode: 'string' }).notNull(),
@@ -40,9 +40,9 @@ export const OrganizationInvite = pgTable('organization_invites', {
 export const organizationInviteRelations = relations(
   OrganizationInvite,
   ({ one }) => ({
-    designation: one(OrganizationMemberDesignation, {
+    designation: one(OrganizationDesignation, {
       fields: [OrganizationInvite.designation_id],
-      references: [OrganizationMemberDesignation.id]
+      references: [OrganizationDesignation.id]
     }),
     creator: one(User, {
       fields: [OrganizationInvite.created_by],

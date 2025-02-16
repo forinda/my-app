@@ -138,7 +138,7 @@ export function ApiControllerMethod(props: MethodProps = {}) {
           (Array.isArray(props.auth) && props.auth.length > 0) ||
           (typeof props.auth === 'string' && props.auth.trim().length > 0)
         )
-          await controllerAuth(context)(props.auth);
+          await controllerAuth(context, props.bodyBindOrgId)(props.auth);
 
         const needToTransformParams =
           typeof props.transformParams === 'object' &&

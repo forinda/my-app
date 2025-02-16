@@ -17,6 +17,7 @@ export type ApiRequestContext<Body = any> = {
   pagination?: ApiPaginationParams;
   user?: SessionUser;
   current_organization_id?: string;
+  organization_id?: number;
   request_id: string;
 };
 

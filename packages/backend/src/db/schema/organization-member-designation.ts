@@ -17,7 +17,7 @@ import {
   getTableTimestamps
 } from '@/common/utils/drizzle';
 
-export const OrganizationMemberDesignation = pgTable(
+export const OrganizationDesignation = pgTable(
   'organization_member_designations',
   {
     id: integer().primaryKey().generatedAlwaysAsIdentity(),
@@ -40,26 +40,26 @@ export const OrganizationMemberDesignation = pgTable(
 );
 
 export const organizationMemberDesignationRelation = relations(
-  OrganizationMemberDesignation,
+  OrganizationDesignation,
   ({ many, one }) => ({
     users: many(OrganizationMember),
     creator: one(User, {
-      fields: [OrganizationMemberDesignation.created_by],
+      fields: [OrganizationDesignation.created_by],
       references: [User.id]
     }),
     updator: one(User, {
-      fields: [OrganizationMemberDesignation.updated_by],
+      fields: [OrganizationDesignation.updated_by],
       references: [User.id]
     }),
     deleter: one(User, {
-      fields: [OrganizationMemberDesignation.deleted_by],
+      fields: [OrganizationDesignation.deleted_by],
       references: [User.id]
     })
   })
 );
 
-export interface SelectEmploymentTitleInterface
-  extends InferSelectModel<typeof OrganizationMemberDesignation> {}
+export interface SelectOrganizationMemberDesignationInterface
+  extends InferSelectModel<typeof OrganizationDesignation> {}
 
-export interface InsertEmploymentTitleInterface
-  extends InferInsertModel<typeof OrganizationMemberDesignation> {}
+export interface InsertOrganizationMemberDesignationInterface
+  extends InferInsertModel<typeof OrganizationDesignation> {}

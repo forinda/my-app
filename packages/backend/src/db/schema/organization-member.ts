@@ -7,7 +7,7 @@ import {
 } from 'drizzle-orm/pg-core';
 import { Organization } from './organization';
 import { User } from './user';
-import { OrganizationMemberDesignation } from './organization-member-designation';
+import { OrganizationDesignation } from './organization-member-designation';
 import { Department } from './department';
 import {
   foreignKeyConstraints,
@@ -30,7 +30,7 @@ export const OrganizationMember = pgTable(
       .references(() => User.id, foreignKeyConstraints),
     is_active: boolean().notNull().default(true),
     designation_id: integer().references(
-      () => OrganizationMemberDesignation.id,
+      () => OrganizationDesignation.id,
       foreignKeyConstraints
     ),
     department_id: integer().references(
@@ -53,9 +53,9 @@ export const OrganizationMember = pgTable(
 export const organizationMemberRelations = relations(
   OrganizationMember,
   ({ one }) => ({
-    role: one(OrganizationMemberDesignation, {
+    role: one(OrganizationDesignation, {
       fields: [OrganizationMember.designation_id],
-      references: [OrganizationMemberDesignation.id]
+      references: [OrganizationDesignation.id]
     }),
     user: one(User, {
       fields: [OrganizationMember.user_id],
