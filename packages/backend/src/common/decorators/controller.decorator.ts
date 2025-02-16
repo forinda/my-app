@@ -8,7 +8,29 @@ import { UUID } from '../utils/uuid';
 import { di } from '../di';
 import type { LoginAuthorityOption } from '../utils/controller-auth';
 import { controllerAuth } from '../utils/controller-auth';
-
+/**
+ * A decorator function for controllers that wraps specified HTTP methods
+ * (post, get, delete, patch, put, options, head) with additional functionality.
+ *
+ * This decorator modifies the target class's prototype methods to include
+ * request context handling and error handling.
+ *
+ * @returns {Function} A function that takes the target class as an argument
+ * and modifies its prototype methods.
+ *
+ * @example  ```typescript @Controller()
+ * class MyController {
+ *   async get(context: ApiRequestContext) {
+ *     // handle GET request
+ *   }
+ *
+ *   async post(context: ApiRequestContext) {
+ *     // handle POST request
+ *   }
+ * }
+ * ```
+ *
+ */
 export function Controller() {
   return function (
     target: any
@@ -84,6 +106,23 @@ type MethodProps = {
   auth?: LoginAuthorityOption;
 };
 
+/**
+ * A decorator function for API controller methods that provides various functionalities
+ * such as authentication, parameter transformation, IP injection, payload validation,
+ * and pagination extraction.
+ *
+ * @param {MethodProps} [props={}] - The properties to configure the decorator.
+ * @param {boolean | string | string[]} [props.auth] - Authentication configuration.
+ * @param {object} [props.transformParams] - Parameters to transform.
+ * @param {boolean} [props.injectIpInBody] - Whether to inject client IP into the request body.
+ * @param {Function} [props.auditPayloadInjector] - Function to inject audit payload.
+ * @param {boolean} [props.paginate] - Whether to extract pagination parameters.
+ * @param {object} [props.paramSchema] - Schema for validating request parameters.
+ * @param {object} [props.querySchema] - Schema for validating query parameters.
+ * @param {object} [props.bodySchema] - Schema for validating request body.
+ *
+ * @returns {Function} - A method decorator function.
+ */
 export function ApiControllerMethod(props: MethodProps = {}) {
   return function (target: any, key: string, descriptor: PropertyDescriptor) {
     const originalMethod = descriptor.value;
