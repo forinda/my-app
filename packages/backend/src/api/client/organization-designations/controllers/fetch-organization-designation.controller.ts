@@ -18,17 +18,11 @@ export class FetchOrganizationDesignationController extends BaseGetController {
 
   @ApiControllerMethod({
     paginate: true,
-    auth: true
+    auth: true,
+    bodyBindOrgId: true
   })
-  async get({
-    res,
-    pagination,
-    user,
-    current_organization_id
-  }: ApiRequestContext) {
-    console.log('current_organization_id', current_organization_id);
-
-    const feed = await this.service.get(user!.id!, pagination);
+  async get({ res, pagination, organization_id }: ApiRequestContext) {
+    const feed = await this.service.get(organization_id!, pagination);
 
     return createHttpResponse(res, { ...feed, statusCode: feed.status });
   }
