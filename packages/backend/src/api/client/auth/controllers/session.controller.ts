@@ -1,6 +1,6 @@
 import { BaseGetController } from '@/common/bases/controller';
 import {
-  ApiController,
+  Controller,
   ApiControllerMethod
 } from '@/common/decorators/controller.decorator';
 import { Dependency } from '@/common/di';
@@ -13,7 +13,7 @@ import type { LoginUserInput } from '../schema/schema';
 
 @injectable()
 @Dependency()
-@ApiController()
+@Controller()
 export class GetUserSessionController extends BaseGetController {
   @ApiControllerMethod({ auth: true })
   async get({ user, res }: ApiRequestContext<LoginUserInput>) {

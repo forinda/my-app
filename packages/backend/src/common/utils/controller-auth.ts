@@ -6,26 +6,10 @@ import { getSessionUser } from './get-sesion-user';
 export type LoginAuthorityOption = AuthorityType | AuthorityType[] | boolean;
 
 export function controllerAuth(context: ApiRequestContext) {
-  // const { req } = args[0] as ApiRequestContext;
-  // const user = await getSessionUser(req, { throwError: true });
-  // args[0].user = user;
-  // if (user!.sessions.length > 0) {
-  //   args[0].organization_id = user!.sessions[0].auth_session_organization_id;
-  // }
-  // if (user?.is_admin) {
-  //   return originalMethod.apply(this, args);
-  // }
   return async function (authority?: LoginAuthorityOption) {
-    console.log(
-      '[DEBUG] controllerAuth',
-      typeof authority === 'boolean' && authority
-        ? 'simple-auth'
-        : Array.isArray(authority)
-          ? authority.join(',')
-          : authority
-    );
+    const { req } = context;
 
-    const user = await getSessionUser(context.req, { throwError: true });
+    const user = await getSessionUser(req, { throwError: true });
 
     if (user) {
       if (user.sessions.length > 0) {

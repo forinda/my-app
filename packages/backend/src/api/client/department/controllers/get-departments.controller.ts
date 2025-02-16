@@ -1,6 +1,6 @@
 import { BaseGetController } from '@/common/bases/controller';
 import {
-  ApiController,
+  Controller,
   ApiControllerMethod
 } from '@/common/decorators/controller.decorator';
 import { Dependency } from '@/common/di';
@@ -11,7 +11,7 @@ import { createHttpResponse } from '@/common/utils/responder';
 
 @injectable()
 @Dependency()
-@ApiController()
+@Controller()
 export class GetDepartmentsController extends BaseGetController {
   @inject(FetchDepartmentService)
   private fetchDepartmentsService: FetchDepartmentService;

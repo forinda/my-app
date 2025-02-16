@@ -40,6 +40,7 @@ const router = createRouter({
         {
           path: '/organizations/:id',
           name: 'organization-id-layout',
+          meta: { title: 'Organization', requiresAuth: true },
           component: SingleOrgLayout,
           children: [
             {

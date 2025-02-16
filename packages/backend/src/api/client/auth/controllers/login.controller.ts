@@ -1,6 +1,6 @@
 import { BasePostController } from '@/common/bases/controller';
 import {
-  ApiController,
+  Controller,
   ApiControllerMethod
 } from '@/common/decorators/controller.decorator';
 import { Dependency } from '@/common/di';
@@ -16,7 +16,7 @@ import { loginUserSchema } from '../schema/schema';
 
 @injectable()
 @Dependency()
-@ApiController()
+@Controller()
 export class LoginUserController extends BasePostController {
   @inject(LoginUserService) private service: LoginUserService;
 

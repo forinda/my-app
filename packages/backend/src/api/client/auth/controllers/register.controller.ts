@@ -1,6 +1,6 @@
 import { BasePostController } from '@/common/bases/controller';
 import {
-  ApiController,
+  Controller,
   ApiControllerMethod
 } from '@/common/decorators/controller.decorator';
 import { Dependency } from '@/common/di';
@@ -14,7 +14,7 @@ import { RegisterUserService } from '../services/register.service';
 
 @injectable()
 @Dependency()
-@ApiController()
+@Controller()
 export class RegisterUserController extends BasePostController {
   @inject(RegisterUserService) private service: RegisterUserService;
 

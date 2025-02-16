@@ -64,10 +64,6 @@ export class RegisterUserService {
         .execute()
     )[0];
 
-    // return createHttpResponse(event, {
-    //   status: HttpStatus.CREATED,
-    //   data: rest
-    // });
     return {
       status: HttpStatus.CREATED,
       data: rest,

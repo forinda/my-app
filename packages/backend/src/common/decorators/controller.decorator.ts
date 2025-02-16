@@ -9,7 +9,7 @@ import { di } from '../di';
 import type { LoginAuthorityOption } from '../utils/controller-auth';
 import { controllerAuth } from '../utils/controller-auth';
 
-export function ApiController() {
+export function Controller() {
   return function (
     target: any
     //   key: string,
@@ -93,8 +93,13 @@ export function ApiControllerMethod(props: MethodProps = {}) {
       const [context] = args as [ApiRequestContext];
 
       try {
-        if (props.auth) await controllerAuth(context)(props.auth);
-        const { params, query } = context;
+        if (
+          typeof props.auth === 'boolean' ||
+          (Array.isArray(props.auth) && props.auth.length > 0) ||
+          (typeof props.auth === 'string' && props.auth.trim().length > 0)
+        )
+          await controllerAuth(context)(props.auth);
+
         const needToTransformParams =
           typeof props.transformParams === 'object' &&
           props.transformParams !== null
@@ -114,21 +119,23 @@ export function ApiControllerMethod(props: MethodProps = {}) {
         }
         if (needToTransformParams) {
           Object.keys(props.transformParams!).forEach((key) => {
-            context.body[props.transformParams![key]] = isNumber(params![key])
-              ? convertToNumber(params![key])
-              : params![key];
+            context.body[props.transformParams![key]] = isNumber(
+              context.req.params![key]
+            )
+              ? convertToNumber(context.req.params![key])
+              : context.req.params![key];
           });
         }
         const pagination = props.paginate
-          ? extractPaginationParams(query!)
+          ? extractPaginationParams(context.req.query!)
           : null;
 
         context.params = props.paramSchema
-          ? validator.validate(props.paramSchema, params)
-          : params;
+          ? validator.validate(props.paramSchema, context.req.params)
+          : context.req.params;
         context.query = props.querySchema
-          ? validator.validate(props.querySchema, query)
-          : query;
+          ? validator.validate(props.querySchema, context.req.query)
+          : context.req.query;
 
         context.body = props.bodySchema
           ? validator.validate(props.bodySchema, context.body)
@@ -137,6 +144,7 @@ export function ApiControllerMethod(props: MethodProps = {}) {
         if (pagination) {
           context.pagination = pagination;
         }
+        console.log('[ApiControllerMethod] calling original method');
 
         return originalMethod.apply(this, args);
       } catch (error) {

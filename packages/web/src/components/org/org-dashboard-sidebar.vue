@@ -1,11 +1,15 @@
 <script setup lang="ts">
-import { useOrganizations } from '@/composables/use-organizations'
 import type { DashboardSidebarMenuItem } from '@/types/dash'
-import { reactive } from 'vue'
+import {computed, reactive} from 'vue'
 // import type { DashboardSidebarMenuItem } from '~/types/dash';
 import orgSidebarMenuItem from './org-sidebar-menu-item.vue'
 import { Icon } from '@iconify/vue'
-const { currentOrg } = await useOrganizations()
+import { storeToRefs } from 'pinia'
+import {useAuthStore} from "@/stores/auth-store.ts";
+
+const authStore = useAuthStore()
+const {user} =storeToRefs(authStore)
+const currentOrg = computed(() => user.value!.sessions[0].organization!.name)
 
 const props = defineProps<{
   isSidebarOpen: boolean
@@ -86,9 +90,9 @@ const emit = defineEmits<{
     :class="isSidebarOpen ? 'w-64' : 'w-16'"
   >
     <div class="p-4 flex items-center justify-between">
-      <h1 v-if="isSidebarOpen" class="text-xl font-bold text-gray-800">
-        {{ currentOrg?.name }}
-      </h1>
+      <router-link :to="{name:'organizations-list'}" v-if="isSidebarOpen" class="text-xl font-bold text-gray-800">
+        {{ currentOrg}}
+      </router-link>
       <button @click="emit('toggleSidebar')" class="text-gray-500 hover:text-gray-700">
         <Icon
           :icon="isSidebarOpen ? 'lucide-panel-right-open' : 'lucide-panel-left-open'"
@@ -100,6 +104,7 @@ const emit = defineEmits<{
       <ul>
         <org-sidebar-menu-item
           v-for="item in menuItems"
+          :key="item.name"
           :is-sidebar-open="isSidebarOpen"
           :item="item"
           :route-path="routePath"

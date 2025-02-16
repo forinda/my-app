@@ -1,23 +1,29 @@
 <script setup lang="ts">
-import { useOrganizations } from '@/composables/use-organizations'
 import { ref, onMounted, computed } from 'vue'
 import { useRoute } from 'vue-router'
 import OrgDashboardSidebar from '@/components/org/org-dashboard-sidebar.vue'
 import OrgDashboardHeader from '@/components/org/org-dashboard-header.vue'
+import { useOrganizationStore } from '@/stores/organization-store'
+import {useAuthStore} from "@/stores/auth-store.ts";
 
-const { refresh, setCurrentOrganization } = await useOrganizations()
+const orgStore = useOrganizationStore()
+const authStore = useAuthStore()
 const route = useRoute()
 const isSidebarOpen = ref(true)
-const orgId = computed(() => route.params.id as string)
+
 const toggleSidebar = () => {
   isSidebarOpen.value = !isSidebarOpen.value
 }
-
-const currentRoute = computed(() => route.path)
+const currentRoute = route.path
+const organizationId = route.params.id as string
+// const currentRoute = computed(() => route.path)
 
 onMounted(async () => {
-  await refresh()
-  setCurrentOrganization(orgId.value)
+  await orgStore.refresh()
+ await authStore.setUserCurrentOrganization(organizationId,{
+    onSuccess:()=>authStore.getSession(true),
+    onError: () => {}
+  })
 })
 </script>
 
@@ -26,7 +32,7 @@ onMounted(async () => {
     <!-- Sidebar -->
     <org-dashboard-sidebar
       :isSidebarOpen="isSidebarOpen"
-      :org-id="orgId"
+      :org-id="organizationId"
       :route-path="currentRoute"
       @toggleSidebar="toggleSidebar"
     />

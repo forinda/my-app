@@ -1,5 +1,10 @@
 import type { GenderSchemaType } from '@/schema/gender-schema'
 import type { RouteMeta } from 'vue-router'
+
+type UserSession= {"id":number,
+  "auth_session_organization_id"?:string,
+  "organization"?:{
+    "id":number,"name":string}}
 export type SessionUserType = {
   id: number
   first_name: string
@@ -12,6 +17,7 @@ export type SessionUserType = {
   is_email_verified: boolean
   is_admin: boolean
   avatar: string
+  sessions:UserSession[]
 }
 
 export type RouteMetaType = RouteMeta & {

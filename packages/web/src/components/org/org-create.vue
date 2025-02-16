@@ -9,6 +9,10 @@ const emit = defineEmits<{
   (event: 'submit', ...args: any[]): void
   (event: 'close', ...args: any[]): void
 }>()
+
+const submit = (values: any) => {
+  emit('submit', values)
+}
 </script>
 <template>
   <transition-root appear :show="show" as="template">
@@ -43,7 +47,7 @@ const emit = defineEmits<{
                 Create Organization
               </dialog-title>
               <div class="mt-2">
-                <modal-form-create-org @submit="emit('submit')" />
+                <modal-form-create-org @submit="submit" />
               </div>
             </dialog-panel>
           </transition-child>

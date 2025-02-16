@@ -2,24 +2,25 @@ import { useAxios } from '@/composables/use-axios'
 import type { LoginUserSchemaType } from '@/schema/login-schema'
 import type { SessionUserType } from '@/types/session'
 import type { ResponseObject } from '@/types/utils'
+import { extractAxiosError } from '@/utils/extract-axios-error'
 import { decodeArrayBuffer } from '@/utils/resp-decode'
 import { defineStore } from 'pinia'
 import { computed, ref } from 'vue'
-
 export const useAuthStore = defineStore('auth:user', () => {
+
   const user = ref<SessionUserType | null>(null)
-  const isAthenticated = computed(() => user.value !== null)
+  const isAuthenticated = computed(() => user.value !== null)
   const setUser = (newUser: SessionUserType | null) => {
     // console.warn('[useAuthUser] Setting user:', newUser)
     user.value = newUser
   }
   const axios = useAxios()
 
-  type LoginOptions<Data = any, Err = Error> = {
-    onSuccess?: (data: Data) => void
-    onError?: (error: string) => void
+  type CallbackOptions<Data = unknown, Err = Error> = {
+    onSuccess?: (data: Data) => void|Promise<void>
+    onError?: (error: string) => void|Promise<void>
   }
-  const loginUser = async (values: LoginUserSchemaType, options: LoginOptions<any> = {}) => {
+  const loginUser = async (values: LoginUserSchemaType, options: CallbackOptions<any> = {}) => {
     try {
       const { data } = await axios.post<ArrayBuffer>('/auth/login', values, {
         // responseType: 'arraybuffer',
@@ -31,14 +32,14 @@ export const useAuthStore = defineStore('auth:user', () => {
       // setUser(decodedData.data)
 
       if (options.onSuccess && typeof options.onSuccess === 'function') {
-        options.onSuccess(decodedData)
+       await options.onSuccess(decodedData)
       }
       return
     } catch (error: any) {
-      console.log(error)
+      // console.log(error)
 
       if (options.onError && typeof options.onError === 'function') {
-        options.onError(error?.response?.data?.message ?? error.message)
+       await options.onError(extractAxiosError(error)!)
       }
     }
   }
@@ -48,18 +49,35 @@ export const useAuthStore = defineStore('auth:user', () => {
     setUser(null)
   }
 
-  const getSession = async () => {
-    if (user.value) return
+  const getSession = async (flush=false) => {
+    if (user.value && !flush
+    ) return
     try {
       const resp = await axios.get<ArrayBuffer>('/auth/session', {
         method: 'GET',
         responseType: 'arraybuffer',
       })
       setUser(decodeArrayBuffer<ResponseObject<SessionUserType>>(resp.data).data)
-    } catch (error: any) {
+    } catch (_error: unknown) {
       setUser(null)
+      // console.log({ error })
+
+      // await router.push({ name: 'auth-logout' })
     }
   }
 
-  return { user, setUser, isAthenticated, loginUser, logout, getSession }
+  const setUserCurrentOrganization = async (organizationId: string, options?: CallbackOptions) => {
+    try {
+      const feed = await axios.post('/auth/set-org', { organization_id: organizationId })
+      if (options!.onSuccess && typeof options!.onSuccess === 'function') {
+        await  options!.onSuccess(feed)
+      }
+    } catch (error: unknown) {
+      if (options!.onError && typeof options!.onError === 'function') {
+       await options!.onError(extractAxiosError(error)!)
+      }
+    }
+  }
+
+  return { user, setUser,  isAuthenticated, loginUser, logout, getSession,  setUserCurrentOrganization }
 })

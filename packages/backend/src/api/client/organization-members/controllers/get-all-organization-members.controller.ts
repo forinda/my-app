@@ -1,6 +1,6 @@
 import { BaseGetController } from '@/common/bases/controller';
 import {
-  ApiController,
+  Controller,
   ApiControllerMethod
 } from '@/common/decorators/controller.decorator';
 import { Dependency } from '@/common/di';
@@ -11,7 +11,7 @@ import { GetOrganizationMembersService } from '../services/get-organization-memb
 
 @injectable()
 @Dependency()
-@ApiController()
+@Controller()
 export class GetAllOrganizationMembersController extends BaseGetController {
   @inject(GetOrganizationMembersService)
   private memberService: GetOrganizationMembersService;

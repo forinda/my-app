@@ -1,6 +1,6 @@
 import { BasePostController } from '@/common/bases/controller';
 import {
-  ApiController,
+  Controller,
   ApiControllerMethod
 } from '@/common/decorators/controller.decorator';
 import { Dependency } from '@/common/di';
@@ -13,7 +13,7 @@ import { Config } from '@/common/config';
 
 @injectable()
 @Dependency()
-@ApiController()
+@Controller()
 export class UserLogoutController extends BasePostController {
   @inject(Config) private conf: Config;
 

@@ -1,6 +1,6 @@
 import { BasePostController } from '@/common/bases/controller';
 import {
-  ApiController,
+  Controller,
   ApiControllerMethod
 } from '@/common/decorators/controller.decorator';
 import { Dependency } from '@/common/di';
@@ -15,7 +15,7 @@ import { populateUserMetadata } from '@/common/utils/request-pyload-injector';
 
 @injectable()
 @Dependency()
-@ApiController()
+@Controller()
 export class CreateOrganizationController extends BasePostController {
   @inject(CreateOrganizationService)
   private createUserService: CreateOrganizationService;

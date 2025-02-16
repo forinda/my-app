@@ -1,6 +1,6 @@
 import { BasePostController } from '@/common/bases/controller';
 import {
-  ApiController,
+  Controller,
   ApiControllerMethod
 } from '@/common/decorators/controller.decorator';
 import { Dependency } from '@/common/di';
@@ -14,7 +14,7 @@ import { UpdateDepartmentService } from '../services/update-department.service';
 
 @injectable()
 @Dependency()
-@ApiController()
+@Controller()
 export class CreateOrganizationController extends BasePostController {
   @inject(UpdateDepartmentService)
   private createUserService: UpdateDepartmentService;

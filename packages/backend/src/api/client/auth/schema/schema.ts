@@ -12,7 +12,7 @@ export const registerUserSchema = z.object({
   username: z.string({
     message: 'Username is required'
   }),
-  gender: z.enum(['Male', 'Female', 'Other']).default('Other'),
+  gender: z.enum(['Male', 'Female', 'Other']),
   phone_number: z
     .string({
       message: 'Phone number is required'
@@ -58,6 +58,14 @@ export const loginUserSchema = z.object({
   ip: z.string({ message: 'IP address is required' })
 });
 
+export const validateSwitchOrganizationSchema = z.object({
+  organization_id: z.string({ message: 'Organization ID is required' })
+});
+
 export type LoginUserInput = z.infer<typeof loginUserSchema>;
 
 export type RegisterUserInput = z.infer<typeof registerUserSchema>;
+
+export type ValidateSwitchOrganizationInput = z.infer<
+  typeof validateSwitchOrganizationSchema
+>;

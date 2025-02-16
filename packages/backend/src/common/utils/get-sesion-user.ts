@@ -15,7 +15,7 @@ export async function getSessionUser(
 ) {
   const conf = di.get(Config);
   const db = useDrizzle();
-  // const cookies = request.cookies;
+
   const cookie = request.cookies[conf.conf.SESSION_COOKIE_NAME];
 
   if (!cookie) {
@@ -42,10 +42,11 @@ export async function getSessionUser(
     uid: string;
   }>(unsignedSession);
 
-  const user = await db.query.User.findFirst({
+  return await db.query.User.findFirst({
     where: eq(User.uuid, session.uid),
     columns: {
       id: true,
+      uuid: true,
       first_name: true,
       last_name: true,
       email: true,
@@ -74,8 +75,6 @@ export async function getSessionUser(
       }
     }
   });
-
-  return user;
 }
 
 export type SessionUser = Promised<ReturnType<typeof getSessionUser>>;

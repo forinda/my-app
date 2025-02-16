@@ -6,6 +6,7 @@ import type {
   RouteLocationNormalizedGeneric,
   RouteLocationNormalizedLoadedGeneric,
 } from 'vue-router'
+import {storeToRefs} from "pinia";
 
 export function routeAfterEach(
   _to: RouteLocationNormalizedGeneric,
@@ -23,11 +24,12 @@ export async function routeBeforeEach(
   _from: RouteLocationNormalizedLoadedGeneric,
   next: NavigationGuardNext,
 ) {
-  // console.log('[router.beforeEach] to:', to.path)
   const { requiresAuth } = to.meta as RouteMetaType
   const auth = useAuthStore()
+  const {isAuthenticated } = storeToRefs(auth)
   await auth.getSession()
-  if (requiresAuth && !auth.isAthenticated) {
+
+  if (requiresAuth && !isAuthenticated.value) {
     return next({ name: 'auth-login' })
   }
   next()

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useNotification } from '@/composables/use-notification'
 
-import { typedRegisterUserSchema, type RegisterUserSchemaType } from '@/schema/register-user-schema'
+import { typedRegisterUserSchema } from '@/schema/register-user-schema'
 import type { CreateAccountResponseType } from '@/types/resp'
 import { AxiosError } from 'axios'
 import { Form } from 'vee-validate'
@@ -9,11 +9,12 @@ import { useRouter } from 'vue-router'
 import FormTextInput from '@/components/form/form-text-input.vue'
 import FormPasswordInput from '@/components/form/form-password-input.vue'
 import { useAxios } from '@/composables/use-axios'
+import {extractAxiosError} from "@/utils/extract-axios-error.ts";
 
 const { $swal } = useNotification()
 const router = useRouter()
 const axios = useAxios()
-const submit = async (values: RegisterUserSchemaType) => {
+const submit = async (values: unknown) => {
   try {
     const { data } = await axios.post<CreateAccountResponseType>(
       '/auth/register',
@@ -32,11 +33,11 @@ const submit = async (values: RegisterUserSchemaType) => {
     await router.push({ name: 'auth-login' })
   } catch (error) {
     if (error instanceof AxiosError) {
-      const errmsg = error.response?.data?.message ?? error.message ?? 'An error occurred'
+      // const message = error.response?.data?.message ?? error.message ?? 'An error occurred'
 
       await $swal.fire({
         title: 'Error',
-        text: errmsg,
+        text: (extractAxiosError(error))!,
         icon: 'error',
       })
     }
@@ -48,7 +49,7 @@ const submit = async (values: RegisterUserSchemaType) => {
     <Form
       action=""
       :validation-schema="typedRegisterUserSchema"
-      v-on:submit="submit($event)"
+      v-on:submit="submit"
       class="w-full max-w-xl border border-gray-300 rounded-md shadow-sm p-6 flex flex-col gap-4"
     >
       <div>
