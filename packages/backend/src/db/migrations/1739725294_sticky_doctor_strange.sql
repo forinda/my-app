@@ -1,0 +1,1 @@
+ALTER TABLE "department_user_roles" DROP COLUMN IF EXISTS "status";

@@ -1,5 +1,5 @@
 // import { relations } from "drizzle-orm";
-import { boolean, date, integer, pgTable, varchar } from 'drizzle-orm/pg-core';
+import { boolean, date, integer, pgTable } from 'drizzle-orm/pg-core';
 import { Department } from './department';
 import {
   foreignKeyConstraints,
@@ -13,9 +13,6 @@ import { relations } from 'drizzle-orm';
 export const DepartmentUserRole = pgTable('department_user_roles', {
   id: integer().primaryKey().generatedAlwaysAsIdentity(),
   is_active: boolean().notNull().default(true),
-  status: varchar({ enum: ['active', 'inactive'] })
-    .notNull()
-    .default('active'),
   department_id: integer()
     .references(() => Department.id, foreignKeyConstraints)
     .notNull(),
@@ -73,7 +70,7 @@ export const departmentStaffRoleRelation = relations(
   })
 );
 
-export interface IDepartmentRole
+export interface InsertDepartmentRoleInterface
   extends InferInsertModel<typeof DepartmentUserRole> {}
 
 export interface SelectDepartmentRoleInterface
