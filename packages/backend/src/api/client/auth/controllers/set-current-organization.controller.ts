@@ -19,7 +19,7 @@ export class SetCurrentOrganizationSessionIdController extends BasePostControlle
   private service: SetCurrentOrganizationSessionIdService;
 
   @ApiControllerMethod({
-    auth: true,
+    auth: ['users:create', 'role:create'],
     bodySchema: validateSwitchOrganizationSchema
   })
   async post({

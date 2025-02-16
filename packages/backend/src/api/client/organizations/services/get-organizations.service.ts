@@ -8,7 +8,7 @@ import { eq, inArray } from 'drizzle-orm';
 
 @injectable()
 @Dependency()
-export class GetOrganizationsService {
+export class FetchUserOrganizationsService {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   async get(user_id: number, _?: ApiPaginationParams) {
     const db = useDrizzle();

@@ -1,8 +1,6 @@
 import type { ApiRequestContext } from '../interfaces/controller';
 
-export function populateUserMetadata(
-  injectionType: 'create' | 'update' | 'delete'
-) {
+export function userAudit(injectionType: 'create' | 'update' | 'delete') {
   return (context: ApiRequestContext) => {
     console.log(`[populateUserMetadata] injectionType: ${injectionType}`);
 

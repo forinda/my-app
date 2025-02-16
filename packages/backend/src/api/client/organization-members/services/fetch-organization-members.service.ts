@@ -4,24 +4,27 @@ import { useDrizzle } from '@/db';
 import { HttpStatus } from '@/common/http';
 import { Dependency } from '@/common/di';
 import { UUID } from '@/common/utils/uuid';
-import { and, eq } from 'drizzle-orm';
+import { eq } from 'drizzle-orm';
+import type { FilterOrganizationmembersType } from '../schema';
+import type { ApiPaginationParams } from '@/common/utils/pagination';
 
 @injectable()
 @Dependency()
-export class GetOrganizationMembersService {
+export class FetchOrganizationMembersService {
   @inject(UUID) private uuid: UUID;
-  async get(user_id: number, organizationId: string) {
-    this.uuid.validateUUID(organizationId!, { throwError: true });
+  async get(
+    query: FilterOrganizationmembersType,
+    _pagination: ApiPaginationParams
+  ) {
+    this.uuid.validateUUID(query.current_organization_id!, {
+      throwError: true
+    });
     const db = useDrizzle();
-    // const pagination = paginateQuery(getQuery(event));
     const organization = await db.query.Organization.findFirst({
-      where: eq(Organization.uuid, organizationId!)
+      where: eq(Organization.uuid, query.current_organization_id!)
     });
     const organizationmembers = await db.query.OrganizationMember.findMany({
-      where: and(
-        eq(OrganizationMember.organization_id, organization!.id!),
-        eq(OrganizationMember.user_id, user_id)
-      ),
+      where: eq(OrganizationMember.organization_id, organization!.id!),
       with: {
         user: {
           columns: {
@@ -56,7 +59,9 @@ export class GetOrganizationMembersService {
             id: true
           }
         }
-      }
+      },
+      limit: _pagination.limit,
+      offset: _pagination.offset
     });
 
     return {

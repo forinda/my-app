@@ -1,20 +1,20 @@
 import { di } from '@/common/di';
 import { Router } from 'express';
-import { GetAllOrganizationsController } from './controllers';
-import { CreateOrganizationController } from './controllers/create-organization.controller';
-import { GetAllOrganizationMembersController } from './controllers/get-all-organization-members.controller';
+import { FetchOrganizationMembersController } from './controllers/fetch-organization-members.controller';
+import { RemoveOrganizationMembersController } from './controllers/remove-organization-member.controller';
+import { AddOrganizationMemberController } from './controllers/add-organization-member.controller';
 
 type Props = {
   app: Router;
 };
 
-export function setupOrganizationRoutes({ app }: Props) {
+export function setupOrganizationMemberRoutes({ app }: Props) {
   const router = Router();
 
   router
-    .get('/', di.resolve(GetAllOrganizationsController).get)
-    .post('/', di.resolve(CreateOrganizationController).post)
-    .get('/:id/members', di.resolve(GetAllOrganizationMembersController).get);
+    .get('/', di.resolve(FetchOrganizationMembersController).get)
+    .post('/add', di.resolve(AddOrganizationMemberController).post)
+    .post('/remove', di.resolve(RemoveOrganizationMembersController).post);
 
-  app.use('/organizations', router);
+  app.use('/organization-members', router);
 }

@@ -102,8 +102,9 @@ type MethodProps = {
   transformParams?: {
     [queryParameterKey: string]: string;
   };
-  auditPayloadInjector?: (context: ApiRequestContext) => ApiRequestContext;
+  audit?: (context: ApiRequestContext) => ApiRequestContext;
   auth?: LoginAuthorityOption;
+  bodyBindOrgId?: boolean;
 };
 
 /**
@@ -153,10 +154,11 @@ export function ApiControllerMethod(props: MethodProps = {}) {
             Object.assign(context.body, { ip: clientIp });
           }
         }
-        if (typeof props.auditPayloadInjector === 'function') {
-          props.auditPayloadInjector(context);
+        if (typeof props.audit === 'function') {
+          props.audit(context);
         }
         if (needToTransformParams) {
+          // Optinally we can use z.coerce to coerce all the values to the correct primitives
           Object.keys(props.transformParams!).forEach((key) => {
             context.body[props.transformParams![key]] = isNumber(
               context.req.params![key]
@@ -183,7 +185,6 @@ export function ApiControllerMethod(props: MethodProps = {}) {
         if (pagination) {
           context.pagination = pagination;
         }
-        console.log('[ApiControllerMethod] calling original method');
 
         return originalMethod.apply(this, args);
       } catch (error) {

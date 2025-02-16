@@ -19,7 +19,7 @@ export function TransactionalService() {
         }
         const context: TransactionContext = {
           data: args[0]?.['data'],
-          transaction: tx as any
+          transaction: tx
         };
         const result = await originalMethod.apply(this, [context]);
 
