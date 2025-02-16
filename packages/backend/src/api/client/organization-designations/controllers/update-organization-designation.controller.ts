@@ -23,7 +23,7 @@ export class UpdateOrganizationDesignationController extends BasePutController {
     bodySchema: updateOrganizationDesignationSchema,
     audit: userAudit('update'),
     auth: true,
-    transformParams: {
+    pathParamTransform: {
       designation_id: 'id'
     }
   })

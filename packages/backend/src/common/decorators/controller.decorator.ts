@@ -99,8 +99,8 @@ type MethodProps = {
   paginate?: boolean;
   injectIpInBody?: boolean;
   //We need to transform the query to the body
-  transformParams?: {
-    [queryParameterKey: string]: string;
+  pathParamTransform?: {
+    [PathParameKeys: string]: string;
   };
   audit?: (context: ApiRequestContext) => ApiRequestContext;
   auth?: LoginAuthorityOption;
@@ -114,7 +114,7 @@ type MethodProps = {
  *
  * @param {MethodProps} [props={}] - The properties to configure the decorator.
  * @param {boolean | string | string[]} [props.auth] - Authentication configuration.
- * @param {object} [props.transformParams] - Parameters to transform.
+ * @param {object} [props.pathParamTransform] - Parameters to transform.
  * @param {boolean} [props.injectIpInBody] - Whether to inject client IP into the request body.
  * @param {Function} [props.auditPayloadInjector] - Function to inject audit payload.
  * @param {boolean} [props.paginate] - Whether to extract pagination parameters.
@@ -141,9 +141,9 @@ export function ApiControllerMethod(props: MethodProps = {}) {
           await controllerAuth(context, props.bodyBindOrgId)(props.auth);
 
         const needToTransformParams =
-          typeof props.transformParams === 'object' &&
-          props.transformParams !== null
-            ? Object.keys(props.transformParams).length > 0
+          typeof props.pathParamTransform === 'object' &&
+          props.pathParamTransform !== null
+            ? Object.keys(props.pathParamTransform).length > 0
             : false;
         const clientIp = new IpFinder().getClientIp(context.req);
 
@@ -159,8 +159,8 @@ export function ApiControllerMethod(props: MethodProps = {}) {
         }
         if (needToTransformParams) {
           // Optinally we can use z.coerce to coerce all the values to the correct primitives
-          Object.keys(props.transformParams!).forEach((key) => {
-            context.body[props.transformParams![key]] = isNumber(
+          Object.keys(props.pathParamTransform!).forEach((key) => {
+            context.body[props.pathParamTransform![key]] = isNumber(
               context.req.params![key]
             )
               ? convertToNumber(context.req.params![key])

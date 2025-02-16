@@ -8,22 +8,22 @@ import { HttpStatus } from '@/common/http';
 import type { ApiRequestContext } from '@/common/interfaces/controller';
 import { inject, injectable } from 'inversify';
 
-import type { NewDepartmentPayload } from '../schema/schema';
-import { newDepartmentSchema } from '../schema/schema';
-import { DepartmentCreationService } from '../services/create-department.service';
+import type { DepartmentTitleCreationRequest } from '../schema/schema';
+import { newDepartmentTitleSchema } from '../schema/schema';
+import { CreateNewDepartmentTitleService } from '../services/create-department-title.service';
 
 @injectable()
 @Dependency()
 @Controller()
-export class NewDepartmentController extends BasePostController {
-  @inject(DepartmentCreationService)
-  private service: DepartmentCreationService;
+export class CreateDepartmentTitleController extends BasePostController {
+  @inject(CreateNewDepartmentTitleService)
+  private service: CreateNewDepartmentTitleService;
   @ApiControllerMethod({
-    bodySchema: newDepartmentSchema,
-    pathParamTransform: {},
-    auth: true
+    bodySchema: newDepartmentTitleSchema,
+    auth: true,
+    bodyBindOrgId: true
   })
-  async post({ res, body }: ApiRequestContext<NewDepartmentPayload>) {
+  async post({ res, body }: ApiRequestContext<DepartmentTitleCreationRequest>) {
     const feedback = await this.service.create({ data: body! });
 
     return res.status(HttpStatus.CREATED).json(feedback);

@@ -6,7 +6,7 @@ import {
   getTableTimestamps
 } from '@/common/utils/drizzle';
 import { User } from './user';
-import { DepartmentRoleTitle } from './department-role-title';
+import { DepartmentTitle } from './department-role-title';
 import type { InferInsertModel, InferSelectModel } from 'drizzle-orm';
 import { relations } from 'drizzle-orm';
 
@@ -23,7 +23,7 @@ export const DepartmentUserRole = pgTable('department_user_roles', {
     .references(() => User.id, foreignKeyConstraints)
     .notNull(),
   role_title_id: integer()
-    .references(() => DepartmentRoleTitle.id, foreignKeyConstraints)
+    .references(() => DepartmentTitle.id, foreignKeyConstraints)
     .notNull(),
   start_date: date({ mode: 'string' }).notNull(),
   end_date: date({ mode: 'string' }),
@@ -50,9 +50,9 @@ export const departmentStaffRoleRelation = relations(
       references: [Department.id]
       // relationName
     }),
-    role_title: one(DepartmentRoleTitle, {
+    role_title: one(DepartmentTitle, {
       fields: [DepartmentUserRole.role_title_id],
-      references: [DepartmentRoleTitle.id]
+      references: [DepartmentTitle.id]
       // relationName
     }),
     creator: one(User, {

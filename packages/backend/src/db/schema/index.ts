@@ -20,4 +20,8 @@ export * from './role-permission';
 
 export * from './user-role';
 
+export * from './department-role-title';
+
+export * from './department-user-role';
+
 export * from './auth-session';

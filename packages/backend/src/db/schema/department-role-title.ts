@@ -1,5 +1,11 @@
 // import { relations } from "drizzle-orm";
-import { boolean, integer, pgTable, varchar } from 'drizzle-orm/pg-core';
+import {
+  boolean,
+  integer,
+  pgTable,
+  unique,
+  varchar
+} from 'drizzle-orm/pg-core';
 import { User } from './user';
 import {
   foreignKeyConstraints,
@@ -9,45 +15,49 @@ import type { InferInsertModel, InferSelectModel } from 'drizzle-orm';
 import { relations } from 'drizzle-orm';
 import { Organization } from './organization';
 
-export const DepartmentRoleTitle = pgTable('department_role_titles', {
-  id: integer().primaryKey().generatedAlwaysAsIdentity(),
-  name: varchar().notNull(),
-  description: varchar(),
-  is_active: boolean().notNull().default(true),
-  organization_id: integer()
-    .notNull()
-    .references(() => Organization.id, foreignKeyConstraints),
-  created_by: integer()
-    .references(() => User.id, foreignKeyConstraints)
-    .notNull(),
-  updated_by: integer()
-    .references(() => User.id, foreignKeyConstraints)
-    .notNull(),
-  deleted_by: integer().references(() => User.id, foreignKeyConstraints),
-  ...getTableTimestamps()
-});
+export const DepartmentTitle = pgTable(
+  'department_role_titles',
+  {
+    id: integer().primaryKey().generatedAlwaysAsIdentity(),
+    name: varchar().notNull(),
+    description: varchar(),
+    is_active: boolean().notNull().default(true),
+    organization_id: integer()
+      .notNull()
+      .references(() => Organization.id, foreignKeyConstraints),
+    created_by: integer()
+      .references(() => User.id, foreignKeyConstraints)
+      .notNull(),
+    updated_by: integer()
+      .references(() => User.id, foreignKeyConstraints)
+      .notNull(),
+    deleted_by: integer().references(() => User.id, foreignKeyConstraints),
+    ...getTableTimestamps()
+  },
+  (table) => [unique().on(table.name, table.organization_id)]
+);
 
 export const departmentStaffRoleTitleRelation = relations(
-  DepartmentRoleTitle,
+  DepartmentTitle,
   ({ one }) => ({
     cxreator: one(User, {
-      fields: [DepartmentRoleTitle.created_by],
+      fields: [DepartmentTitle.created_by],
       references: [User.id]
     }),
     updater: one(User, {
-      fields: [DepartmentRoleTitle.updated_by],
+      fields: [DepartmentTitle.updated_by],
       references: [User.id]
     }),
     deleter: one(User, {
-      fields: [DepartmentRoleTitle.deleted_by],
+      fields: [DepartmentTitle.deleted_by],
       references: [User.id]
     })
   })
 );
 
-export interface InsertDepartmentRoleTitleInterface
-  extends InferInsertModel<typeof DepartmentRoleTitle> {}
+export interface InsertDepartmentTitleInterface
+  extends InferInsertModel<typeof DepartmentTitle> {}
 
-export type SelectDepartmentRoleTitleInterface = InferSelectModel<
-  typeof DepartmentRoleTitle
+export type SelectDepartmentTitleInterface = InferSelectModel<
+  typeof DepartmentTitle
 >;
