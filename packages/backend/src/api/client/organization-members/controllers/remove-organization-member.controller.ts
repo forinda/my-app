@@ -16,7 +16,7 @@ import { addMemberToOrRemoveFromOrgSchema } from '../schema';
 @Controller()
 export class RemoveOrganizationMembersController extends BasePostController {
   @inject(RemoveOrganizationMemberService)
-  private memberService: RemoveOrganizationMemberService;
+  private service: RemoveOrganizationMemberService;
 
   @ApiControllerMethod({
     auth: true,
@@ -27,7 +27,7 @@ export class RemoveOrganizationMembersController extends BasePostController {
     body: data,
     current_organization_id
   }: ApiRequestContext<AddMemberToOrRemoveFromOrganizationType>) {
-    const feed = await this.memberService.remove({
+    const feed = await this.service.remove({
       data: { ...data!, organization_id: current_organization_id! }
     });
 

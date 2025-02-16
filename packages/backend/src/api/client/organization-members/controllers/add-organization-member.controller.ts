@@ -18,7 +18,7 @@ import { createOrganizationSchema } from '../../organizations/schema/schema';
 @Controller()
 export class AddOrganizationMemberController extends BasePostController {
   @inject(AddOrganizationMemberService)
-  private createUserService: AddOrganizationMemberService;
+  private service: AddOrganizationMemberService;
   @ApiControllerMethod({
     bodySchema: createOrganizationSchema,
     auth: true,
@@ -28,7 +28,7 @@ export class AddOrganizationMemberController extends BasePostController {
     res,
     body
   }: ApiRequestContext<AddMemberToOrRemoveFromOrganizationType>) {
-    const feedback = await this.createUserService.add({ data: body! });
+    const feedback = await this.service.add({ data: body! });
 
     return res.status(HttpStatus.CREATED).json(feedback);
   }

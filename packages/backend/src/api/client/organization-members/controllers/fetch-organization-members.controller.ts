@@ -14,7 +14,7 @@ import { FetchOrganizationMembersService } from '../services/fetch-organization-
 @Controller()
 export class FetchOrganizationMembersController extends BaseGetController {
   @inject(FetchOrganizationMembersService)
-  private getUsersService: FetchOrganizationMembersService;
+  private service: FetchOrganizationMembersService;
 
   @ApiControllerMethod({
     paginate: true,
@@ -26,7 +26,7 @@ export class FetchOrganizationMembersController extends BaseGetController {
     current_organization_id,
     query
   }: ApiRequestContext) {
-    const feed = await this.getUsersService.get(
+    const feed = await this.service.get(
       { current_organization_id: current_organization_id!, ...query },
       pagination!
     );
