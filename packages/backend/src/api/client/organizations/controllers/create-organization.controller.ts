@@ -18,14 +18,14 @@ import { userAudit } from '@/common/utils/user-request-audit';
 @Controller()
 export class CreateOrganizationController extends BasePostController {
   @inject(CreateOrganizationService)
-  private createUserService: CreateOrganizationService;
+  private service: CreateOrganizationService;
   @ApiControllerMethod({
     bodySchema: createOrganizationSchema,
     audit: userAudit('create'),
     auth: true
   })
   async post({ res, body }: ApiRequestContext<CreateOrganizationInputType>) {
-    const feedback = await this.createUserService.create({ data: body! });
+    const feedback = await this.service.create({ data: body! });
 
     return res.status(HttpStatus.CREATED).json(feedback);
   }

@@ -17,14 +17,14 @@ import { DepartmentCreationService } from '../services/create-department.service
 @Controller()
 export class NewDepartmentController extends BasePostController {
   @inject(DepartmentCreationService)
-  private createDeptService: DepartmentCreationService;
+  private service: DepartmentCreationService;
   @ApiControllerMethod({
     bodySchema: newDepartmentSchema,
     transformParams: {},
     auth: true
   })
   async post({ res, body }: ApiRequestContext<NewDepartmentPayload>) {
-    const feedback = await this.createDeptService.create({ data: body! });
+    const feedback = await this.service.create({ data: body! });
 
     return res.status(HttpStatus.CREATED).json(feedback);
   }

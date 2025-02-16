@@ -1,8 +1,8 @@
 import { di } from '@/common/di';
 import { Router } from 'express';
 import { NewDepartmentController } from './controllers/create-department.controller';
-import { GetAllOrganizationMembersController } from './controllers/get-all-organization-members.controller';
 import { FetchOrganizationsController } from '../organizations/controllers/get-organizations.controller';
+import { UpdateDepartmentController } from './controllers/update-department.controller';
 
 type Props = {
   app: Router;
@@ -14,7 +14,7 @@ export function setupDepartmentRoutes({ app }: Props) {
   router
     .get('/', di.resolve(FetchOrganizationsController).get)
     .post('/', di.resolve(NewDepartmentController).post)
-    .get('/:id/members', di.resolve(GetAllOrganizationMembersController).get);
+    .put('/:id/members', di.resolve(UpdateDepartmentController).put);
 
   app.use('/department', router);
 }

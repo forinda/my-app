@@ -14,21 +14,14 @@ import { createHttpResponse } from '@/common/utils/responder';
 @Controller()
 export class FetchOrganizationsController extends BaseGetController {
   @inject(FetchUserOrganizationsService)
-  private getUsersService: FetchUserOrganizationsService;
+  private service: FetchUserOrganizationsService;
 
   @ApiControllerMethod({
     paginate: true,
     auth: true
   })
-  async get({
-    res,
-    pagination,
-    user,
-    current_organization_id
-  }: ApiRequestContext) {
-    console.log('current_organization_id', current_organization_id);
-
-    const feed = await this.getUsersService.get(user!.id!, pagination);
+  async get({ res, pagination, user }: ApiRequestContext) {
+    const feed = await this.service.get(user!.id!, pagination);
 
     return createHttpResponse(res, { ...feed, statusCode: feed.status });
   }

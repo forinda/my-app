@@ -1,4 +1,4 @@
-import { BasePostController } from '@/common/bases/controller';
+import { BasePutController } from '@/common/bases/controller';
 import {
   Controller,
   ApiControllerMethod
@@ -15,15 +15,15 @@ import { UpdateDepartmentService } from '../services/update-department.service';
 @injectable()
 @Dependency()
 @Controller()
-export class CreateOrganizationController extends BasePostController {
+export class UpdateDepartmentController extends BasePutController {
   @inject(UpdateDepartmentService)
-  private createUserService: UpdateDepartmentService;
+  private service: UpdateDepartmentService;
   @ApiControllerMethod({
     bodySchema: updateDepartmentSchema,
     auth: true
   })
-  async post({ res, body }: ApiRequestContext<UpdateDepartmentPayload>) {
-    const feedback = await this.createUserService.update({ data: body! });
+  async put({ res, body }: ApiRequestContext<UpdateDepartmentPayload>) {
+    const feedback = await this.service.update({ data: body! });
 
     return res.status(HttpStatus.CREATED).json(feedback);
   }

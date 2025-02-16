@@ -14,14 +14,14 @@ import { createHttpResponse } from '@/common/utils/responder';
 @Controller()
 export class GetDepartmentsController extends BaseGetController {
   @inject(FetchDepartmentService)
-  private fetchDepartmentsService: FetchDepartmentService;
+  private service: FetchDepartmentService;
 
   @ApiControllerMethod({
     paginate: true,
     auth: true
   })
   async get({ res, pagination, user }: ApiRequestContext) {
-    const feed = await this.fetchDepartmentsService.get(user!.id!, pagination);
+    const feed = await this.service.get(user!.id!, pagination);
 
     return createHttpResponse(res, { ...feed, statusCode: feed.status });
   }
