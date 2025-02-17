@@ -1,15 +1,15 @@
 <script setup lang="ts">
 import type { DashboardSidebarMenuItem } from '@/types/dash'
-import {computed, reactive} from 'vue'
+import { computed, reactive } from 'vue'
 // import type { DashboardSidebarMenuItem } from '~/types/dash';
 import orgSidebarMenuItem from './org-sidebar-menu-item.vue'
 import { Icon } from '@iconify/vue'
 import { storeToRefs } from 'pinia'
-import {useAuthStore} from "@/stores/auth-store.ts";
+import { useAuthStore } from '@/stores/auth-store.ts'
 
 const authStore = useAuthStore()
-const {user} =storeToRefs(authStore)
-const currentOrg = computed(() => user.value!.sessions[0].organization!.name)
+const { user } = storeToRefs(authStore)
+const currentOrg = computed(() => user.value!.sessions[0].organization?.name ?? 'N/A')
 
 const props = defineProps<{
   isSidebarOpen: boolean
@@ -36,6 +36,28 @@ const menuItems = reactive<DashboardSidebarMenuItem[]>([
         name: 'Reports',
         icon: 'lucide-chart-bar',
         route: `/organizations/${props.orgId}/reports`,
+      },
+    ],
+  },
+  {
+    name: 'Setup',
+    icon: 'lucide-briefcase',
+    route: `/organizations/${props.orgId}/setup`,
+    children: [
+      {
+        name: 'Designations',
+        icon: 'lucide-briefcase',
+        route: `/organizations/${props.orgId}/setup/designations`,
+      },
+      {
+        name: 'Members',
+        icon: 'lucide-users',
+        route: `/organizations/${props.orgId}/setup/members`,
+      },
+      {
+        name: 'Departments',
+        icon: 'lucide-settings',
+        route: `/organizations/${props.orgId}/setup/departments`,
       },
     ],
   },
@@ -74,6 +96,17 @@ const menuItems = reactive<DashboardSidebarMenuItem[]>([
     ],
   },
   {
+    name: 'Workspace',
+    icon: 'lucide-briefcase',
+    route: `/organizations/${props.orgId}/workspaces`,
+  },
+
+  {
+    name: 'Departments',
+    icon: 'lucide-settings',
+    route: `/organizations/${props.orgId}/departments`,
+  },
+  {
     name: 'Settings',
     icon: 'lucide-settings',
     route: `/organizations/${props.orgId}/settings`,
@@ -90,8 +123,12 @@ const emit = defineEmits<{
     :class="isSidebarOpen ? 'w-64' : 'w-16'"
   >
     <div class="p-4 flex items-center justify-between">
-      <router-link :to="{name:'organizations-list'}" v-if="isSidebarOpen" class="text-xl font-bold text-gray-800">
-        {{ currentOrg}}
+      <router-link
+        :to="{ name: 'organizations-list' }"
+        v-if="isSidebarOpen"
+        class="text-xl font-bold text-gray-800"
+      >
+        {{ currentOrg }}
       </router-link>
       <button @click="emit('toggleSidebar')" class="text-gray-500 hover:text-gray-700">
         <Icon

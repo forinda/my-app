@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useAxios } from '@/composables/use-axios'
 import type {
   CreateOrganizationResponseType,
@@ -10,35 +11,19 @@ import { decodeArrayBuffer } from '@/utils/resp-decode'
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
 import { useAuthStore } from './auth-store'
+import { useMutation, useQuery, useQueryClient } from '@tanstack/vue-query'
 
 export const useOrganizationStore = defineStore('app:organization', function () {
   const authStore = useAuthStore()
-  const dataFetchState = ref<{
-    data?: SelectOrganizationInterface[]
-    error?: any
-    status: 'loading' | 'error' | 'success' | 'idle'
-  }>({
-    status: 'idle',
-  })
   const currentOrg = ref<SelectOrganizationInterface | null>(null)
   const axios = useAxios()
+  const queryClient = useQueryClient()
   async function fetchOrganizations() {
-    try {
-      dataFetchState.value.status = 'loading'
-      const resp = await axios.get<ArrayBuffer>('/organizations', {
-        method: 'GET',
-        responseType: 'arraybuffer',
-      })
-      dataFetchState.value.data = decodeArrayBuffer<ResponseObject<SelectOrganizationInterface[]>>(
-        resp.data,
-      ).data
-      dataFetchState.value.status = 'success'
-      return dataFetchState
-    } catch (err) {
-      dataFetchState.value.error = err
-      dataFetchState.value.status = 'error'
-      return dataFetchState
-    }
+    const resp = await axios.get<ArrayBuffer>('/organizations', {
+      method: 'GET',
+      responseType: 'arraybuffer',
+    })
+    return decodeArrayBuffer<ResponseObject<SelectOrganizationInterface[]>>(resp.data).data
   }
 
   type CreateOptionParams = {
@@ -52,33 +37,38 @@ export const useOrganizationStore = defineStore('app:organization', function () 
   ) {
     try {
       const feed = await axios.post<CreateOrganizationResponseType>('/organizations', organization)
-      // await refresh()
       if (typeof onSuccess === 'function') onSuccess!(feed.data as any)
     } catch (error) {
       if (typeof onError === 'function') onError!(extractAxiosError(error)!)
     }
   }
+  const query = useQuery<SelectOrganizationInterface[]>({
+    queryKey: ['org:organizations'],
+    queryFn: fetchOrganizations,
+  })
 
   const setCurrentOrganization = (organization: SelectOrganizationInterface['uuid']) => {
-    // if (dataFetchState.value.data?.length === 0) return
-    // const org = dataFetchState.value.data?.find((org) => org.uuid === organization)
-    // if (org) currentOrg.value = org
-    authStore.setUserCurentOrganization(organization, {
+    authStore.setUserCurrentOrganization(organization, {
       onSuccess: () => {
-        const org = dataFetchState.value.data?.find((org) => org.uuid === organization)
+        const org = query.data.value?.find((org) => org.uuid === organization)
         if (org) currentOrg.value = org
       },
     })
   }
 
-  // watch(dataFetchState!, (newState) => {
-  //   console.log({ newState })
-  // })
+  const createOrgMutation = useMutation({
+    mutationFn: createOrganization,
+    onError: (error) => {
+      throw new Error(extractAxiosError(error) ?? 'Error creating organization')
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['org:organizations'] })
+    },
+  })
 
   return {
-    payload: dataFetchState,
-    refresh: fetchOrganizations,
-    createOrganization,
+    query,
+    createOrganization: createOrgMutation,
     currentOrg,
     setCurrentOrganization,
   }

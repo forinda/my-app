@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export type RecursiveObjectKeyMapper<T, Prefix extends string = ''> = {
   [K in keyof T]: T[K] extends Record<string, unknown>
     ? `${Prefix}${K & string}.${ObjectKeyMapper<T[K], ''>}` // Recursively build path
@@ -13,3 +14,5 @@ export type ResponseObject<T> = {
   data: T
   status: number
 }
+
+export type EmptyBareObject = Record<string, any>

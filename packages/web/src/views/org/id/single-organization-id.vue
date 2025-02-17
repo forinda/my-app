@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { useRoute } from 'vue-router'
 import {
   Tab as HuiTab,
   TabGroup as HuiTabGroup,
@@ -9,7 +8,6 @@ import {
   TabList as HuiTabList,
 } from '@headlessui/vue'
 import { Icon } from '@iconify/vue'
-const route = useRoute()
 
 const categories = ref({
   Recent: [

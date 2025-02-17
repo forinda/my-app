@@ -46,22 +46,55 @@ const router = createRouter({
             {
               path: '',
               name: 'organization-id',
-              component: () => import('@/views/org/single-organization-id.vue'),
+              component: () => import('@/views/org/id/single-organization-id.vue'),
             },
+
             {
               path: 'settings',
               name: 'organization-settings',
-              component: () => import('@/views/org/organizations-id-settings.vue'),
+              component: () => import('@/views/org/id/organizations-id-settings.vue'),
             },
             {
               path: 'members',
               name: 'organization-members',
-              component: () => import('@/views/org/organizations-id-members.vue'),
+              component: () => import('@/views/org/id/organizations-id-members.vue'),
             },
             {
               name: 'organization-not-found',
               path: ':pathMatch(.*)*',
               component: () => import('@/views/org/org-not-found.vue'),
+            },
+            {
+              path: 'departments',
+              name: 'organization-departments',
+              component: () => import('@/views/org/id/organization-id-list-departments.vue'),
+            },
+            {
+              path: 'workspaces',
+              name: 'organization-workspaces',
+              component: () => import('@/views/org/id/organization-id-list-workspaces.vue'),
+            },
+            {
+              path: 'setup',
+              name: 'organization-setup',
+              component: () => import('@/views/org/setup/organization-id-setup.vue'),
+              children: [
+                {
+                  path: 'departments',
+                  name: 'organization-setup-departments',
+                  component: () => import('@/views/org/setup/org-departments-display.vue'),
+                },
+                {
+                  path: 'designations',
+                  name: 'organization-setup-designations',
+                  component: () => import('@/views/org/setup/org-member-designation.vue'),
+                },
+                {
+                  path: 'members',
+                  name: 'organization-setup-members',
+                  component: () => import('@/views/org/setup/org-members-display.vue'),
+                },
+              ],
             },
           ],
         },

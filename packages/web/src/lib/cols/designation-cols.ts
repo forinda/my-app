@@ -1,8 +1,8 @@
-import type { FetchDepartmentTitleResponseType } from '@/types/org'
+import type { FetchOrganizationDesignationResponseType } from '@/types/org'
 import { createColumnHelper } from '@tanstack/vue-table'
 
-const colHelper = createColumnHelper<FetchDepartmentTitleResponseType['data'][number]>()
-export const departmentTitleTableCols = [
+const colHelper = createColumnHelper<FetchOrganizationDesignationResponseType['data'][number]>()
+export const orgDesignationTableCols = [
   colHelper.accessor('id', {
     cell: (row) => row.getValue(),
     header: 'ID',
