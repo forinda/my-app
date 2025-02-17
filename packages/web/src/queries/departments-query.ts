@@ -1,9 +1,10 @@
 import { useAxios } from '@/composables/use-axios'
 import type { CreateDepartmentType } from '@/schema/create-department-schema'
 import type { FetchDepartmentResponseType } from '@/types/org'
-import type { ResponseObject } from '@/types/utils'
+import type { EmptyBareObject, ResponseObject } from '@/types/utils'
 import { decodeArrayBuffer } from '@/utils/resp-decode'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/vue-query'
+import { computed } from 'vue'
 // import { defineStore } from 'pinia'
 
 export const useDepartmentQuery = function () {
@@ -19,12 +20,13 @@ export const useDepartmentQuery = function () {
     return decodeArrayBuffer<ResponseObject<DepartmentType[]>>(resp.data).data
   }
 
-  const departmentQuery = useQuery<DepartmentType[]>({
+  const query = useQuery<DepartmentType[]>({
     queryKey: ['org:departments'],
     queryFn: fetchDepartments,
+    initialData: [],
   })
 
-  async function createDepartment(payload: CreateDepartmentType) {
+  async function createDepartment(payload: any /**CreateDepartmentType & EmptyBareObject*/) {
     await axios.post('/departments', payload)
   }
 
@@ -37,9 +39,9 @@ export const useDepartmentQuery = function () {
       queryClient.invalidateQueries({ queryKey: ['org:departments'] })
     },
   })
-
+  // const data = computed(() => (Array.isArray(deptsData.value) ? deptsData.value : []))
   return {
-    query: departmentQuery,
+    query,
     createDepartment: createDepartmentMutation,
   }
 }

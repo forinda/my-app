@@ -11,7 +11,7 @@ import { eq } from 'drizzle-orm';
 export class FetchDepartmentService {
   async get(organization_id: number, _?: ApiPaginationParams) {
     const db = useDrizzle();
-    const titles = await db.query.OrganizationMember.findMany({
+    const titles = await db.query.DepartmentTitle.findMany({
       where: eq(DepartmentTitle.organization_id, organization_id),
       limit: _?.limit,
       offset: _?.offset

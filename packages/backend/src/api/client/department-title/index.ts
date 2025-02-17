@@ -1,8 +1,8 @@
 import { di } from '@/common/di';
 import { Router } from 'express';
 import { CreateDepartmentTitleController } from './controllers/create-department.controller';
-import { FetchOrganizationsController } from '../organizations/controllers/get-organizations.controller';
 import { UpdateDepartmentTitleController } from './controllers/update-department-title.controller';
+import { FetchDepartmentTitleController } from './controllers/fetch-departments.controller';
 
 type Props = {
   app: Router;
@@ -12,7 +12,7 @@ export function setupDepartmentTitleRoutes({ app }: Props) {
   const router = Router();
 
   router
-    .get('/', di.resolve(FetchOrganizationsController).get)
+    .get('/', di.resolve(FetchDepartmentTitleController).get)
     .post('/', di.resolve(CreateDepartmentTitleController).post)
     .put('/:id', di.resolve(UpdateDepartmentTitleController).put);
 

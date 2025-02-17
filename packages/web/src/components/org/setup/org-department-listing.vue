@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import DTable from '@/components/d-table/d-table.vue'
+import { computed, ref } from 'vue'
 import { getDepartmentTableCols } from '@/lib/cols/departments-col'
 import type { FetchDepartmentResponseType } from '@/types/org'
 import { Icon } from '@iconify/vue'
@@ -9,10 +8,9 @@ import ModalCreateOrUpdateDepartment from '@/components/modals/modal-create-or-u
 import { useDepartmentQuery } from '@/queries/departments-query'
 import { extractAxiosError } from '@/utils/extract-axios-error'
 import type { EmptyBareObject } from '@/types/utils'
+import { FlexRender, getCoreRowModel, useVueTable } from '@tanstack/vue-table'
 type DepartmentType = FetchDepartmentResponseType['data'][number]
-defineProps<{
-  data: DepartmentType[]
-}>()
+const { query } = useDepartmentQuery()
 const { createDepartment } = useDepartmentQuery()
 const initialState: CreateDepartmentType = {
   description: '',
@@ -40,16 +38,28 @@ const closeModal = () => {
   editingDepartment.value = initialState
 }
 
-const saveDepartment =async (data:EmptyBareObject) => {
-  await createDepartment.mutateAsync(data,{
+const del = async (id: number) => {
+  // await deleteDepartment.mutateAsync(id)
+  console.log('delete', id)
+}
+
+const saveDepartment = async (payload: EmptyBareObject) => {
+  await createDepartment.mutateAsync(payload, {
     onSuccess: () => {
       closeModal()
     },
-    onError:async (error) => {
+    onError: async (error) => {
       console.error(extractAxiosError(error))
     },
   })
 }
+const table = useVueTable({
+  get data() {
+    return query.data.value
+  },
+  columns: getDepartmentTableCols({ deleteDepartment: del, editDepartment: openEditModal }),
+  getCoreRowModel: getCoreRowModel(),
+})
 </script>
 
 <template>
@@ -66,7 +76,40 @@ const saveDepartment =async (data:EmptyBareObject) => {
         </button>
       </div>
 
-      <DTable :data="data" :columns="getDepartmentTableCols()"> </DTable>
+      <!-- <DTable :data="query.data" :columns="getDepartmentTableCols()"> </DTable> -->
+      <table class="table-auto w-full">
+        <thead>
+          <tr
+            v-for="headerGroup in table.getHeaderGroups()"
+            :key="headerGroup.id"
+            class="bg-gray-100 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider border"
+          >
+            <th
+              v-for="header in headerGroup.headers"
+              :key="header.id"
+              :colspan="header.colSpan"
+              class="px-6 py-3 border bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"
+            >
+              <FlexRender
+                v-if="!header.isPlaceholder"
+                :render="header.column.columnDef.header"
+                :props="header.getContext()"
+              />
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="row in table.getRowModel().rows" :key="row.id" class="border">
+            <td
+              v-for="cell in row.getVisibleCells()"
+              :key="cell.id"
+              class="px-6 py-4 whitespace-nowrap text-sm text-gray-700 border"
+            >
+              <FlexRender :render="cell.column.columnDef.cell" :props="cell.getContext()" />
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
     <ModalCreateOrUpdateDepartment

@@ -7,23 +7,22 @@ defineProps<{
 </script>
 
 <template>
-
-      <tbody class="bg-white divide-y divide-gray-200">
-        <tr
-          v-for="row in table.getRowModel().rows"
-          :key="row.id"
-          class="hover:bg-blue-50 transition-colors duration-200"
-        >
-          <td
-            v-for="cell in row.getVisibleCells()"
-            :key="cell.id"
-            class="px-6 py-4 whitespace-nowrap text-sm text-gray-700"
-          >
-            <flex-render :render="cell.column.columnDef.cell" :props="cell.getContext()" />
-          </td>
-        </tr>
-      </tbody>
-
+  {{ table }}
+  <tbody class="bg-white divide-y divide-gray-200">
+    <tr
+      v-for="row in table.getRowModel().rows"
+      :key="row.id"
+      class="hover:bg-blue-50 transition-colors duration-200"
+    >
+      <td
+        v-for="cell in row.getVisibleCells()"
+        :key="cell.id"
+        class="px-6 py-4 whitespace-nowrap text-sm text-gray-700"
+      >
+        <flex-render :render="cell.column.columnDef.cell" :props="cell.getContext()" />
+      </td>
+    </tr>
+  </tbody>
 </template>
 
 <style scoped>

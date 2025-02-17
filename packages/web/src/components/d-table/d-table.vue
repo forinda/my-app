@@ -9,12 +9,12 @@ import {
   type PaginationState,
   type SortingState,
 } from '@tanstack/vue-table'
-import { ref } from 'vue'
+import { computed, ref, type Ref } from 'vue'
 import DTableTBody from './d-table-t-body.vue'
 import DTableTHead from './d-table-t-head.vue'
 import DTableTPagination from './d-table-t-pagination.vue'
 type Props<T = any[], U = any> = {
-  data: T[]
+  data: Ref<T[]>
   columns: ColumnDef<U, any>[]
 }
 
@@ -25,9 +25,9 @@ const pagination = ref<PaginationState>({
 const sorting = ref<SortingState>([])
 
 const props = defineProps<Props<D, Col>>()
-
+const computedData = computed(() => (Array.isArray(props.data.value) ? props.data.value : []))
 const table = useVueTable({
-  data: props.data as any,
+  data: computedData.value as any,
   columns: props.columns,
   pageCount: 1,
   state: {
@@ -46,6 +46,10 @@ const table = useVueTable({
 
 <template>
   <div class="w-full overflow-hidden bg-white shadow-lg rounded-lg border border-gray-200">
+    <div>
+      <span>Data</span>
+      {{ computedData }}
+    </div>
     <div class="overflow-x-auto">
       <table class="min-w-full divide-y divide-gray-200 table table-fixed">
         <slot name="thead" :data-table="table">
