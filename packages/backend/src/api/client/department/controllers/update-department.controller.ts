@@ -20,7 +20,10 @@ export class UpdateDepartmentController extends BasePutController {
   private service: UpdateDepartmentService;
   @ApiControllerMethod({
     bodySchema: updateDepartmentSchema,
-    auth: true
+    auth: true,
+    pathParamTransform: {
+      department_id: 'id'
+    }
   })
   async put({ res, body }: ApiRequestContext<UpdateDepartmentPayload>) {
     const feedback = await this.service.update({ data: body! });

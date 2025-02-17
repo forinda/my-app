@@ -39,7 +39,7 @@ export class ApiServerSetup {
         //   'Access-Control-Allow-Origin',
         //   'Access-Control-Allow-Headers'
         // ]
-        preflightContinue: true
+        preflightContinue: false
       })
     );
     app.use(helmet());

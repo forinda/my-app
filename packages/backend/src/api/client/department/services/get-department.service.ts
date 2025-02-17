@@ -1,38 +1,26 @@
 import { injectable } from 'inversify';
-import { Organization, OrganizationMember } from '@/db/schema';
+import { Department } from '@/db/schema';
 import { useDrizzle } from '@/db';
 import { HttpStatus } from '@/common/http';
 import { Dependency } from '@/common/di';
 import type { ApiPaginationParams } from '@/common/utils/pagination';
-import { eq, inArray } from 'drizzle-orm';
+import { eq } from 'drizzle-orm';
 
 @injectable()
 @Dependency()
 export class FetchDepartmentService {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  async get(user_id: number, _?: ApiPaginationParams) {
+  async get(organization_id: number, _?: ApiPaginationParams) {
     const db = useDrizzle();
-    const organizationmembers = await db.query.OrganizationMember.findMany({
-      where: eq(OrganizationMember.user_id, user_id)
-    });
 
-    if (organizationmembers.length === 0) {
-      return {
-        data: [],
-        message: 'No organizations found',
-        status: HttpStatus.OK
-      };
-    }
-    const organizationIds = organizationmembers.map(
-      (organizationmember) => organizationmember.organization_id
-    );
-    const organizations = await db.query.Organization.findMany({
-      where: inArray(Organization.id, organizationIds)
+    const depts = await db.query.Department.findMany({
+      where: eq(Department.organization_id, organization_id),
+      limit: _?.limit,
+      offset: _?.offset
     });
 
     return {
-      data: organizations,
-      message: 'Organizations fetched successfully',
+      data: depts,
+      message: 'Departments fetched successfully',
       status: HttpStatus.OK
     };
   }
