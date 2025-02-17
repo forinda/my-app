@@ -1,7 +1,7 @@
 import { injectable } from 'inversify';
 import type { UpdateDepartmentPayload } from '../schema/schema';
 
-import { eq } from 'drizzle-orm';
+import { and, eq, ne } from 'drizzle-orm';
 
 import { HttpStatus } from '@/common/http';
 import { Dependency } from '@/common/di';
@@ -10,45 +10,42 @@ import {
   type TransactionContext
 } from '@/common/decorators/service-transaction';
 import { ApiError } from '@/common/errors/base';
-import type { InsertOrganizationInterface } from '@/db/schema';
-import { Department, Organization, OrganizationMember } from '@/db/schema';
+import { Department } from '@/db/schema';
 
 @injectable()
 @Dependency()
 export class UpdateDepartmentService {
   @TransactionalService()
   async update({
-    data: { id: dept_id, ...data },
+    data,
     transaction
   }: TransactionContext<UpdateDepartmentPayload>) {
-    const exisiting = await transaction!.query.Department.findFirst({
-      where: eq(Department.id, dept_id)
+    const existingDept = await transaction!.query.Department.findFirst({
+      where: and(
+        eq(Department.name, data.name!),
+        eq(Department.organization_id, data.organization_id),
+        ne(Department.id, data.department_id)
+      )
     });
 
-    if (!exisiting) {
-      throw new ApiError('Department does not exist', HttpStatus.CONFLICT, {});
+    if (existingDept) {
+      throw new ApiError(
+        'Department with same name already exists',
+        HttpStatus.CONFLICT,
+        {}
+      );
     }
 
-    const organization = (
-      await transaction!
-        .insert(Organization)
-        .values(data as InsertOrganizationInterface)
-        .returning()
-        .execute()
-    )[0];
-
-    await transaction!.insert(OrganizationMember).values({
-      user_id: organization!.created_by,
-      organization_id: organization.id,
-      updated_by: organization!.created_by,
-      date_joined: new Date().toISOString(),
-      created_by: organization!.created_by
-    });
+    await transaction!
+      .update(Department)
+      .set(data)
+      .where(eq(Department.id, data.department_id!))
+      .execute();
 
     return {
-      data: organization,
-      status: HttpStatus.CREATED,
-      message: 'Organization created successfully'
+      data: {},
+      status: HttpStatus.OK,
+      message: 'Department updated successfully'
     };
   }
 }

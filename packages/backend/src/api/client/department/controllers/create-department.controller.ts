@@ -11,6 +11,7 @@ import { inject, injectable } from 'inversify';
 import type { NewDepartmentPayload } from '../schema/schema';
 import { newDepartmentSchema } from '../schema/schema';
 import { DepartmentCreationService } from '../services/create-department.service';
+import {userAudit} from "@/common/utils/user-request-audit";
 
 @injectable()
 @Dependency()
@@ -21,7 +22,9 @@ export class NewDepartmentController extends BasePostController {
   @ApiControllerMethod({
     bodySchema: newDepartmentSchema,
     pathParamTransform: {},
-    auth: true
+    auth: true,
+    audit: userAudit('create'),
+    bodyBindOrgId: true
   })
   async post({ res, body }: ApiRequestContext<NewDepartmentPayload>) {
     const feedback = await this.service.create({ data: body! });

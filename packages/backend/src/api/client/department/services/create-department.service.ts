@@ -1,7 +1,7 @@
 import { injectable } from 'inversify';
 import type { NewDepartmentPayload } from '../schema/schema';
 
-import { eq } from 'drizzle-orm';
+import { and, eq } from 'drizzle-orm';
 
 import { HttpStatus } from '@/common/http';
 import { Dependency } from '@/common/di';
@@ -10,8 +10,8 @@ import {
   type TransactionContext
 } from '@/common/decorators/service-transaction';
 import { ApiError } from '@/common/errors/base';
-import type { InsertOrganizationInterface } from '@/db/schema';
-import { Organization, OrganizationMember } from '@/db/schema';
+import type { InsertOrganizationDepartmentInterface } from '@/db/schema';
+import { Department } from '@/db/schema';
 
 @injectable()
 @Dependency()
@@ -21,11 +21,14 @@ export class DepartmentCreationService {
     data,
     transaction
   }: TransactionContext<NewDepartmentPayload>) {
-    const exisiting = await transaction!.query.Organization.findFirst({
-      where: eq(Organization.name, data.name)
+    const existingDept = await transaction!.query.Department.findFirst({
+      where: and(
+        eq(Department.name, data.name),
+        eq(Department.organization_id, data.organization_id)
+      )
     });
 
-    if (exisiting) {
+    if (existingDept) {
       throw new ApiError(
         'Organization with same name already exists',
         HttpStatus.CONFLICT,
@@ -33,24 +36,14 @@ export class DepartmentCreationService {
       );
     }
 
-    const organization = (
-      await transaction!
-        .insert(Organization)
-        .values(data as InsertOrganizationInterface)
-        .returning()
-        .execute()
-    )[0];
-
-    await transaction!.insert(OrganizationMember).values({
-      user_id: organization!.created_by,
-      organization_id: organization.id,
-      updated_by: organization!.created_by,
-      date_joined: new Date().toISOString(),
-      created_by: organization!.created_by
-    });
+    await transaction!
+      .insert(Department)
+      .values(data as InsertOrganizationDepartmentInterface)
+      .returning()
+      .execute();
 
     return {
-      data: organization,
+      data: {},
       status: HttpStatus.CREATED,
       message: 'Organization created successfully'
     };

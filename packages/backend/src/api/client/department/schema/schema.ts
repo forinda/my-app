@@ -22,11 +22,14 @@ export const newDepartmentSchema = z.object({
       message: 'Description must be at most 255 characters long'
     }),
   created_by: z.number({}).optional(),
-  updated_by: z.number({}).optional()
+  updated_by: z.number({}).optional(),
+  organization_id: z.number({
+    message: 'Organization ID is required'
+  })
 });
 
 export const updateDepartmentSchema = z.object({
-  id: z.number({
+  department_id: z.number({
     message: 'ID is required'
   }),
   name: z
@@ -51,7 +54,10 @@ export const updateDepartmentSchema = z.object({
       message: 'Description must be at most 255 characters long'
     })
     .optional(),
-  updated_by: z.number({}).optional()
+  updated_by: z.number({}).optional(),
+  organization_id: z.number({
+    message: 'Organization ID is required'
+  })
 });
 
 // export const getOrganizationMember``
