@@ -56,6 +56,7 @@ interface OrganizationMemberType {
 type DepartmentType = {
   id: number
   name: string
+  uuid: string
   description: string
   organization_id: number
   created_by: number

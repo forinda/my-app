@@ -4,7 +4,7 @@ import { useDrizzle } from '@/db';
 import { HttpStatus } from '@/common/http';
 import { Dependency } from '@/common/di';
 import type { ApiPaginationParams } from '@/common/utils/pagination';
-import { eq } from 'drizzle-orm';
+import { asc, eq } from 'drizzle-orm';
 
 @injectable()
 @Dependency()
@@ -15,7 +15,8 @@ export class FetchDepartmentService {
     const depts = await db.query.Department.findMany({
       where: eq(Department.organization_id, organization_id),
       limit: _?.limit,
-      offset: _?.offset
+      offset: _?.offset,
+      orderBy: [asc(Department.created_at)]
     });
 
     return {

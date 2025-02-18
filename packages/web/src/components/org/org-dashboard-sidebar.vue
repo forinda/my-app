@@ -96,17 +96,6 @@ const menuItems = reactive<DashboardSidebarMenuItem[]>([
     ],
   },
   {
-    name: 'Workspace',
-    icon: 'lucide-briefcase',
-    route: `/organizations/${props.orgId}/workspaces`,
-  },
-
-  {
-    name: 'Departments',
-    icon: 'lucide-settings',
-    route: `/organizations/${props.orgId}/departments`,
-  },
-  {
     name: 'Settings',
     icon: 'lucide-settings',
     route: `/organizations/${props.orgId}/settings`,

@@ -65,11 +65,6 @@ const router = createRouter({
               component: () => import('@/views/org/org-not-found.vue'),
             },
             {
-              path: 'departments',
-              name: 'organization-departments',
-              component: () => import('@/views/org/id/organization-id-list-departments.vue'),
-            },
-            {
               path: 'workspaces',
               name: 'organization-workspaces',
               component: () => import('@/views/org/id/organization-id-list-workspaces.vue'),

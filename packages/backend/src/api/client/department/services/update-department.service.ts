@@ -1,4 +1,4 @@
-import { injectable } from 'inversify';
+import { inject, injectable } from 'inversify';
 import type { UpdateDepartmentPayload } from '../schema/schema';
 
 import { and, eq, ne } from 'drizzle-orm';
@@ -11,20 +11,23 @@ import {
 } from '@/common/decorators/service-transaction';
 import { ApiError } from '@/common/errors/base';
 import { Department } from '@/db/schema';
+import { UUID } from '@/common/utils/uuid';
 
 @injectable()
 @Dependency()
 export class UpdateDepartmentService {
+  @inject(UUID) private uuid: UUID;
   @TransactionalService()
   async update({
     data,
     transaction
   }: TransactionContext<UpdateDepartmentPayload>) {
+    this.uuid.validateUUID(data.department_id!);
     const existingDept = await transaction!.query.Department.findFirst({
       where: and(
         eq(Department.name, data.name!),
         eq(Department.organization_id, data.organization_id),
-        ne(Department.id, data.department_id)
+        ne(Department.uuid, data.department_id)
       )
     });
 
@@ -39,7 +42,7 @@ export class UpdateDepartmentService {
     await transaction!
       .update(Department)
       .set(data)
-      .where(eq(Department.id, data.department_id!))
+      .where(eq(Department.uuid, data.department_id!))
       .execute();
 
     return {

@@ -1,22 +1,29 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import { getDepartmentTableCols } from '@/lib/cols/departments-col'
 import { Icon } from '@iconify/vue'
 import type { CreateDepartmentType } from '@/schema/create-department-schema'
 import ModalCreateOrUpdateDepartment from '@/components/modals/modal-create-or-update-department.vue'
 import { useDepartmentQuery } from '@/queries/departments-query'
 import { extractAxiosError } from '@/utils/extract-axios-error'
-import type { EmptyBareObject } from '@/types/utils'
+import type { TsFixMeType } from '@/types/utils'
 import { FlexRender, getCoreRowModel, useVueTable } from '@tanstack/vue-table'
-const { query } = useDepartmentQuery()
-const { createDepartment } = useDepartmentQuery()
+import { useNotification } from '@/composables/use-notification'
+const showModal = ref(false)
 const initialState: CreateDepartmentType = {
   description: '',
   name: '',
 }
-const showModal = ref(false)
+const $swal = useNotification().$swal
 const editMode = ref<'create' | 'edit'>('create')
-const editingDepartment = ref<CreateDepartmentType>(initialState)
+const editingDepartment = ref<
+  CreateDepartmentType & {
+    uuid?: string
+  }
+>(initialState)
+
+const { createRecordMutation, recordsQuery, setSelectedRecordId, updateRecordMutation } =
+  useDepartmentQuery({})
 
 const openCreateModal = () => {
   editMode.value = 'create'
@@ -24,9 +31,15 @@ const openCreateModal = () => {
   showModal.value = true
 }
 
-const openEditModal = (department: CreateDepartmentType) => {
+const openEditModal = (
+  record: CreateDepartmentType & {
+    uuid?: string
+  },
+) => {
+  setSelectedRecordId(record.uuid!)
+
   editMode.value = 'edit'
-  editingDepartment.value = department
+  editingDepartment.value = record
   showModal.value = true
 }
 
@@ -34,6 +47,7 @@ const closeModal = () => {
   editMode.value = 'create'
   showModal.value = false
   editingDepartment.value = initialState
+  setSelectedRecordId('')
 }
 
 const del = async (id: number) => {
@@ -41,19 +55,38 @@ const del = async (id: number) => {
   console.log('delete', id)
 }
 
-const saveDepartment = async (payload: EmptyBareObject) => {
-  await createDepartment.mutateAsync(payload, {
-    onSuccess: () => {
-      closeModal()
-    },
-    onError: async (error) => {
-      console.error(extractAxiosError(error))
-    },
-  })
+const saveDepartment = async (payload: TsFixMeType) => {
+  if (editMode.value === 'create') {
+    await createRecordMutation.mutateAsync(payload, {
+      onSuccess: () => {
+        closeModal()
+      },
+      onError: async (error) => {
+        await $swal.fire({
+          title: 'Error',
+          text: extractAxiosError(error),
+          icon: 'error',
+        })
+      },
+    })
+  } else {
+    await updateRecordMutation.mutateAsync([editingDepartment.value.uuid!, payload], {
+      onSuccess: () => {
+        closeModal()
+      },
+      onError: async (error) => {
+        await $swal.fire({
+          title: 'Error',
+          text: extractAxiosError(error),
+          icon: 'error',
+        })
+      },
+    })
+  }
 }
 const table = useVueTable({
   get data() {
-    return query.data.value
+    return recordsQuery.data.value
   },
   columns: getDepartmentTableCols({ deleteDepartment: del, editDepartment: openEditModal }),
   getCoreRowModel: getCoreRowModel(),

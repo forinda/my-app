@@ -31,9 +31,6 @@ export const updateDepartmentTitleSchema = z.object({
   title_id: z.number({
     message: 'Title ID is required'
   }),
-  id: z.number({
-    message: 'ID is required'
-  }),
   name: z
     .string({
       message: 'Name is required'
