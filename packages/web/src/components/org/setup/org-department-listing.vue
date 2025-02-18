@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { ref } from 'vue'
 import { getDepartmentTableCols } from '@/lib/cols/departments-col'
 import { Icon } from '@iconify/vue'
 import type { CreateDepartmentType } from '@/schema/create-department-schema'
@@ -9,6 +9,7 @@ import { extractAxiosError } from '@/utils/extract-axios-error'
 import type { TsFixMeType } from '@/types/utils'
 import { FlexRender, getCoreRowModel, useVueTable } from '@tanstack/vue-table'
 import { useNotification } from '@/composables/use-notification'
+import ModalInviteUsersToOrg from '@/components/modals/modal-invite-users-to-org.vue'
 const showModal = ref(false)
 const initialState: CreateDepartmentType = {
   description: '',
@@ -91,11 +92,11 @@ const table = useVueTable({
   columns: getDepartmentTableCols({ deleteDepartment: del, editDepartment: openEditModal }),
   getCoreRowModel: getCoreRowModel(),
 })
-const click = () => alert('okay')
 </script>
 
 <template>
   <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+    <ModalInviteUsersToOrg/>
     <div class="p-6">
       <div class="flex justify-between items-center mb-6">
         <h2 class="text-2xl font-bold text-gray-800">Departments</h2>

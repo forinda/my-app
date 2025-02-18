@@ -35,6 +35,7 @@ declare module 'vue' {
     ModalCreateOrUpdateDepartmentTitle: typeof import('./src/components/modals/modal-create-or-update-department-title.vue')['default']
     ModalCreateOrUpdateOrgDesignation: typeof import('./src/components/modals/modal-create-or-update-org-designation.vue')['default']
     ModalFormCreateOrg: typeof import('./src/components/modals/modal-form-create-org.vue')['default']
+    ModalInviteUsersToOrg: typeof import('./src/components/modals/modal-invite-users-to-org.vue')['default']
     NavBar: typeof import('./src/components/nav-bar.vue')['default']
     NavBarItem: typeof import('./src/components/nav-bar-item.vue')['default']
     OrgCreate: typeof import('./src/components/org/org-create.vue')['default']
