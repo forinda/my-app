@@ -11,6 +11,7 @@ import { inject, injectable } from 'inversify';
 import type { UpdateDepartmentTitleRequest } from '../schema/schema';
 import { updateDepartmentTitleSchema } from '../schema/schema';
 import { UpdateDepartmentService } from '../services/update-department.service';
+import { userAudit } from '@/common/utils/user-request-audit';
 
 @injectable()
 @Dependency()
@@ -24,7 +25,8 @@ export class UpdateDepartmentTitleController extends BasePutController {
     bodyBindOrgId: true,
     pathParamTransform: {
       title_id: 'id'
-    }
+    },
+    audit: userAudit('update')
   })
   async put({ res, body }: ApiRequestContext<UpdateDepartmentTitleRequest>) {
     const feedback = await this.service.update({ data: body! });

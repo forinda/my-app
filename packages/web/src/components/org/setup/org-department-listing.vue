@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { ref } from 'vue'
 import { getDepartmentTableCols } from '@/lib/cols/departments-col'
 import type { FetchDepartmentResponseType } from '@/types/org'
 import { Icon } from '@iconify/vue'
@@ -72,7 +72,7 @@ const table = useVueTable({
           class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition duration-300 ease-in-out flex items-center"
         >
           <Icon :icon="'lucide-pencil'" class="w-5 h-5 mr-2" />
-          Add Department
+          Add
         </button>
       </div>
 
@@ -98,7 +98,7 @@ const table = useVueTable({
             </th>
           </tr>
         </thead>
-        <tbody>
+        <tbody class="bg-white divide-y divide-gray-200" v-if="table.getRowModel().rows.length > 0">
           <tr v-for="row in table.getRowModel().rows" :key="row.id" class="border">
             <td
               v-for="cell in row.getVisibleCells()"
@@ -106,6 +106,13 @@ const table = useVueTable({
               class="px-6 py-4 whitespace-nowrap text-sm text-gray-700 border"
             >
               <FlexRender :render="cell.column.columnDef.cell" :props="cell.getContext()" />
+            </td>
+          </tr>
+        </tbody>
+        <tbody v-else>
+          <tr>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700 border" colspan="4">
+              No data available
             </td>
           </tr>
         </tbody>

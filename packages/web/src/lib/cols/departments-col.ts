@@ -3,12 +3,13 @@ import { Icon } from '@iconify/vue'
 import { type ColumnDef } from '@tanstack/vue-table'
 import { h } from 'vue'
 
+type DeptType = FetchDepartmentResponseType['data'][number]
 type Props = {
-  editDepartment: (row: FetchDepartmentResponseType['data'][number]) => void
-  deleteDepartment: (row: FetchDepartmentResponseType['data'][number]['id']) => void
+  editDepartment: (row: DeptType) => void
+  deleteDepartment: (row: DeptType['id']) => void
 }
 export function getDepartmentTableCols(props: Props) {
-  const orgDepartmentTableCols: ColumnDef<FetchDepartmentResponseType['data'][number]>[] = [
+  const orgDepartmentTableCols: ColumnDef<DeptType>[] = [
     {
       id: 'index',
       header: 'Index',

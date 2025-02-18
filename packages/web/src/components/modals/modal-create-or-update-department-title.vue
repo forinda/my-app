@@ -1,10 +1,8 @@
 <script setup lang="ts">
-import {
-  typedCreateDepartmentSchema,
-  type CreateDepartmentType,
-} from '@/schema/create-department-schema'
+import type { CreateDepartmentType } from '@/schema/create-department-schema'
 import { Form } from 'vee-validate'
 import FormTextInput from '../form/form-text-input.vue'
+import { typedCreateDepartmentTitleSchema } from '@/schema/create-department-title-schema'
 import { TransitionRoot, TransitionChild, Dialog, DialogPanel, DialogTitle } from '@headlessui/vue'
 defineProps<{
   showModal: boolean
@@ -13,7 +11,7 @@ defineProps<{
   openCreateModal: () => void
   openEditModal: (department: CreateDepartmentType) => void
   closeModal: () => void
-  saveDepartment: (value: Record<string, unknown>) => void
+  saveTitle: (value: Record<string, unknown>) => void
 }>()
 </script>
 <template>
@@ -46,18 +44,18 @@ defineProps<{
               class="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all"
             >
               <dialog-title as="h3" class="text-lg font-medium leading-6 text-gray-900">
-                {{ mode === 'edit' ? 'Edit Department' : 'Create New Department' }}
+                {{ mode === 'edit' ? 'Edit Title' : 'Create New Title' }}
               </dialog-title>
               <div class="mt-2">
                 <Form
-                  @submit="saveDepartment"
+                  @submit="saveTitle"
+                  :validation-schema="typedCreateDepartmentTitleSchema"
                   :initial-values="initialValues"
-                  :validation-schema="typedCreateDepartmentSchema"
                 >
                   <FormTextInput
-                    id="departmentName"
-                    label-text="Department Name"
-                    placeholder="e.g. Human Resources"
+                    id="titleName"
+                    label-text="Title Name"
+                    placeholder="e.g. Manager"
                     required
                     name="name"
                     :auto-complete="'off'"
@@ -65,11 +63,11 @@ defineProps<{
                     :icon-name="'lucide-briefcase'"
                   />
                   <FormTextInput
-                    id="departmentDescription"
-                    label-text="Department Description"
+                    id="description"
+                    label-text="Title Description"
                     required
                     name="description"
-                    placeholder="e.g. Responsible for hiring and managing employees."
+                    placeholder="e.g. Responsible for managing a team."
                     :auto-complete="'off'"
                     :type="'text'"
                     :as="'textarea'"

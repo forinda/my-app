@@ -18,8 +18,8 @@ const tabs = reactive([
 ] as const)
 
 const selectedTab = ref<(typeof tabs)[number]['name']>(tabs[0].name)
-const handleTabChange = (tabName: (typeof tabs)[number]['name']) => {
-  selectedTab.value = tabName
+const handleTabChange = (tabIndex: number) => {
+  selectedTab.value = tabs.find((_, index) => index === tabIndex)?.name ?? tabs[0].name
 }
 </script>
 
@@ -29,7 +29,7 @@ const handleTabChange = (tabName: (typeof tabs)[number]['name']) => {
       <TabList class="flex bg-gray-50 p-1 space-x-1">
         <Tab v-for="{ iconName, name } in tabs" :key="name" v-slot="{ selected }">
           <button
-            class="w-full py-2.5 px-3 text-sm font-medium leading-5 rounded-md transition-all duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+            class="w-full cursor-pointer py-2.5 px-3 text-sm font-medium leading-5 rounded-md transition-all duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
             :class="[
               selected
                 ? 'bg-white text-blue-600 shadow'
