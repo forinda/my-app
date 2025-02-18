@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { getDepartmentTableCols } from '@/lib/cols/departments-col'
-import type { FetchDepartmentResponseType } from '@/types/org'
 import { Icon } from '@iconify/vue'
 import type { CreateDepartmentType } from '@/schema/create-department-schema'
 import ModalCreateOrUpdateDepartment from '@/components/modals/modal-create-or-update-department.vue'
@@ -9,7 +8,6 @@ import { useDepartmentQuery } from '@/queries/departments-query'
 import { extractAxiosError } from '@/utils/extract-axios-error'
 import type { EmptyBareObject } from '@/types/utils'
 import { FlexRender, getCoreRowModel, useVueTable } from '@tanstack/vue-table'
-type DepartmentType = FetchDepartmentResponseType['data'][number]
 const { query } = useDepartmentQuery()
 const { createDepartment } = useDepartmentQuery()
 const initialState: CreateDepartmentType = {

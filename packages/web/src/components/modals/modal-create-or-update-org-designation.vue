@@ -1,19 +1,19 @@
 <script setup lang="ts">
 import { Form } from 'vee-validate'
 import FormTextInput from '../form/form-text-input.vue'
-import {
-  typedCreateDepartmentTitleSchema,
-  type CreateDepartmentTitleType,
-} from '@/schema/create-department-title-schema'
 import { TransitionRoot, TransitionChild, Dialog, DialogPanel, DialogTitle } from '@headlessui/vue'
+import {
+  typedCreateOrgDesignationSchema,
+  type OrgDesignationModel,
+} from '@/schema/create-org-designation-schema'
 defineProps<{
   showModal: boolean
   mode: 'create' | 'edit'
-  initialValues: CreateDepartmentTitleType
+  initialValues: OrgDesignationModel
   openCreateModal: () => void
-  openEditModal: (department: CreateDepartmentTitleType) => void
+  openEditModal: (department: OrgDesignationModel) => void
   closeModal: () => void
-  saveTitle: (value: Record<string, unknown>) => void
+  saveRecord: (value: Record<string, unknown>) => void
 }>()
 </script>
 <template>
@@ -46,18 +46,18 @@ defineProps<{
               class="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all"
             >
               <dialog-title as="h3" class="text-lg font-medium leading-6 text-gray-900">
-                {{ mode === 'edit' ? 'Edit Title' : 'Create New Title' }}
+                {{ mode === 'edit' ? 'Edit Designation' : 'Create New Designation' }}
               </dialog-title>
               <div class="mt-2">
                 <Form
-                  @submit="saveTitle"
-                  :validation-schema="typedCreateDepartmentTitleSchema"
+                  @submit="saveRecord"
                   :initial-values="initialValues"
+                  :validation-schema="typedCreateOrgDesignationSchema"
                 >
                   <FormTextInput
-                    id="titleName"
-                    label-text="Title Name"
-                    placeholder="e.g. Manager"
+                    id="name"
+                    label-text="Designation Name"
+                    placeholder="e.g. Chief Technology Officer"
                     required
                     name="name"
                     :auto-complete="'off'"
@@ -66,10 +66,10 @@ defineProps<{
                   />
                   <FormTextInput
                     id="description"
-                    label-text="Title Description"
+                    label-text="Description"
                     required
                     name="description"
-                    placeholder="e.g. Responsible for managing a team."
+                    placeholder="e.g. Responsible for the overall technology strategy and implementation"
                     :auto-complete="'off'"
                     :type="'text'"
                     :as="'textarea'"

@@ -53,7 +53,6 @@ interface OrganizationMemberType {
   role: null
 }
 
-
 type DepartmentType = {
   id: number
   name: string
@@ -93,6 +92,18 @@ type DepartmentTitleType = {
   deleted_at: null
 }
 
+export type OrganizationmemberDesignationType = {
+  id: number
+  name: string
+  description: string
+  organization_id: number
+  created_by: number
+  updated_by: number
+  deleted_by: null
+  created_at: string
+  updated_at: string
+  deleted_at: null
+}
 
 // export type OrganizationMemberInterface={}
 export interface CreateOrganizationResponseType {}
@@ -102,3 +113,6 @@ export type FetchOrganizationResponseType = ResponseObject<SelectOrganizationInt
 export type FetchDepartmentResponseType = ResponseObject<DepartmentType[]>
 export type FetchOrganizationDesignationResponseType = ResponseObject<OrganizationDesignationType[]>
 export type FetchDepartmentTitleResponseType = ResponseObject<DepartmentTitleType[]>
+export type FetchOrganizationMemberDesignationResponseType = ResponseObject<
+  OrganizationmemberDesignationType[]
+>
