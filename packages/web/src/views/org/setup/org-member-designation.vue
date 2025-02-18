@@ -69,14 +69,6 @@ const saveChanges = async (payload: TsFixMeType) => {
       onSuccess: () => {
         closeModal()
       },
-      // onError: async (error) => {
-      //   // console.error({ error: extractAxiosError(error) })
-      //   await $swal.fire({
-      //     title: 'Error',
-      //     text: extractAxiosError(error),
-      //     icon: 'error',
-      //   })
-      // },
     })
   }
 }

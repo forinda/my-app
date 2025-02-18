@@ -1,18 +1,81 @@
 <script setup lang="ts">
-import DTable from '@/components/d-table/d-table.vue'
-// import { orgMemberTableCols } from '@/lib/cols/org-member-cols'
-import { useOrgMembers } from '@/queries/org-members-query'
-import { computed } from 'vue'
-const { query } = useOrgMembers()
+import { FlexRender, getCoreRowModel, useVueTable } from '@tanstack/vue-table'
+import { useOrgMembersQuery } from '@/queries/org-members-query'
+import { getOrgMembersTableCols } from '@/lib/cols/org-member-cols'
 
-const data = computed(() => query.data.value ?? [])
+const { recordsQuery } = useOrgMembersQuery()
+
+const table = useVueTable({
+  get data() {
+    return recordsQuery.data.value
+  },
+  columns: getOrgMembersTableCols({}),
+  getCoreRowModel: getCoreRowModel(),
+})
 </script>
+
 <template>
-  <div>
-    <div>
-      <!-- <d-table :data="data" :columns="orgMemberTableCols"> </d-table> -->
+  <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+    <div class="p-6">
+      <div class="flex justify-between items-center mb-6">
+        <h2 class="text-2xl font-bold text-gray-800">Members</h2>
+      </div>
+
+      <!-- <DTable :data="query.data" :columns="getDepartmentTableCols()"> </DTable> -->
+      <table class="table-auto w-full">
+        <thead>
+          <tr
+            v-for="headerGroup in table.getHeaderGroups()"
+            :key="headerGroup.id"
+            class="bg-gray-100 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider border"
+          >
+            <th
+              v-for="header in headerGroup.headers"
+              :key="header.id"
+              :colspan="header.colSpan"
+              class="px-6 py-3 border bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"
+            >
+              <FlexRender
+                v-if="!header.isPlaceholder"
+                :render="header.column.columnDef.header"
+                :props="header.getContext()"
+              />
+            </th>
+          </tr>
+        </thead>
+        <tbody class="bg-white divide-y divide-gray-200" v-if="table.getRowModel().rows.length > 0">
+          <tr v-for="row in table.getRowModel().rows" :key="row.id" class="border">
+            <td
+              v-for="cell in row.getVisibleCells()"
+              :key="cell.id"
+              class="px-6 py-4 whitespace-nowrap text-sm text-gray-700 border"
+            >
+              <FlexRender :render="cell.column.columnDef.cell" :props="cell.getContext()" />
+            </td>
+          </tr>
+        </tbody>
+        <tbody v-else>
+          <tr>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700 border" colspan="4">
+              No data available
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
+
+    <!-- <ModalCreateOrUpdateOrgDesignation
+      :close-modal="closeModal"
+      :save-record="saveChanges"
+      :initial-values="selectedValue"
+      :mode="editMode"
+      :show-modal="showModal"
+      :open-create-modal="openCreateModal"
+      :open-edit-modal="openEditModal"
+    /> -->
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+/* Add any additional scoped styles here if needed */
+</style>
