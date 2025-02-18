@@ -11,7 +11,7 @@ import { inject, injectable } from 'inversify';
 import type { UpdateDepartmentPayload } from '../schema/schema';
 import { updateDepartmentSchema } from '../schema/schema';
 import { UpdateDepartmentService } from '../services/update-department.service';
-import {userAudit} from "@/common/utils/user-request-audit";
+import { userAudit } from '@/common/utils/user-request-audit';
 
 @injectable()
 @Dependency()
@@ -25,7 +25,7 @@ export class UpdateDepartmentController extends BasePutController {
     bodyBindOrgId: true,
     bodySchema: updateDepartmentSchema,
     pathParamTransform: {
-      department_id: 'id'
+      id: 'department_id'
     }
   })
   async put({ res, body }: ApiRequestContext<UpdateDepartmentPayload>) {

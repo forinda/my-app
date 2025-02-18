@@ -24,8 +24,9 @@ export class UpdateOrganizationDesignationController extends BasePutController {
     audit: userAudit('update'),
     auth: true,
     pathParamTransform: {
-      designation_id: 'id'
-    }
+      id: 'designation_id'
+    },
+    bodyBindOrgId: true
   })
   async put({
     res,

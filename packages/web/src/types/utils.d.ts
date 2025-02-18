@@ -16,3 +16,4 @@ export type ResponseObject<T> = {
 }
 
 export type EmptyBareObject = Record<string, any>
+export type TsFixMeType = any

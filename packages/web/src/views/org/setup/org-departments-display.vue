@@ -8,7 +8,7 @@ import OrgDepartmentListing from '@/components/org/setup/org-department-listing.
 import OrgDepartmentTitleListing from '@/components/org/setup/org-department-title-listing.vue'
 
 const deptTitle = useDepartmentTitleQuery()
-const titlesData = computed(() => deptTitle.query.data.value ?? [])
+const titlesData = computed(() => deptTitle.recordsQuery.data.value ?? [])
 
 const tabs = reactive([
   { name: 'Departments', iconName: 'lucide-wallet-cards' },

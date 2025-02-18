@@ -24,7 +24,7 @@ export class UpdateDepartmentTitleController extends BasePutController {
     auth: true,
     bodyBindOrgId: true,
     pathParamTransform: {
-      title_id: 'id'
+      id: 'title_id'
     },
     audit: userAudit('update')
   })

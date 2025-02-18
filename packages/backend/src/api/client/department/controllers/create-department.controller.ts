@@ -11,7 +11,7 @@ import { inject, injectable } from 'inversify';
 import type { NewDepartmentPayload } from '../schema/schema';
 import { newDepartmentSchema } from '../schema/schema';
 import { DepartmentCreationService } from '../services/create-department.service';
-import {userAudit} from "@/common/utils/user-request-audit";
+import { userAudit } from '@/common/utils/user-request-audit';
 
 @injectable()
 @Dependency()

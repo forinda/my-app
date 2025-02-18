@@ -3,20 +3,28 @@ import { ref } from 'vue'
 import { getDepartmentTableCols } from '@/lib/cols/departments-col'
 import { Icon } from '@iconify/vue'
 import { extractAxiosError } from '@/utils/extract-axios-error'
-import type { EmptyBareObject } from '@/types/utils'
+import type { EmptyBareObject, TsFixMeType } from '@/types/utils'
 import { FlexRender, getCoreRowModel, useVueTable } from '@tanstack/vue-table'
 import ModalCreateOrUpdateOrgDesignation from '@/components/modals/modal-create-or-update-org-designation.vue'
 import type { OrgDesignationModel } from '@/schema/create-org-designation-schema'
 import { useOrgDesignationQuery } from '@/queries/org-designation-query'
+import { getOrgDesignationTableCols } from '@/lib/cols/designation-cols'
+import { useNotification } from '@/composables/use-notification'
 
-const { createRecordMutation, query } = useOrgDesignationQuery()
+const { createRecordMutation, recordsQuery, setSelectedRecordId, updateRecordMutation } =
+  useOrgDesignationQuery()
 const initialState: OrgDesignationModel = {
   description: '',
   name: '',
 }
+const { $swal } = useNotification()
 const showModal = ref(false)
 const editMode = ref<'create' | 'edit'>('create')
-const selectedValue = ref<OrgDesignationModel>(initialState)
+const selectedValue = ref<
+  OrgDesignationModel & {
+    id?: number
+  }
+>(initialState)
 
 const openCreateModal = () => {
   editMode.value = 'create'
@@ -24,9 +32,14 @@ const openCreateModal = () => {
   showModal.value = true
 }
 
-const openEditModal = (department: OrgDesignationModel) => {
+const openEditModal = (
+  record: OrgDesignationModel & {
+    id?: number
+  },
+) => {
+  setSelectedRecordId(record.id!)
   editMode.value = 'edit'
-  selectedValue.value = department
+  selectedValue.value = record
   showModal.value = true
 }
 
@@ -41,21 +54,37 @@ const del = async (id: number) => {
   console.log('delete', id)
 }
 
-const saveChanges = async (payload: EmptyBareObject) => {
-  await createRecordMutation.mutateAsync(payload, {
-    onSuccess: () => {
-      closeModal()
-    },
-    onError: async (error) => {
-      console.error(extractAxiosError(error))
-    },
-  })
+const saveChanges = async (payload: TsFixMeType) => {
+  if (editMode.value === 'create') {
+    await createRecordMutation.mutateAsync(payload, {
+      onSuccess: () => {
+        closeModal()
+      },
+      onError: async (error) => {
+        console.error({ error })
+      },
+    })
+  } else {
+    await updateRecordMutation.mutateAsync([selectedValue.value.id!, payload], {
+      onSuccess: () => {
+        closeModal()
+      },
+      // onError: async (error) => {
+      //   // console.error({ error: extractAxiosError(error) })
+      //   await $swal.fire({
+      //     title: 'Error',
+      //     text: extractAxiosError(error),
+      //     icon: 'error',
+      //   })
+      // },
+    })
+  }
 }
 const table = useVueTable({
   get data() {
-    return query.data.value
+    return recordsQuery.data.value
   },
-  columns: getDepartmentTableCols({ deleteDepartment: del, editDepartment: openEditModal }),
+  columns: getOrgDesignationTableCols({ deleteRecord: del, editRecord: openEditModal }),
   getCoreRowModel: getCoreRowModel(),
 })
 </script>

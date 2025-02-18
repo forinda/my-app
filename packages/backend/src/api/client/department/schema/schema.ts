@@ -29,7 +29,7 @@ export const newDepartmentSchema = z.object({
 });
 
 export const updateDepartmentSchema = z.object({
-  department_id: z.number({
+  department_id: z.string({
     message: 'ID is required'
   }),
   name: z
