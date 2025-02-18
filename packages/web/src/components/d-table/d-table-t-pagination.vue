@@ -32,7 +32,7 @@ const pageRange = computed(() => {
         <span class="text-sm text-gray-700">Rows per page:</span>
         <select
           v-model="table.getState().pagination.pageSize"
-          @change="table.setPageSize(Number($event.target!.value))"
+          @change="table.setPageSize(Number((<HTMLSelectElement>$event.target).value))"
           class="py-1 pl-3 pr-10 text-sm border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
         >
           <option v-for="pageSize in pageSizeOptions" :key="pageSize" :value="pageSize">
