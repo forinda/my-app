@@ -91,6 +91,7 @@ const table = useVueTable({
   columns: getDepartmentTableCols({ deleteDepartment: del, editDepartment: openEditModal }),
   getCoreRowModel: getCoreRowModel(),
 })
+const click = () => alert('okay')
 </script>
 
 <template>
