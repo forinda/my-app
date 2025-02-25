@@ -20,7 +20,7 @@ export function controllerAuth(context: ApiRequestContext, bindOrg = false) {
         if (bindOrg && user.sessions[0].organization) {
           context.body['organization_id'] = user.sessions[0].organization.id!;
           context.body['current_organization_id'] =
-            user.sessions[0].organization.id!;
+            user.sessions[0].organization.uuid!;
         }
       }
     } else {

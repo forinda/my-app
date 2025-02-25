@@ -3,6 +3,7 @@ import { Router } from 'express';
 import { FetchOrganizationMembersController } from './controllers/fetch-organization-members.controller';
 import { RemoveOrganizationMembersController } from './controllers/remove-organization-member.controller';
 import { AddOrganizationMemberController } from './controllers/add-organization-member.controller';
+import { FetchOrganizationMemberInvitesController } from './controllers/fetch-org-members-invites.controller';
 
 type Props = {
   app: Router;
@@ -14,7 +15,8 @@ export function setupOrganizationMemberRoutes({ app }: Props) {
   router
     .get('/', di.resolve(FetchOrganizationMembersController).get)
     .post('/add', di.resolve(AddOrganizationMemberController).post)
-    .post('/remove', di.resolve(RemoveOrganizationMembersController).post);
+    .post('/remove', di.resolve(RemoveOrganizationMembersController).post)
+    .get('/invites', di.resolve(FetchOrganizationMemberInvitesController).get);
 
   app.use('/organization-members', router);
 }

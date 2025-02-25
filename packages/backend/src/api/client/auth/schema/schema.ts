@@ -8,7 +8,8 @@ export const registerUserSchema = z.object({
     .string({
       message: 'Email is required'
     })
-    .email({ message: 'Invalid email address' }),
+    .email({ message: 'Invalid email address' })
+    .toLowerCase(),
   username: z.string({
     message: 'Username is required'
   }),

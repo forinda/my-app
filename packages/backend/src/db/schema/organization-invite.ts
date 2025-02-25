@@ -18,6 +18,7 @@ import {
 
 export const OrganizationInvite = pgTable('organization_invites', {
   id: integer().primaryKey().generatedAlwaysAsIdentity(),
+  user_id: integer().references(() => User.id, foreignKeyConstraints),
   organization_id: integer()
     .notNull()
     .references(() => Organization.id, foreignKeyConstraints),

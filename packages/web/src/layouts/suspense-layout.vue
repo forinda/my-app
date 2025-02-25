@@ -10,7 +10,7 @@
 </template>
 
 <script setup lang="ts">
-import loading from '@/components/loading.vue'
+import loading from '@/components/loading-component.vue'
 </script>
 
 <style scoped></style>

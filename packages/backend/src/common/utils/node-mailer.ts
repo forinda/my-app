@@ -1,12 +1,11 @@
 import { inject, injectable } from 'inversify';
-import { Resend } from 'resend';
 import { Dependency } from '../di';
+import type { Transporter } from 'nodemailer';
+import nodemailer from 'nodemailer';
 import { Config } from '../config';
-
 @injectable()
 @Dependency()
-export class ResendMailer {
-  //   constructor(@inject(Config) private readonly config: Config) {}
+export class NodeMailer {
   @inject(Config) private readonly config: Config;
   private readonly htmlHeader = `
   <!DOCTYPE html>
@@ -89,32 +88,42 @@ export class ResendMailer {
   </html>
 `;
 
+  private _transport: Transporter;
+
+  constructor() {}
+
+  get transport() {
+    return this._transport;
+  }
+
   async sendEmail(email: string[], subject: string, message: string) {
-    const { RESEND_MAIL_KEY, RESEND_MAIL_FROM } = this.config.conf;
+    const trp = nodemailer.createTransport(
+      {
+        port: this.config.conf.SMTP_PORT,
+        host: this.config.conf.SMTP_HOST,
+        auth: {
+          user: this.config.conf.SMTP_USER,
+          pass: this.config.conf.SMTP_PASS
+        }
+      },
+      {}
+    );
+
+    this._transport = trp;
+    const { RESEND_MAIL_FROM } = this.config.conf;
 
     try {
-      const resend = new Resend(RESEND_MAIL_KEY);
-
-      await resend.emails.send({
+      await this.transport.sendMail({
         to: email,
         subject,
         from: RESEND_MAIL_FROM,
         headers: {},
-        tags: [{ name: 'resend', value: 'resend' }],
         html: this.htmlHeader.replace('{{content}}', message)
       });
     } catch (error) {
       console.error('Error sending email', error);
     }
   }
-
-  async sendVerificationEmail(email: string, token: string) {
-    const subject = 'Email Verification';
-    const message = `Click on the link to verify your email: ${token}`;
-
-    await this.sendEmail([email], subject, message);
-  }
-
   async sendOrganizationInviteEmail(
     emails: string[],
     organization_name: string

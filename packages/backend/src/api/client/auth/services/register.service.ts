@@ -4,8 +4,8 @@ import type { TransactionContext } from '@/common/decorators/service-transaction
 import { TransactionalService } from '@/common/decorators/service-transaction';
 import { HttpStatus } from '@/common/http';
 import type { SelectUserInterface } from '@/db/schema';
-import { User } from '@/db/schema';
-import { eq, or } from 'drizzle-orm';
+import { OrganizationInvite, User } from '@/db/schema';
+import { and, eq, or } from 'drizzle-orm';
 import { PasswordProcessor } from '@/common/utils/password';
 import { PayloadValidator } from '@/common/schema/validator';
 import { formatKenyanPhone } from '@/common/utils/phone-number-format';
@@ -63,6 +63,30 @@ export class RegisterUserService {
         .returning()
         .execute()
     )[0];
+
+    const preExistingInvites =
+      await transaction!.query.OrganizationInvite.findMany({
+        where: and(
+          eq(OrganizationInvite.email, data.email.toLowerCase()),
+          eq(OrganizationInvite.is_accepted, false)
+        )
+      });
+
+    if (preExistingInvites.length > 0) {
+      // Update the user_id in the invites
+      await transaction!
+        .update(OrganizationInvite)
+        .set({
+          user_id: rest.id
+        })
+        .where(
+          and(
+            eq(OrganizationInvite.email, data.email.toLowerCase()),
+            eq(OrganizationInvite.is_accepted, false)
+          )
+        )
+        .execute();
+    }
 
     return {
       status: HttpStatus.CREATED,

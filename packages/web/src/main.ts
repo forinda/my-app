@@ -7,6 +7,7 @@ import App from './App.vue'
 import router from './router'
 import { usePiniaStore } from './plugins/pinia'
 import { LoadPrimeVue } from './plugins/primevue'
+import 'primeicons/primeicons.css'
 
 const app = createApp(App)
 

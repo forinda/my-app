@@ -35,7 +35,7 @@ export class RemoveOrganizationMemberService {
         uuid: User.uuid
       })
       .from(User)
-      .where(inArray(User.uuid, data.users))
+      .where(inArray(User.uuid, data.emails))
       .execute())!;
     const membersToRemove = await transaction
       ?.select({

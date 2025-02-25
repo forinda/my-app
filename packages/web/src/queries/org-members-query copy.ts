@@ -10,13 +10,13 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/vue-query'
 import { useToast } from 'primevue/usetoast'
 import { ref } from 'vue'
 
-const orgMemberKeys = {
-  all: ['org:members'],
-  details: () => [orgMemberKeys.all, 'detail'],
-  detail: (id: number) => [orgMemberKeys.details(), id],
-  pagination: (page: number) => [orgMemberKeys.all, 'page', page],
-  search: (query: string) => [orgMemberKeys.all, 'search', query],
-  infinite: () => [orgMemberKeys.all, 'infinite'],
+const orgMemberInviteKeys = {
+  all: ['org:member-invites'],
+  details: () => [orgMemberInviteKeys.all, 'detail'],
+  detail: (id: number) => [orgMemberInviteKeys.details(), id],
+  pagination: (page: number) => [orgMemberInviteKeys.all, 'page', page],
+  search: (query: string) => [orgMemberInviteKeys.all, 'search', query],
+  infinite: () => [orgMemberInviteKeys.all, 'infinite'],
 }
 
 type Options = {
@@ -25,7 +25,7 @@ type Options = {
 }
 
 type UpdateRecordType = [number, CreateDesignationType]
-export const useOrgMembersQuery = function (
+export const useOrgMemberInvitesQuery = function (
   props: Options = {
     page: 1,
     search: '',
@@ -38,7 +38,7 @@ export const useOrgMembersQuery = function (
   const axios = useAxios()
   const toast = useToast()
   async function fetchRecords() {
-    const resp = await axios.get<ArrayBuffer>('/organization-members', {
+    const resp = await axios.get<ArrayBuffer>('/organization-members/invites', {
       method: 'GET',
       responseType: 'arraybuffer',
     })
@@ -69,13 +69,13 @@ export const useOrgMembersQuery = function (
     selectedRecordId.value = id
   }
   const recordsQuery = useQuery<RecordType[]>({
-    queryKey: orgMemberKeys.all,
+    queryKey: orgMemberInviteKeys.all,
     queryFn: fetchRecords,
     initialData: [],
   })
 
   const singleRecordQuery = useQuery({
-    queryKey: orgMemberKeys.detail(selectedRecordId.value!),
+    queryKey: orgMemberInviteKeys.detail(selectedRecordId.value!),
     queryFn: () => fetchSingleRecord(selectedRecordId.value!),
     enabled: !!selectedRecordId.value,
   })
@@ -108,7 +108,7 @@ export const useOrgMembersQuery = function (
         detail: 'Record created successfully',
         summary: 'Success',
       })
-      queryClient.invalidateQueries({ queryKey: orgMemberKeys.all })
+      queryClient.invalidateQueries({ queryKey: orgMemberInviteKeys.all })
     },
   })
 
@@ -119,8 +119,8 @@ export const useOrgMembersQuery = function (
       //   queryKey: [departmentQueryKeys.all, departmentQueryKeys.detail(payload[0])],
 
       // })
-      const previousData = queryClient.getQueryData<RecordType[]>(orgMemberKeys.all)
-      queryClient.setQueryData<RecordType[]>(orgMemberKeys.all, (old) => {
+      const previousData = queryClient.getQueryData<RecordType[]>(orgMemberInviteKeys.all)
+      queryClient.setQueryData<RecordType[]>(orgMemberInviteKeys.all, (old) => {
         return old?.map((record) => {
           if (record.id === payload[0]) {
             return {
@@ -148,7 +148,7 @@ export const useOrgMembersQuery = function (
       })
       queryClient.invalidateQueries({
         queryKey: [
-          orgMemberKeys.all,
+          orgMemberInviteKeys.all,
           // departmentQueryKeys.detail(payload[0]),
         ],
       })

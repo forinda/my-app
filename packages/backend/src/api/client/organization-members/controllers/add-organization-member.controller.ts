@@ -10,8 +10,10 @@ import { inject, injectable } from 'inversify';
 
 import { AddOrganizationMemberService } from '../services/add-organization-member.service';
 import { userAudit } from '@/common/utils/user-request-audit';
-import type { AddMemberToOrRemoveFromOrganizationType } from '../schema';
-import { createOrganizationSchema } from '../../organizations/schema/schema';
+import {
+  addMemberToOrRemoveFromOrgSchema,
+  type AddMemberToOrRemoveFromOrganizationType
+} from '../schema';
 
 @injectable()
 @Dependency()
@@ -20,9 +22,10 @@ export class AddOrganizationMemberController extends BasePostController {
   @inject(AddOrganizationMemberService)
   private service: AddOrganizationMemberService;
   @ApiControllerMethod({
-    bodySchema: createOrganizationSchema,
+    bodySchema: addMemberToOrRemoveFromOrgSchema,
     auth: true,
-    audit: userAudit('create')
+    audit: userAudit('create'),
+    bodyBindOrgId: true
   })
   async post({
     res,

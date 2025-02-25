@@ -1,4 +1,7 @@
 @import 'tailwindcss';
+@import "./primeui/index.css";
+@import "./theme.css";
+@import "primeicons/primeicons.css";
 @theme {
   --font-nunito: 'Nunito', 'sans-serif';
   --font-roboto: 'Roboto', 'serif';

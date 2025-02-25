@@ -2,8 +2,9 @@ import PrimeVue from 'primevue/config'
 import Aura from "@primevue/themes/aura";
 import { definePreset } from "@primevue/themes";
 import ToastService from 'primevue/toastservice'
-
+import Toast from 'primevue/toast';
 import { Form } from '@primevue/forms'
+import FormField from '@primevue/forms/formfield'
 import AutoComplete from 'primevue/autocomplete'
 import CascadeSelect from 'primevue/cascadeselect'
 import Checkbox from 'primevue/checkbox'
@@ -122,7 +123,9 @@ declare module 'vue' {
     PrimePopover: typeof Popover
     PrimeMessage: typeof Message
     PrimeChip: typeof Chip
-    PrimeChips: typeof Chips
+    PrimeChips: typeof Chips,
+    PrimeFormField: typeof FormField,
+    PrimeToast: typeof Toast
   }
 }
 
@@ -204,6 +207,8 @@ export function LoadPrimeVue(app: ReturnType<typeof import('vue').createApp>) {
   app.component('PrimeMessage', Message)
   app.component('PrimeChip', Chip)
   app.component('PrimeChips', Chips)
+  app.component('PrimeFormField', FormField)
+  app.component('PrimeToast', Toast)
   /**
    * Directive Components
    */
@@ -870,6 +875,9 @@ const MyPreset = definePreset(Aura, {
   app.use(PrimeVue, {
     theme: {
       preset: MyPreset,
+      options: {
+        darkModeSelector: ".p-dark",
+      },
       // unstyled:true
     },
   })

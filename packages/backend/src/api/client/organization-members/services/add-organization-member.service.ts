@@ -1,5 +1,5 @@
 import { inject, injectable } from 'inversify';
-import { eq, inArray } from 'drizzle-orm';
+import { and, eq, inArray } from 'drizzle-orm';
 
 import { HttpStatus } from '@/common/http';
 import { Dependency } from '@/common/di';
@@ -8,124 +8,107 @@ import {
   type TransactionContext
 } from '@/common/decorators/service-transaction';
 import { ApiError } from '@/common/errors/base';
-import { Organization, OrganizationMember, User } from '@/db/schema';
+import { Organization, OrganizationInvite, User } from '@/db/schema';
 import type { AddMemberToOrRemoveFromOrganizationType } from '../schema';
-import { UUID } from '@/common/utils/uuid';
+import { NodeMailer } from '@/common/utils/node-mailer';
+// import { lower } from '@/db';
 
 @injectable()
 @Dependency()
 export class AddOrganizationMemberService {
-  @inject(UUID) private uuid: UUID;
+  @inject(NodeMailer) private readonly mailer: NodeMailer;
   @TransactionalService()
   async add({
     data,
     transaction
   }: TransactionContext<AddMemberToOrRemoveFromOrganizationType>) {
-    this.uuid.validateUUID(data.organization_id, { throwError: true });
     const existingOrg = await transaction!.query.Organization.findFirst({
-      where: eq(Organization.uuid, data.organization_id)
+      where: eq(Organization.id, data.organization_id)
     });
 
     if (!existingOrg) {
       throw new ApiError('Organization not found', HttpStatus.CONFLICT, {});
     }
-    const allExistingMembers = (await transaction
-      ?.select({
-        id: OrganizationMember.id,
-        user_id: OrganizationMember.user_id,
-        is_active: OrganizationMember.is_active,
-        organization_id: Organization.id
-      })
-      .from(OrganizationMember)
-      .where(eq(Organization.id, existingOrg.id))
-      .execute())!;
 
-    const usersToBeAdded = await transaction
-      ?.select({
-        id: User.id,
-        uuid: User.uuid,
-        is_active: User.is_active
-      })
-      .from(User)
-      .where(inArray(User.uuid, data.users))
-      .execute();
-    const { updated_by, created_by } = data;
-    const addData = data.users.map((user) => {
-      const dbUser = usersToBeAdded?.find((u) => u.uuid === user);
-
-      if (dbUser) {
-        const isMember = allExistingMembers.find(
-          (u) => u.user_id === dbUser.id
-        );
-
-        if (isMember) {
-          if (!isMember.is_active) {
-            return {
-              user_id: dbUser.id,
-              organization_id: existingOrg.id,
-              action: 'update',
-              member_id: isMember.id
-            } as const;
-          }
-
-          return {
-            user_id: dbUser.id,
-            organization_id: existingOrg.id,
-            action: 'skip'
-          } as const;
-        } else {
-          return {
-            user_id: dbUser.id,
-            organization_id: existingOrg.id,
-            action: 'add'
-          } as const;
-        }
-      } else {
-        return {
-          user_id: null,
-          organization_id: existingOrg.id,
-          action: 'ommit'
-        } as const;
-      }
-    });
-
-    const usersToAdd = addData
-      .filter((u) => u.action === 'add')
-      .map((u) => ({
-        ...u,
-        created_by,
-        updated_by,
-        date_joined: new Date().toISOString(),
-        is_active: true
-      }));
-
-    const usersToActivate = addData
-      .filter((u) => u.action === 'update')
-      .map(({ member_id }) => ({
-        member_id
-      }));
-
-    if (usersToActivate.length > 0) {
-      await transaction!
-        .update(OrganizationMember)
-        .set({
-          is_active: true,
-          updated_by
+    const invitesToAlreadySentNot =
+      (await transaction
+        ?.select({
+          id: OrganizationInvite.id,
+          email: OrganizationInvite.email,
+          is_accepted: OrganizationInvite.is_accepted,
+          expiry_date: OrganizationInvite.expiry_date
         })
+        .from(OrganizationInvite)
+        .where(
+          and(
+            eq(OrganizationInvite.organization_id, existingOrg.id),
+            inArray(OrganizationInvite.email, data.emails)
+          )
+        )
+        .execute())! ?? [];
+    const invitesToBeSent = data.emails.filter(
+      (email) =>
+        !invitesToAlreadySentNot.find(
+          (invite) =>
+            invite.email === email &&
+            invite.is_accepted === false &&
+            new Date(invite.expiry_date).getTime() < new Date().getTime()
+        )
+    );
+    const newInvites = invitesToBeSent.map((email) => ({
+      organization_id: existingOrg.id,
+      email,
+      created_by: data.created_by,
+      updated_by: data.updated_by,
+      is_accepted: false,
+      expiry_date: /**30 days */ new Date(
+        new Date().getTime() + 30 * 24 * 60 * 60 * 1000
+      ).toISOString(),
+      designation_id: data.designation_id
+    }));
+    const invitesCreated = await transaction
+      ?.insert(OrganizationInvite)
+      .values(newInvites)
+      .returning()
+      .execute();
+
+    if (invitesCreated && invitesCreated.length > 0) {
+      const usersInDb = (await transaction
+        ?.select({
+          id: User.id,
+          uuid: User.uuid,
+          email: User.email
+        })
+        .from(User)
         .where(
           inArray(
-            OrganizationMember.id,
-            usersToActivate.map((u) => u.member_id)
+            User.email,
+            invitesCreated.map((u) => u.email.toLowerCase())
           )
-        );
+        )
+        .execute())!;
+
+      if (usersInDb.length > 0) {
+        for (const user of usersInDb) {
+          await transaction!
+            .update(OrganizationInvite)
+            .set({
+              user_id: user.id
+            })
+            .where(eq(OrganizationInvite.email, user.email.toLowerCase()));
+        }
+      }
     }
 
-    await transaction!.insert(OrganizationMember).values(usersToAdd).execute();
+    await this.mailer.sendOrganizationInviteEmail(
+      invitesCreated!.map((u) => u.email),
+      `<strong>${existingOrg.name}</strong>`
+    );
 
     return {
       data: {},
       status: HttpStatus.CREATED,
-      message: `Successfully added ${usersToAdd.length} members to ${existingOrg.name}`
+      message: `Successfully sent invites to users`
     };
   }
 }

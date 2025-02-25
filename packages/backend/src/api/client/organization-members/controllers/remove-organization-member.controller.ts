@@ -24,11 +24,10 @@ export class RemoveOrganizationMembersController extends BasePostController {
   })
   async post({
     res,
-    body: data,
-    current_organization_id
+    body: data
   }: ApiRequestContext<AddMemberToOrRemoveFromOrganizationType>) {
     const feed = await this.service.remove({
-      data: { ...data!, organization_id: current_organization_id! }
+      data: data!
     });
 
     return createHttpResponse(res, { ...feed, statusCode: feed.status });

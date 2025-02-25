@@ -24,7 +24,13 @@ export const envSchema = z.object({
   COOKIE_SAME_SITE: z.enum(['strict', 'lax', 'none']).default('strict'),
   COOKIE_HTTP_ONLY: z.coerce.boolean().default(true),
   RESEND_MAIL_KEY: z.string(),
-  RESEND_MAIL_FROM: z.string()
+  RESEND_MAIL_FROM: z.string(),
+  SMTP_HOST: z.string(),
+  SMTP_PORT: z.coerce.number().default(587),
+  SMTP_USER: z.string(),
+  SMTP_PASS: z.string(),
+  SMTP_SECURE: z.coerce.boolean().default(false),
+  SMTP_TLS: z.coerce.boolean().default(false)
 });
 
 export type EnvType = z.infer<typeof envSchema>;

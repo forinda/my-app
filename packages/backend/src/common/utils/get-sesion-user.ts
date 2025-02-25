@@ -68,7 +68,8 @@ export async function getSessionUser(
           organization: {
             columns: {
               id: true,
-              name: true
+              name: true,
+              uuid: true
             }
           }
         }

@@ -1,133 +1,323 @@
 <script setup lang="ts">
 import { z } from 'zod'
-import { zodResolver } from '@primevue/forms/resolvers/zod'
-import { computed, ref } from 'vue'
+import { TransitionRoot, TransitionChild, Dialog, DialogPanel } from '@headlessui/vue'
+// import { zodResolver } from '@primevue/forms/resolvers/zod'
+import { computed, reactive, ref } from 'vue'
 import { useToast } from 'primevue/usetoast'
+import { Icon } from '@iconify/vue'
+import type { TsFixMeType } from '@/types/utils'
+import { useOrgMembersQuery } from '@/queries/org-members-query'
 import { useOrgDesignationQuery } from '@/queries/org-designation-query'
-import { useDepartmentQuery } from '@/queries/departments-query'
+import {
+  addUserToOrgSchema,
+  type AddUserToOrgModel,
+} from '@/schema/add-to-or-remove-user-from-org-schema copy'
+import { zodResolver } from '@primevue/forms/resolvers/zod'
+import type { FormSubmitEvent } from '@primevue/forms'
 
-const { recordsQuery: desig } = useOrgDesignationQuery()
-const { recordsQuery: dept } = useDepartmentQuery()
-
+const props = defineProps<{
+  showModal: boolean
+  closeModal: () => void
+}>()
+const loading = ref(false)
+const { createRecordMutation } = useOrgMembersQuery()
 const emailSchema = z.string().email({ message: 'Invalid email format' })
-
-const schema = z.object({
-  department: z.number({ message: 'Department is required' }).min(1, { message: 'Department is required' }),
-  designation: z.number({ message: 'Designation is required' }).min(1, { message: 'Designation is required' }),
-})
-
+const { recordsQuery: desig } = useOrgDesignationQuery()
 const emails = ref<string[]>([])
-const invalidEmails = computed(() => emails.value.filter((email) => !emailSchema.safeParse(email).success))
+// const searchQuery = ref('')
+const invalidEmails = computed(() =>
+  emails.value.filter((email) => !emailSchema.safeParse(email).success),
+)
 
-const resolver = zodResolver(schema)
+// const resolver = zodResolver(schema)
 const toast = useToast()
-
-const onSubmit = (data: unknown) => {
+const resolver = zodResolver(addUserToOrgSchema)
+const onSubmit = async (ev: FormSubmitEvent) => {
+  if (!ev.valid) {
+    toast.add({
+      severity: 'error',
+      summary: 'Error',
+      detail: 'Please fix the errors in the form',
+      life: 3000,
+    })
+    return
+  }
   if (emails.value.length === 0) {
-    toast.add({ severity: 'error', summary: 'Error', detail: 'Please enter at least one email address', life: 3000 })
+    toast.add({
+      severity: 'error',
+      summary: 'Error',
+      detail: 'Please enter at least one email address',
+      life: 3000,
+    })
     return
   }
 
   if (invalidEmails.value.length > 0) {
-    toast.add({ severity: 'error', summary: 'Error', detail: 'Please correct invalid email addresses', life: 3000 })
+    toast.add({
+      severity: 'error',
+      summary: 'Error',
+      detail: 'Please correct invalid email addresses',
+      life: 3000,
+    })
     return
   }
 
-  console.log('Inviting users with data:', { ...data, emails: emails.value })
-  toast.add({ severity: 'success', summary: 'Success', detail: 'Invitations sent successfully', life: 3000 })
+  try {
+    loading.value = true
+    await createRecordMutation.mutateAsync(
+      {
+        emails: emails.value,
+        designation_id: ev.values.designation_id,
+      },
+      {
+        onError: (err) => {},
+        onSuccess: async (data) => {
+          toast.add({
+            severity: 'success',
+            summary: 'Success',
+            detail: 'Invitations sent successfully',
+            life: 3000,
+          })
+          props.closeModal()
+        },
+      },
+    )
+  } catch (_error: TsFixMeType) {
+    // toast.add({
+    //   severity: 'error',
+    //   summary: 'Error',
+    //   detail: 'Failed to send invitations',
+    //   life: 3000,
+    // })
+  } finally {
+    loading.value = false
+  }
 }
 </script>
 
 <template>
-  <div class="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-100 to-purple-100 p-4">
-    <div class="w-full max-w-md bg-white rounded-xl shadow-lg p-6">
-      <h1 class="text-2xl font-bold mb-4 text-center text-gray-800">Invite Users</h1>
-      <p class="text-center text-gray-600 mb-4">to Organization X</p>
-      <PrimeForm :resolver="resolver" @submit="onSubmit" v-slot="$form">
-        <div class="flex flex-col gap-4">
-          <!-- Emails Input -->
-          <div>
-            <label class="block mb-1 font-medium text-gray-700" for="emails">User Emails</label>
-            <PrimeChips
-              id="emailChips"
-              name="emails"
-              v-model="emails"
-              separator=","
-              placeholder="Enter email addresses"
-              class="!appearance-none placeholder:!text-primary-contrast/40 !border-0 !p-4 !w-full !outline-0 !text-xl !block !mb-6 !bg-white/10 !text-primary-contrast/70 !rounded-full"
-            />
-            <PrimeMessage v-if="invalidEmails.length" severity="error" size="small" class="mt-1 text-sm">
-              Invalid email(s): {{ invalidEmails.join(', ') }}
-            </PrimeMessage>
-          </div>
+  <transition-root appear :show="showModal" as="template">
+    <Dialog as="div" @close="closeModal" class="relative z-10">
+      <transition-child
+        as="template"
+        enter="duration-300 ease-out"
+        enter-from="opacity-0"
+        enter-to="opacity-100"
+        leave="duration-200 ease-in"
+        leave-from="opacity-100"
+        leave-to="opacity-0"
+      >
+        <div class="fixed inset-0 bg-black/70" />
+      </transition-child>
 
-          <!-- Department Dropdown -->
-          <div>
-            <label class="block mb-1 font-medium text-gray-700" for="department">Department</label>
-            <PrimeSelect
-              id="department"
-              name="department"
-              :options="dept.data.value.map((d) => ({ label: d.name, value: d.id }))"
-              optionLabel="label"
-              optionValue="value"
-              placeholder="Select Department"
-              class="w-full"
-            />
-            <PrimeMessage v-if="$form.department?.errors.length" severity="error" size="small" class="mt-1 text-sm">
-              {{ $form.department?.error.message }}
-            </PrimeMessage>
-          </div>
+      <div class="fixed inset-0 overflow-y-auto">
+        <div class="flex min-h-full items-center justify-center p-4 text-center">
+          <transition-child
+            as="template"
+            enter="duration-300 ease-out"
+            enter-from="opacity-0 scale-95"
+            enter-to="opacity-100 scale-100"
+            leave="duration-200 ease-in"
+            leave-from="opacity-100 scale-100"
+            leave-to="opacity-0 scale-95"
+          >
+            <dialog-panel
+              class="w-full max-w-lg transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all"
+            >
+              <!-- <dialog-title as="h3" class="text-lg font-medium leading-6 text-gray-900">
+                {{ mode === 'edit' ? 'Edit Title' : 'Create New Title' }}
+              </dialog-title> -->
+              <div class="mt-2">
+                <section class="flex items-center justify-center p-4">
+                  <div class="w-full bg-white rounded-2xl">
+                    <div class="mb-8 text-center">
+                      <h1 class="text-3xl font-bold text-gray-900 mb-2">Invite Team Members</h1>
+                      <p class="text-gray-600">Add new members to your organization</p>
+                    </div>
 
-          <!-- Designation Dropdown -->
-          <div>
-            <label class="block mb-1 font-medium text-gray-700" for="designation">Designation</label>
-            <PrimeSelect
-              id="designation"
-              name="designation"
-              :options="desig.data.value.map((d) => ({ label: d.name, value: d.id }))"
-              optionLabel="label"
-              optionValue="value"
-              placeholder="Select Designation"
-              class="w-full"
-            />
-            <PrimeMessage v-if="$form.designation?.error" severity="error" size="small" class="mt-1 text-sm">
-              {{ $form.designation?.error.message }}
-            </PrimeMessage>
-          </div>
+                    <div class="space-y-6">
+                      <!-- Emails Input -->
+                      <div class="space-y-2">
+                        <label class="block text-sm font-medium text-gray-700" for="emailChips">
+                          Email Addresses
+                          <span class="text-gray-500 text-xs ml-1">(separate with comma)</span>
+                        </label>
+                        <PrimeChips
+                          id="emailChips"
+                          name="emails"
+                          v-model="emails"
+                          separator=","
+                          placeholder="Enter email addresses"
+                          class="w-full email-chips"
+                          aria-label="Email addresses input"
+                        />
+                        <PrimeMessage v-if="invalidEmails.length" severity="error" class="text-sm">
+                          Invalid email(s): {{ invalidEmails.join(', ') }}
+                        </PrimeMessage>
+                      </div>
 
-          <!-- Submit Button -->
-          <Button
-            type="submit"
-            label="Send Invites"
-            class="mt-4 w-full p-button-primary bg-indigo-600 hover:bg-indigo-700"
-            icon="pi pi-send"
-          />
+                      <PrimeForm
+                        :resolver
+                        class="gap-6"
+                        @submit="onSubmit"
+                        v-slot="$form"
+                        validate-on-submit="true"
+                      >
+                        <!-- Designation Selection -->
+                        <div class="space-y-2">
+                          <label class="block text-sm font-medium text-gray-700" for="designation">
+                            Designation
+                          </label>
+                          <div class="relative">
+                            <PrimeSelect
+                              id="designation_id"
+                              name="designation_id"
+                              :options="
+                                desig.data.value.map((d) => ({ label: d.name, value: d.id }))
+                              "
+                              optionLabel="label"
+                              optionValue="value"
+                              placeholder="Select Designation"
+                              class="w-full"
+                              :filter="true"
+                              :loading="desig.isLoading.value"
+                            />
+                          </div>
+                          <PrimeMessage
+                            v-if="$form.designation_id?.error"
+                            severity="error"
+                            class="text-sm"
+                          >
+                            {{ $form.designation_id?.error.message }}
+                          </PrimeMessage>
+                        </div>
+                        <br />
+                        <PrimeButton
+                          type="submit"
+                          :loading="loading"
+                          :disabled="loading"
+                          class="w-full h-11"
+                        >
+                          <!-- <template #icon>
+            <UserPlusIcon class="h-5 w-5" />
+          </template> -->
+                          <Icon class="h-5 w-5" :icon="'lucide-user-plus'" />
+                          {{ loading ? 'Sending Invites...' : 'Send Invitations' }}
+                        </PrimeButton>
+                      </PrimeForm>
+
+                      <!-- Search Field -->
+                      <!-- <div class="space-y-2">
+          <label
+            class="block text-sm font-medium text-gray-700"
+            for="search"
+          >
+            Search Members
+          </label>
+          <div class="relative">
+            <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+              <SearchIcon class="h-5 w-5 text-gray-400" />
+            </span>
+            <InputText
+              id="search"
+              v-model="searchQuery"
+              placeholder="Search by name or email..."
+              class="pl-10 w-full"
+            />
+          </div>
+        </div> -->
+
+                      <!-- Submit Button -->
+                    </div>
+                  </div>
+                </section>
+              </div>
+            </dialog-panel>
+          </transition-child>
         </div>
-      </PrimeForm>
-    </div>
-  </div>
-  <Toast />
+      </div></Dialog
+    >
+  </transition-root>
+  <Toast position="top-right" />
 </template>
 
 <style scoped>
-/* Custom styles */
-:deep(.p-chips) .p-chips-multiple-container {
+:deep(.email-chips) .p-chips-multiple-container {
   width: 100%;
-  min-height: 2.5rem;
+  min-height: 2.75rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid #e5e7eb;
+  background-color: white;
+  transition: all 0.2s ease;
+}
+
+:deep(.email-chips) .p-chips-multiple-container:hover {
+  border-color: var(--primary-color);
+}
+
+:deep(.email-chips) .p-chips-multiple-container:focus-within {
+  border-color: var(--primary-color);
+  box-shadow:
+    0 0 0 2px #e5e7eb,
+    0 0 0 4px var(--primary-color);
+}
+
+:deep(.email-chips) .p-chips-token {
+  background-color: var(--primary-50);
+  color: var(--primary-700);
+  border-radius: 0.375rem;
+  padding: 0.25rem 0.5rem;
+  margin: 0.125rem;
+}
+
+:deep(.p-inputtext),
+:deep(.p-dropdown) {
+  width: 100%;
+  border-radius: 0.5rem;
+  min-height: 2.75rem;
+  transition: all 0.2s ease;
+}
+
+:deep(.p-dropdown:hover) {
+  border-color: var(--primary-color);
+}
+
+:deep(.p-dropdown:focus) {
+  border-color: var(--primary-color);
+  box-shadow:
+    0 0 0 2px #e5e7eb,
+    0 0 0 4px var(--primary-color);
 }
 
 :deep(.p-button) {
-  background-color: #4f46e5;
-  border-color: #4f46e5;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
 }
 
-:deep(.p-button):hover {
-  background-color: #4338ca;
-  border-color: #4338ca;
+:deep(.p-button:not(:disabled):hover) {
+  transform: translateY(-1px);
 }
 
-:deep(.p-chips) .p-chips-token {
-  background-color: #e0e7ff;
-  color: #4f46e5;
+:deep(.p-message) {
+  border-radius: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+/* Loading state styles */
+:deep(.p-button-loading) {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Toast customization */
+:deep(.p-toast) {
+  opacity: 0.95;
+}
+
+:deep(.p-toast-message) {
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
 }
 </style>
