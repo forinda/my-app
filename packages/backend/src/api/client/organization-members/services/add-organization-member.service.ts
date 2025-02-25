@@ -35,7 +35,7 @@ export class AddOrganizationMemberService {
         ?.select({
           id: OrganizationInvite.id,
           email: OrganizationInvite.email,
-          is_accepted: OrganizationInvite.is_accepted,
+          status: OrganizationInvite.status,
           expiry_date: OrganizationInvite.expiry_date
         })
         .from(OrganizationInvite)
@@ -51,7 +51,7 @@ export class AddOrganizationMemberService {
         !invitesToAlreadySentNot.find(
           (invite) =>
             invite.email === email &&
-            invite.is_accepted === false &&
+            invite.status === 'pending' &&
             new Date(invite.expiry_date).getTime() < new Date().getTime()
         )
     );

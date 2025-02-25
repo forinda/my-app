@@ -1,6 +1,6 @@
 import {
-  boolean,
   integer,
+  pgEnum,
   pgTable,
   timestamp,
   varchar
@@ -16,17 +16,23 @@ import {
   getTableTimestamps
 } from '@/common/utils/drizzle';
 
+export const orgInviteStatusEnum = pgEnum('organization_invite_status_enum', [
+  'pending',
+  'accepted',
+  'rejected'
+]);
+
 export const OrganizationInvite = pgTable('organization_invites', {
   id: integer().primaryKey().generatedAlwaysAsIdentity(),
   user_id: integer().references(() => User.id, foreignKeyConstraints),
   organization_id: integer()
     .notNull()
     .references(() => Organization.id, foreignKeyConstraints),
+  status: orgInviteStatusEnum().default('pending').notNull(),
   designation_id: integer()
     .notNull()
     .references(() => OrganizationDesignation.id, foreignKeyConstraints),
   email: varchar().notNull(),
-  is_accepted: boolean().notNull().default(false),
   expiry_date: timestamp({ mode: 'string' }).notNull(),
   created_by: integer()
     .notNull()
@@ -60,6 +66,10 @@ export const organizationInviteRelations = relations(
     organization: one(Organization, {
       fields: [OrganizationInvite.organization_id],
       references: [Organization.id]
+    }),
+    user: one(User, {
+      fields: [OrganizationInvite.user_id],
+      references: [User.id]
     })
   })
 );

@@ -9,6 +9,11 @@ export const addMemberToOrRemoveFromOrgSchema = z.object({
   updated_by: z.number()
 });
 
+export const respondToOrgInviteSchema = z.object({
+  invite_id: z.number(),
+  action: z.enum(['accepted', 'rejected'])
+});
+
 export const fetchUserorganizationInvitesSchema = z.object({
   user_id: z.coerce.number()
 });
@@ -16,6 +21,8 @@ export const fetchUserorganizationInvitesSchema = z.object({
 export type AddMemberToOrRemoveFromOrganizationType = z.infer<
   typeof addMemberToOrRemoveFromOrgSchema
 >;
+
+export type RespondToOrgInviteType = z.infer<typeof respondToOrgInviteSchema>;
 
 export const filterOrganizationMembersSchema = z.object({
   current_organization_id: z.string()

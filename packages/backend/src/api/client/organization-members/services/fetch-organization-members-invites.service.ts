@@ -23,6 +23,28 @@ export class FetchOrganizationMemberInvitesService {
             id: true,
             name: true
           }
+        },
+        designation: {
+          columns: {
+            id: true,
+            name: true
+          }
+        },
+        user: {
+          columns: {
+            id: true,
+            first_name: true,
+            last_name: true,
+            avatar: true
+          }
+        },
+        creator: {
+          columns: {
+            id: true,
+            first_name: true,
+            last_name: true,
+            avatar: true
+          }
         }
       },
       offset: _pagination.offset,

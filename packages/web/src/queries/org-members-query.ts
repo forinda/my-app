@@ -10,7 +10,7 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/vue-query'
 import { useToast } from 'primevue/usetoast'
 import { ref } from 'vue'
 
-const orgMemberKeys = {
+export const orgMemberKeys = {
   all: ['org:members'],
   details: () => [orgMemberKeys.all, 'detail'],
   detail: (id: number) => [orgMemberKeys.details(), id],

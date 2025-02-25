@@ -6,7 +6,7 @@ import { decodeArrayBuffer } from '@/utils/resp-decode'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/vue-query'
 import { ref } from 'vue'
 
-const departmentTitleQueryKeys = {
+export const departmentTitleQueryKeys = {
   all: ['org:department-titles'],
   details: () => [departmentTitleQueryKeys.all, 'detail'],
   detail: (id: number) => [departmentTitleQueryKeys.details(), id],

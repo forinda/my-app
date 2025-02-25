@@ -106,6 +106,26 @@ export type OrganizationmemberDesignationType = {
   deleted_at: null
 }
 
+export interface UserOrganizationInviteInterface {
+  id: number
+  user_id: number
+  organization_id: number
+  designation_id: number
+  email: string
+  status: 'pending' | 'accepted' | 'rejected'
+  expiry_date: string
+  created_by: number
+  updated_by: number
+  deleted_by: number | null
+  created_at: string
+  updated_at: string
+  deleted_at: string | null
+  organization: { id: number; name: string }
+  designation: { id: number; name: string }
+  user: { id: number; first_name: string; last_name: string; avatar: string }
+  creator: { id: number; first_name: string; last_name: string; avatar: string }
+}
+
 // export type OrganizationMemberInterface={}
 export interface CreateOrganizationResponseType {}
 export interface GetOrganizationsResponseType {}
@@ -116,4 +136,7 @@ export type FetchOrganizationDesignationResponseType = ResponseObject<Organizati
 export type FetchDepartmentTitleResponseType = ResponseObject<DepartmentTitleType[]>
 export type FetchOrganizationMemberDesignationResponseType = ResponseObject<
   OrganizationmemberDesignationType[]
+>
+export type FetchUserOrganizationInvitesResponseType = ResponseObject<
+  UserOrganizationInviteInterface[]
 >

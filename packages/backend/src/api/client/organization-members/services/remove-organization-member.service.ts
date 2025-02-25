@@ -19,8 +19,6 @@ export class RemoveOrganizationMemberService {
     data,
     transaction
   }: TransactionContext<AddMemberToOrRemoveFromOrganizationType>) {
-    this.uuid.validateUUID(data.organization_id, { throwError: true });
-
     const existingOrg = await transaction!.query.Organization.findFirst({
       where: eq(Organization.uuid, data.organization_id)
     });

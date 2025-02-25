@@ -12,7 +12,14 @@ import { defineStore } from 'pinia'
 import { ref } from 'vue'
 import { useAuthStore } from './auth-store'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/vue-query'
-
+export const organizationQueryKeysKeys = {
+  all: ['org:organizations|all'],
+  details: () => [organizationQueryKeysKeys.all, 'detail'],
+  detail: (id: number) => [organizationQueryKeysKeys.details(), id],
+  pagination: (page: number) => [organizationQueryKeysKeys.all, 'page', page],
+  search: (query: string) => [organizationQueryKeysKeys.all, 'search', query],
+  infinite: () => [organizationQueryKeysKeys.all, 'infinite'],
+}
 export const useOrganizationStore = defineStore('app:organization', function () {
   const authStore = useAuthStore()
   const currentOrg = ref<SelectOrganizationInterface | null>(null)
@@ -43,7 +50,7 @@ export const useOrganizationStore = defineStore('app:organization', function () 
     }
   }
   const query = useQuery<SelectOrganizationInterface[]>({
-    queryKey: ['org:organizations'],
+    queryKey: [organizationQueryKeysKeys.all],
     queryFn: fetchOrganizations,
   })
 
@@ -62,7 +69,7 @@ export const useOrganizationStore = defineStore('app:organization', function () 
       throw new Error(extractAxiosError(error) ?? 'Error creating organization')
     },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['org:organizations'] })
+      queryClient.invalidateQueries({ queryKey: [organizationQueryKeysKeys.all] })
     },
   })
 
