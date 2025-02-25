@@ -26,7 +26,7 @@ export class LoginUserController extends BasePostController {
   })
   async post({ res, body }: ApiRequestContext<LoginUserInput>) {
     const { expiry, otherCookieOptions, signedSession, cookieName, ...rest } =
-      await this.service.create({
+      await this.service.login({
         data: body!
       });
 

@@ -11,6 +11,7 @@ import { Config } from '@/common/config';
 import type { LoginUserInput } from '../schema/schema';
 import type { BareObject } from '@/common/interfaces/helpers';
 import { phoneValidator } from '@/common/utils/phone-number-format';
+import { ApiError } from '@/common/errors/base';
 
 @injectable()
 @Dependency()
@@ -19,7 +20,7 @@ export class LoginUserService {
   @inject(Config) private config: Config;
 
   @TransactionalService()
-  async create({ data, transaction }: TransactionContext<LoginUserInput>) {
+  async login({ data, transaction }: TransactionContext<LoginUserInput>) {
     const isEmail = data.emailOrUsername.includes('@');
 
     const isvalidPhone = phoneValidator.validatePhone.validate(
@@ -45,21 +46,20 @@ export class LoginUserService {
     )[0];
 
     if (!existingUser) {
-      return {
-        status: HttpStatus.BAD_REQUEST,
-        message: 'Account does not exist'
-      };
+      throw new ApiError('Account does not exist', HttpStatus.BAD_REQUEST, {});
     }
+
     const isPasswordValid = await this.passwordProcessor.compare(
       data.password,
       existingUser.password!
     );
 
     if (!isPasswordValid) {
-      return {
-        status: HttpStatus.BAD_REQUEST,
-        message: 'Invalid login credentials'
-      };
+      throw new ApiError(
+        'Invalid login credentials',
+        HttpStatus.BAD_REQUEST,
+        {}
+      );
     }
     delete (existingUser as BareObject)['password'];
     const { uuid } = existingUser;

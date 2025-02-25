@@ -11,6 +11,7 @@ import { PayloadValidator } from '@/common/schema/validator';
 import { formatKenyanPhone } from '@/common/utils/phone-number-format';
 import { generateAvatar } from '@/common/utils/avatar';
 import type { RegisterUserInput } from '../schema/schema';
+import { ApiError } from '@/common/errors/base';
 
 @injectable()
 @Dependency()
@@ -46,11 +47,9 @@ export class RegisterUserService {
         message = 'Phone number already exists';
       }
 
-      return {
-        status: HttpStatus.CONFLICT,
-        message
-      };
+      throw new ApiError(message, HttpStatus.BAD_REQUEST, {});
     }
+    console.log('---------Some-----------');
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { password: _, ...rest } = (
       await transaction!
@@ -68,7 +67,7 @@ export class RegisterUserService {
       await transaction!.query.OrganizationInvite.findMany({
         where: and(
           eq(OrganizationInvite.email, data.email.toLowerCase()),
-          eq(OrganizationInvite.is_accepted, false)
+          eq(OrganizationInvite.status, 'pending')
         )
       });
 
@@ -82,7 +81,7 @@ export class RegisterUserService {
         .where(
           and(
             eq(OrganizationInvite.email, data.email.toLowerCase()),
-            eq(OrganizationInvite.is_accepted, false)
+            eq(OrganizationInvite.status, 'pending')
           )
         )
         .execute();
