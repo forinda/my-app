@@ -6,7 +6,7 @@ import OrgLayoutHeader from '@/components/org/org-layout-header.vue'
 import { useNotification } from '@/composables/use-notification'
 import { useOrganizationStore } from '@/stores/organization-store'
 import { useOrgMemberInvitesQuery } from '@/queries/org-members-invite-query'
-
+import { Icon } from '@iconify/vue'
 const createOrgOpen = ref(false)
 const orgStore = useOrganizationStore()
 const inviteQuery = useOrgMemberInvitesQuery()
@@ -85,63 +85,93 @@ const handleCreate = async (
                 <div
                   v-for="invite in inviteQuery.recordsQuery.data.value"
                   :key="invite.id"
-                  class="p-5 border rounded-2xl shadow-md hover:shadow-lg transition bg-white space-y-3"
+                  class="p-6 border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 bg-white"
                 >
-                  <div class="flex items-center justify-between">
-                    <div>
-                      <div class="text-xl font-semibold text-gray-800">
+                  <!-- Header with Organization and Status -->
+                  <div class="flex items-start justify-between mb-4">
+                    <div class="space-y-1">
+                      <div class="text-xl font-semibold text-gray-800 flex items-center">
+                        <BuildingIcon class="w-5 h-5 mr-2 text-gray-600" />
                         {{ invite.organization.name }}
                       </div>
-                      <div class="text-gray-500 text-sm">Role: {{ invite.designation.name }}</div>
+                      <div class="text-gray-500 text-sm flex items-center">
+                        <BriefcaseIcon class="w-4 h-4 mr-1 text-gray-400" />
+                        Role: {{ invite.designation.name }}
+                      </div>
                     </div>
+
                     <span
-                      class="px-3 py-1 text-sm font-medium rounded-full"
+                      class="px-3 py-1 text-sm font-medium rounded-full flex items-center"
                       :class="{
                         'bg-green-100 text-green-700': invite.status === 'accepted',
-                        'bg-yellow-100 text-yellow-700': invite.status === 'pending',
+                        'bg-amber-100 text-amber-700': invite.status === 'pending',
                         'bg-red-100 text-red-700': invite.status === 'rejected',
                       }"
                     >
-                      {{ invite.status }}
+                      <span v-if="invite.status === 'accepted'" class="mr-1">
+                        <CheckCircleIcon class="w-4 h-4" />
+                      </span>
+                      <span v-else-if="invite.status === 'pending'" class="mr-1">
+                        <ClockIcon class="w-4 h-4" />
+                      </span>
+                      <span v-else-if="invite.status === 'rejected'" class="mr-1">
+                        <XCircleIcon class="w-4 h-4" />
+                      </span>
+                      {{ invite.status.charAt(0).toUpperCase() + invite.status.slice(1) }}
                     </span>
                   </div>
 
-                  <p class="text-gray-600 text-sm">
-                    Invited by:
-                    <span class="font-medium">
-                      {{
-                        [invite.creator.first_name || '', invite.creator.last_name || ''].join(' ')
-                      }}
-                    </span>
-                  </p>
+                  <!-- Divider -->
+                  <div class="border-t border-gray-100 my-3"></div>
 
-                  <p class="text-gray-500 text-sm">
-                    Date Invited: {{ moment(invite.created_at).format('LL') }}
-                  </p>
+                  <!-- Invitation Details -->
+                  <div class="space-y-2 mb-4">
+                    <p class="text-gray-600 text-sm flex items-center">
+                      <UserIcon class="w-4 h-4 mr-2 text-gray-400" />
+                      Invited by:
+                      <span class="font-medium ml-1">
+                        {{
+                          [invite.creator.first_name || '', invite.creator.last_name || ''].join(
+                            ' ',
+                          )
+                        }}
+                      </span>
+                    </p>
 
-                  <div class="flex justify-end space-x-3" v-if="invite.status === 'pending'">
-                    <Primebutton
+                    <p class="text-gray-500 text-sm flex items-center">
+                      <CalendarIcon class="w-4 h-4 mr-2 text-gray-400" />
+                      Date Invited: {{ moment(invite.created_at).format('LL') }}
+                    </p>
+                  </div>
+
+                  <!-- Action Buttons -->
+                  <div class="flex justify-end space-x-3 mt-4" v-if="invite.status === 'pending'">
+                    <button
                       @click="
                         inviteQuery.respondToInviteMutation.mutateAsync([
                           invite.id,
                           { action: 'accepted' },
                         ])
                       "
-                      class="px-4 py-2 cursor-pointer text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition"
+                      class="px-4 py-2 cursor-pointer text-sm font-medium text-white bg-emerald-600 rounded-lg hover:bg-emerald-700 transition-colors duration-200 flex items-center"
                     >
+                      <!-- <CheckIcon class="w-4 h-4 mr-1" /> -->
+                      <Icon icon="lucide-check" class="w-4 h-4 mr-1" />
                       Accept
-                    </Primebutton>
-                    <Primebutton
+                    </button>
+                    <button
                       @click="
                         inviteQuery.respondToInviteMutation.mutateAsync([
                           invite.id,
                           { action: 'rejected' },
                         ])
                       "
-                      class="px-4 py-2 cursor-pointer text-sm font-medium text-gray-700 bg-gray-200 rounded-lg hover:bg-gray-300 transition"
+                      class="px-4 py-2 cursor-pointer text-sm font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors duration-200 flex items-center border border-gray-200"
                     >
+                      <!-- <XIcon class="w-4 h-4 mr-1" /> -->
+                      <Icon icon="lucide-x" class="w-4 h-4 mr-1" />
                       Decline
-                    </Primebutton>
+                    </button>
                   </div>
                 </div>
               </div>
