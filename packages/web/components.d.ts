@@ -37,6 +37,7 @@ declare module 'vue' {
     Loading: typeof import('./src/components/loading.vue')['default']
     LoadingComponent: typeof import('./src/components/loading-component.vue')['default']
     Message: typeof import('primevue/message')['default']
+    ModalAddDepartmentMember: typeof import('./src/components/modals/modal-add-department-member.vue')['default']
     ModalCreateDesignation: typeof import('./src/components/modals/modal-create-designation.vue')['default']
     ModalCreateOrUpdateDepartment: typeof import('./src/components/modals/modal-create-or-update-department.vue')['default']
     ModalCreateOrUpdateDepartmentTitle: typeof import('./src/components/modals/modal-create-or-update-department-title.vue')['default']

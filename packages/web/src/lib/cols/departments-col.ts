@@ -7,6 +7,8 @@ type DeptType = FetchDepartmentResponseType['data'][number]
 type Props = {
   editDepartment: (row: DeptType) => void
   deleteDepartment: (row: DeptType['id']) => void
+  // openShowDepartment: (row: DeptType) => void
+  openAddUserToDepartment: (id: number) => void
 }
 export function getDepartmentTableCols(props: Props) {
   const orgDepartmentTableCols: ColumnDef<DeptType>[] = [
@@ -57,6 +59,15 @@ export function getDepartmentTableCols(props: Props) {
                 [h(Icon, { icon: 'lucide-trash', class: 'text-red-500' })],
               ),
             ],
+            h(
+              'button',
+              {
+                onClick: () => props.openAddUserToDepartment(row.original.id),
+                class:
+                  'p-1 border border-gray-400 rounded text-white inline-flex items-center gap-2 cursor-pointer',
+              },
+              [h(Icon, { icon: 'lucide-user-plus', class: 'text-green-500' })],
+            ),
           ],
         ),
     },

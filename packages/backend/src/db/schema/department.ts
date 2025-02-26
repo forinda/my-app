@@ -7,6 +7,8 @@ import {
   foreignKeyConstraints,
   getTableTimestamps
 } from '@/common/utils/drizzle';
+import { DepartmentMember } from './department-member';
+import { DepartmentUserRole } from './department-user-role';
 
 export const Department = pgTable(
   'departments',
@@ -30,7 +32,7 @@ export const Department = pgTable(
   (table) => [unique().on(table.organization_id, table.name)]
 );
 
-export const departmentRelations = relations(Department, ({ one }) => ({
+export const departmentRelations = relations(Department, ({ one, many }) => ({
   creator: one(User, {
     fields: [Department.created_by],
     references: [User.id]
@@ -46,7 +48,9 @@ export const departmentRelations = relations(Department, ({ one }) => ({
   organization: one(Organization, {
     fields: [Department.organization_id],
     references: [Organization.id]
-  })
+  }),
+  members: many(DepartmentMember),
+  user_roles: many(DepartmentUserRole)
 }));
 
 export interface SelectOrganizationDepartmentInterface

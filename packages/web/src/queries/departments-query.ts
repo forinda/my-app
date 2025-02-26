@@ -20,13 +20,27 @@ type Options = {
   search?: string
 }
 
+type AddDepartmentMemberPayload = {
+  users: number[]
+}
+
+type AddDepartmentRolePayload = {
+  user_id: number
+  title_id: number
+  start_date: string
+  department_id: number
+}
+
 type UpdateRecordType = [string, CreateDepartmentType]
+type AddUserToDepartmentType = [number, AddDepartmentMemberPayload]
+// type AddRoleToDepartmentType = [number, AddDepartmentRolePayload]
 export const useDepartmentQuery = function (
   props: Options = {
     page: 1,
     search: '',
   },
 ) {
+  const selectedDepartment = ref<FetchDepartmentResponseType['data'][number] | null>(null)
   const selectedRecordId = ref('')
   const queryClient = useQueryClient()
   type DepartmentType = FetchDepartmentResponseType['data'][number]
@@ -54,6 +68,14 @@ export const useDepartmentQuery = function (
 
   function setSelectedRecordId(id: string) {
     selectedRecordId.value = id
+  }
+
+  function addDepartmentMember([id, payload]: AddUserToDepartmentType) {
+    return axios.post(`/departments/add-member/${id}`, payload)
+  }
+
+  function addRoleToDepartment(payload: AddDepartmentRolePayload) {
+    return axios.post(`/departments-roles`, payload)
   }
   const recordsQuery = useQuery<DepartmentType[]>({
     queryKey: departmentQueryKeys.all,
@@ -110,19 +132,44 @@ export const useDepartmentQuery = function (
     },
   })
 
-  // watch(
-  //   props,
-  //   (newVal) => {
-  //     console.log('options changed', newVal)
-  //   },
-  //   { deep: true },
-  // )
-  // const data = computed(() => (Array.isArray(deptsData.value) ? deptsData.value : []))
+  const addUserToDepartmentMutation = useMutation({
+    mutationFn: addDepartmentMember,
+    onError: (error) => {
+      console.log(error)
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({
+        queryKey: departmentQueryKeys.all,
+      })
+    },
+  })
+  const addRoleToDepartmentMutation = useMutation({
+    mutationFn: addRoleToDepartment,
+    onError: (error) => {
+      console.log(error)
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({
+        queryKey: departmentQueryKeys.all,
+      })
+    },
+  })
+
+  function selectCurrentDepartment(id: number) {
+    const found = recordsQuery.data?.value.find((record) => record.id === id) || null
+    console.log('Found', found)
+    selectedDepartment.value = found
+  }
+
   return {
     recordsQuery,
     createRecordMutation,
     updateRecordMutation,
     singleRecordQuery,
     setSelectedRecordId,
+    addUserToDepartmentMutation,
+    addRoleToDepartmentMutation,
+    selectCurrentDepartment,
+    selectedDepartment,
   }
 }

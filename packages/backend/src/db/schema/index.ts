@@ -25,3 +25,5 @@ export * from './department-role-title';
 export * from './department-user-role';
 
 export * from './auth-session';
+
+export * from './department-member';

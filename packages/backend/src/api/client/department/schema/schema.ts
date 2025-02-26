@@ -1,11 +1,10 @@
 import z from 'zod';
-
 export const newDepartmentSchema = z.object({
   name: z
     .string({
       message: 'Name is required'
     })
-    .min(3, {
+    .min(2, {
       message: 'Name must be at least 3 characters long'
     })
     .max(255, {
@@ -36,7 +35,7 @@ export const updateDepartmentSchema = z.object({
     .string({
       message: 'Name is required'
     })
-    .min(3, {
+    .min(2, {
       message: 'Name must be at least 3 characters long'
     })
     .max(255, {
@@ -60,8 +59,31 @@ export const updateDepartmentSchema = z.object({
   })
 });
 
+export const addUsersToDepartmentSchema = z.object({
+  department_id: z.number({
+    message: 'Department ID is required'
+  }),
+  users: z
+    .array(
+      z.number({
+        message: 'User ID is required'
+      })
+    )
+    .min(1, {
+      message: 'At least one user is required'
+    }),
+  created_by: z.number({}),
+  updated_by: z.number({}),
+  organization_id: z.number({
+    message: 'Organization ID is required'
+  })
+});
 // export const getOrganizationMember``
 
 export type NewDepartmentPayload = z.infer<typeof newDepartmentSchema>;
 
 export type UpdateDepartmentPayload = z.infer<typeof updateDepartmentSchema>;
+
+export type AddUsersToDepartmentPayload = z.infer<
+  typeof addUsersToDepartmentSchema
+>;
