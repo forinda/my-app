@@ -17,7 +17,7 @@ import { relations } from 'drizzle-orm';
 import { OrgProjectMember } from './org-project-member';
 import { OrgProjectCategory } from './org-project-category';
 
-const projectTypes = pgEnum('organization_project_types_enum', [
+export const projectTypes = pgEnum('organization_project_types_enum', [
   'paid',
   'free',
   'test',

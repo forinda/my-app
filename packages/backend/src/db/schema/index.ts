@@ -37,3 +37,5 @@ export * from './org-project';
 export * from './org-project-member';
 
 export * from './org-project-category';
+
+export * from './org-task';
