@@ -7,6 +7,7 @@ import {
   foreignKeyConstraints,
   getTableTimestamps
 } from '@/common/utils/drizzle';
+import { OrgWorkspace } from './org-workspace';
 
 export const Organization = pgTable('organizations', {
   id: integer().primaryKey().generatedAlwaysAsIdentity(),
@@ -35,7 +36,8 @@ export const organizationRelationships = relations(
       fields: [Organization.updated_by],
       references: [User.id]
     }),
-    departments: many(Department)
+    departments: many(Department),
+    workspaces: many(OrgWorkspace)
   })
 );
 

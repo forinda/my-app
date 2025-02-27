@@ -27,3 +27,7 @@ export * from './department-user-role';
 export * from './auth-session';
 
 export * from './department-member';
+
+export * from './org-workspace';
+
+export * from './org-workspace-member';
