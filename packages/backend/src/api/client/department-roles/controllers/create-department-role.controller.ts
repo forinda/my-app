@@ -11,6 +11,7 @@ import { inject, injectable } from 'inversify';
 import type { DepartmentUserRoleCreationRequest } from '../schema/schema';
 import { newDepartmentUserRoleSchema } from '../schema/schema';
 import { AddNewDepartmentUserRoleService } from '../services/add-department-role.service';
+import { userAudit } from '@/common/utils/user-request-audit';
 
 @injectable()
 @Dependency()
@@ -21,7 +22,8 @@ export class AddDepartmentRoleController extends BasePostController {
   @ApiControllerMethod({
     bodySchema: newDepartmentUserRoleSchema,
     auth: true,
-    bodyBindOrgId: true
+    bodyBindOrgId: true,
+    audit: userAudit('create')
   })
   async post({
     res,

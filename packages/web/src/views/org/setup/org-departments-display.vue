@@ -13,8 +13,8 @@ const titlesData = computed(() => deptTitle.recordsQuery.data.value ?? [])
 const tabs = reactive([
   { name: 'Departments', iconName: 'lucide-wallet-cards' },
   { name: 'Titles', iconName: 'lucide-briefcase' },
-  { name: 'Roles', iconName: 'lucide-lock-keyhole' },
-  { name: 'Members', iconName: 'lucide-users' },
+  // { name: 'Roles', iconName: 'lucide-lock-keyhole' },
+  // { name: 'Members', iconName: 'lucide-users' },
 ] as const)
 
 const selectedTab = ref<(typeof tabs)[number]['name']>(tabs[0].name)
@@ -54,18 +54,6 @@ const handleTabChange = (tabIndex: number) => {
           class="focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-md"
         >
           <OrgDepartmentTitleListing :data="titlesData" />
-        </TabPanel>
-        <TabPanel
-          class="focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-md"
-        >
-          <h2 class="text-2xl font-semibold text-gray-800">Roles</h2>
-          <p class="mt-2 text-gray-600">Role management content goes here.</p>
-        </TabPanel>
-        <TabPanel
-          class="focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-md"
-        >
-          <h2 class="text-2xl font-semibold text-gray-800">Members</h2>
-          <p class="mt-2 text-gray-600">Member management content goes here.</p>
         </TabPanel>
       </TabPanels>
     </TabGroup>

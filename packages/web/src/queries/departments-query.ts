@@ -1,9 +1,12 @@
 import { useAxios } from '@/composables/use-axios'
+import type { AddDepartmentRoleSchema } from '@/schema/add-department-role-schema'
 import type { CreateDepartmentType } from '@/schema/create-department-schema'
 import type { FetchDepartmentResponseType } from '@/types/org'
 import type { ResponseObject } from '@/types/utils'
+import { extractAxiosError } from '@/utils/extract-axios-error'
 import { decodeArrayBuffer } from '@/utils/resp-decode'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/vue-query'
+import { useToast } from 'primevue/usetoast'
 import { computed, ref, watch } from 'vue'
 
 export const departmentQueryKeys = {
@@ -24,13 +27,6 @@ type AddDepartmentMemberPayload = {
   users: number[]
 }
 
-type AddDepartmentRolePayload = {
-  user_id: number
-  title_id: number
-  start_date: string
-  department_id: number
-}
-
 type UpdateRecordType = [string, CreateDepartmentType]
 type AddUserToDepartmentType = [number, AddDepartmentMemberPayload]
 // type AddRoleToDepartmentType = [number, AddDepartmentRolePayload]
@@ -44,7 +40,7 @@ export const useDepartmentQuery = function (
   const selectedRecordId = ref<DepartmentType['uuid'] | null>(null)
   const queryClient = useQueryClient()
   const axios = useAxios()
-
+  const toast = useToast()
   async function fetchRecords() {
     const resp = await axios.get<ArrayBuffer>('/departments', {
       method: 'GET',
@@ -73,9 +69,10 @@ export const useDepartmentQuery = function (
     return axios.post(`/departments/add-member/${id}`, payload)
   }
 
-  function addRoleToDepartment(payload: AddDepartmentRolePayload) {
-    return axios.post(`/departments-roles`, payload)
+  function addRoleToDepartment(payload: AddDepartmentRoleSchema) {
+    return axios.post(`/department-roles`, payload)
   }
+
   const recordsQuery = useQuery<DepartmentType[]>({
     queryKey: departmentQueryKeys.all,
     queryFn: fetchRecords,
@@ -145,7 +142,13 @@ export const useDepartmentQuery = function (
   const addRoleToDepartmentMutation = useMutation({
     mutationFn: addRoleToDepartment,
     onError: (error) => {
-      console.log(error)
+      toast.add({
+        severity: 'error',
+        summary: 'Error',
+        detail: extractAxiosError(error),
+        closable: true,
+        life: 5000,
+      })
     },
     onSuccess: () => {
       queryClient.invalidateQueries({

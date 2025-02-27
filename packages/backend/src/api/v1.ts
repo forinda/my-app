@@ -11,6 +11,7 @@ import { setupDepartmentRoutes } from './client/department';
 import { setupOrganizationDesignationsRoutes } from './client/organization-designations';
 import { setupOrganizationMemberRoutes } from './client/organization-members';
 import { setupDepartmentTitleRoutes } from './client/department-title';
+import { setupDepartmentRolesRoutes } from './client/department-roles';
 type Versions = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
 export type ApiVersions = `/api/v${Versions}`;
 
@@ -34,6 +35,7 @@ export class ApiV1 {
     setupOrganizationDesignationsRoutes({ app: this.router });
     setupOrganizationMemberRoutes({ app: this.router });
     setupDepartmentTitleRoutes({ app: this.router });
+    setupDepartmentRolesRoutes({ app: this.router });
     app.use(this.version, this.router);
   }
 }

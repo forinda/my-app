@@ -79,7 +79,17 @@ type DepartmentType = {
       gender: GenderSchemaType
     }
   }[]
-  user_roles: []
+  user_roles: {
+    id: number
+    user_id: number
+    is_active: true
+    start_date: string
+    created_at: string
+    end_date: null | string
+    role_title_id: number
+    role_title: { id: number; name: string }
+    user: { first_name: string; last_name: string }
+  }[]
 }
 
 type OrganizationDesignationType = {
