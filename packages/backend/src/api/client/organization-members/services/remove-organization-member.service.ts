@@ -1,4 +1,4 @@
-import { inject, injectable } from 'inversify';
+import { injectable } from 'inversify';
 import { Organization, OrganizationMember, User } from '@/db/schema';
 import { HttpStatus } from '@/common/http';
 import { Dependency } from '@/common/di';
@@ -6,21 +6,18 @@ import { eq, inArray } from 'drizzle-orm';
 import { ApiError } from '@/common/errors/base';
 import type { TransactionContext } from '@/common/decorators/service-transaction';
 import { TransactionalService } from '@/common/decorators/service-transaction';
-import { UUID } from '@/common/utils/uuid';
 import type { AddMemberToOrRemoveFromOrganizationType } from '../schema';
 
 @injectable()
 @Dependency()
 export class RemoveOrganizationMemberService {
-  @inject(UUID) private uuid: UUID;
-
   @TransactionalService()
   async remove({
     data,
     transaction
   }: TransactionContext<AddMemberToOrRemoveFromOrganizationType>) {
     const existingOrg = await transaction!.query.Organization.findFirst({
-      where: eq(Organization.uuid, data.organization_id)
+      where: eq(Organization.id, data.organization_id)
     });
 
     if (!existingOrg) {

@@ -131,7 +131,7 @@ const onSubmit = async (ev: FormSubmitEvent) => {
             class="gap-6"
             @submit="onSubmit"
             v-slot="$form"
-            validate-on-submit="true"
+            :validate-on-submit="true"
           >
             <!-- Designation Selection -->
             <div class="space-y-2">
