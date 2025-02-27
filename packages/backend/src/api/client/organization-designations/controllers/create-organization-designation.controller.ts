@@ -4,7 +4,6 @@ import {
   ApiControllerMethod
 } from '@/common/decorators/controller.decorator';
 import { Dependency } from '@/common/di';
-import { HttpStatus } from '@/common/http';
 import type { ApiRequestContext } from '@/common/interfaces/controller';
 import { inject, injectable } from 'inversify';
 
@@ -12,6 +11,7 @@ import { CreateOrganizationDesignationService } from '../services/create-org-des
 import type { CreateOrganizationDesignationInputType } from '../schema/schema';
 import { createOrgDesignationSchema } from '../schema/schema';
 import { userAudit } from '@/common/utils/user-request-audit';
+import { createHttpResponse } from '@/common/utils/responder';
 
 @injectable()
 @Dependency()
@@ -31,6 +31,9 @@ export class CreateOrganizationDesignationController extends BasePostController 
   }: ApiRequestContext<CreateOrganizationDesignationInputType>) {
     const feedback = await this.service.create({ data: body! });
 
-    return res.status(HttpStatus.CREATED).json(feedback);
+    return createHttpResponse(res, {
+      ...feedback,
+      statusCode: feedback.status
+    });
   }
 }

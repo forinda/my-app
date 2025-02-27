@@ -13,6 +13,7 @@ import { setupOrganizationMemberRoutes } from './client/organization-members';
 import { setupDepartmentTitleRoutes } from './client/department-title';
 import { setupDepartmentRolesRoutes } from './client/department-roles';
 import { setupWorkspaceRoutes } from './client/workspaces';
+import { createHttpResponse } from '@/common/utils/responder';
 type Versions = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
 export type ApiVersions = `/api/v${Versions}`;
 
@@ -28,7 +29,10 @@ export class ApiV1 {
   }
   setup(app: Application) {
     this.router.get('/', (req, res) => {
-      return res.status(HttpStatus.OK).json({ message: 'API works' });
+      return createHttpResponse(res, {
+        message: 'API works',
+        statusCode: HttpStatus.OK
+      });
     });
     setupAuthRoutes({ app: this.router });
     setupOrganizationRoutes({ app: this.router });

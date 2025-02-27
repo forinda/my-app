@@ -4,7 +4,6 @@ import {
   ApiControllerMethod
 } from '@/common/decorators/controller.decorator';
 import { Dependency } from '@/common/di';
-import { HttpStatus } from '@/common/http';
 import type { ApiRequestContext } from '@/common/interfaces/controller';
 import { inject, injectable } from 'inversify';
 
@@ -12,6 +11,7 @@ import type { UpdateOrganizationInputType } from '../schema/schema';
 import { updateOrganizationSchema } from '../schema/schema';
 import { userAudit } from '@/common/utils/user-request-audit';
 import { UpdateOrganizationService } from '../services/update-organization.service';
+import { createHttpResponse } from '@/common/utils/responder';
 
 @injectable()
 @Dependency()
@@ -33,6 +33,9 @@ export class UpdateOrganizationController extends BasePostController {
       data: { ...body!, organization_id: current_organization_id! }
     });
 
-    return res.status(HttpStatus.CREATED).json(feedback);
+    return createHttpResponse(res, {
+      ...feedback,
+      statusCode: feedback.status
+    });
   }
 }

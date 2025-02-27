@@ -8,6 +8,8 @@ import { UUID } from '../utils/uuid';
 import { di } from '../di';
 import type { LoginAuthorityOption } from '../utils/controller-auth';
 import { controllerAuth } from '../utils/controller-auth';
+import { createHttpResponse } from '../utils/responder';
+import { HttpStatus } from '../http';
 /**
  * A decorator function for controllers that wraps specified HTTP methods
  * (post, get, delete, patch, put, options, head) with additional functionality.
@@ -78,11 +80,14 @@ export function Controller() {
         } catch (error) {
           // Pass the error to the next middleware
           if (next) {
-            next(error);
+            return next(error);
           } else {
             console.error('Unhandled error in controller method:', error);
 
-            return res.status(500).send('An unexpected error occurred.');
+            return createHttpResponse(res, {
+              message: 'An unexpected error occurred.',
+              statusCode: HttpStatus.INTERNAL_SERVER_ERROR
+            });
           }
         }
       };

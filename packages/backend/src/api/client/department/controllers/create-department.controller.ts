@@ -4,7 +4,6 @@ import {
   ApiControllerMethod
 } from '@/common/decorators/controller.decorator';
 import { Dependency } from '@/common/di';
-import { HttpStatus } from '@/common/http';
 import type { ApiRequestContext } from '@/common/interfaces/controller';
 import { inject, injectable } from 'inversify';
 
@@ -12,6 +11,7 @@ import type { NewDepartmentPayload } from '../schema/schema';
 import { newDepartmentSchema } from '../schema/schema';
 import { DepartmentCreationService } from '../services/create-department.service';
 import { userAudit } from '@/common/utils/user-request-audit';
+import { createHttpResponse } from '@/common/utils/responder';
 
 @injectable()
 @Dependency()
@@ -29,6 +29,9 @@ export class NewDepartmentController extends BasePostController {
   async post({ res, body }: ApiRequestContext<NewDepartmentPayload>) {
     const feedback = await this.service.create({ data: body! });
 
-    return res.status(HttpStatus.CREATED).json(feedback);
+    return createHttpResponse(res, {
+      ...feedback,
+      statusCode: feedback.status
+    });
   }
 }
