@@ -65,7 +65,7 @@ export class AddUserToWorkspaceService {
         user_id,
         created_by: data.created_by,
         updated_by: data.updated_by,
-        organization_workspace_id: data.workspace_id,
+        workspace_id: data.workspace_id,
         is_active: true
       })
     );
