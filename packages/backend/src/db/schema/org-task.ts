@@ -18,6 +18,7 @@ import type { InferInsertModel, InferSelectModel } from 'drizzle-orm';
 import { relations } from 'drizzle-orm';
 import { OrgWorkspace } from './org-workspace';
 import { OrgProject } from './org-project';
+import { OrgTaskComment } from './org-task-comments';
 
 export const taskStatus = pgEnum('organization_task_status_enum', [
   'pending',
@@ -52,9 +53,7 @@ export const OrgTask = pgTable('organization_tasks', {
   project_id: integer()
     .notNull()
     .references(() => OrgProject.id, foreignKeyConstraints),
-  assignee_id: integer()
-    .notNull()
-    .references(() => User.id, foreignKeyConstraints),
+  assignee_id: integer().references(() => User.id, foreignKeyConstraints),
   parent_id: integer().references(
     (): AnyPgColumn => OrgTask.id,
     foreignKeyConstraints
@@ -100,7 +99,8 @@ export const orgTaskRelations = relations(OrgTask, ({ one, many }) => ({
     fields: [OrgTask.parent_id],
     references: [OrgTask.id]
   }),
-  subtasks: many(OrgTask)
+  subtasks: many(OrgTask),
+  comments: many(OrgTaskComment)
 }));
 
 export interface SelectOrgTaskInterface
