@@ -33,3 +33,5 @@ export * from './org-workspace';
 export * from './org-workspace-member';
 
 export * from './org-project';
+
+export * from './org-project-member';

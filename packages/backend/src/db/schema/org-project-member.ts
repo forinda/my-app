@@ -6,16 +6,16 @@ import {
 import { User } from './user';
 import type { InferInsertModel, InferSelectModel } from 'drizzle-orm';
 import { relations } from 'drizzle-orm';
-import { OrgWorkspace } from './org-workspace';
+import { OrgProject } from './org-project';
 
-export const OrgWorkspaceMember = pgTable('organization_workspace_members', {
+export const OrgProjectMember = pgTable('organization_project_members', {
   id: integer().primaryKey().generatedAlwaysAsIdentity(),
   user_id: integer()
     .notNull()
     .references(() => User.id, foreignKeyConstraints),
-  workspace_id: integer()
+  project_id: integer()
     .notNull()
-    .references(() => OrgWorkspace.id, foreignKeyConstraints),
+    .references(() => OrgProject.id, foreignKeyConstraints),
   is_active: boolean().default(true).notNull(),
   created_by: integer()
     .notNull()
@@ -27,30 +27,30 @@ export const OrgWorkspaceMember = pgTable('organization_workspace_members', {
   ...getTableTimestamps()
 });
 
-export const orgWorkspaceMemberRelations = relations(
-  OrgWorkspaceMember,
+export const orgProjectMemberRelations = relations(
+  OrgProjectMember,
   ({ one }) => ({
     creator: one(User, {
-      fields: [OrgWorkspaceMember.created_by],
+      fields: [OrgProjectMember.created_by],
       references: [User.id]
     }),
     updator: one(User, {
-      fields: [OrgWorkspaceMember.updated_by],
+      fields: [OrgProjectMember.updated_by],
       references: [User.id]
     }),
-    workspace: one(OrgWorkspace, {
-      fields: [OrgWorkspaceMember.workspace_id],
-      references: [OrgWorkspace.id]
+    project: one(OrgProject, {
+      fields: [OrgProjectMember.project_id],
+      references: [OrgProject.id]
     }),
     user: one(User, {
-      fields: [OrgWorkspaceMember.user_id],
+      fields: [OrgProjectMember.user_id],
       references: [User.id]
     })
   })
 );
 
-export interface SelectOrgWorkspaceMemberInterface
-  extends InferSelectModel<typeof OrgWorkspaceMember> {}
+export interface SelectOrgProjectMemberInterface
+  extends InferSelectModel<typeof OrgProjectMember> {}
 
-export interface InsertOrgWorkspaceMemberInterface
-  extends InferInsertModel<typeof OrgWorkspaceMember> {}
+export interface InsertOrgProjectMemberInterface
+  extends InferInsertModel<typeof OrgProjectMember> {}

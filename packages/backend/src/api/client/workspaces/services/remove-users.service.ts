@@ -34,7 +34,7 @@ export class RemoveUserFromWorkspaceService {
     const exisingMembers = await transaction!.query.OrgWorkspaceMember.findMany(
       {
         where: and(
-          eq(OrgWorkspaceMember.organization_workspace_id, data.workspace_id),
+          eq(OrgWorkspaceMember.workspace_id, data.workspace_id),
           eq(OrgWorkspaceMember.is_active, true),
           inArray(OrgWorkspaceMember.user_id, data.users)
         )
@@ -63,7 +63,7 @@ export class RemoveUserFromWorkspaceService {
       })
       .where(
         and(
-          eq(OrgWorkspaceMember.organization_workspace_id, data.workspace_id),
+          eq(OrgWorkspaceMember.workspace_id, data.workspace_id),
           inArray(OrgWorkspaceMember.user_id, data.users)
         )
       );

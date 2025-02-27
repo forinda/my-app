@@ -14,6 +14,7 @@ import {
 import { User } from './user';
 import type { InferInsertModel, InferSelectModel } from 'drizzle-orm';
 import { relations } from 'drizzle-orm';
+import { OrgProjectMember } from './org-project-member';
 
 const projectTypes = pgEnum('organization_project_types_enum', [
   'paid',
@@ -43,7 +44,7 @@ export const OrgProject = pgTable('organization_projects', {
   ...getTableTimestamps()
 });
 
-export const orgProjectRelations = relations(OrgProject, ({ one }) => ({
+export const orgProjectRelations = relations(OrgProject, ({ one, many }) => ({
   creator: one(User, {
     fields: [OrgProject.created_by],
     references: [User.id]
@@ -55,8 +56,8 @@ export const orgProjectRelations = relations(OrgProject, ({ one }) => ({
   organization: one(Organization, {
     fields: [OrgProject.organization_id],
     references: [Organization.id]
-  })
-  // members: many(OrgWorkspaceMember)
+  }),
+  members: many(OrgProjectMember)
 }));
 
 export interface SelectOrgProjectInterface
