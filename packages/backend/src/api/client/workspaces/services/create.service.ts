@@ -18,14 +18,14 @@ import { OrgWorkspace } from '@/db/schema';
 export class CreateWorkspaceService {
   @TransactionalService()
   async create({ data, transaction }: TransactionContext<NewWorkspacePayload>) {
-    const existingDept = await transaction!.query.OrgWorkspace.findFirst({
+    const foundWorkspace = await transaction!.query.OrgWorkspace.findFirst({
       where: and(
         eq(OrgWorkspace.name, data.name),
         eq(OrgWorkspace.organization_id, data.organization_id)
       )
     });
 
-    if (existingDept) {
+    if (foundWorkspace) {
       throw new ApiError(
         'Workspace with same name already exists',
         HttpStatus.CONFLICT,
