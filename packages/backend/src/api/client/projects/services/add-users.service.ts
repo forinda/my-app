@@ -10,8 +10,12 @@ import {
   type TransactionContext
 } from '@/common/decorators/service-transaction';
 import { ApiError } from '@/common/errors/base';
-import type { InsertOrgWorkspaceMemberInterface } from '@/db/schema';
-import { OrgWorkspace, OrgWorkspaceMember } from '@/db/schema';
+import type { InsertOrgProjectMemberInterface } from '@/db/schema';
+import {
+  OrgProjectMember,
+  OrgWorkspace,
+  OrgWorkspaceMember
+} from '@/db/schema';
 
 @injectable()
 @Dependency()
@@ -23,7 +27,7 @@ export class AddUserToWorkspaceService {
   }: TransactionContext<AddUsersToProjectPayload>) {
     const existingWorkspace = await transaction!.query.OrgWorkspace.findFirst({
       where: and(
-        eq(OrgWorkspace.id, data.workspace_id),
+        eq(OrgWorkspace.id, data.project_id),
         eq(OrgWorkspace.organization_id, data.organization_id)
       )
     });
@@ -35,7 +39,7 @@ export class AddUserToWorkspaceService {
     const exisingMembers = await transaction!.query.OrgWorkspaceMember.findMany(
       {
         where: and(
-          eq(OrgWorkspaceMember.workspace_id, data.workspace_id),
+          eq(OrgWorkspaceMember.workspace_id, data.project_id),
           inArray(OrgWorkspaceMember.user_id, data.users)
         )
       }
@@ -60,17 +64,18 @@ export class AddUserToWorkspaceService {
         {}
       );
     }
-    const insertData: InsertOrgWorkspaceMemberInterface[] = data.users.map(
+    const insertData: InsertOrgProjectMemberInterface[] = data.users.map(
       (user_id) => ({
         user_id,
         created_by: data.created_by,
         updated_by: data.updated_by,
-        organization_workspace_id: data.workspace_id,
-        is_active: true
+
+        is_active: true,
+        project_id: data.project_id
       })
     );
 
-    await transaction!.insert(OrgWorkspaceMember).values(insertData).execute();
+    await transaction!.insert(OrgProjectMember).values(insertData).execute();
 
     return {
       data: {},

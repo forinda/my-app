@@ -63,7 +63,7 @@ export const updateProjectSchema = z.object({
 });
 
 export const addUsersToProjectSchema = z.object({
-  workspace_id: z.number({
+  project_id: z.number({
     message: 'Department ID is required'
   }),
   users: z
