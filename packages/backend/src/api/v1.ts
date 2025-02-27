@@ -14,6 +14,7 @@ import { setupDepartmentTitleRoutes } from './client/department-title';
 import { setupDepartmentRolesRoutes } from './client/department-roles';
 import { setupWorkspaceRoutes } from './client/workspaces';
 import { createHttpResponse } from '@/common/utils/responder';
+import { setupProjectRoutes } from './client/projects';
 type Versions = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
 export type ApiVersions = `/api/v${Versions}`;
 
@@ -42,6 +43,7 @@ export class ApiV1 {
     setupDepartmentTitleRoutes({ app: this.router });
     setupDepartmentRolesRoutes({ app: this.router });
     setupWorkspaceRoutes({ app: this.router });
+    setupProjectRoutes({ app: this.router });
     app.use(this.version, this.router);
   }
 }
