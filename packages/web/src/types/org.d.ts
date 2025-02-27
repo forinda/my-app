@@ -55,16 +55,31 @@ interface OrganizationMemberType {
 
 type DepartmentType = {
   id: number
-  name: string
   uuid: string
-  description: string
   organization_id: number
+  name: string
+  description: string
   created_by: number
   updated_by: number
   deleted_by: null
   created_at: string
   updated_at: string
-  deleted_at: null
+  deleted_at: null | string
+  members: {
+    id: number
+    user_id: number
+    department_id: number
+    user: {
+      username: string
+      email: string
+      first_name: string
+      last_name: string
+      phone_number: string
+      avatar: string
+      gender: GenderSchemaType
+    }
+  }[]
+  user_roles: []
 }
 
 type OrganizationDesignationType = {

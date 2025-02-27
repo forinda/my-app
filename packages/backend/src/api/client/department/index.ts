@@ -16,7 +16,7 @@ export function setupDepartmentRoutes({ app }: Props) {
     .get('/', di.resolve(FetchDepartmentsController).get)
     .post('/', di.resolve(NewDepartmentController).post)
     .put('/:id', di.resolve(UpdateDepartmentController).put)
-    .delete('/add-member/:id', di.resolve(AddUserToDepartmentController).post);
+    .post('/add-member/:id', di.resolve(AddUserToDepartmentController).post);
 
   app.use('/departments', router);
 }

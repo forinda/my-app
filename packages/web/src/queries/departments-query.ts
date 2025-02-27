@@ -4,7 +4,7 @@ import type { FetchDepartmentResponseType } from '@/types/org'
 import type { ResponseObject } from '@/types/utils'
 import { decodeArrayBuffer } from '@/utils/resp-decode'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/vue-query'
-import { ref, watch } from 'vue'
+import { computed, ref, watch } from 'vue'
 
 export const departmentQueryKeys = {
   all: ['org:departments'],
@@ -34,16 +34,15 @@ type AddDepartmentRolePayload = {
 type UpdateRecordType = [string, CreateDepartmentType]
 type AddUserToDepartmentType = [number, AddDepartmentMemberPayload]
 // type AddRoleToDepartmentType = [number, AddDepartmentRolePayload]
+export type DepartmentType = FetchDepartmentResponseType['data'][number]
 export const useDepartmentQuery = function (
   props: Options = {
     page: 1,
     search: '',
   },
 ) {
-  const selectedDepartment = ref<FetchDepartmentResponseType['data'][number] | null>(null)
-  const selectedRecordId = ref('')
+  const selectedRecordId = ref<DepartmentType['uuid'] | null>(null)
   const queryClient = useQueryClient()
-  type DepartmentType = FetchDepartmentResponseType['data'][number]
   const axios = useAxios()
 
   async function fetchRecords() {
@@ -62,11 +61,11 @@ export const useDepartmentQuery = function (
     return axios.put(`/departments/${id}`, payload)
   }
 
-  function fetchSingleRecord(id: string) {
+  function fetchSingleRecord(id: DepartmentType['uuid']) {
     return axios.get(`/departments/${id}`)
   }
 
-  function setSelectedRecordId(id: string) {
+  function setSelectedRecordId(id: DepartmentType['uuid']) {
     selectedRecordId.value = id
   }
 
@@ -84,9 +83,9 @@ export const useDepartmentQuery = function (
   })
 
   const singleRecordQuery = useQuery({
-    queryKey: departmentQueryKeys.detail(selectedRecordId.value),
-    queryFn: () => fetchSingleRecord(selectedRecordId.value),
-    enabled: selectedRecordId.value !== '',
+    queryKey: departmentQueryKeys.detail(selectedRecordId.value!),
+    queryFn: () => fetchSingleRecord(selectedRecordId.value!),
+    enabled: !!selectedRecordId.value,
   })
 
   const createRecordMutation = useMutation({
@@ -155,11 +154,10 @@ export const useDepartmentQuery = function (
     },
   })
 
-  function selectCurrentDepartment(id: number) {
-    const found = recordsQuery.data?.value.find((record) => record.id === id) || null
-    console.log('Found', found)
-    selectedDepartment.value = found
-  }
+  const selectedDepartment = computed(() => {
+    if (!selectedRecordId.value) return null
+    return recordsQuery.data?.value.find((record) => record.uuid === selectedRecordId.value)
+  })
 
   return {
     recordsQuery,
@@ -169,7 +167,6 @@ export const useDepartmentQuery = function (
     setSelectedRecordId,
     addUserToDepartmentMutation,
     addRoleToDepartmentMutation,
-    selectCurrentDepartment,
     selectedDepartment,
   }
 }

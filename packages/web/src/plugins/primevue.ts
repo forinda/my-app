@@ -66,6 +66,11 @@ import Chips from 'primevue/chips'
 import TabPanel from 'primevue/tabpanel'
 import TabList from 'primevue/tablist'
 import TabPanels from 'primevue/tabpanels'
+import Avatar from 'primevue/avatar'
+import AvatarGroup from 'primevue/avatargroup'
+import Tab from 'primevue/tab'
+import Column from 'primevue/column'
+import ColumnGroup from 'primevue/columngroup'
 
 declare module 'vue' {
   interface ComponentCustomProperties {
@@ -132,6 +137,11 @@ declare module 'vue' {
     PrimeTabPanel: typeof TabPanel
     PrimeTabList: typeof TabList
     PrimeTabPanels: typeof TabPanels
+    PrimeAvatar: typeof Avatar
+    PrimeAvatarGroup: typeof AvatarGroup
+    PrimeTab: typeof Tab
+    PrimeColumn: typeof Column
+    PrimeColumnGroup: typeof ColumnGroup
   }
 }
 
@@ -218,6 +228,11 @@ export function LoadPrimeVue(app: ReturnType<typeof import('vue').createApp>) {
   app.component('PrimeChips', Chips)
   app.component('PrimeFormField', FormField)
   app.component('PrimeToast', Toast)
+  app.component('PrimeAvatar', Avatar)
+  app.component('PrimeAvatarGroup', AvatarGroup)
+  app.component('PrimeTab', Tab)
+  app.component('PrimeColumn', Column)
+  app.component('PrimeColumnGroup', ColumnGroup)
   /**
    * Directive Components
    */

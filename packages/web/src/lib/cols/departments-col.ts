@@ -1,3 +1,4 @@
+import type { DepartmentType } from '@/queries/departments-query'
 import type { FetchDepartmentResponseType } from '@/types/org'
 import { Icon } from '@iconify/vue'
 import { type ColumnDef } from '@tanstack/vue-table'
@@ -8,7 +9,9 @@ type Props = {
   editDepartment: (row: DeptType) => void
   deleteDepartment: (row: DeptType['id']) => void
   // openShowDepartment: (row: DeptType) => void
-  openAddUserToDepartment: (id: number) => void
+  openAddUserToDepartment: (id: DepartmentType['uuid']) => void
+  openShowDepartment: (row: DeptType['uuid']) => void
+  closeShowDepartment: () => void
 }
 export function getDepartmentTableCols(props: Props) {
   const orgDepartmentTableCols: ColumnDef<DeptType>[] = [
@@ -62,11 +65,20 @@ export function getDepartmentTableCols(props: Props) {
             h(
               'button',
               {
-                onClick: () => props.openAddUserToDepartment(row.original.id),
+                onClick: () => props.openAddUserToDepartment(row.original.uuid),
                 class:
                   'p-1 border border-gray-400 rounded text-white inline-flex items-center gap-2 cursor-pointer',
               },
               [h(Icon, { icon: 'lucide-user-plus', class: 'text-green-500' })],
+            ),
+            h(
+              'button',
+              {
+                onClick: () => props.openShowDepartment(row.original.uuid),
+                class:
+                  'p-1 border border-gray-400 rounded text-white inline-flex items-center gap-2 cursor-pointer',
+              },
+              [h(Icon, { icon: 'akar-icons:eye', class: 'text-blue-500' })],
             ),
           ],
         ),

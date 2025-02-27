@@ -7,6 +7,8 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    Avatar: typeof import('primevue/avatar')['default']
+    Badge: typeof import('primevue/badge')['default']
     Button: typeof import('primevue/button')['default']
     Checkbox: typeof import('primevue/checkbox')['default']
     Column: typeof import('primevue/column')['default']
@@ -44,6 +46,7 @@ declare module 'vue' {
     ModalCreateOrUpdateOrgDesignation: typeof import('./src/components/modals/modal-create-or-update-org-designation.vue')['default']
     ModalFormCreateOrg: typeof import('./src/components/modals/modal-form-create-org.vue')['default']
     ModalInviteUsersToOrg: typeof import('./src/components/modals/modal-invite-users-to-org.vue')['default']
+    ModalViewDepartment: typeof import('./src/components/modals/modal-view-department.vue')['default']
     NavBar: typeof import('./src/components/nav-bar.vue')['default']
     NavBarItem: typeof import('./src/components/nav-bar-item.vue')['default']
     OrgCreate: typeof import('./src/components/org/org-create.vue')['default']
@@ -67,6 +70,7 @@ declare module 'vue' {
     Tag: typeof import('primevue/tag')['default']
     TheWelcome: typeof import('./src/components/the-welcome.vue')['default']
     Toast: typeof import('primevue/toast')['default']
+    VTable: typeof import('./src/components/v-table.vue')['default']
     WelcomeItem: typeof import('./src/components/welcome-item.vue')['default']
   }
 }

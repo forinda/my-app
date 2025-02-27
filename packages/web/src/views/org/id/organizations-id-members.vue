@@ -2,7 +2,6 @@
 import { useOrganizationMembers } from '@/composables/use-organization-members'
 import { onMounted } from 'vue'
 import { useRoute } from 'vue-router'
-// import DTable from '@/components/d-table/d-table.vue'
 const r = useRoute()
 const { data, refresh, setCurrentOrganization } = await useOrganizationMembers()
 onMounted(async () => {
