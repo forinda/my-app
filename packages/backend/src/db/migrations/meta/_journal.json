@@ -197,6 +197,13 @@
       "when": 1740642247683,
       "tag": "1740642247_daily_prowler",
       "breakpoints": true
+    },
+    {
+      "idx": 28,
+      "version": "7",
+      "when": 1740645405329,
+      "tag": "1740645405_confused_bloodstorm",
+      "breakpoints": true
     }
   ]
 }
