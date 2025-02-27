@@ -15,6 +15,7 @@ import { User } from './user';
 import type { InferInsertModel, InferSelectModel } from 'drizzle-orm';
 import { relations } from 'drizzle-orm';
 import { OrgProjectMember } from './org-project-member';
+import { OrgProjectCategory } from './org-project-category';
 
 const projectTypes = pgEnum('organization_project_types_enum', [
   'paid',
@@ -34,6 +35,9 @@ export const OrgProject = pgTable('organization_projects', {
   is_active: boolean().default(true).notNull(),
   is_paid: boolean().default(false).notNull(),
   project_type: projectTypes().notNull(),
+  category_id: integer()
+    .notNull()
+    .references(() => OrgProjectCategory.id, foreignKeyConstraints),
   created_by: integer()
     .notNull()
     .references(() => User.id, foreignKeyConstraints),
@@ -57,7 +61,11 @@ export const orgProjectRelations = relations(OrgProject, ({ one, many }) => ({
     fields: [OrgProject.organization_id],
     references: [Organization.id]
   }),
-  members: many(OrgProjectMember)
+  members: many(OrgProjectMember),
+  category: one(OrgProjectCategory, {
+    fields: [OrgProject.category_id],
+    references: [OrgProjectCategory.id]
+  })
 }));
 
 export interface SelectOrgProjectInterface

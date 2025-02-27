@@ -7,6 +7,7 @@ import {
   foreignKeyConstraints,
   getTableTimestamps
 } from '@/common/utils/drizzle';
+import { OrgProject } from './org-project';
 
 export const OrgProjectCategory = pgTable(
   'organization_project_categories',
@@ -31,7 +32,7 @@ export const OrgProjectCategory = pgTable(
 
 export const organizationProjectCategoryRelations = relations(
   OrgProjectCategory,
-  ({ one }) => ({
+  ({ one, many }) => ({
     creator: one(User, {
       fields: [OrgProjectCategory.created_by],
       references: [User.id]
@@ -47,7 +48,8 @@ export const organizationProjectCategoryRelations = relations(
     organization: one(Organization, {
       fields: [OrgProjectCategory.organization_id],
       references: [Organization.id]
-    })
+    }),
+    projects: many(OrgProject)
   })
 );
 
