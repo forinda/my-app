@@ -1,3 +1,4 @@
+import type { AnyPgColumn } from 'drizzle-orm/pg-core';
 import {
   date,
   integer,
@@ -27,6 +28,12 @@ export const taskStatus = pgEnum('organization_task_status_enum', [
   'archived'
 ]);
 
+export const taskPriority = pgEnum('organization_task_priority_enum', [
+  'low',
+  'medium',
+  'high'
+]);
+
 export const OrgTask = pgTable('organization_tasks', {
   id: integer().primaryKey().generatedAlwaysAsIdentity(),
   uuid: uuid().defaultRandom().unique().notNull(),
@@ -48,6 +55,12 @@ export const OrgTask = pgTable('organization_tasks', {
   assignee_id: integer()
     .notNull()
     .references(() => User.id, foreignKeyConstraints),
+  parent_id: integer().references(
+    (): AnyPgColumn => OrgTask.id,
+    foreignKeyConstraints
+  ),
+  story_points: integer().default(0).notNull(),
+  priority: taskPriority().default('low').notNull(),
   created_by: integer()
     .notNull()
     .references(() => User.id, foreignKeyConstraints),
@@ -58,7 +71,7 @@ export const OrgTask = pgTable('organization_tasks', {
   ...getTableTimestamps()
 });
 
-export const orgTaskRelations = relations(OrgTask, ({ one }) => ({
+export const orgTaskRelations = relations(OrgTask, ({ one, many }) => ({
   creator: one(User, {
     fields: [OrgTask.created_by],
     references: [User.id]
@@ -82,7 +95,12 @@ export const orgTaskRelations = relations(OrgTask, ({ one }) => ({
   project: one(OrgProject, {
     fields: [OrgTask.project_id],
     references: [OrgProject.id]
-  })
+  }),
+  parent: one(OrgTask, {
+    fields: [OrgTask.parent_id],
+    references: [OrgTask.id]
+  }),
+  subtasks: many(OrgTask)
 }));
 
 export interface SelectOrgTaskInterface

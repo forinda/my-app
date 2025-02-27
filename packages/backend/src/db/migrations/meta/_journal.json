@@ -232,6 +232,13 @@
       "when": 1740659896466,
       "tag": "1740659896_majestic_hellion",
       "breakpoints": true
+    },
+    {
+      "idx": 33,
+      "version": "7",
+      "when": 1740660940578,
+      "tag": "1740660940_exotic_sasquatch",
+      "breakpoints": true
     }
   ]
 }
