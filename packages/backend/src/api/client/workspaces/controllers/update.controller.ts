@@ -16,7 +16,7 @@ import { userAudit } from '@/common/utils/user-request-audit';
 @injectable()
 @Dependency()
 @Controller()
-export class UpdateDepartmentController extends BasePutController {
+export class UpdateWorkspaceController extends BasePutController {
   @inject(UpdateWorkspaceService)
   private service: UpdateWorkspaceService;
   @ApiControllerMethod({

@@ -78,6 +78,26 @@ export const addUsersToWorkspaceSchema = z.object({
     message: 'Organization ID is required'
   })
 });
+
+export const removeUsersFromWorkspaceSchema = z.object({
+  workspace_id: z.number({
+    message: 'Department ID is required'
+  }),
+  users: z
+    .array(
+      z.number({
+        message: 'User ID is required'
+      })
+    )
+    .min(1, {
+      message: 'At least one user is required'
+    }),
+  updated_by: z.number({}),
+  organization_id: z.number({
+    message: 'Organization ID is required'
+  })
+});
+
 // export const getOrganizationMember``
 
 export type NewWorkspacePayload = z.infer<typeof newWorkspaceSchema>;
@@ -86,4 +106,8 @@ export type UpdateWorkspacePayload = z.infer<typeof updateWorkspaceSchema>;
 
 export type AddUsersToWorkspacePayload = z.infer<
   typeof addUsersToWorkspaceSchema
+>;
+
+export type RemoveUsersFromWorkspacePayload = z.infer<
+  typeof removeUsersFromWorkspaceSchema
 >;

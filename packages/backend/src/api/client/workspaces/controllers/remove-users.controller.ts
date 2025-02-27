@@ -8,29 +8,32 @@ import { HttpStatus } from '@/common/http';
 import type { ApiRequestContext } from '@/common/interfaces/controller';
 import { inject, injectable } from 'inversify';
 
-import type { AddUsersToWorkspacePayload } from '../schema/schema';
-import { addUsersToWorkspaceSchema } from '../schema/schema';
+import type { RemoveUsersFromWorkspacePayload } from '../schema/schema';
+import { removeUsersFromWorkspaceSchema } from '../schema/schema';
 import { userAudit } from '@/common/utils/user-request-audit';
-import { AddUserToWorkspaceService } from '../services/add-users.service';
+import { RemoveUserFromWorkspaceService } from '../services/remove-users.service';
 
 @injectable()
 @Dependency()
 @Controller()
-export class AddUserToWorkspaceController extends BasePostController {
-  @inject(AddUserToWorkspaceService)
-  private service: AddUserToWorkspaceService;
+export class RemoveUserFromWorkspaceController extends BasePostController {
+  @inject(RemoveUserFromWorkspaceService)
+  private service: RemoveUserFromWorkspaceService;
   @ApiControllerMethod({
-    bodySchema: addUsersToWorkspaceSchema,
+    bodySchema: removeUsersFromWorkspaceSchema,
     pathParamTransform: {
-      id: 'department_id'
+      id: 'workspace_id'
     },
     auth: true,
-    audit: userAudit('create'),
+    audit: userAudit('update'),
     bodyBindOrgId: true
   })
-  async post({ res, body }: ApiRequestContext<AddUsersToWorkspacePayload>) {
+  async post({
+    res,
+    body
+  }: ApiRequestContext<RemoveUsersFromWorkspacePayload>) {
     const feedback = await this.service.create({ data: body! });
 
-    return res.status(HttpStatus.CREATED).json(feedback);
+    return res.status(HttpStatus.OK).json(feedback);
   }
 }

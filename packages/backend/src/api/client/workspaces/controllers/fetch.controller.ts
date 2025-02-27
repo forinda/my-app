@@ -12,7 +12,7 @@ import { createHttpResponse } from '@/common/utils/responder';
 @injectable()
 @Dependency()
 @Controller()
-export class FetchDepartmentsController extends BaseGetController {
+export class FetchWorkspaceController extends BaseGetController {
   @inject(FetchWorkspaceService)
   private service: FetchWorkspaceService;
 
