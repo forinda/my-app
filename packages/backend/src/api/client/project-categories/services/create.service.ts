@@ -10,8 +10,8 @@ import {
   type TransactionContext
 } from '@/common/decorators/service-transaction';
 import { ApiError } from '@/common/errors/base';
-import type { InsertDepartmentTitleInterface } from '@/db/schema';
-import { DepartmentTitle, OrgProjectCategory } from '@/db/schema';
+import type { InsertProjectCategoryInterface } from '@/db/schema';
+import { OrgProjectCategory } from '@/db/schema';
 
 @injectable()
 @Dependency()
@@ -38,8 +38,8 @@ export class CreateProjectCategoryService {
 
     const category = (
       await transaction!
-        .insert(DepartmentTitle)
-        .values(data as InsertDepartmentTitleInterface)
+        .insert(OrgProjectCategory)
+        .values(data as InsertProjectCategoryInterface)
         .returning()
         .execute()
     )[0];
