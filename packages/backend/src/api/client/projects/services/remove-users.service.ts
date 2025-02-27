@@ -48,7 +48,7 @@ export class RemoveUserFromProjectService {
 
     if (!data.users.length) {
       throw new ApiError(
-        'Users not found in workspace',
+        'Users not found in project',
         HttpStatus.NOT_FOUND,
         {}
       );

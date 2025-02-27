@@ -59,7 +59,7 @@ export class AddUserToWorkspaceService {
       //   message: 'Users added successfully'
       // };
       throw new ApiError(
-        'Users already added to workspace',
+        'Users already added to project',
         HttpStatus.CONFLICT,
         {}
       );
