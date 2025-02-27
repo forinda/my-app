@@ -11,10 +11,13 @@ export default defineConfig({
   plugins: [
     vue(),
     vueJsx(),
-    vueDevTools(),
     Components({
+      dirs: ['src/components/**'],
+      dts: true,
       resolvers: [PrimeVueResolver()],
-    }),
+    }) as any,
+    vueDevTools(),
+    // Components({ dirs: ['src/components/**/*'], dts: true, resolvers: [PrimeVueResolver()] }),
   ],
   resolve: {
     alias: {
