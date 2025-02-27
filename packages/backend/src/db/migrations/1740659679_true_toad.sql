@@ -1,3 +1,4 @@
+CREATE TYPE "public"."organization_project_types_enum" AS ENUM('paid', 'free', 'test', 'trial');--> statement-breakpoint
 CREATE TABLE IF NOT EXISTS "organization_projects" (
 	"id" integer PRIMARY KEY GENERATED ALWAYS AS IDENTITY (sequence name "organization_projects_id_seq" INCREMENT BY 1 MINVALUE 1 MAXVALUE 2147483647 START WITH 1 CACHE 1),
 	"uuid" uuid DEFAULT gen_random_uuid() NOT NULL,
@@ -7,6 +8,7 @@ CREATE TABLE IF NOT EXISTS "organization_projects" (
 	"is_active" boolean DEFAULT true NOT NULL,
 	"is_paid" boolean DEFAULT false NOT NULL,
 	"project_type" "organization_project_types_enum" NOT NULL,
+	"category_id" integer NOT NULL,
 	"created_by" integer NOT NULL,
 	"updated_by" integer NOT NULL,
 	"deleted_by" integer,
@@ -18,6 +20,12 @@ CREATE TABLE IF NOT EXISTS "organization_projects" (
 --> statement-breakpoint
 DO $$ BEGIN
  ALTER TABLE "organization_projects" ADD CONSTRAINT "organization_projects_organization_id_organizations_id_fk" FOREIGN KEY ("organization_id") REFERENCES "public"."organizations"("id") ON DELETE restrict ON UPDATE cascade;
+EXCEPTION
+ WHEN duplicate_object THEN null;
+END $$;
+--> statement-breakpoint
+DO $$ BEGIN
+ ALTER TABLE "organization_projects" ADD CONSTRAINT "organization_projects_category_id_organization_project_categories_id_fk" FOREIGN KEY ("category_id") REFERENCES "public"."organization_project_categories"("id") ON DELETE restrict ON UPDATE cascade;
 EXCEPTION
  WHEN duplicate_object THEN null;
 END $$;
