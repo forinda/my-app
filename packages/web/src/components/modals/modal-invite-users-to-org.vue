@@ -14,6 +14,7 @@ import {
 } from '@/schema/add-to-or-remove-user-from-org-schema copy'
 import { zodResolver } from '@primevue/forms/resolvers/zod'
 import type { FormSubmitEvent } from '@primevue/forms'
+import BaseHuiModal from '../base-hui-modal.vue'
 
 const props = defineProps<{
   showModal: boolean
@@ -96,118 +97,76 @@ const onSubmit = async (ev: FormSubmitEvent) => {
 </script>
 
 <template>
-  <transition-root appear :show="showModal" as="template">
-    <Dialog as="div" @close="closeModal" class="relative z-10">
-      <transition-child
-        as="template"
-        enter="duration-300 ease-out"
-        enter-from="opacity-0"
-        enter-to="opacity-100"
-        leave="duration-200 ease-in"
-        leave-from="opacity-100"
-        leave-to="opacity-0"
-      >
-        <div class="fixed inset-0 bg-black/70" />
-      </transition-child>
+  <BaseHuiModal :show="props.showModal" :title="''" :closeModal="props.closeModal">
+    <section class="flex items-center justify-center p-4">
+      <div class="w-full bg-white rounded-2xl">
+        <div class="mb-8 text-center">
+          <h1 class="text-3xl font-bold text-gray-900 mb-2">Invite Team Members</h1>
+          <p class="text-gray-600">Add new members to your organization</p>
+        </div>
 
-      <div class="fixed inset-0 overflow-y-auto">
-        <div class="flex min-h-full items-center justify-center p-4 text-center">
-          <transition-child
-            as="template"
-            enter="duration-300 ease-out"
-            enter-from="opacity-0 scale-95"
-            enter-to="opacity-100 scale-100"
-            leave="duration-200 ease-in"
-            leave-from="opacity-100 scale-100"
-            leave-to="opacity-0 scale-95"
+        <div class="space-y-6">
+          <!-- Emails Input -->
+          <div class="space-y-2">
+            <label class="block text-sm font-medium text-gray-700" for="emailChips">
+              Email Addresses
+              <span class="text-gray-500 text-xs ml-1">(separate with comma)</span>
+            </label>
+            <PrimeChips
+              id="emailChips"
+              name="emails"
+              v-model="emails"
+              separator=","
+              placeholder="Enter email addresses"
+              class="w-full email-chips"
+              aria-label="Email addresses input"
+            />
+            <PrimeMessage v-if="invalidEmails.length" severity="error" class="text-sm">
+              Invalid email(s): {{ invalidEmails.join(', ') }}
+            </PrimeMessage>
+          </div>
+
+          <PrimeForm
+            :resolver
+            class="gap-6"
+            @submit="onSubmit"
+            v-slot="$form"
+            validate-on-submit="true"
           >
-            <dialog-panel
-              class="w-full max-w-lg transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all"
-            >
-              <!-- <dialog-title as="h3" class="text-lg font-medium leading-6 text-gray-900">
-                {{ mode === 'edit' ? 'Edit Title' : 'Create New Title' }}
-              </dialog-title> -->
-              <div class="mt-2">
-                <section class="flex items-center justify-center p-4">
-                  <div class="w-full bg-white rounded-2xl">
-                    <div class="mb-8 text-center">
-                      <h1 class="text-3xl font-bold text-gray-900 mb-2">Invite Team Members</h1>
-                      <p class="text-gray-600">Add new members to your organization</p>
-                    </div>
-
-                    <div class="space-y-6">
-                      <!-- Emails Input -->
-                      <div class="space-y-2">
-                        <label class="block text-sm font-medium text-gray-700" for="emailChips">
-                          Email Addresses
-                          <span class="text-gray-500 text-xs ml-1">(separate with comma)</span>
-                        </label>
-                        <PrimeChips
-                          id="emailChips"
-                          name="emails"
-                          v-model="emails"
-                          separator=","
-                          placeholder="Enter email addresses"
-                          class="w-full email-chips"
-                          aria-label="Email addresses input"
-                        />
-                        <PrimeMessage v-if="invalidEmails.length" severity="error" class="text-sm">
-                          Invalid email(s): {{ invalidEmails.join(', ') }}
-                        </PrimeMessage>
-                      </div>
-
-                      <PrimeForm
-                        :resolver
-                        class="gap-6"
-                        @submit="onSubmit"
-                        v-slot="$form"
-                        validate-on-submit="true"
-                      >
-                        <!-- Designation Selection -->
-                        <div class="space-y-2">
-                          <label class="block text-sm font-medium text-gray-700" for="designation">
-                            Designation
-                          </label>
-                          <div class="relative">
-                            <PrimeSelect
-                              id="designation_id"
-                              name="designation_id"
-                              :options="
-                                desig.data.value.map((d) => ({ label: d.name, value: d.id }))
-                              "
-                              optionLabel="label"
-                              optionValue="value"
-                              placeholder="Select Designation"
-                              class="w-full"
-                              :filter="true"
-                              :loading="desig.isLoading.value"
-                            />
-                          </div>
-                          <PrimeMessage
-                            v-if="$form.designation_id?.error"
-                            severity="error"
-                            class="text-sm"
-                          >
-                            {{ $form.designation_id?.error.message }}
-                          </PrimeMessage>
-                        </div>
-                        <br />
-                        <PrimeButton
-                          type="submit"
-                          :loading="loading"
-                          :disabled="loading"
-                          class="w-full h-11"
-                        >
-                          <!-- <template #icon>
+            <!-- Designation Selection -->
+            <div class="space-y-2">
+              <label class="block text-sm font-medium text-gray-700" for="designation">
+                Designation
+              </label>
+              <div class="relative">
+                <PrimeSelect
+                  id="designation_id"
+                  name="designation_id"
+                  :options="desig.data.value.map((d) => ({ label: d.name, value: d.id }))"
+                  optionLabel="label"
+                  optionValue="value"
+                  placeholder="Select Designation"
+                  class="w-full"
+                  :filter="true"
+                  :loading="desig.isLoading.value"
+                />
+              </div>
+              <PrimeMessage v-if="$form.designation_id?.error" severity="error" class="text-sm">
+                {{ $form.designation_id?.error.message }}
+              </PrimeMessage>
+            </div>
+            <br />
+            <PrimeButton type="submit" :loading="loading" :disabled="loading" class="w-full h-11">
+              <!-- <template #icon>
             <UserPlusIcon class="h-5 w-5" />
           </template> -->
-                          <Icon class="h-5 w-5" :icon="'lucide-user-plus'" />
-                          {{ loading ? 'Sending Invites...' : 'Send Invitations' }}
-                        </PrimeButton>
-                      </PrimeForm>
+              <Icon class="h-5 w-5" :icon="'lucide-user-plus'" />
+              {{ loading ? 'Sending Invites...' : 'Send Invitations' }}
+            </PrimeButton>
+          </PrimeForm>
 
-                      <!-- Search Field -->
-                      <!-- <div class="space-y-2">
+          <!-- Search Field -->
+          <!-- <div class="space-y-2">
           <label
             class="block text-sm font-medium text-gray-700"
             for="search"
@@ -227,17 +186,11 @@ const onSubmit = async (ev: FormSubmitEvent) => {
           </div>
         </div> -->
 
-                      <!-- Submit Button -->
-                    </div>
-                  </div>
-                </section>
-              </div>
-            </dialog-panel>
-          </transition-child>
+          <!-- Submit Button -->
         </div>
-      </div></Dialog
-    >
-  </transition-root>
+      </div>
+    </section>
+  </BaseHuiModal>
   <Toast position="top-right" />
 </template>
 

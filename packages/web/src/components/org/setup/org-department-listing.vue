@@ -7,11 +7,12 @@ import ModalCreateOrUpdateDepartment from '@/components/modals/modal-create-or-u
 import { useDepartmentQuery } from '@/queries/departments-query'
 import { extractAxiosError } from '@/utils/extract-axios-error'
 import type { TsFixMeType } from '@/types/utils'
-import { FlexRender, getCoreRowModel, useVueTable } from '@tanstack/vue-table'
+import { getCoreRowModel, useVueTable } from '@tanstack/vue-table'
 import { useNotification } from '@/composables/use-notification'
 import ModalAddDepartmentMember from '@/components/modals/modal-add-department-member.vue'
 import VTable from '@/components/v-table.vue'
 import ModalViewDepartment from '@/components/modals/modal-view-department.vue'
+import ModalAssignDeptRole from '@/components/modals/modal-assign-dept-role.vue'
 const showModal = ref(false)
 const initialState: CreateDepartmentType = {
   description: '',
@@ -113,6 +114,15 @@ const openSelectedDepartment = (id: string) => {
 const closeSelectedDepartment = () => {
   showSelectedDepartment.value = false
 }
+const showAssignRoleModal = ref(false)
+const openAssignRoleModal = (id: string) => {
+  setSelectedRecordId(id)
+  showAssignRoleModal.value = true
+}
+
+const closeAssignRoleModal = () => {
+  showAssignRoleModal.value = false
+}
 const table = useVueTable({
   get data() {
     return recordsQuery.data.value
@@ -123,6 +133,8 @@ const table = useVueTable({
     openAddUserToDepartment: openDepartAddMemberModal,
     closeShowDepartment: closeSelectedDepartment,
     openShowDepartment: openSelectedDepartment,
+    closeAssignRole: closeAssignRoleModal,
+    openAssignRole: openAssignRoleModal,
   }),
   getCoreRowModel: getCoreRowModel(),
 })
@@ -161,6 +173,11 @@ const table = useVueTable({
     <ModalViewDepartment
       :closeModal="closeSelectedDepartment"
       :show="showSelectedDepartment"
+      :department="selectedDepartment!"
+    />
+    <ModalAssignDeptRole
+      :closeModal="closeAssignRoleModal"
+      :show="showAssignRoleModal"
       :department="selectedDepartment!"
     />
   </div>

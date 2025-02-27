@@ -12,6 +12,8 @@ type Props = {
   openAddUserToDepartment: (id: DepartmentType['uuid']) => void
   openShowDepartment: (row: DeptType['uuid']) => void
   closeShowDepartment: () => void
+  openAssignRole: (row: DeptType['uuid']) => void
+  closeAssignRole: () => void
 }
 export function getDepartmentTableCols(props: Props) {
   const orgDepartmentTableCols: ColumnDef<DeptType>[] = [
@@ -79,6 +81,15 @@ export function getDepartmentTableCols(props: Props) {
                   'p-1 border border-gray-400 rounded text-white inline-flex items-center gap-2 cursor-pointer',
               },
               [h(Icon, { icon: 'akar-icons:eye', class: 'text-blue-500' })],
+            ),
+            h(
+              'button',
+              {
+                onClick: () => props.openAssignRole(row.original.uuid),
+                class:
+                  'p-1 border border-gray-400 rounded text-white inline-flex items-center gap-2 cursor-pointer',
+              },
+              [h(Icon, { icon: 'oui:app-users-roles', class: 'text-blue-500' })],
             ),
           ],
         ),
