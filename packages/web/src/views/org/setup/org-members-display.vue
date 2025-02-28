@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { FlexRender, getCoreRowModel, useVueTable } from '@tanstack/vue-table'
+import { getCoreRowModel, useVueTable } from '@tanstack/vue-table'
 import { useOrgMembersQuery } from '@/queries/org-members-query'
 import { getOrgMembersTableCols } from '@/lib/cols/org-member-cols'
-import ModalInviteUsersToOrg from '@/components/modals/modal-invite-users-to-org.vue'
+import ModalInviteUsersToOrg from '@/components/modal-invite-users-to-org.vue'
 import { ref } from 'vue'
 import VTable from '@/components/v-table.vue'
 const invitemembersOpen = ref(false)

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Dialog, TransitionRoot, TransitionChild, DialogPanel, DialogTitle } from '@headlessui/vue'
-import ModalFormCreateOrg from '../modals/modal-form-create-org.vue'
+import ModalFormCreateOrg from './modal-form-create-org.vue'
 defineProps<{
   show: boolean
 }>()

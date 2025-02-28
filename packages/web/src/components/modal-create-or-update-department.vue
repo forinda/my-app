@@ -1,37 +1,36 @@
 <script setup lang="ts">
-import { Form } from 'vee-validate'
-import FormTextInput from '../form/form-text-input.vue'
 import {
-  typedCreateDepartmentTitleSchema,
-  type CreateDepartmentTitleType,
-} from '@/schema/create-department-title-schema'
-import { TransitionRoot, TransitionChild, Dialog, DialogPanel, DialogTitle } from '@headlessui/vue'
-import BaseHuiModal from '../base-hui-modal.vue'
+  typedCreateDepartmentSchema,
+  type CreateDepartmentType,
+} from '@/schema/create-department-schema'
+import { Form } from 'vee-validate'
+import FormTextInput from './form-text-input.vue'
+import BaseHuiModal from './base-hui-modal.vue'
 defineProps<{
   showModal: boolean
   mode: 'create' | 'edit'
-  initialValues: CreateDepartmentTitleType
+  initialValues: CreateDepartmentType
   openCreateModal: () => void
-  openEditModal: (department: CreateDepartmentTitleType) => void
+  openEditModal: (department: CreateDepartmentType) => void
   closeModal: () => void
-  saveTitle: (value: Record<string, unknown>) => void
+  saveDepartment: (value: Record<string, unknown>) => void
 }>()
 </script>
 <template>
   <BaseHuiModal
     :show="showModal"
-    :title="mode === 'edit' ? 'Edit Title' : 'Create New Title'"
+    :title="mode === 'edit' ? 'Edit Department' : 'Create New Department'"
     :closeModal="closeModal"
   >
     <Form
-      @submit="saveTitle"
-      :validation-schema="typedCreateDepartmentTitleSchema"
+      @submit="saveDepartment"
       :initial-values="initialValues"
+      :validation-schema="typedCreateDepartmentSchema"
     >
       <FormTextInput
-        id="titleName"
-        label-text="Title Name"
-        placeholder="e.g. Manager"
+        id="departmentName"
+        label-text="Department Name"
+        placeholder="e.g. Human Resources"
         required
         name="name"
         :auto-complete="'off'"
@@ -39,11 +38,11 @@ defineProps<{
         :icon-name="'lucide-briefcase'"
       />
       <FormTextInput
-        id="description"
-        label-text="Title Description"
+        id="departmentDescription"
+        label-text="Department Description"
         required
         name="description"
-        placeholder="e.g. Responsible for managing a team."
+        placeholder="e.g. Responsible for hiring and managing employees."
         :auto-complete="'off'"
         :type="'text'"
         :as="'textarea'"

@@ -4,7 +4,7 @@ import { computed, ref } from 'vue'
 import { TransitionRoot, TransitionChild, Dialog, DialogPanel, DialogTitle } from '@headlessui/vue'
 import { useDepartmentQuery, type DepartmentType } from '@/queries/departments-query'
 import { z } from 'zod'
-import BaseHuiModal from '../base-hui-modal.vue'
+import BaseHuiModal from './base-hui-modal.vue'
 const {
   recordsQuery: { data },
 } = useOrgMembersQuery()

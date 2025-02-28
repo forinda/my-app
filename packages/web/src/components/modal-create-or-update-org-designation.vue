@@ -1,12 +1,11 @@
 <script setup lang="ts">
 import { Form } from 'vee-validate'
-import FormTextInput from '../form/form-text-input.vue'
-import { TransitionRoot, TransitionChild, Dialog, DialogPanel, DialogTitle } from '@headlessui/vue'
+import FormTextInput from './form-text-input.vue'
 import {
   typedCreateOrgDesignationSchema,
   type OrgDesignationModel,
 } from '@/schema/create-org-designation-schema'
-import BaseHuiModal from '../base-hui-modal.vue'
+import BaseHuiModal from './base-hui-modal.vue'
 defineProps<{
   showModal: boolean
   mode: 'create' | 'edit'

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { getDepartmentTitleCols } from '@/lib/cols/org-department-title-col'
 import { useDepartmentTitleQuery } from '@/queries/department-title-query'
-import ModalCreateOrUpdateDepartmentTitle from '@/components/modals/modal-create-or-update-department-title.vue'
+import ModalCreateOrUpdateDepartmentTitle from '@/components/modal-create-or-update-department-title.vue'
 import { FlexRender, getCoreRowModel, useVueTable } from '@tanstack/vue-table'
 import { extractAxiosError } from '@/utils/extract-axios-error'
 import type { TsFixMeType } from '@/types/utils'

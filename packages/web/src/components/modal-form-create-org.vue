@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { typedCreateOrganizationSchema } from '@/schema/create-organization-schema'
-import formTextInput from '../form/form-text-input.vue'
+import formTextInput from './form-text-input.vue'
 import { Form } from 'vee-validate'
 const emit = defineEmits<{
   (event: 'submit', values: any): void

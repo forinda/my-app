@@ -6,25 +6,21 @@ import type { CreateAccountResponseType } from '@/types/resp'
 import { AxiosError } from 'axios'
 import { Form } from 'vee-validate'
 import { useRouter } from 'vue-router'
-import FormTextInput from '@/components/form/form-text-input.vue'
-import FormPasswordInput from '@/components/form/form-password-input.vue'
+import FormTextInput from '@/components/form-text-input.vue'
+import FormPasswordInput from '@/components/form-password-input.vue'
 import { useAxios } from '@/composables/use-axios'
-import {extractAxiosError} from "@/utils/extract-axios-error.ts";
+import { extractAxiosError } from '@/utils/extract-axios-error.ts'
 
 const { $swal } = useNotification()
 const router = useRouter()
 const axios = useAxios()
 const submit = async (values: unknown) => {
   try {
-    const { data } = await axios.post<CreateAccountResponseType>(
-      '/auth/register',
-      values,
-      {
-        headers: {
-          'Content-Type': 'application/json',
-        },
+    const { data } = await axios.post<CreateAccountResponseType>('/auth/register', values, {
+      headers: {
+        'Content-Type': 'application/json',
       },
-    )
+    })
     await $swal.fire({
       title: 'Success',
       text: data.message,
@@ -37,7 +33,7 @@ const submit = async (values: unknown) => {
 
       await $swal.fire({
         title: 'Error',
-        text: (extractAxiosError(error))!,
+        text: extractAxiosError(error)!,
         icon: 'error',
       })
     }

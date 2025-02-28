@@ -1,11 +1,10 @@
 <script setup lang="ts">
-import { useDepartmentQuery } from '@/queries/departments-query'
 import { useDepartmentTitleQuery } from '@/queries/department-title-query.ts'
 import { computed, reactive, ref } from 'vue'
 import { Icon } from '@iconify/vue'
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from '@headlessui/vue'
-import OrgDepartmentListing from '@/components/org/setup/org-department-listing.vue'
-import OrgDepartmentTitleListing from '@/components/org/setup/org-department-title-listing.vue'
+import OrgDepartmentListing from '@/components/org-department-listing.vue'
+import OrgDepartmentTitleListing from '@/components/org-department-title-listing.vue'
 
 const deptTitle = useDepartmentTitleQuery()
 const titlesData = computed(() => deptTitle.recordsQuery.data.value ?? [])

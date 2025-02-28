@@ -14,7 +14,7 @@ import {
 } from '@/schema/add-to-or-remove-user-from-org-schema copy'
 import { zodResolver } from '@primevue/forms/resolvers/zod'
 import type { FormSubmitEvent } from '@primevue/forms'
-import BaseHuiModal from '../base-hui-modal.vue'
+import BaseHuiModal from './base-hui-modal.vue'
 
 const props = defineProps<{
   showModal: boolean

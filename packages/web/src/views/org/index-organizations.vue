@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import moment from 'moment'
 import { ref } from 'vue'
-import OrgCreate from '@/components/org/org-create.vue'
-import OrgLayoutHeader from '@/components/org/org-layout-header.vue'
+import OrgCreate from '@/components/org-create.vue'
+import OrgLayoutHeader from '@/components/org-layout-header.vue'
 import { useNotification } from '@/composables/use-notification'
 import { useOrganizationStore } from '@/stores/organization-store'
 import { useOrgMemberInvitesQuery } from '@/queries/org-members-invite-query'

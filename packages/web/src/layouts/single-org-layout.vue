@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
-import OrgDashboardSidebar from '@/components/org/org-dashboard-sidebar.vue'
-import OrgDashboardHeader from '@/components/org/org-dashboard-header.vue'
-import {useAuthStore} from "@/stores/auth-store.ts";
+import OrgDashboardSidebar from '@/components/org-dashboard-sidebar.vue'
+import OrgDashboardHeader from '@/components/org-dashboard-header.vue'
+import { useAuthStore } from '@/stores/auth-store.ts'
 
 const authStore = useAuthStore()
 const route = useRoute()
@@ -17,9 +17,9 @@ const organizationId = route.params.id as string
 // const currentRoute = computed(() => route.path)
 
 onMounted(async () => {
- await authStore.setUserCurrentOrganization(organizationId,{
-    onSuccess:()=>authStore.getSession(true),
-    onError: () => {}
+  await authStore.setUserCurrentOrganization(organizationId, {
+    onSuccess: () => authStore.getSession(true),
+    onError: () => {},
   })
 })
 </script>

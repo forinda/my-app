@@ -2,7 +2,7 @@
 import type { DepartmentType } from '@/queries/departments-query'
 import { Dialog, DialogPanel, TransitionChild, TransitionRoot } from '@headlessui/vue'
 import { Icon } from '@iconify/vue'
-import BaseHuiModal from '../base-hui-modal.vue'
+import BaseHuiModal from './base-hui-modal.vue'
 import { computed } from 'vue'
 const props = defineProps<{
   department: DepartmentType

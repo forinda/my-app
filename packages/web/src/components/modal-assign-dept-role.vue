@@ -5,7 +5,7 @@ import {
 } from '@/schema/add-department-role-schema'
 import type { DepartmentType } from '@/types/org'
 import { zodResolver } from '@primevue/forms/resolvers/zod'
-import BaseHuiModal from '../base-hui-modal.vue'
+import BaseHuiModal from './base-hui-modal.vue'
 import { useDepartmentQuery } from '@/queries/departments-query'
 import { useDepartmentTitleQuery } from '@/queries/department-title-query'
 import { useOrgMembersQuery } from '@/queries/org-members-query'
