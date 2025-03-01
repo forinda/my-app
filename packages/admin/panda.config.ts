@@ -2,16 +2,11 @@ import { defineConfig } from '@pandacss/dev';
 import { createPreset } from '@park-ui/panda-preset';
 import accentColor from '@park-ui/panda-preset/colors/iris';
 import grayColor from '@park-ui/panda-preset/colors/mauve';
+
 export default defineConfig({
   // Whether to use css reset
   preflight: true,
-
-  // Where to look for your css declarations
-  include: [
-    './app/**/*.{js,jsx,ts,tsx}',
-    // "./pages/**/*.{js,jsx,ts,tsx}"
-  ],
-  //Presets
+  // Preset to use
   presets: [
     '@pandacss/preset-base',
     createPreset({
@@ -21,19 +16,17 @@ export default defineConfig({
       radius: 'xs',
     }),
   ],
+  // Where to look for your css declarations
+  // include: ["./app/**/*.{js,jsx,ts,tsx}", "./pages/**/*.{js,jsx,ts,tsx}"],
+  include: ['./app/**/{**,.client,.server}/**/*.{js,jsx,ts,tsx}'],
   // Files to exclude
   exclude: [],
 
   // Useful for theme customization
   theme: {
-    extend: {
-      // recipes,
-    },
+    extend: {},
   },
-  // Frameworks to include
   jsxFramework: 'react',
-
   // The output directory for your css system
-  // outdir: "app/styled-system",
   outdir: 'styled-system',
 });
