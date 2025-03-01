@@ -1,30 +1,22 @@
-FROM node:20.18-alpine as build
-# Set Path to where the files to be copied are located
-ARG FOLDER_PATH=.
-
+FROM node:20-alpine AS development-dependencies-env
+COPY . /app
 WORKDIR /app
+RUN npm ci
 
-COPY package.json ./
-# RUN corepack use pnpm@10.0.0
-# RUN corepack enable
-RUN npm i -g pnpm@10.0.0
-RUN pnpm i
+FROM node:20-alpine AS production-dependencies-env
+COPY ./package.json package-lock.json /app/
+WORKDIR /app
+RUN npm ci --omit=dev
 
-COPY "${FOLDER_PATH}" ./
+FROM node:20-alpine AS build-env
+COPY . /app/
+COPY --from=development-dependencies-env /app/node_modules /app/node_modules
+WORKDIR /app
+RUN npm run build
 
-RUN pnpm run build
-
-# Step 2 - Setup NGINX
-FROM nginx:alpine
-
-# Copy the built React app to Nginx's web server directory
-COPY --from=build /app/dist /usr/share/nginx/html 
-
-# Remove the default NGINX configuration (if any) and copy custom NGINX config
-RUN rm /etc/nginx/conf.d/default.conf
-COPY nginx/nginx.conf /etc/nginx/conf.d
-# Expose port 80 for the Nginx server
-EXPOSE 80
-
-# Start Nginx when the container runs
-CMD ["nginx", "-g", "daemon off;"]
+FROM node:20-alpine
+COPY ./package.json package-lock.json /app/
+COPY --from=production-dependencies-env /app/node_modules /app/node_modules
+COPY --from=build-env /app/build /app/build
+WORKDIR /app
+CMD ["npm", "run", "start"]
