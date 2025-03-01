@@ -17,13 +17,15 @@ export default function ForgotPassword() {
     register,
     handleSubmit,
     formState: { errors },
+    getValues,
   } = useForm<ForgotPasswordSchemaType>({
     resolver: zodResolver(forgotPasswordSchema),
   });
 
-  const sendOtp = (data: { email: string }) => {
-    console.log('Sending OTP to:', data.email);
-    setOtpSent(true);
+  const sendOtp = () => {
+    const { email } = getValues();
+    console.log('Sending OTP to:', email);
+    if (email) setOtpSent(true);
   };
 
   const submitForm = handleSubmit((data) => {
@@ -102,10 +104,19 @@ export default function ForgotPassword() {
               </Field.Root>
             </>
           )}
-
-          <Button type="submit" className={css({ width: 'full' })}>
-            {otpSent ? 'Reset Password' : 'Send OTP'}
-          </Button>
+          {otpSent ? (
+            <Button type="submit" className={css({ width: 'full' })}>
+              {'Reset Password'}
+            </Button>
+          ) : (
+            <Button
+              type="button"
+              className={css({ width: 'full' })}
+              onClick={sendOtp}
+            >
+              {'Send OTP'}
+            </Button>
+          )}
         </form>
       </div>
     </div>
