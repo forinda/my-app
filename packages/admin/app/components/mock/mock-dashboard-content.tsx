@@ -1,6 +1,7 @@
 import { Outlet } from 'react-router';
 import { css } from 'styled-system/css';
 import { useMockSidebar } from '~/hooks/use-mock-sidebar';
+import MockDashboardHeader from './mock-dashboard-header';
 
 export default function MockDashboardContent() {
   const { isCollapsed, isMobile } = useMockSidebar();
@@ -16,6 +17,7 @@ export default function MockDashboardContent() {
         }) + (isCollapsed ? ' collapsed' : '')
       }
     >
+      <MockDashboardHeader />
       <Outlet />
     </div>
   );

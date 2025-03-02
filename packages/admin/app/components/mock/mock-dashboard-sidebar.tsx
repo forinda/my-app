@@ -25,7 +25,6 @@ export default function MockDashboardSidebar() {
         flexDirection: 'column',
         transition: 'width 0.3s ease-in-out',
         zIndex: 1025,
-        boxShadow: '2px 0 8px rgba(0, 0, 0, 0.1)',
       })}
     >
       {/* Sidebar Header */}
@@ -40,6 +39,7 @@ export default function MockDashboardSidebar() {
           fontSize: '1.5rem',
           fontWeight: 'bold',
           textTransform: 'uppercase',
+          height: '80px',
         })}
       >
         {!isCollapsed && <span>Dashboard</span>}
@@ -94,7 +94,6 @@ export default function MockDashboardSidebar() {
           <Menu.Root>
             <Menu.Trigger className={css({ width: '100%' })}>
               <Button
-                variant="outline"
                 className={css({
                   width: '100%',
                   display: 'flex',
