@@ -79,20 +79,7 @@ export function DashboardSidebar() {
     },
   ];
 
-  const sidebarStyles = css({
-    position: isMobile ? 'fixed' : 'relative',
-    height: '100vh',
-    width: isCollapsed ? '64px' : '240px',
-    bg: 'gray.9',
-    color: 'white',
-    transition: 'width 0.3s ease',
-    display: 'flex',
-    flexDirection: 'column',
-    zIndex: 50,
-    transform:
-      isMobile && !isMobileOpen ? 'translateX(-100%)' : 'translateX(0)',
-    boxShadow: isMobile ? 'lg' : 'none',
-  });
+  // const sidebarStyles =;
 
   const logoStyles = css({
     display: 'flex',
@@ -167,7 +154,22 @@ export function DashboardSidebar() {
 
   return (
     <>
-      <div className={sidebarStyles}>
+      <div
+        className={css({
+          position: isMobile ? 'fixed' : 'relative',
+          height: '100vh',
+          width: isCollapsed ? '64px' : '240px',
+          bg: 'black.a7',
+          color: 'white',
+          transition: 'width 0.3s ease',
+          display: 'flex',
+          flexDirection: 'column',
+          zIndex: Number.MAX_SAFE_INTEGER,
+          transform:
+            isMobile && !isMobileOpen ? 'translateX(-100%)' : 'translateX(0)',
+          boxShadow: isMobile ? 'lg' : 'none',
+        })}
+      >
         <div className={logoStyles}>
           {isCollapsed ? (
             // <Menu size={24} />

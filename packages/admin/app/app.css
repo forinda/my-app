@@ -14,3 +14,8 @@ body {
   }
 } */
 @layer reset, base, tokens, recipes, utilities;
+
+:root {
+  --primary-color: #0f172a;
+  --light-color: #eaebef;
+}

@@ -8,7 +8,13 @@ import { SidebarProvider } from '~/providers/sidebar-context';
 export default function dashboarLayout() {
   return (
     <SidebarProvider>
-      <div className={css({ display: 'flex', minHeight: '100vh' })}>
+      <div
+        className={css({
+          display: 'flex',
+          minHeight: '100vh',
+          backgroundColor: 'gray.12',
+        })}
+      >
         <DashboardSidebar />
         <main
           className={css({ flex: 1, display: 'flex', flexDirection: 'column' })}
