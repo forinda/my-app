@@ -69,6 +69,7 @@ export default function MockDashboardSidebar() {
           flex: 1,
           overflowY: 'auto',
           paddingY: 4,
+          scrollbar: 'hidden',
         })}
       >
         <ul

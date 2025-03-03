@@ -6,7 +6,7 @@ export type MockSidebarLinkItem = {
 };
 
 export const mockSidebarLinks: MockSidebarLinkItem[] = [
-  { title: 'Navigation', href: '#', icon: 'navigation' },
+  // { title: 'Navigation', href: '#', icon: 'navigation' },
   {
     title: 'Dashboard',
     href: '/mock-dashboard',
@@ -17,48 +17,86 @@ export const mockSidebarLinks: MockSidebarLinkItem[] = [
     ],
   },
   {
-    title: 'Departments',
+    title: 'Setup',
     href: '#',
-    icon: 'uit:align-left',
+    icon: 'qlementine-icons:page-setup-16',
     children: [
-      { title: 'Engineering', href: '/mock-dashboard/departments/engineering' },
-      { title: 'Marketing', href: '/mock-dashboard/departments/marketing' },
       {
-        title: 'Sales',
-        href: '/mock-dashboard/departments/sales',
-        icon: 'game-icons:chart',
+        title: 'Designations',
+        href: '#',
+        icon: 'bx:bxs-category',
         children: [
           {
-            title: 'Sales 1',
-            href: '/mock-dashboard/departments/sales/sales-1',
+            title: 'Add',
+            href: '/mock-dashboard/designations/add',
+            icon: 'carbon:add-alt',
           },
           {
-            title: 'Sales 2',
-            href: '/mock-dashboard/departments/sales/sales-2',
-          },
-          {
-            title: 'Sales 3',
-            href: '/mock-dashboard/departments/sales/sales-3',
+            title: 'List',
+            href: '/mock-dashboard/designations',
+            icon: 'carbon:list',
           },
         ],
       },
       {
-        title: 'H/R',
-        href: '/mock-dashboard/departments/hr',
-        icon: 'ph:users-four-thin',
+        title: 'Departments',
+        href: '#',
+        icon: 'bx:bxs-building-house',
         children: [
           {
-            title: 'Engineering',
-            href: '/mock-dashboard/departments/hr/engineering',
+            title: 'Titles',
+            href: '/mock-dashboard/departments/titles',
+            icon: 'carbon:badge',
           },
           {
-            title: 'Marketing',
-            href: '/mock-dashboard/departments/hr/marketing',
+            title: 'Add Title',
+            href: '/mock-dashboard/departments/titles/add',
+            icon: 'carbon:add-alt',
           },
-          { title: 'Sales', href: '/mock-dashboard/departments/hr/sales' },
           {
-            title: 'Human Resources',
-            href: '/mock-dashboard/departments/hr/hr',
+            title: 'Add',
+            href: '/mock-dashboard/departments/add',
+            icon: 'carbon:add-alt',
+          },
+          {
+            title: 'List',
+            href: '/mock-dashboard/departments',
+            icon: 'carbon:list',
+          },
+        ],
+      },
+
+      {
+        title: 'Categories',
+        href: '#',
+        icon: 'carbon:collapse-categories',
+        children: [
+          {
+            title: 'Add',
+            href: '/mock-dashboard/categories/add',
+            icon: 'carbon:add-alt',
+          },
+          {
+            title: 'List',
+            href: '/mock-dashboard/categories',
+            icon: 'carbon:list',
+          },
+        ],
+      },
+      {
+        title: 'Projects',
+        href: '#',
+        icon: 'ph:projector-screen-chart-thin',
+        children: [
+          {
+            title: 'Add',
+            href: '/mock-dashboard/projects/add',
+            icon: 'carbon:add-alt',
+          },
+          {
+            title: 'List',
+            href: '/mock-dashboard/projects',
+            icon: 'carbon:list',
           },
         ],
       },
@@ -69,29 +107,43 @@ export const mockSidebarLinks: MockSidebarLinkItem[] = [
     href: '#',
     icon: 'ion:cube-outline',
     children: [
-      { title: 'Project Alpha', href: '/mock-dashboard/workspaces/alpha' },
-      { title: 'Project Beta', href: '/mock-dashboard/workspaces/beta' },
-      { title: 'Project Gamma', href: '/mock-dashboard/workspaces/gamma' },
+      {
+        title: 'Add',
+        href: '/mock-dashboard/workspaces/add',
+        icon: 'carbon:add-alt',
+      },
+      {
+        title: 'List',
+        href: '/mock-dashboard/workspaces',
+        icon: 'carbon:list',
+      },
     ],
   },
   {
-    title: 'Categories',
+    title: 'HR',
     href: '#',
-    icon: 'bx:bxs-category',
+    icon: 'bx:bxs-user-detail',
     children: [
-      { title: 'Products', href: '/mock-dashboard/categories/products' },
-      { title: 'Services', href: '/mock-dashboard/categories/services' },
-      { title: 'Resources', href: '/mock-dashboard/categories/resources' },
-    ],
-  },
-  {
-    title: 'Designation',
-    href: '#',
-    icon: 'bx:bxs-category',
-    children: [
-      { title: 'Products', href: '/mock-dashboard/categories/products' },
-      { title: 'Services', href: '/mock-dashboard/categories/services' },
-      { title: 'Resources', href: '/mock-dashboard/categories/resources' },
+      {
+        title: 'Employees',
+        href: '/mock-dashboard/hr/employees',
+        icon: 'bx:bxs-user-detail',
+      },
+      {
+        title: 'Attendance',
+        href: '/mock-dashboard/hr/attendance',
+        icon: 'bx:bxs-calendar',
+      },
+      {
+        title: 'Leaves',
+        href: '/mock-dashboard/hr/leaves',
+        icon: 'bx:bxs-calendar-minus',
+      },
+      {
+        title: 'Holidays',
+        href: '/mock-dashboard/hr/holidays',
+        icon: 'bx:bxs-calendar-event',
+      },
     ],
   },
   {
@@ -99,50 +151,44 @@ export const mockSidebarLinks: MockSidebarLinkItem[] = [
     href: '#',
     icon: 'bx:bxs-dollar-circle',
     children: [
-      { title: 'Salary', href: '/mock-dashboard/payroll/salary' },
-      { title: 'Employee', href: '/mock-dashboard/payroll/employee' },
-      { title: 'Payslip', href: '/mock-dashboard/payroll/payslip' },
+      {
+        title: 'Pay Records',
+        href: '/mock-dashboard/payroll/pay-records',
+        icon: 'bx:bxs-dollar-circle',
+      },
+      {
+        title: 'Payslips',
+        href: '/mock-dashboard/payroll/payslips',
+        icon: 'bx:bxs-receipt',
+      },
+    ],
+  },
+  {
+    title: 'Budget',
+    href: '#',
+    icon: 'bx:bxs-wallet',
+    children: [
+      {
+        title: 'Financial Year',
+        href: '/mock-dashboard/budget/financial-year',
+        icon: 'bx:bxs-calendar',
+      },
+      {
+        title: 'Quarters',
+        href: '/mock-dashboard/budget/quarters',
+        icon: 'bx:bxs-calendar',
+      },
+      {
+        title: 'Budgets',
+        href: '/mock-dashboard/budget/budgets',
+        icon: 'bx:bxs-wallet',
+      },
+      {
+        title: 'Expenses',
+        href: '/mock-dashboard/budget/expenses',
+        icon: 'bx:bxs-credit-card',
+      },
     ],
   },
   { title: 'Settings', href: '/mock-dashboard/settings', icon: 'bx:bxs-cog' },
-  {
-    title: 'Components',
-    href: '/mock-dashboard/components',
-    icon: 'bx:bxs-collection',
-  },
-  {
-    title: 'Forms',
-    href: '/mock-dashboard/forms',
-    icon: 'bx:bxs-check-shield',
-  },
-  {
-    title: 'Tables',
-    href: '/mock-dashboard/tables',
-    icon: 'bx:bxs-table',
-  },
-  {
-    title: 'Modals',
-    href: '/mock-dashboard/modals',
-    icon: 'bx:bxs-window-alt',
-  },
-  {
-    title: 'Pages',
-    href: '/mock-dashboard/pages',
-    icon: 'bx:bxs-file',
-  },
-  {
-    title: 'Charts',
-    href: '/mock-dashboard/charts',
-    icon: 'bx:bxs-bar-chart-alt-2',
-  },
-  {
-    title: 'Errors',
-    href: '/mock-dashboard/errors',
-    icon: 'bx:bxs-error',
-  },
-  {
-    title: 'Authentication',
-    href: '/mock-dashboard/authentication',
-    icon: 'bx:bxs-user-pin',
-  },
 ];

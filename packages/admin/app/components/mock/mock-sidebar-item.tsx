@@ -62,7 +62,7 @@ export default function MockSidebarItem({ item }: Props) {
               overflow: 'hidden',
               transition: 'height 0.3s ease',
               border: 'none',
-              pl: 4, // Indent sub-items
+              pl: 2, // Indent sub-items
             })}
           >
             <ul className={css({ listStyle: 'none', padding: 0, margin: 0 })}>
