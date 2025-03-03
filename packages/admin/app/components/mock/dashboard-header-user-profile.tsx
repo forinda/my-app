@@ -23,10 +23,17 @@ export default function DashboardHeaderUserProfile() {
           <Avatar src="https://i.pravatar.cc/300" />
         </Button>
       </Menu.Trigger>
-      <Menu.Positioner>
+      <Menu.Positioner className={css({})}>
         <Menu.Content
           className={css({
             color: 'fg.default',
+            position: 'absolute',
+            right: '-12',
+            width: 320,
+            border: '1px solid',
+            borderColor: 'border.default',
+            borderRadius: 'md',
+            top: 'calc(100% + 10px)',
           })}
         >
           <Menu.ItemGroup>
@@ -74,7 +81,14 @@ export default function DashboardHeaderUserProfile() {
                 <Icon icon="akar-icons:chevron-right" width="20" height="20" />
               </Menu.TriggerItem>
               <Menu.Positioner>
-                <Menu.Content>
+                <Menu.Content
+                  className={css({
+                    width: 320,
+                    border: '1px solid',
+                    borderColor: 'border.default',
+                    borderRadius: 'md',
+                  })}
+                >
                   <Menu.Item value="email">
                     <HStack gap="2">
                       {/* <MailIcon />  */}
