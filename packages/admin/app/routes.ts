@@ -6,14 +6,6 @@ import {
   route,
 } from '@react-router/dev/routes';
 
-// function App() {
-//   return (
-//     <QueryClientProvider client={queryClient}>
-//       {/* The rest of your application */}
-//       <ReactQueryDevtools initialIsOpen={false} />
-//     </QueryClientProvider>
-//   );
-// }
 const matchAllRegex = /(.*)/;
 export default [
   layout('routes/base-layout.tsx', [
@@ -29,6 +21,8 @@ export default [
     ...prefix('mock-dashboard', [
       layout('routes/mock-layout.tsx', [
         index('routes/mock-dashboard.tsx'),
+        route('designations', 'routes/mock-designations.tsx'),
+        route('designations/add', 'routes/mock-add-designation.tsx'),
         route('*', 'routes/mock-catch-all-routes.tsx'),
       ]),
     ]),

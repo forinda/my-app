@@ -4,18 +4,17 @@ import { useMockSidebar } from '~/hooks/use-mock-sidebar';
 import MockDashboardHeader from './mock-dashboard-header';
 
 export default function MockDashboardContent() {
-  const { isCollapsed, isMobile } = useMockSidebar();
+  const { isCollapsed, isMobile, sidebarWidthSizes } = useMockSidebar();
+  const { contentLeft } = sidebarWidthSizes(isCollapsed);
   return (
     <div
-      className={
-        css({
-          display: 'flex',
-          flexDirection: 'column',
-          flex: 1,
-          ml: isMobile ? 0 : 64,
-          transition: 'margin-left 0.3s ease',
-        }) + (isCollapsed ? ' collapsed' : '')
-      }
+      className={css({
+        display: 'flex',
+        flexDirection: 'column',
+        flex: 1,
+        ml: isCollapsed ? 20 : contentLeft,
+        transition: 'margin-left 0.3s ease-in-out',
+      })}
     >
       <MockDashboardHeader />
       <Outlet />

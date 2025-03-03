@@ -13,7 +13,7 @@ export default defineConfig({
       accentColor,
       grayColor,
       // borderRadius: 'xs',
-      radius: 'xs',
+      radius: 'md',
     }),
   ],
   // Where to look for your css declarations

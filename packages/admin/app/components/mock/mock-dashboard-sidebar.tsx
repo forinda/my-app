@@ -7,14 +7,19 @@ import { Button } from '../ui/button';
 import { Icon } from '@iconify/react';
 import { HStack } from 'styled-system/jsx';
 import { Text } from '../ui/text';
+import useAuth from '~/hooks/use-auth';
+import { Avatar } from '../ui/avatar';
 
 export default function MockDashboardSidebar() {
-  const { isCollapsed, toggleSidebar } = useMockSidebar();
-
+  const { isCollapsed, toggleSidebar, sidebarWidthSizes } = useMockSidebar();
+  const { contentLeft: width } = sidebarWidthSizes(isCollapsed);
+  const {
+    user: { image },
+  } = useAuth();
   return (
     <nav
       className={css({
-        width: isCollapsed ? 80 : 250,
+        width,
         backgroundColor: 'var(--primary-color)',
         color: 'var(--light-color)',
         position: 'fixed',
@@ -81,7 +86,11 @@ export default function MockDashboardSidebar() {
           })}
         >
           {mockSidebarLinks.map((link) => (
-            <MockSidebarItem key={link.title} item={link} />
+            <MockSidebarItem
+              key={link.title}
+              item={link}
+              isNavCollapsed={isCollapsed}
+            />
           ))}
         </ul>
         {/* User Profile Section */}
@@ -94,25 +103,24 @@ export default function MockDashboardSidebar() {
         >
           <Menu.Root>
             <Menu.Trigger className={css({ width: '100%' })}>
-              <Button
+              <div
                 className={css({
                   width: '100%',
                   display: 'flex',
                   justifyContent: 'flex-start',
+                  alignItems: 'center',
                   padding: 4,
                   borderRadius: 'md',
                   transition: 'background 0.3s',
                   borderColor: 'rgba(255, 255, 255, 0.1)',
                   color: 'var(--light-color)',
                   _hover: { backgroundColor: 'rgba(255, 255, 255, 0.1)' },
-                  paddingY: 6,
                 })}
               >
-                <img
-                  src="https://avatars.githubusercontent.com/u/54212400?v=4"
-                  alt="User Avatar"
+                <Avatar
+                  src={image}
                   className={css({
-                    width: 30,
+                    // width: 30,
                     height: 30,
                     borderRadius: '50%',
                     marginRight: 3,
@@ -133,7 +141,7 @@ export default function MockDashboardSidebar() {
                     </span>
                   </div>
                 )}
-              </Button>
+              </div>
             </Menu.Trigger>
             <Menu.Positioner>
               <Menu.Content

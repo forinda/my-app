@@ -2,11 +2,14 @@ import { css } from 'styled-system/css';
 import { Menu } from '../ui/menu';
 import DashboardHeaderNotification from './dashboard-header-notification';
 import DashboardHeaderUserProfile from './dashboard-header-user-profile';
-import React from 'react';
-import { Switch } from '@ark-ui/react';
-import { Icon } from '@iconify/react';
 import DashboardHeaderDarkmodeToggle from './dashboard-header-darkmode-toggle';
+import { useMockSidebar } from '~/hooks/use-mock-sidebar';
+import { Icon } from '@iconify/react';
+import { Text } from '../ui/text';
+import { Button } from '../ui/button';
 export default function MockDashboardHeader() {
+  const { toggleSidebar, isCollapsed, sidebarWidthSizes } = useMockSidebar();
+  const { contentLeft } = sidebarWidthSizes(isCollapsed);
   return (
     <div
       className={css({
@@ -17,9 +20,33 @@ export default function MockDashboardHeader() {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
+        borderLeft: '1px solid var(--light-color)',
+        zIndex: '60000',
       })}
     >
-      <div></div>
+      <div
+        className={css({
+          display: 'flex',
+          alignItems: 'center',
+        })}
+      >
+        <div className={css({ display: 'flex', alignItems: 'center' })}>
+          <Button
+            onClick={toggleSidebar}
+            className={css({
+              background: 'none',
+              border: 'none',
+              color: 'var(--light-color)',
+              cursor: 'pointer',
+              fontSize: '1.5rem',
+            })}
+          >
+            <Icon icon={'tabler:layout-sidebar-right-collapse'} />
+          </Button>
+        </div>
+
+        <Text as={'span'}>Dashboard</Text>
+      </div>
       <div className={css({ display: 'flex', alignItems: 'center' })}>
         <DashboardHeaderDarkmodeToggle />
         <DashboardHeaderNotification />

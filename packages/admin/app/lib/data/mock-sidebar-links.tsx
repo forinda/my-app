@@ -1,7 +1,7 @@
 export type MockSidebarLinkItem = {
   title: string;
   href: string;
-  icon?: string;
+  icon: string;
   children?: MockSidebarLinkItem[];
 };
 
@@ -12,8 +12,12 @@ export const mockSidebarLinks: MockSidebarLinkItem[] = [
     href: '/mock-dashboard',
     icon: 'uit:airplay',
     children: [
-      { title: 'Dashboard', href: '/mock-dashboard' },
-      { title: 'Analytics', href: '/mock-dashboard/mock-analytics' },
+      { title: 'Dashboard', href: '/mock-dashboard', icon: 'uit:airplay' },
+      {
+        title: 'Analytics',
+        href: '/mock-dashboard/mock-analytics',
+        icon: 'bx:bxs-bar-chart-alt-2',
+      },
     ],
   },
   {

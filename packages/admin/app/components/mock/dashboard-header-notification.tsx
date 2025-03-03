@@ -64,7 +64,7 @@ export default function DashboardHeaderNotification({ count = 2 }: Props) {
           })}
         >
           <Menu.ItemGroup>
-            <Menu.ItemGroupLabel>My Account</Menu.ItemGroupLabel>
+            <Menu.ItemGroupLabel>Notifications</Menu.ItemGroupLabel>
             <Menu.Separator />
             <Menu.Item value="profile">
               <HStack gap="6" justify="space-between" flex="1">

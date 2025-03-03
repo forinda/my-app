@@ -7,6 +7,16 @@ import {
   type ReactNode,
 } from 'react';
 
+const collapsibleSizes = (collapsed: boolean) => {
+  return collapsed
+    ? {
+        contentLeft: 20,
+      }
+    : {
+        contentLeft: 64,
+      };
+};
+
 interface SidebarContextType {
   isCollapsed: boolean;
   toggleSidebar: () => void;
@@ -15,18 +25,20 @@ interface SidebarContextType {
   isMobileOpen: boolean;
   toggleMobileSidebar: () => void;
   screenWidth: number;
+  sidebarWidthSizes: typeof collapsibleSizes;
 }
 
 const MockSidebarContext = createContext<SidebarContextType | undefined>(
-  undefined
+  undefined,
 );
 const isClient = typeof window !== 'undefined';
 
 export function MockSidebarProvider({ children }: { children: ReactNode }) {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [screenWidth, setScreenWidth] = useState(
-    isClient ? window.innerWidth : 0
+    isClient ? window.innerWidth : 0,
   );
+
   const [isMobileOpen, setIsMobileOpen] = useState(false);
 
   const toggleSidebar = () => setIsCollapsed((prev) => !prev);
@@ -50,6 +62,7 @@ export function MockSidebarProvider({ children }: { children: ReactNode }) {
         isMobileOpen,
         toggleMobileSidebar,
         screenWidth,
+        sidebarWidthSizes: collapsibleSizes,
       }}
     >
       {children}
