@@ -1,4 +1,4 @@
-import type { TsFixMeType } from '@/types/utils'
+import type { TsFixMeType } from '@app/shared'
 import { computed, ref, watch } from 'vue'
 
 const storedConfig = localStorage.getItem('primevue-appconfig')
@@ -429,12 +429,12 @@ export function useLayout() {
   }
 
   function toggleDarkMode() {
-    if (!document.startViewTransition) {
+    if (!(document as TsFixMeType).startViewTransition) {
       executeDarkModeToggle()
       return
     }
 
-    document.startViewTransition(() => executeDarkModeToggle())
+    ;(document as TsFixMeType).startViewTransition(() => executeDarkModeToggle())
   }
 
   function executeDarkModeToggle() {

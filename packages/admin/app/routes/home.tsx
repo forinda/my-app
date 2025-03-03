@@ -9,5 +9,5 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export default function Home() {
-  return <Heading as={'h2'}>Welcome to React Router!</Heading>;
+  return <Heading as={'h2'}>Welcome to React Router! awesome</Heading>;
 }

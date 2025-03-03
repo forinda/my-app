@@ -6,7 +6,7 @@ import { zodResolver } from '@primevue/forms/resolvers/zod'
 import { loginUserSchema, type LoginUserSchemaType } from '@/schema/login-schema'
 import type { FormSubmitEvent } from '@primevue/forms'
 import { useToast } from 'primevue/usetoast'
-import type { TsFixMeType } from '@/types/utils'
+import type { TsFixMeType } from '@app/shared'
 const auth = useAuthStore()
 const router = useRouter()
 const toast = useToast()
@@ -16,42 +16,40 @@ const resolver = zodResolver(loginUserSchema)
 const submit = async (ev: FormSubmitEvent) => {
   try {
     if (!ev.valid) {
-      toast.add(
-        {
-          severity: 'error',
-          detail: 'Please fix the errors in the form',
-          life: 5000,
-          summary: 'Submission Error',
-        },
-      )
+      toast.add({
+        severity: 'error',
+        detail: 'Please fix the errors in the form',
+        life: 5000,
+        summary: 'Submission Error',
+      })
       return
     }
     loading.value = true
-    const vals  = ev.values as LoginUserSchemaType
+    const vals = ev.values as LoginUserSchemaType
     auth.loginUser(vals, {
-    onSuccess: async (data: TsFixMeType) => {
-      // await $swal.fire({
-      //   title: 'Success',
-      //   text: data.message,
-      //   icon: 'success',
-      // })
-      toast.add({
-        severity: 'success',
-        summary: 'Success',
-        detail: data.message,
-        life: 5000,
-      })
-      await router.push({ name: 'organizations-list' })
-    },
-    onError: async (error) => {
-      toast.add({
-        severity: 'error',
-        summary: 'Error',
-        detail: error,
-        life: 5000,
-      })
-    },
-  })
+      onSuccess: async (data: TsFixMeType) => {
+        // await $swal.fire({
+        //   title: 'Success',
+        //   text: data.message,
+        //   icon: 'success',
+        // })
+        toast.add({
+          severity: 'success',
+          summary: 'Success',
+          detail: data.message,
+          life: 5000,
+        })
+        await router.push({ name: 'organizations-list' })
+      },
+      onError: async (error) => {
+        toast.add({
+          severity: 'error',
+          summary: 'Error',
+          detail: error,
+          life: 5000,
+        })
+      },
+    })
 
     // Add your login logic here
     await router.push({ name: 'organizations-list' })

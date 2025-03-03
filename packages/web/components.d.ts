@@ -50,11 +50,8 @@ declare module 'vue' {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     Tab: typeof import('primevue/tab')['default']
-    TabPanel: typeof import('primevue/tabpanel')['default']
-    TabPanels: typeof import('primevue/tabpanels')['default']
     TActionButtons: typeof import('./src/components/t-action-buttons.vue')['default']
     TheWelcome: typeof import('./src/components/the-welcome.vue')['default']
-    Toast: typeof import('primevue/toast')['default']
     VTable: typeof import('./src/components/v-table.vue')['default']
     WelcomeItem: typeof import('./src/components/welcome-item.vue')['default']
   }

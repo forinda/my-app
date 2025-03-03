@@ -4,7 +4,6 @@ import { useDepartmentTitleQuery } from '@/queries/department-title-query'
 import ModalCreateOrUpdateDepartmentTitle from '@/components/modal-create-or-update-department-title.vue'
 import { FlexRender, getCoreRowModel, useVueTable } from '@tanstack/vue-table'
 import { extractAxiosError } from '@/utils/extract-axios-error'
-import type { TsFixMeType } from '@/types/utils'
 import type { CreateDepartmentTitleType } from '@/schema/create-department-title-schema'
 import { ref } from 'vue'
 const { recordsQuery, createRecordMutation, setSelectedRecordId, updateRecordMutation } =
@@ -12,6 +11,7 @@ const { recordsQuery, createRecordMutation, setSelectedRecordId, updateRecordMut
 import { Icon } from '@iconify/vue'
 import { useNotification } from '@/composables/use-notification'
 import VTable from '@/components/v-table.vue'
+import type { TsFixMeType } from '@app/shared'
 
 const initialState = {
   name: '',
@@ -87,7 +87,7 @@ const saveRecord = async (payload: TsFixMeType) => {
 
 const table = useVueTable({
   get data() {
-    return recordsQuery.data.value
+    return recordsQuery.data.value!
   },
   columns: getDepartmentTitleCols({
     deleteDepartmentTitle: del,

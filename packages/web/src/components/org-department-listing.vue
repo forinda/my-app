@@ -6,13 +6,13 @@ import type { CreateDepartmentType } from '@/schema/create-department-schema'
 import ModalCreateOrUpdateDepartment from '@/components/modal-create-or-update-department.vue'
 import { useDepartmentQuery } from '@/queries/departments-query'
 import { extractAxiosError } from '@/utils/extract-axios-error'
-import type { TsFixMeType } from '@/types/utils'
 import { getCoreRowModel, useVueTable } from '@tanstack/vue-table'
 import { useNotification } from '@/composables/use-notification'
 import ModalAddDepartmentMember from '@/components/modal-add-department-member.vue'
 import VTable from '@/components/v-table.vue'
 import ModalViewDepartment from '@/components/modal-view-department.vue'
 import ModalAssignDeptRole from '@/components/modal-assign-dept-role.vue'
+import type { TsFixMeType } from '@app/shared'
 const showModal = ref(false)
 const initialState: CreateDepartmentType = {
   description: '',
@@ -125,7 +125,7 @@ const closeAssignRoleModal = () => {
 }
 const table = useVueTable({
   get data() {
-    return recordsQuery.data.value
+    return recordsQuery.data.value!
   },
   columns: getDepartmentTableCols({
     deleteDepartment: del,

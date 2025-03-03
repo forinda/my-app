@@ -7,7 +7,7 @@ import express from 'express';
 import { createServer } from 'http';
 import { inject, injectable } from 'inversify';
 import chalk from 'chalk';
-import { baseLogger } from '@/common/logger';
+// import { baseLogger } from '@/common/logger';
 @injectable()
 @Dependency()
 export class ApiServer {
@@ -47,9 +47,10 @@ export class ApiServer {
       `Listening on http://localhost:${this.config.conf.PORT}`
     );
 
-    const message = `(${this.config.conf.NODE_ENV}):${listeningMessage} ${this.config.conf.NODE_ENV === 'development' ? '🚀' : '🔒'}`;
+    const message = `(API):${listeningMessage} ${this.config.conf.NODE_ENV === 'development' ? '🚀' : '🔒'}`;
 
-    baseLogger.info('[API]', message);
+    // baseLogger.info('[API]', message);
+    console.log(message);
   }
 
   public run() {

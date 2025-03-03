@@ -1,6 +1,6 @@
 import { AxiosError } from 'axios';
 import { decodeArrayBuffer } from './decode-array-buffer';
-import { TsFixMeType } from './types';
+import type { TsFixMeType } from './types';
 
 export function extractAxiosError(error: TsFixMeType) {
   if (error instanceof AxiosError) {

@@ -12,7 +12,6 @@
     "dev:backend": "pnpm --filter=backend dev",
     "dev:admin": "pnpm --filter=admin dev",
     "dev:web": "pnpm --filter=web dev",
-    "dev": "concurrently \"pnpm dev:backend\" \"pnpm dev:admin\" \"pnpm dev:web\"",
     "build:backend": "pnpm --filter=backend build",
     "build:admin": "pnpm --filter=admin build",
     "build:web": "pnpm --filter=web build",
@@ -40,9 +39,17 @@
     "db:view": "pnpm --filter=backend db:view",
     "gulp": "gulp --gulpfile gulpfile.ts --tasks",
     "docker-web": "gulp docker_build_client_web",
-    "gc:build": "gulp build_apps"
+    "gc:build": "gulp build_apps",
+    "dev": "gulp run_all_in_parallel",
+    "gc:admin-dev": "gulp run_admin_ui",
+    "gc:web-dev": "gulp run_web_dev",
+    "gc:backend-dev": "gulp run_backend_dev",
+    "gc:build-apps": "gulp build_"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.26.9",
+    "@babel/register": "^7.25.9",
+    "@swc/register": "^0.1.10",
     "@types/gulp": "^4.0.17",
     "@types/shelljs": "^0.8.15",
     "chalk": "4.1.2",

@@ -5,13 +5,11 @@ import type {
   InsertOrganizationInterface,
   SelectOrganizationInterface,
 } from '@/types/org'
-import type { ResponseObject } from '@/types/utils'
-import { extractAxiosError } from '@/utils/extract-axios-error'
-import { decodeArrayBuffer } from '@/utils/resp-decode'
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
 import { useAuthStore } from './auth-store'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/vue-query'
+import { decodeArrayBuffer, extractAxiosError, type ResponseObject } from '@app/shared'
 export const organizationQueryKeysKeys = {
   all: ['org:organizations|all'],
   details: () => [organizationQueryKeysKeys.all, 'detail'],

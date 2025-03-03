@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { Icon } from '@iconify/vue'
-import type { TsFixMeType } from '@/types/utils'
 import { getCoreRowModel, useVueTable } from '@tanstack/vue-table'
 import ModalCreateOrUpdateOrgDesignation from '@/components/modal-create-or-update-org-designation.vue'
 import type { OrgDesignationModel } from '@/schema/create-org-designation-schema'
@@ -9,6 +8,7 @@ import { useOrgDesignationQuery } from '@/queries/org-designation-query'
 import { getOrgDesignationTableCols } from '@/lib/cols/designation-cols'
 import { useNotification } from '@/composables/use-notification'
 import VTable from '@/components/v-table.vue'
+import type { TsFixMeType } from '@app/shared'
 
 const { createRecordMutation, recordsQuery, setSelectedRecordId, updateRecordMutation } =
   useOrgDesignationQuery()
@@ -73,7 +73,7 @@ const saveChanges = async (payload: TsFixMeType) => {
 }
 const table = useVueTable({
   get data() {
-    return recordsQuery.data.value
+    return recordsQuery.data.value!
   },
   columns: getOrgDesignationTableCols({ deleteRecord: del, editRecord: openEditModal }),
   getCoreRowModel: getCoreRowModel(),

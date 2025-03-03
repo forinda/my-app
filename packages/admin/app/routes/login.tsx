@@ -25,7 +25,6 @@ export default function Login() {
     console.log(data);
   });
   const rootProps: Field.RootProps = {};
-  console.log({ errors });
 
   return (
     <div

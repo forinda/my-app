@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import type { DepartmentType } from '@/queries/departments-query'
-import { Dialog, DialogPanel, TransitionChild, TransitionRoot } from '@headlessui/vue'
 import { Icon } from '@iconify/vue'
 import BaseHuiModal from './base-hui-modal.vue'
 import { computed } from 'vue'
+import type { TsFixMeType } from '@app/shared'
 const props = defineProps<{
   department: DepartmentType
   show: boolean
@@ -15,7 +15,7 @@ const formatDate = (date: string) => {
 }
 
 const departmentRolesSorted = computed(() => {
-  return props.department.user_roles.sort((a, b) => {
+  return props.department.user_roles.sort((a: TsFixMeType, b: TsFixMeType) => {
     return a.created_at > b.created_at ? -1 : 1
   })
 })

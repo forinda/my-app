@@ -5,7 +5,6 @@ import { TransitionRoot, TransitionChild, Dialog, DialogPanel } from '@headlessu
 import { computed, reactive, ref } from 'vue'
 import { useToast } from 'primevue/usetoast'
 import { Icon } from '@iconify/vue'
-import type { TsFixMeType } from '@/types/utils'
 import { useOrgMembersQuery } from '@/queries/org-members-query'
 import { useOrgDesignationQuery } from '@/queries/org-designation-query'
 import {
@@ -15,6 +14,7 @@ import {
 import { zodResolver } from '@primevue/forms/resolvers/zod'
 import type { FormSubmitEvent } from '@primevue/forms'
 import BaseHuiModal from './base-hui-modal.vue'
+import type { TsFixMeType } from '@app/shared'
 
 const props = defineProps<{
   showModal: boolean
@@ -142,7 +142,7 @@ const onSubmit = async (ev: FormSubmitEvent) => {
                 <PrimeSelect
                   id="designation_id"
                   name="designation_id"
-                  :options="desig.data.value.map((d) => ({ label: d.name, value: d.id }))"
+                  :options="desig.data.value!.map((d) => ({ label: d.name, value: d.id }))"
                   optionLabel="label"
                   optionValue="value"
                   placeholder="Select Designation"

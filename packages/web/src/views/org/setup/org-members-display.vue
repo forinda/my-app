@@ -14,7 +14,7 @@ const { recordsQuery } = useOrgMembersQuery()
 
 const table = useVueTable({
   get data() {
-    return recordsQuery.data.value
+    return recordsQuery.data.value!
   },
   columns: getOrgMembersTableCols({}),
   getCoreRowModel: getCoreRowModel(),
