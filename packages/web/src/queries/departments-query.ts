@@ -2,9 +2,9 @@ import { useAxios } from '@/composables/use-axios'
 import type { AddDepartmentRoleSchema } from '@/schema/add-department-role-schema'
 import type { CreateDepartmentType } from '@/schema/create-department-schema'
 import type { FetchDepartmentResponseType } from '@/types/org'
-import type { ResponseObject } from '@/types/utils'
 import { extractAxiosError } from '@/utils/extract-axios-error'
 import { decodeArrayBuffer } from '@/utils/resp-decode'
+import type { ResponseObject } from '@app/shared'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/vue-query'
 import { useToast } from 'primevue/usetoast'
 import { computed, ref, watch } from 'vue'
@@ -159,7 +159,7 @@ export const useDepartmentQuery = function (
 
   const selectedDepartment = computed(() => {
     if (!selectedRecordId.value) return null
-    return recordsQuery.data?.value.find((record) => record.uuid === selectedRecordId.value)
+    return recordsQuery.data.value!.find((record) => record.uuid === selectedRecordId.value)
   })
 
   return {

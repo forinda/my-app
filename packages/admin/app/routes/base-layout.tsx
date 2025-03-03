@@ -4,6 +4,7 @@ import { Outlet } from 'react-router';
 // Create a client
 const queryClient = new QueryClient();
 export default function BaseLayout() {
+  Response;
   return (
     <QueryClientProvider client={queryClient}>
       <Outlet />
