@@ -1,5 +1,5 @@
 import { useDrizzle, type DrizzleTransaction } from '@/db';
-import { ApiError } from '@app/shared';
+import { ApiError } from 'shared';
 
 export type TransactionContext<D = any> = {
   data: D;

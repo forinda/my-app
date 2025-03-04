@@ -2,7 +2,7 @@ import { useAxios } from '@/composables/use-axios'
 import { useNotification } from '@/composables/use-notification'
 import type { CreateDesignationType } from '@/schema/create-designation-schema'
 import type { FetchOrganizationMemberDesignationResponseType } from '@/types/org'
-import { decodeArrayBuffer, extractAxiosError, type ResponseObject } from '@app/shared'
+import { decodeArrayBuffer, extractAxiosError, type ResponseObject } from 'shared'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/vue-query'
 import { ref } from 'vue'
 

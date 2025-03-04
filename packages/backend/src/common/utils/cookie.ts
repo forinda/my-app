@@ -1,4 +1,4 @@
-import { ApiError, HttpStatus } from '@app/shared';
+import { ApiError, HttpStatus } from 'shared';
 import { type KeyObject, createHmac, timingSafeEqual } from 'node:crypto';
 
 /**

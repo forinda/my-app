@@ -6,7 +6,7 @@ import { useDrizzle } from '@/db';
 import { CookieProcessor } from './cookie';
 import { Config } from '../config';
 import { di } from '../di';
-import { ApiError, HttpStatus } from '@app/shared';
+import { ApiError, HttpStatus } from 'shared';
 
 export async function getSessionUser(
   request: ApiReq,

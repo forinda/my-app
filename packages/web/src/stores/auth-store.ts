@@ -1,7 +1,7 @@
 import { useAxios } from '@/composables/use-axios'
 import type { LoginUserSchemaType } from '@/schema/login-schema'
 import type { SessionUserType } from '@/types/session'
-import { decodeArrayBuffer, extractAxiosError, type ResponseObject } from '@app/shared'
+import { decodeArrayBuffer, extractAxiosError, type ResponseObject } from 'shared'
 import { defineStore } from 'pinia'
 import { computed, ref } from 'vue'
 export const useAuthStore = defineStore('auth:user', () => {

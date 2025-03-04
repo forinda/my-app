@@ -10,7 +10,7 @@ import {
 } from '@/common/decorators/service-transaction';
 import { Department } from '@/db/schema';
 import { UUID } from '@/common/utils/uuid';
-import { ApiError, HttpStatus } from '@app/shared';
+import { ApiError, HttpStatus } from 'shared';
 
 @injectable()
 @Dependency()

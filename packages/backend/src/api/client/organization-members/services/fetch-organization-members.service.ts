@@ -6,7 +6,7 @@ import { UUID } from '@/common/utils/uuid';
 import { eq } from 'drizzle-orm';
 import type { FilterOrganizationmembersType } from '../schema';
 import type { ApiPaginationParams } from '@/common/utils/pagination';
-import { HttpStatus } from '@app/shared';
+import { HttpStatus } from 'shared';
 
 @injectable()
 @Dependency()

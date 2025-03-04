@@ -10,7 +10,7 @@ import {
 } from '@/common/decorators/service-transaction';
 import type { InsertDepartmentRoleInterface } from '@/db/schema';
 import { Department, DepartmentTitle, DepartmentUserRole } from '@/db/schema';
-import { ApiError, HttpStatus } from '@app/shared';
+import { ApiError, HttpStatus } from 'shared';
 
 @injectable()
 @Dependency()

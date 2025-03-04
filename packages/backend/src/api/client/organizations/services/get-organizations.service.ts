@@ -4,7 +4,7 @@ import { useDrizzle } from '@/db';
 import { Dependency } from '@/common/di';
 import type { ApiPaginationParams } from '@/common/utils/pagination';
 import { eq, inArray } from 'drizzle-orm';
-import { HttpStatus } from '@app/shared';
+import { HttpStatus } from 'shared';
 
 @injectable()
 @Dependency()

@@ -8,8 +8,8 @@ import { and, eq, or } from 'drizzle-orm';
 import { PasswordProcessor } from '@/common/utils/password';
 import { PayloadValidator } from '@/common/schema/validator';
 import { generateAvatar } from '@/common/utils/avatar';
-import type { RegisterUserInput } from '@app/shared';
-import { ApiError, formatKenyanPhone, HttpStatus } from '@app/shared';
+import type { RegisterUserInput } from 'shared';
+import { ApiError, formatKenyanPhone, HttpStatus } from 'shared';
 
 @injectable()
 @Dependency()

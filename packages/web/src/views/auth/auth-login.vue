@@ -6,7 +6,7 @@ import { zodResolver } from '@primevue/forms/resolvers/zod'
 import { loginUserSchema, type LoginUserSchemaType } from '@/schema/login-schema'
 import type { FormSubmitEvent } from '@primevue/forms'
 import { useToast } from 'primevue/usetoast'
-import type { TsFixMeType } from '@app/shared'
+import type { TsFixMeType } from 'shared'
 const auth = useAuthStore()
 const router = useRouter()
 const toast = useToast()

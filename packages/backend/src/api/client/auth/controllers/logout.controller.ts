@@ -9,7 +9,7 @@ import { inject, injectable } from 'inversify';
 
 import { createHttpResponse } from '@/common/utils/responder';
 import { Config } from '@/common/config';
-import { HttpStatus } from '@app/shared';
+import { HttpStatus } from 'shared';
 
 @injectable()
 @Dependency()

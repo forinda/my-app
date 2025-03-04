@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { TsFixMeType } from '@app/shared';
+import type { TsFixMeType } from 'shared';
 import { FlexRender, type Table } from '@tanstack/vue-table'
 
 defineProps<{

@@ -4,7 +4,7 @@ import { Dependency } from '@/common/di';
 import { injectable } from 'inversify';
 import { eq } from 'drizzle-orm';
 import { AuthSession } from '@/db/schema';
-import { ValidateSwitchOrganizationInput } from '@app/shared';
+import { ValidateSwitchOrganizationInput } from 'shared';
 
 @injectable()
 @Dependency()

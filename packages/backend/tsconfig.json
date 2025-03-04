@@ -20,7 +20,7 @@
       },
     ],
     "target": "es2017",
-    "module": "commonjs",
+    "module": "Node16",
     "lib": [
       "dom",
       "es6",
@@ -30,7 +30,7 @@
     "skipLibCheck": true,
     "sourceMap": false,
     "outDir": "./dist",
-    "moduleResolution": "node",
+    "moduleResolution": "node16",
     "removeComments": true,
     "noImplicitAny": true,
     "strictNullChecks": true,

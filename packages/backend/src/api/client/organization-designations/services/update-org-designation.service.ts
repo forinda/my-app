@@ -9,7 +9,7 @@ import {
   type TransactionContext
 } from '@/common/decorators/service-transaction';
 import { OrganizationDesignation } from '@/db/schema';
-import { ApiError, HttpStatus } from '@app/shared';
+import { ApiError, HttpStatus } from 'shared';
 
 @injectable()
 @Dependency()

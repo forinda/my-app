@@ -8,7 +8,7 @@ import {
 } from '@/common/decorators/service-transaction';
 import { OrganizationInvite, OrganizationMember } from '@/db/schema';
 import type { RespondToOrgInviteType } from '../schema';
-import { ApiError, HttpStatus } from '@app/shared';
+import { ApiError, HttpStatus } from 'shared';
 // import { lower } from '@/db';
 
 @injectable()

@@ -10,7 +10,7 @@ import {
 } from '@/common/decorators/service-transaction';
 import type { InsertOrganizationMemberDesignationInterface } from '@/db/schema';
 import { Organization, OrganizationDesignation } from '@/db/schema';
-import { ApiError, HttpStatus } from '@app/shared';
+import { ApiError, HttpStatus } from 'shared';
 
 @injectable()
 @Dependency()

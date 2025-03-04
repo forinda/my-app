@@ -5,7 +5,7 @@ import type {
 } from '../constants/persmission-table';
 import { permissionTable } from '../constants/persmission-table';
 import { Dependency } from '../di';
-import { ApiError, HttpStatus } from '@app/shared';
+import { ApiError, HttpStatus } from 'shared';
 
 @injectable()
 @Dependency()

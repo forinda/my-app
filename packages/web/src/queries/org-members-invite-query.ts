@@ -4,7 +4,7 @@ import type { AddUserToOrgModel } from '@/schema/add-to-or-remove-user-from-org-
 import type { CreateDesignationType } from '@/schema/create-designation-schema'
 import { organizationQueryKeysKeys } from '@/stores/organization-store'
 import type { FetchUserOrganizationInvitesResponseType } from '@/types/org'
-import { decodeArrayBuffer, extractAxiosError, type ResponseObject } from '@app/shared'
+import { decodeArrayBuffer, extractAxiosError, type ResponseObject } from 'shared'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/vue-query'
 import { useToast } from 'primevue/usetoast'
 import { ref } from 'vue'

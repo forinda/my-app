@@ -9,7 +9,7 @@ import { useRouter } from 'vue-router'
 import FormTextInput from '@/components/form-text-input.vue'
 import FormPasswordInput from '@/components/form-password-input.vue'
 import { useAxios } from '@/composables/use-axios'
-import { extractAxiosError } from '@app/shared'
+import { extractAxiosError } from 'shared'
 
 const { $swal } = useNotification()
 const router = useRouter()

@@ -8,7 +8,7 @@ import { useOrgDesignationQuery } from '@/queries/org-designation-query'
 import { getOrgDesignationTableCols } from '@/lib/cols/designation-cols'
 import { useNotification } from '@/composables/use-notification'
 import VTable from '@/components/v-table.vue'
-import type { TsFixMeType } from '@app/shared'
+import type { TsFixMeType } from 'shared'
 
 const { createRecordMutation, recordsQuery, setSelectedRecordId, updateRecordMutation } =
   useOrgDesignationQuery()

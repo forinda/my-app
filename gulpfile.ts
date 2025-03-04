@@ -1,5 +1,5 @@
 // const { series } = require('gulp');
-export { dockerBuildClientWebApp as docker_build_client_web } from './tasks/docker-build';
+export * from './tasks/docker-build';
 export {
   runAllInParallel as run_all_in_parallel,
   runApi as run_api,

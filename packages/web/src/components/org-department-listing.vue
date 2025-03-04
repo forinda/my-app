@@ -11,7 +11,7 @@ import ModalAddDepartmentMember from '@/components/modal-add-department-member.v
 import VTable from '@/components/v-table.vue'
 import ModalViewDepartment from '@/components/modal-view-department.vue'
 import ModalAssignDeptRole from '@/components/modal-assign-dept-role.vue'
-import { extractAxiosError, type TsFixMeType } from '@app/shared'
+import { extractAxiosError, type TsFixMeType } from 'shared'
 const showModal = ref(false)
 const initialState: CreateDepartmentType = {
   description: '',

@@ -10,6 +10,12 @@ services:
       - shared_network
     ports:
       - 8002:80
+    volumes:
+      - ../../packages/shared:/app/shared
+
 networks:
   shared_network:
     external: true
+
+volumes:
+  shared_volume:

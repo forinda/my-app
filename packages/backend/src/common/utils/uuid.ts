@@ -3,7 +3,7 @@ import { injectable } from 'inversify';
 import { Dependency } from '../di';
 
 import { v4 as uuidv4, validate as isValid } from 'uuid';
-import { ApiError, HttpStatus } from '@app/shared';
+import { ApiError, HttpStatus } from 'shared';
 
 type ValidationOptions = {
   throwError?: boolean;

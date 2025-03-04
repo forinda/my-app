@@ -15,7 +15,7 @@ import { setupWorkspaceRoutes } from './client/workspaces';
 import { createHttpResponse } from '@/common/utils/responder';
 import { setupProjectRoutes } from './client/projects';
 import { setupProjectCategoriesRoutes } from './client/project-categories';
-import { HttpStatus } from '@app/shared';
+import { HttpStatus } from 'shared';
 type Versions = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
 export type ApiVersions = `/api/v${Versions}`;
 

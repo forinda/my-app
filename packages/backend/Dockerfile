@@ -5,6 +5,8 @@ WORKDIR /app
 
 # COPY package*.json ./ yarn.lock ./
 COPY "${FOLDER_PATH}/package.json" ./
+# Copy shared to the container
+COPY ../shared ./node_modules/shared
 # Install pnpm
 RUN npm i -g pnpm@10.0.0
 # Install dependencies

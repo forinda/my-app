@@ -10,8 +10,8 @@ import { inject, injectable } from 'inversify';
 import { LoginUserService } from '../services/login.service';
 
 import { createHttpResponse } from '@/common/utils/responder';
-import type { LoginUserInput } from '@app/shared';
-import { HttpStatus, loginUserSchema } from '@app/shared';
+import type { LoginUserInput } from 'shared';
+import { HttpStatus, loginUserSchema } from 'shared';
 
 @injectable()
 @Dependency()

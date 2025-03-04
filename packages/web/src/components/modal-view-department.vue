@@ -3,7 +3,7 @@ import type { DepartmentType } from '@/queries/departments-query'
 import { Icon } from '@iconify/vue'
 import BaseHuiModal from './base-hui-modal.vue'
 import { computed } from 'vue'
-import type { TsFixMeType } from '@app/shared'
+import type { TsFixMeType } from 'shared'
 const props = defineProps<{
   department: DepartmentType
   show: boolean

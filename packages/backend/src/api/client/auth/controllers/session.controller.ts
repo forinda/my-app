@@ -8,8 +8,8 @@ import type { ApiRequestContext } from '@/common/interfaces/controller';
 import { injectable } from 'inversify';
 
 import { createHttpResponse } from '@/common/utils/responder';
-import type { LoginUserInput } from '@app/shared';
-import { HttpStatus } from '@app/shared';
+import type { LoginUserInput } from 'shared';
+import { HttpStatus } from 'shared';
 
 @injectable()
 @Dependency()

@@ -10,7 +10,7 @@ const { recordsQuery, createRecordMutation, setSelectedRecordId, updateRecordMut
 import { Icon } from '@iconify/vue'
 import { useNotification } from '@/composables/use-notification'
 import VTable from '@/components/v-table.vue'
-import { extractAxiosError, type TsFixMeType } from '@app/shared'
+import { extractAxiosError, type TsFixMeType } from 'shared'
 
 const initialState = {
   name: '',

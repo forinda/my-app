@@ -10,6 +10,8 @@ services:
       - shared_network
     environment:
       - DATABASE_URL=${DATABASE_URL}
+    volumes:
+      - ../../packages/shared:/app/shared
 
 networks:
   shared_network:

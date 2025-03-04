@@ -2,6 +2,7 @@
   "compilerOptions": {
     "target": "es2017",
     "module": "CommonJS",
+    "composite": true,
     "lib": [
       "dom",
       "es6",
@@ -9,8 +10,9 @@
       "esnext.asynciterable"
     ],
     "skipLibCheck": true,
-    "sourceMap": true,
-    "outDir": "./dist",
+    // "sourceMap": true,
+    "inlineSourceMap": true,
+    // "outDir": "./dist",
     "declaration": true,
     "moduleResolution": "node",
     "removeComments": true,

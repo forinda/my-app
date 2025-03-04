@@ -9,8 +9,8 @@ import { inject, injectable } from 'inversify';
 
 import { createHttpResponse } from '@/common/utils/responder';
 import { RegisterUserService } from '../services/register.service';
-import type { RegisterUserInput } from '@app/shared';
-import { registerUserSchema } from '@app/shared';
+import type { RegisterUserInput } from 'shared';
+import { registerUserSchema } from 'shared';
 
 @injectable()
 @Dependency()

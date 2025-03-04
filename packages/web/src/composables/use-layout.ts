@@ -1,4 +1,4 @@
-import type { TsFixMeType } from '@app/shared'
+import type { TsFixMeType } from 'shared'
 import { computed, ref, watch } from 'vue'
 
 const storedConfig = localStorage.getItem('primevue-appconfig')

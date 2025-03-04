@@ -15,6 +15,7 @@
     "build:backend": "pnpm --filter=backend build",
     "build:admin": "pnpm --filter=admin build",
     "build:web": "pnpm --filter=web build",
+    "build:shared": "pnpm --filter=shared build",
     "clean:backend": "pnpm --filter=backend clean",
     "clean:admin": "pnpm --filter=admin clean",
     "clean": "pnpm --filter=backend clean && pnpm --filter=admin clean",
@@ -39,6 +40,7 @@
     "db:view": "pnpm --filter=backend db:view",
     "gulp": "gulp --gulpfile gulpfile.ts --tasks",
     "docker-web": "gulp docker_build_client_web",
+    "docker-api": "gulp docker_build_api_app",
     "gc:build": "gulp build_apps",
     "dev": "gulp run_all_in_parallel",
     "gc:admin-dev": "gulp run_admin_ui",
@@ -55,6 +57,7 @@
     "chalk": "4.1.2",
     "concurrently": "^9.1.0",
     "gulp": "^5.0.0",
+    "lerna": "^8.2.1",
     "rimraf": "^6.0.1",
     "shelljs": "^0.8.5"
   },
@@ -65,5 +68,6 @@
   "author": "",
   "license": "ISC",
   "description": "",
-  "packageManager": "pnpm@10.0.0+sha512.b8fef5494bd3fe4cbd4edabd0745df2ee5be3e4b0b8b08fa643aa3e4c6702ccc0f00d68fa8a8c9858a735a0032485a44990ed2810526c875e416f001b17df12b"
+  "packageManager": "pnpm@10.0.0+sha512.b8fef5494bd3fe4cbd4edabd0745df2ee5be3e4b0b8b08fa643aa3e4c6702ccc0f00d68fa8a8c9858a735a0032485a44990ed2810526c875e416f001b17df12b",
+  "dependencies": {}
 }

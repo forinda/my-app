@@ -7,8 +7,8 @@ import { eq } from 'drizzle-orm';
 import { PasswordProcessor } from '@/common/utils/password';
 import { CookieProcessor } from '@/common/utils/cookie';
 import { Config } from '@/common/config';
-import type { LoginUserInput } from '@app/shared';
-import { ApiError, HttpStatus, phoneValidator } from '@app/shared';
+import type { LoginUserInput } from 'shared';
+import { ApiError, HttpStatus, phoneValidator } from 'shared';
 import type { BareObject } from '@/common/interfaces/helpers';
 
 @injectable()

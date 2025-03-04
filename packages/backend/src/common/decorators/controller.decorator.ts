@@ -9,7 +9,7 @@ import { di } from '../di';
 import type { LoginAuthorityOption } from '../utils/controller-auth';
 import { controllerAuth } from '../utils/controller-auth';
 import { createHttpResponse } from '../utils/responder';
-import { HttpStatus } from '@app/shared';
+import { HttpStatus } from 'shared';
 /**
  * A decorator function for controllers that wraps specified HTTP methods
  * (post, get, delete, patch, put, options, head) with additional functionality.

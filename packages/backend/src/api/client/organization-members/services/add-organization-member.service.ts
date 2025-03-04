@@ -9,7 +9,7 @@ import {
 import { Organization, OrganizationInvite, User } from '@/db/schema';
 import type { AddMemberToOrRemoveFromOrganizationType } from '../schema';
 import { NodeMailer } from '@/common/utils/node-mailer';
-import { ApiError, HttpStatus } from '@app/shared';
+import { ApiError, HttpStatus } from 'shared';
 // import { lower } from '@/db';
 
 @injectable()

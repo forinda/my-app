@@ -5,7 +5,7 @@ import { Dependency } from '../di';
 import type { ApiNext, ApiReq, ApiRes } from '../http';
 import type { Router } from 'express';
 import { createHttpResponse } from '../utils/responder';
-import { ApiError, HttpStatus } from '@app/shared';
+import { ApiError, HttpStatus } from 'shared';
 
 @injectable()
 @Dependency()
