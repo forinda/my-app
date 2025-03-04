@@ -1,31 +1,29 @@
-import type {
-  FetchOrganizationMembersResponseType,
-} from '@/types/org'
+import type { FetchDepartmentTitleResponseType } from '@/types/org'
 import { Icon } from '@iconify/vue/dist/iconify.js'
-import { type ColumnDef } from '@tanstack/vue-table'
+import { createColumnHelper, type ColumnDef } from '@tanstack/vue-table'
 import { h } from 'vue'
 
-type RecordColType = FetchOrganizationMembersResponseType['data'][number]
+// const colHelper = createColumnHelper<FetchDepartmentTitleResponseType['data'][number]>()
+type DeptTitleType = FetchDepartmentTitleResponseType['data'][number]
 type Props = {
-  editRecord?: (row: RecordColType) => void
-  deleteRecord?: (row: RecordColType['id']) => void
+  editDepartmentTitle: (row: DeptTitleType) => void
+  deleteDepartmentTitle: (row: DeptTitleType['id']) => void
 }
-
-export function getOrgMembersTableCols(props: Props = {}) {
-  const cols: ColumnDef<RecordColType>[] = [
+export function getDepartmentTitleCols(props: Props) {
+  const departmentTitleTableCols: ColumnDef<DeptTitleType>[] = [
     {
       cell: (row) => row.row.index + 1,
       header: 'Index',
     },
     {
-      accessorFn: (row) => `${row.user.first_name} ${row.user.last_name}`,
+      accessorFn: (row) => row.name,
       cell: (row) => row.getValue(),
       header: 'Name',
     },
     {
-      accessorFn: (row) => row.organization.name,
+      accessorFn: (row) => row.description,
       cell: (row) => row.getValue(),
-      header: 'Organization',
+      header: 'Description',
     },
     {
       cell: ({ row }) =>
@@ -38,7 +36,7 @@ export function getOrgMembersTableCols(props: Props = {}) {
             h(
               'button',
               {
-                onClick: () => props.editRecord!(row.original),
+                onClick: () => props.editDepartmentTitle(row.original),
                 class:
                   'p-1 text-primary border border-gray-400 rounded text-white inline-flex items-center gap-2 cursor-pointer',
               },
@@ -60,5 +58,5 @@ export function getOrgMembersTableCols(props: Props = {}) {
       header: 'Actions',
     },
   ]
-  return cols
+  return departmentTitleTableCols
 }

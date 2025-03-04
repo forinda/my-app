@@ -1,8 +1,9 @@
 import type {
+  FetchOrganizationDesignationResponseType,
   FetchOrganizationMembersResponseType,
 } from '@/types/org'
 import { Icon } from '@iconify/vue/dist/iconify.js'
-import { type ColumnDef } from '@tanstack/vue-table'
+import { createColumnHelper, type ColumnDef } from '@tanstack/vue-table'
 import { h } from 'vue'
 
 type RecordColType = FetchOrganizationMembersResponseType['data'][number]
