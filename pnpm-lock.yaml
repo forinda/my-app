@@ -296,12 +296,6 @@ importers:
         specifier: ^2.1.5
         version: 2.1.9(@types/node@22.13.9)(jsdom@26.0.0)(lightningcss@1.29.1)
 
-  packages/shared:
-    dependencies:
-      axios:
-        specifier: ^1.7.9
-        version: 1.8.1
-
   packages/web:
     dependencies:
       '@headlessui/vue':

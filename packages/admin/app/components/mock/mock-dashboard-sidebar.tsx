@@ -12,7 +12,7 @@ import { Avatar } from '../ui/avatar';
 
 export default function MockDashboardSidebar() {
   const { isCollapsed, toggleSidebar, sidebarWidthSizes } = useMockSidebar();
-  const { avatar } = useAuth().user!;
+  const avatar = useAuth()?.user?.avatar!;
   return (
     <nav
       className={css({

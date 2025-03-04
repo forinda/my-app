@@ -9,7 +9,9 @@ import { defineStore } from 'pinia'
 import { ref } from 'vue'
 import { useAuthStore } from './auth-store'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/vue-query'
-import { decodeArrayBuffer, extractAxiosError, type ResponseObject } from '@app/shared'
+import { decodeArrayBuffer } from '@/utils/decode-array-buffer'
+import type { ResponseObject } from '@/types/utils'
+import { extractAxiosError } from '@/utils/extract-axios-error'
 export const organizationQueryKeysKeys = {
   all: ['org:organizations|all'],
   details: () => [organizationQueryKeysKeys.all, 'detail'],
