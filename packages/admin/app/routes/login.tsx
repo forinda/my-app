@@ -11,8 +11,10 @@ import { Icon } from '@iconify/react';
 import { Link } from 'react-router';
 import { Heading } from '~/components/ui/heading';
 import { css } from 'styled-system/css';
+import { useAuth } from '~/hooks/use-auth';
 
 export default function Login() {
+  const auth = useAuth();
   const {
     register,
     handleSubmit,
@@ -21,8 +23,15 @@ export default function Login() {
     resolver: zodResolver(loginUserSchema),
   });
 
-  const submitForm = handleSubmit((data) => {
-    console.log(data);
+  const submitForm = handleSubmit(async (data) => {
+    await auth.loginUser(data, {
+      onSuccess: () => {
+        console.log('Login successful', { auth });
+      },
+      onError: (error) => {
+        console.log('Login error', error);
+      },
+    });
   });
   const rootProps: Field.RootProps = {};
 

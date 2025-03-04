@@ -5,8 +5,10 @@ import { Text } from '../ui/text';
 import { Icon } from '@iconify/react';
 import { css } from 'styled-system/css';
 import { Avatar } from '../ui/avatar';
+import { useAuth } from '~/hooks/use-auth';
 
 export default function DashboardHeaderUserProfile() {
+  const { user, logout } = useAuth();
   return (
     <Menu.Root>
       <Menu.Trigger asChild>
@@ -20,7 +22,7 @@ export default function DashboardHeaderUserProfile() {
             position: 'relative',
           })}
         >
-          <Avatar src="https://i.pravatar.cc/300" />
+          <Avatar src={user?.avatar} />
         </Button>
       </Menu.Trigger>
       <Menu.Positioner className={css({})}>
@@ -43,8 +45,8 @@ export default function DashboardHeaderUserProfile() {
               <HStack gap="6" justify="space-between" flex="1">
                 <HStack gap="2">
                   {/* <UserIcon /> */}
-                  <Icon icon="bi:person-fill" width="20" height="20" />
-                  Profile
+                  <Avatar src={user?.avatar} />
+                  Profile({user?.username})
                 </HStack>
                 <Text as="span" color="fg.subtle" size="sm">
                   ⇧⌘P
@@ -120,7 +122,7 @@ export default function DashboardHeaderUserProfile() {
             </Menu.Root>
             <Menu.Separator />
             <Menu.Item value="logout">
-              <HStack gap="2">
+              <HStack gap="2" onClick={logout}>
                 {/* <LogOutIcon /> */}
                 <Icon icon="bi:box-arrow-right" width="20" height="20" />
                 Logout

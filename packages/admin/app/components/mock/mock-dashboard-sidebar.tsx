@@ -11,8 +11,8 @@ import { useAuth } from '~/hooks/use-auth';
 import { Avatar } from '../ui/avatar';
 
 export default function MockDashboardSidebar() {
-  const { isCollapsed, toggleSidebar, sidebarWidthSizes } = useMockSidebar();
-  const avatar = useAuth()?.user?.avatar!;
+  const { isCollapsed, toggleSidebar } = useMockSidebar();
+  const { user, logout } = useAuth();
   return (
     <nav
       className={css({
@@ -115,7 +115,7 @@ export default function MockDashboardSidebar() {
                 })}
               >
                 <Avatar
-                  src={avatar}
+                  src={user?.avatar}
                   className={css({
                     // width: 30,
                     height: 30,
@@ -131,10 +131,12 @@ export default function MockDashboardSidebar() {
                     })}
                   >
                     <span className={css({ fontWeight: 'bold' })}>
-                      John Doe
+                      {[user?.first_name, user?.last_name]
+                        .filter(Boolean)
+                        .join(' ')}
                     </span>
                     <span className={css({ fontSize: 'sm', opacity: 0.8 })}>
-                      Admin
+                      User
                     </span>
                   </div>
                 )}
@@ -235,7 +237,7 @@ export default function MockDashboardSidebar() {
                   </Menu.Root>
                   <Menu.Separator />
                   <Menu.Item value="logout">
-                    <HStack gap="2">
+                    <HStack gap="2" onClick={logout}>
                       {/* <LogOutIcon /> */}
                       <Icon icon="lucide-log-out" width="20" height="20" />
                       Logout
