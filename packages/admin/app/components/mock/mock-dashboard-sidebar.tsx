@@ -12,7 +12,6 @@ import { Avatar } from '../ui/avatar';
 
 export default function MockDashboardSidebar() {
   const { isCollapsed, toggleSidebar, sidebarWidthSizes } = useMockSidebar();
-  const { contentLeft: width } = sidebarWidthSizes(isCollapsed);
   const {
     user: { image },
   } = useAuth();
