@@ -41,9 +41,6 @@ importers:
 
   packages/admin:
     dependencies:
-      '@app/shared':
-        specifier: workspace:*
-        version: link:../shared
       '@ark-ui/react':
         specifier: ^4.9.2
         version: 4.9.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -95,6 +92,9 @@ importers:
       recharts:
         specifier: ^2.15.1
         version: 2.15.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      sweetalert2:
+        specifier: ^11.16.0
+        version: 11.17.2
       zod:
         specifier: ^3.24.2
         version: 3.24.2

@@ -49,12 +49,12 @@ export const mockSidebarLinks: MockSidebarLinkItem[] = [
         children: [
           {
             title: 'Titles',
-            href: '/mock-dashboard/departments/titles',
+            href: '/mock-dashboard/department-titles',
             icon: 'carbon:badge',
           },
           {
             title: 'Add Title',
-            href: '/mock-dashboard/departments/titles/add',
+            href: '/mock-dashboard/department-titles/add',
             icon: 'carbon:add-alt',
           },
           {

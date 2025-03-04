@@ -7,14 +7,12 @@ import { Button } from '../ui/button';
 import { Icon } from '@iconify/react';
 import { HStack } from 'styled-system/jsx';
 import { Text } from '../ui/text';
-import useAuth from '~/hooks/use-auth';
+import { useAuth } from '~/hooks/use-auth';
 import { Avatar } from '../ui/avatar';
 
 export default function MockDashboardSidebar() {
   const { isCollapsed, toggleSidebar, sidebarWidthSizes } = useMockSidebar();
-  const {
-    user: { image },
-  } = useAuth();
+  const { avatar } = useAuth().user!;
   return (
     <nav
       className={css({
@@ -102,7 +100,7 @@ export default function MockDashboardSidebar() {
         >
           <Menu.Root>
             <Menu.Trigger className={css({ width: '100%' })}>
-              <div
+              <Button
                 className={css({
                   width: '100%',
                   display: 'flex',
@@ -117,7 +115,7 @@ export default function MockDashboardSidebar() {
                 })}
               >
                 <Avatar
-                  src={image}
+                  src={avatar}
                   className={css({
                     // width: 30,
                     height: 30,
@@ -140,7 +138,7 @@ export default function MockDashboardSidebar() {
                     </span>
                   </div>
                 )}
-              </div>
+              </Button>
             </Menu.Trigger>
             <Menu.Positioner>
               <Menu.Content

@@ -5,9 +5,9 @@ import { Button } from '~/components/ui/button';
 import { Field } from '~/components/ui/field';
 import { Heading } from '~/components/ui/heading';
 import {
-  createOrgDesignationSchema,
-  type OrgDesignationModel,
-} from '~/lib/schema/create-org-designation-schema';
+  createDepartmentSchema,
+  type CreateDepartmentType,
+} from '~/lib/schema/create-department-schema';
 
 export default function MockAddDesignation() {
   const rootProps: Field.RootProps = {};
@@ -15,8 +15,8 @@ export default function MockAddDesignation() {
     formState: { errors },
     register,
     handleSubmit,
-  } = useForm<OrgDesignationModel>({
-    resolver: zodResolver(createOrgDesignationSchema),
+  } = useForm<CreateDepartmentType>({
+    resolver: zodResolver(createDepartmentSchema),
   });
 
   const submitForm = handleSubmit((data) => {
@@ -48,7 +48,7 @@ export default function MockAddDesignation() {
             marginBottom: 4,
           })}
         >
-          Create designation
+          Create Department
         </Heading>
         <form
           onSubmit={submitForm}
@@ -60,7 +60,7 @@ export default function MockAddDesignation() {
           >
             <Field.Label>Name of Designation</Field.Label>
             <Field.Input asChild>
-              <Field.Input placeholder="e.g CTO" {...register('name')} />
+              <Field.Input placeholder="e.g ICT" {...register('name')} />
             </Field.Input>
             <Field.ErrorText>{errors.name?.message}</Field.ErrorText>
           </Field.Root>
@@ -72,7 +72,7 @@ export default function MockAddDesignation() {
             <Field.Label>Description</Field.Label>
             <Field.Input asChild>
               <Field.Textarea
-                placeholder="e.g "
+                placeholder="e.g Information and Communication Technology"
                 {...register('description')}
                 resize={'none'}
                 className={css({ resize: 'none', h: 32 })}
@@ -83,7 +83,7 @@ export default function MockAddDesignation() {
           </Field.Root>
 
           <Button type="submit" className={css({ width: 'full' })}>
-            Save Designation
+            Save Department
           </Button>
         </form>
       </div>
