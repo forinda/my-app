@@ -1,8 +1,7 @@
 import type { z } from 'zod';
-import { ApiError } from '../errors/base';
-import { HttpStatus } from '../http';
 import { injectable } from 'inversify';
 import { Dependency } from '../di';
+import { ApiError, HttpStatus } from '@app/shared';
 
 @injectable()
 @Dependency()

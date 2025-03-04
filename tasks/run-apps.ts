@@ -17,6 +17,11 @@ const scripts = {
     build: 'pnpm --filter=admin build',
     start: 'pnpm --filter=admin start',
   },
+  shared: {
+    dev: 'pnpm --filter=shared dev',
+    build: 'pnpm --filter=shared build',
+    // start: 'pnpm --filter=shared start',
+  },
 } as const;
 
 export function runApps(cb: Function) {
@@ -24,7 +29,7 @@ export function runApps(cb: Function) {
   //  Run with pnpm
   // shell.exec('pnpm run dev:backend && pnpm run dev:web && pnpm run dev:admin');
   shell.exec(
-    `${scripts.backend.dev} & ${scripts.web.dev} & ${scripts.admin.dev}`
+    `${scripts.shared.dev} & ${scripts.backend.dev} & ${scripts.web.dev} & ${scripts.admin.dev}`,
   );
   cb();
 }
@@ -54,13 +59,13 @@ export function runApi(cb: Function) {
 
 export function runAllInParallel(cb: Function) {
   console.warn(
-    chalk.yellow('[run-all-in-parallel]: Running all apps in parallel')
+    chalk.yellow('[run-all-in-parallel]: Running all apps in parallel'),
   );
   //  Run with pnpm
   // No script for this, so we have to run them in parallel
   // shell.exec('pnpm run dev:backend & pnpm run dev:web & pnpm run dev:admin');
   shell.exec(
-    `${scripts.backend.dev} & ${scripts.web.dev} & ${scripts.admin.dev}`
+    `${scripts.shared.dev} & ${scripts.backend.dev} & ${scripts.web.dev} & ${scripts.admin.dev}`,
   );
   cb();
 }
@@ -70,7 +75,7 @@ export function buildApps(cb: Function) {
   //  Run with pnpm
   // shell.exec('pnpm run build:backend && pnpm run build:web && pnpm run build:admin');
   shell.exec(
-    `${scripts.backend.build} & ${scripts.web.build} & ${scripts.admin.build}`
+    `${scripts.backend.build} & ${scripts.web.build} & ${scripts.admin.build}`,
   );
   cb();
 }

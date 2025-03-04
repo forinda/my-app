@@ -5,14 +5,13 @@ import { Icon } from '@iconify/vue'
 import type { CreateDepartmentType } from '@/schema/create-department-schema'
 import ModalCreateOrUpdateDepartment from '@/components/modal-create-or-update-department.vue'
 import { useDepartmentQuery } from '@/queries/departments-query'
-import { extractAxiosError } from '@/utils/extract-axios-error'
 import { getCoreRowModel, useVueTable } from '@tanstack/vue-table'
 import { useNotification } from '@/composables/use-notification'
 import ModalAddDepartmentMember from '@/components/modal-add-department-member.vue'
 import VTable from '@/components/v-table.vue'
 import ModalViewDepartment from '@/components/modal-view-department.vue'
 import ModalAssignDeptRole from '@/components/modal-assign-dept-role.vue'
-import type { TsFixMeType } from '@app/shared'
+import { extractAxiosError, type TsFixMeType } from '@app/shared'
 const showModal = ref(false)
 const initialState: CreateDepartmentType = {
   description: '',
@@ -145,10 +144,8 @@ const table = useVueTable({
     <div class="p-6">
       <div class="flex justify-between items-center mb-6">
         <h2 class="text-2xl font-bold text-gray-800">Departments</h2>
-        <button
-          @click="openCreateModal"
-          class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition duration-300 ease-in-out flex items-center"
-        >
+        <button @click="openCreateModal"
+          class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition duration-300 ease-in-out flex items-center">
           <Icon :icon="'lucide-pencil'" class="w-5 h-5 mr-2" />
           Add
         </button>
@@ -156,30 +153,15 @@ const table = useVueTable({
       <VTable :table />
     </div>
 
-    <ModalCreateOrUpdateDepartment
-      v-model:showModal="showModal"
-      :initialValues="editingDepartment"
-      :openCreateModal="openCreateModal"
-      :openEditModal="openEditModal"
-      :closeModal="closeModal"
-      :saveDepartment="saveDepartment"
-      :mode="editMode"
-    />
-    <ModalAddDepartmentMember
-      :closeModal="closeAddDepartmentMemberModal"
-      :show="showDepartAddMemberModal"
-      :department="selectedDepartment!"
-    />
-    <ModalViewDepartment
-      :closeModal="closeSelectedDepartment"
-      :show="showSelectedDepartment"
-      :department="selectedDepartment!"
-    />
-    <ModalAssignDeptRole
-      :closeModal="closeAssignRoleModal"
-      :show="showAssignRoleModal"
-      :department="selectedDepartment!"
-    />
+    <ModalCreateOrUpdateDepartment v-model:showModal="showModal" :initialValues="editingDepartment"
+      :openCreateModal="openCreateModal" :openEditModal="openEditModal" :closeModal="closeModal"
+      :saveDepartment="saveDepartment" :mode="editMode" />
+    <ModalAddDepartmentMember :closeModal="closeAddDepartmentMemberModal" :show="showDepartAddMemberModal"
+      :department="selectedDepartment!" />
+    <ModalViewDepartment :closeModal="closeSelectedDepartment" :show="showSelectedDepartment"
+      :department="selectedDepartment!" />
+    <ModalAssignDeptRole :closeModal="closeAssignRoleModal" :show="showAssignRoleModal"
+      :department="selectedDepartment!" />
   </div>
 </template>
 

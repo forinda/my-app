@@ -1,12 +1,12 @@
 import { inject, injectable } from 'inversify';
 import { Organization, OrganizationMember } from '@/db/schema';
 import { useDrizzle } from '@/db';
-import { HttpStatus } from '@/common/http';
 import { Dependency } from '@/common/di';
 import { UUID } from '@/common/utils/uuid';
 import { eq } from 'drizzle-orm';
 import type { FilterOrganizationmembersType } from '../schema';
 import type { ApiPaginationParams } from '@/common/utils/pagination';
+import { HttpStatus } from '@app/shared';
 
 @injectable()
 @Dependency()

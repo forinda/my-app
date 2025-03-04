@@ -3,15 +3,14 @@ import type { CreateOrganizationInputType } from '../schema/schema';
 
 import { eq } from 'drizzle-orm';
 
-import { HttpStatus } from '@/common/http';
 import { Dependency } from '@/common/di';
 import {
   TransactionalService,
   type TransactionContext
 } from '@/common/decorators/service-transaction';
-import { ApiError } from '@/common/errors/base';
 import type { InsertOrganizationInterface } from '@/db/schema';
 import { Organization, OrganizationMember } from '@/db/schema';
+import { ApiError, HttpStatus } from '@app/shared';
 
 @injectable()
 @Dependency()

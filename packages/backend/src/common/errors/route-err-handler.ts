@@ -3,10 +3,9 @@
 import { injectable } from 'inversify';
 import { Dependency } from '../di';
 import type { ApiNext, ApiReq, ApiRes } from '../http';
-import { HttpStatus } from '../http';
-import { ApiError } from './base';
 import type { Router } from 'express';
 import { createHttpResponse } from '../utils/responder';
+import { ApiError, HttpStatus } from '@app/shared';
 
 @injectable()
 @Dependency()

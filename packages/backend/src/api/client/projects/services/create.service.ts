@@ -3,15 +3,14 @@ import type { NewProjectPayload } from '../schema/schema';
 
 import { and, eq } from 'drizzle-orm';
 
-import { HttpStatus } from '@/common/http';
 import { Dependency } from '@/common/di';
 import {
   TransactionalService,
   type TransactionContext
 } from '@/common/decorators/service-transaction';
-import { ApiError } from '@/common/errors/base';
 import type { InsertOrgProjectInterface } from '@/db/schema';
 import { OrgProject, OrgProjectCategory } from '@/db/schema';
+import { ApiError, HttpStatus } from '@app/shared';
 
 @injectable()
 @Dependency()

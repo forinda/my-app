@@ -2,9 +2,9 @@ import type { TransactionContext } from '@/common/decorators/service-transaction
 import { TransactionalService } from '@/common/decorators/service-transaction';
 import { Dependency } from '@/common/di';
 import { injectable } from 'inversify';
-import type { ValidateSwitchOrganizationInput } from '../schema/schema';
 import { eq } from 'drizzle-orm';
 import { AuthSession } from '@/db/schema';
+import { ValidateSwitchOrganizationInput } from '@app/shared';
 
 @injectable()
 @Dependency()

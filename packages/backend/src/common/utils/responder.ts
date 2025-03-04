@@ -1,4 +1,4 @@
-import { ApiError } from '../errors/base';
+import { ApiError } from '@app/shared';
 import type { ApiRes } from '../http';
 
 type HttpResp<T> = {

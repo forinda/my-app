@@ -8,8 +8,10 @@ import {
 } from '@/common/decorators/controller.decorator';
 import type { ApiRequestContext } from '@/common/interfaces/controller';
 import { createHttpResponse } from '@/common/utils/responder';
-import type { ValidateSwitchOrganizationInput } from '../schema/schema';
-import { validateSwitchOrganizationSchema } from '../schema/schema';
+import type { ValidateSwitchOrganizationInput } from '@app/shared';
+import { validateSwitchOrganizationSchema } from '@app/shared';
+// import type { ValidateSwitchOrganizationInput } from '../schema/schema';
+// import { validateSwitchOrganizationSchema } from '../schema/schema';
 
 @injectable()
 @Dependency()

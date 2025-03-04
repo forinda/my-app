@@ -1,6 +1,5 @@
+import { ApiError, HttpStatus } from '@app/shared';
 import type { AuthorityType } from '../constants/persmission-table';
-import { ApiError } from '../errors/base';
-import { HttpStatus } from '../http';
 import type { ApiRequestContext } from '../interfaces/controller';
 import { getSessionUser } from './get-sesion-user';
 export type LoginAuthorityOption = AuthorityType | AuthorityType[] | boolean;

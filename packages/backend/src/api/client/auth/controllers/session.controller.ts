@@ -4,12 +4,12 @@ import {
   ApiControllerMethod
 } from '@/common/decorators/controller.decorator';
 import { Dependency } from '@/common/di';
-import { HttpStatus } from '@/common/http';
 import type { ApiRequestContext } from '@/common/interfaces/controller';
 import { injectable } from 'inversify';
 
 import { createHttpResponse } from '@/common/utils/responder';
-import type { LoginUserInput } from '../schema/schema';
+import type { LoginUserInput } from '@app/shared';
+import { HttpStatus } from '@app/shared';
 
 @injectable()
 @Dependency()

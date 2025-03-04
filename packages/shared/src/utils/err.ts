@@ -1,5 +1,4 @@
-import type { HttpStatusCodes } from '../http';
-import { HttpStatus } from '../http';
+import { HttpStatus, type HttpStatusCodes } from './http';
 
 type ErrorType = 'error' | 'warning' | 'info';
 export class ApiError extends Error {
@@ -10,7 +9,7 @@ export class ApiError extends Error {
     message = 'Internal server error',
     statusCode: HttpStatusCodes = HttpStatus.INTERNAL_SERVER_ERROR,
     meta: Record<string, any> = {},
-    status: ErrorType = 'error'
+    status: ErrorType = 'error',
   ) {
     super(message);
     this._statusCode = statusCode;
@@ -39,14 +38,14 @@ export class ApiError extends Error {
       message: this.message,
       statusCode: this.statusCode,
       meta: this.meta ?? {
-        status: this._status
-      }
+        status: this._status,
+      },
     };
   }
 
   static fromError(error: Error) {
     return new ApiError(error.message, HttpStatus.INTERNAL_SERVER_ERROR, {
-      unknown: true
+      unknown: true,
     });
   }
 }

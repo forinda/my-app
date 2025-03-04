@@ -4,9 +4,8 @@ import type {
   AuthorityModuleTypes
 } from '../constants/persmission-table';
 import { permissionTable } from '../constants/persmission-table';
-import { ApiError } from '../errors/base';
-import { HttpStatus } from '../http';
 import { Dependency } from '../di';
+import { ApiError, HttpStatus } from '@app/shared';
 
 @injectable()
 @Dependency()

@@ -2,16 +2,14 @@ import { inject, injectable } from 'inversify';
 import { Dependency } from '@/common/di';
 import type { TransactionContext } from '@/common/decorators/service-transaction';
 import { TransactionalService } from '@/common/decorators/service-transaction';
-import { HttpStatus } from '@/common/http';
 import type { SelectUserInterface } from '@/db/schema';
 import { OrganizationInvite, User } from '@/db/schema';
 import { and, eq, or } from 'drizzle-orm';
 import { PasswordProcessor } from '@/common/utils/password';
 import { PayloadValidator } from '@/common/schema/validator';
-import { formatKenyanPhone } from '@/common/utils/phone-number-format';
 import { generateAvatar } from '@/common/utils/avatar';
-import type { RegisterUserInput } from '../schema/schema';
-import { ApiError } from '@/common/errors/base';
+import type { RegisterUserInput } from '@app/shared';
+import { ApiError, formatKenyanPhone, HttpStatus } from '@app/shared';
 
 @injectable()
 @Dependency()

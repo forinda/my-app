@@ -1,12 +1,11 @@
 import { injectable } from 'inversify';
 import { Organization, OrganizationMember, User } from '@/db/schema';
-import { HttpStatus } from '@/common/http';
 import { Dependency } from '@/common/di';
 import { eq, inArray } from 'drizzle-orm';
-import { ApiError } from '@/common/errors/base';
 import type { TransactionContext } from '@/common/decorators/service-transaction';
 import { TransactionalService } from '@/common/decorators/service-transaction';
 import type { AddMemberToOrRemoveFromOrganizationType } from '../schema';
+import { ApiError, HttpStatus } from '@app/shared';
 
 @injectable()
 @Dependency()

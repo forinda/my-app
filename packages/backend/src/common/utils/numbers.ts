@@ -1,5 +1,4 @@
-import { ApiError } from '../errors/base';
-import { HttpStatus } from '../http';
+import { ApiError, HttpStatus } from '@app/shared';
 
 export function isNumber(value: unknown): boolean {
   if (typeof value === 'number' && !isNaN(value) && Number.isFinite(value)) {

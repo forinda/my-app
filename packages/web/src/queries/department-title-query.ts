@@ -1,8 +1,7 @@
 import { useAxios } from '@/composables/use-axios'
 import type { CreateDepartmentTitleType } from '@/schema/create-department-title-schema'
 import type { FetchDepartmentTitleResponseType } from '@/types/org'
-import { decodeArrayBuffer } from '@/utils/resp-decode'
-import type { ResponseObject } from '@app/shared'
+import { decodeArrayBuffer, type ResponseObject } from '@app/shared'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/vue-query'
 import { ref } from 'vue'
 

@@ -1,13 +1,12 @@
 import { eq } from 'drizzle-orm';
-import { ApiError } from '../errors/base';
 import type { ApiReq } from '../http';
-import { HttpStatus } from '../http';
 import { User } from '@/db/schema';
 import type { Promised } from '../interfaces/helpers';
 import { useDrizzle } from '@/db';
 import { CookieProcessor } from './cookie';
 import { Config } from '../config';
 import { di } from '../di';
+import { ApiError, HttpStatus } from '@app/shared';
 
 export async function getSessionUser(
   request: ApiReq,

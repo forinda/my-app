@@ -3,7 +3,6 @@ import { getDepartmentTitleCols } from '@/lib/cols/org-department-title-col'
 import { useDepartmentTitleQuery } from '@/queries/department-title-query'
 import ModalCreateOrUpdateDepartmentTitle from '@/components/modal-create-or-update-department-title.vue'
 import { FlexRender, getCoreRowModel, useVueTable } from '@tanstack/vue-table'
-import { extractAxiosError } from '@/utils/extract-axios-error'
 import type { CreateDepartmentTitleType } from '@/schema/create-department-title-schema'
 import { ref } from 'vue'
 const { recordsQuery, createRecordMutation, setSelectedRecordId, updateRecordMutation } =
@@ -11,7 +10,7 @@ const { recordsQuery, createRecordMutation, setSelectedRecordId, updateRecordMut
 import { Icon } from '@iconify/vue'
 import { useNotification } from '@/composables/use-notification'
 import VTable from '@/components/v-table.vue'
-import type { TsFixMeType } from '@app/shared'
+import { extractAxiosError, type TsFixMeType } from '@app/shared'
 
 const initialState = {
   name: '',
@@ -100,10 +99,8 @@ const table = useVueTable({
   <div>
     <div class="flex justify-between items-center mb-6">
       <h2 class="text-2xl font-bold text-gray-800">Department titles</h2>
-      <button
-        @click="openCreateModal"
-        class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition duration-300 ease-in-out flex items-center"
-      >
+      <button @click="openCreateModal"
+        class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition duration-300 ease-in-out flex items-center">
         <Icon :icon="'lucide-pencil'" class="w-5 h-5 mr-2" />
         Add
       </button>
@@ -111,14 +108,8 @@ const table = useVueTable({
     <div>
       <VTable :table />
     </div>
-    <ModalCreateOrUpdateDepartmentTitle
-      :close-modal="closeModal"
-      :initial-values="selectedRecord"
-      :mode="editMode"
-      :save-title="saveRecord"
-      :show-modal="showModal"
-      :open-create-modal="openCreateModal"
-      :open-edit-modal="openEditModal"
-    />
+    <ModalCreateOrUpdateDepartmentTitle :close-modal="closeModal" :initial-values="selectedRecord" :mode="editMode"
+      :save-title="saveRecord" :show-modal="showModal" :open-create-modal="openCreateModal"
+      :open-edit-modal="openEditModal" />
   </div>
 </template>

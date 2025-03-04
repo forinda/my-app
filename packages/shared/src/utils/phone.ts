@@ -1,5 +1,5 @@
-import { ApiError } from '../errors/base';
-import { HttpStatus } from '../http';
+import { ApiError } from './err';
+import { HttpStatus } from './http';
 
 const kenyanPhoneRegex = /^(07|01|\+2547|\+2541|2547|2541)\d{8}$/;
 
@@ -18,7 +18,7 @@ export const validatePhone = {
     return valid;
   },
 
-  message: 'Invalid phone number'
+  message: 'Invalid phone number',
 };
 
 export function formatKenyanPhone(phone: string) {
@@ -29,5 +29,5 @@ export function formatKenyanPhone(phone: string) {
 
 export const phoneValidator = Object.assign(
   {},
-  { formatKenyanPhone, validatePhone }
+  { formatKenyanPhone, validatePhone },
 );

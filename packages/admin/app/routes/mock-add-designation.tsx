@@ -71,7 +71,14 @@ export default function MockAddDesignation() {
           >
             <Field.Label>Description</Field.Label>
             <Field.Input asChild>
-              <Field.Textarea placeholder="e.g " {...register('description')} />
+              <Field.Textarea
+                resize={'none'}
+                placeholder="e.g "
+                {...register('description')}
+                className={css({
+                  height: 40,
+                })}
+              />
             </Field.Input>
 
             <Field.ErrorText> {errors.description?.message}</Field.ErrorText>

@@ -1,15 +1,14 @@
 import { injectable } from 'inversify';
 import { and, eq } from 'drizzle-orm';
 
-import { HttpStatus } from '@/common/http';
 import { Dependency } from '@/common/di';
 import {
   TransactionalService,
   type TransactionContext
 } from '@/common/decorators/service-transaction';
-import { ApiError } from '@/common/errors/base';
 import { OrganizationInvite, OrganizationMember } from '@/db/schema';
 import type { RespondToOrgInviteType } from '../schema';
+import { ApiError, HttpStatus } from '@app/shared';
 // import { lower } from '@/db';
 
 @injectable()

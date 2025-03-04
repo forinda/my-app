@@ -3,15 +3,14 @@ import type { UpdateWorkspacePayload } from '../schema/schema';
 
 import { and, eq, ne } from 'drizzle-orm';
 
-import { HttpStatus } from '@/common/http';
 import { Dependency } from '@/common/di';
 import {
   TransactionalService,
   type TransactionContext
 } from '@/common/decorators/service-transaction';
-import { ApiError } from '@/common/errors/base';
 import { OrgWorkspace } from '@/db/schema';
 import { UUID } from '@/common/utils/uuid';
+import { ApiError, HttpStatus } from '@app/shared';
 
 @injectable()
 @Dependency()

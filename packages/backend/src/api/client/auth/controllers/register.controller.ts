@@ -8,9 +8,9 @@ import type { ApiRequestContext } from '@/common/interfaces/controller';
 import { inject, injectable } from 'inversify';
 
 import { createHttpResponse } from '@/common/utils/responder';
-import type { RegisterUserInput } from '../schema/schema';
-import { registerUserSchema } from '../schema/schema';
 import { RegisterUserService } from '../services/register.service';
+import type { RegisterUserInput } from '@app/shared';
+import { registerUserSchema } from '@app/shared';
 
 @injectable()
 @Dependency()

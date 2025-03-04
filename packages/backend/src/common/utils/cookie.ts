@@ -1,6 +1,5 @@
+import { ApiError, HttpStatus } from '@app/shared';
 import { type KeyObject, createHmac, timingSafeEqual } from 'node:crypto';
-import { ApiError } from '../errors/base';
-import { HttpStatus } from '../http';
 
 /**
  * Represents a secret used for signing or encrypting cookies.
