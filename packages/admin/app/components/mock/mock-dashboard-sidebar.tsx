@@ -19,7 +19,7 @@ export default function MockDashboardSidebar() {
   return (
     <nav
       className={css({
-        width,
+        width: isCollapsed ? 20 : 64,
         backgroundColor: 'var(--primary-color)',
         color: 'var(--light-color)',
         position: 'fixed',

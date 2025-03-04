@@ -12,7 +12,7 @@ export default function MockDashboardContent() {
         display: 'flex',
         flexDirection: 'column',
         flex: 1,
-        ml: isCollapsed ? 20 : contentLeft,
+        ml: isCollapsed ? 20 : 64,
         transition: 'margin-left 0.3s ease-in-out',
       })}
     >

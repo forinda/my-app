@@ -1,5 +1,5 @@
 import type { FetchOrganizationMembersResponseType, SelectOrganizationInterface } from '@/types/org'
-import { decodeArrayBuffer } from '@/utils/resp-decode'
+import { decodeArrayBuffer } from '@/utils/decode-array-buffer'
 import axios from 'axios'
 import { ref } from 'vue'
 
