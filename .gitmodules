@@ -4,3 +4,6 @@
 [submodule "packages/vue-client"]
 	path = packages/vue-client
 	url = git@github.com:forinda/my-app-vue-client.git
+[submodule "packages/backend"]
+	path = packages/backend
+	url = git@github.com:forinda/my-app-backend.git
