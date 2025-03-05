@@ -44,5 +44,6 @@ export default [
         ]),
       ]),
     ]),
+    route('*', 'routes/base-catch-all-routes.tsx'),
   ]),
 ] satisfies RouteConfig;

@@ -1,5 +1,6 @@
 import { createColumnHelper, type ColumnDef } from '@tanstack/react-table';
 import type { FetchOrganizationDesignationResponseType } from '../types/org';
+import TableIndeterminateCheckbox from '~/components/table-indeterminate-checkbox';
 
 const colHelper =
   createColumnHelper<
@@ -14,8 +15,33 @@ type Props = {
 export function getOrgDesignationTableCols(props: Props) {
   const orgDesignationTableCols: ColumnDef<RecordColType>[] = [
     {
+      id: 'select',
+      header: ({ table }) => (
+        <TableIndeterminateCheckbox
+          {...{
+            checked: table.getIsAllRowsSelected(),
+            indeterminate: table.getIsSomeRowsSelected(),
+            onChange: table.getToggleAllRowsSelectedHandler(),
+          }}
+        />
+      ),
+      cell: ({ row }) => (
+        <div className="px-1">
+          <TableIndeterminateCheckbox
+            {...{
+              checked: row.getIsSelected(),
+              disabled: !row.getCanSelect(),
+              indeterminate: row.getIsSomeSelected(),
+              onChange: row.getToggleSelectedHandler(),
+            }}
+          />
+        </div>
+      ),
+    },
+    {
       cell: (row) => row.row.index + 1,
       header: 'Index',
+      enableColumnFilter: true,
     },
     {
       accessorFn: (row) => row.name,

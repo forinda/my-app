@@ -8,6 +8,7 @@ import {
   getSortedRowModel,
   useReactTable,
   type ColumnFiltersState,
+  type SortingState,
 } from '@tanstack/react-table';
 import { useState } from 'react';
 import DataTable from '~/components/data-table';
@@ -17,6 +18,9 @@ import { getOrgDesignationTableCols } from '~/lib/table-cols/designation-cols';
 
 export default function MockDesignations() {
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
+  const [rowSelection, setRowSelection] = useState({});
+  const [globalFilter, setGlobalFilter] = useState('');
+  const [sorting, setSorting] = useState<SortingState>([]);
   const {
     recordsQuery: { data },
   } = useOrgDesignationQuery();
@@ -25,8 +29,14 @@ export default function MockDesignations() {
     columns: getOrgDesignationTableCols({}),
     state: {
       columnFilters,
+      rowSelection,
+      globalFilter,
+      sorting,
     },
     onColumnFiltersChange: setColumnFilters,
+    onRowSelectionChange: setRowSelection,
+    onGlobalFilterChange: setGlobalFilter,
+    onSortingChange: setSorting,
     getCoreRowModel: getCoreRowModel(),
     getFilteredRowModel: getFilteredRowModel(), //client-side filtering
     getSortedRowModel: getSortedRowModel(),
