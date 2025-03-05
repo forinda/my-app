@@ -1,27 +1,36 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router';
 import { css } from 'styled-system/css';
 import { Button } from '~/components/ui/button';
 import { Field } from '~/components/ui/field';
 import { Heading } from '~/components/ui/heading';
+import { useOrgProjectCategoriesQuery } from '~/lib/queries/org-project-category-query';
 
 import {
-  createDepartmentTitleSchema,
-  type CreateDepartmentTitleType,
-} from '~/lib/schema/create-department-title-schema';
+  createProjectCategorySchema,
+  type CreateProjectCategoryType,
+} from '~/lib/schema/create-org-project-category-schema';
 
 export default function MockAddDesignation() {
   const rootProps: Field.RootProps = {};
+  const { createRecordMutation } = useOrgProjectCategoriesQuery();
   const {
     formState: { errors },
     register,
     handleSubmit,
-  } = useForm<CreateDepartmentTitleType>({
-    resolver: zodResolver(createDepartmentTitleSchema),
+  } = useForm<CreateProjectCategoryType>({
+    resolver: zodResolver(createProjectCategorySchema),
   });
 
-  const submitForm = handleSubmit((data) => {
-    console.log(data);
+  const navigate = useNavigate();
+
+  const submitForm = handleSubmit(async (data) => {
+    await createRecordMutation.mutateAsync(data, {
+      onSuccess() {
+        navigate('/mock-dashboard/categories');
+      },
+    });
   });
   return (
     <div
@@ -49,7 +58,7 @@ export default function MockAddDesignation() {
             marginBottom: 4,
           })}
         >
-          Create Department Title
+          Create project category
         </Heading>
         <form
           onSubmit={submitForm}
@@ -59,9 +68,9 @@ export default function MockAddDesignation() {
             {...rootProps}
             invalid={errors.name?.message ? true : false}
           >
-            <Field.Label>Name of Designation</Field.Label>
+            <Field.Label>Name</Field.Label>
             <Field.Input asChild>
-              <Field.Input placeholder="e.g Secretary" {...register('name')} />
+              <Field.Input placeholder="e.g Internal" {...register('name')} />
             </Field.Input>
             <Field.ErrorText>{errors.name?.message}</Field.ErrorText>
           </Field.Root>
@@ -73,7 +82,7 @@ export default function MockAddDesignation() {
             <Field.Label>Description</Field.Label>
             <Field.Input asChild>
               <Field.Textarea
-                placeholder="e.g Responsible for the day to day running of the office"
+                placeholder="e.g Project run internally by the organization"
                 {...register('description')}
                 resize={'none'}
                 className={css({ resize: 'none', h: 32 })}

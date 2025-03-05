@@ -67,7 +67,7 @@ export default function MockAddDepartmentTitle() {
             {...rootProps}
             invalid={errors.name?.message ? true : false}
           >
-            <Field.Label>Name of Designation</Field.Label>
+            <Field.Label>Name</Field.Label>
             <Field.Input asChild>
               <Field.Input placeholder="e.g Secretary" {...register('name')} />
             </Field.Input>

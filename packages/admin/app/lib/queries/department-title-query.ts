@@ -80,7 +80,7 @@ export const useDepartmentTitleQuery = function (
       await swal.fire({
         icon: 'success',
         title: 'Success',
-        text: decodeArrayBuffer<any>(resp.data).data.message,
+        text: decodeArrayBuffer<any>(resp.data).message,
       });
       queryClient.invalidateQueries({ queryKey: departmentTitleQueryKeys.all });
     },

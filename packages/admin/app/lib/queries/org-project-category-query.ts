@@ -31,7 +31,7 @@ export const useOrgProjectCategoriesQuery = function (
   props: Options = {
     page: 1,
     search: '',
-  }
+  },
 ) {
   const { swal } = useNotification();
   const [selectedRecordId, setSelectedRecordId] = useState<number | null>(null);
@@ -48,7 +48,7 @@ export const useOrgProjectCategoriesQuery = function (
   }
 
   async function createRecord(payload: CreateProjectCategoryType) {
-    await axios.post('/project-categories', payload);
+    return await axios.post('/project-categories', payload);
   }
 
   function updateRecord([id, payload]: UpdateRecordType) {
@@ -89,7 +89,7 @@ export const useOrgProjectCategoriesQuery = function (
 
       // })
       const previousData = queryClient.getQueryData<RecordType[]>(
-        orgProjectCategoryKeys.all
+        orgProjectCategoryKeys.all,
       );
       queryClient.setQueryData<RecordType[]>(
         orgProjectCategoryKeys.all,
@@ -103,7 +103,7 @@ export const useOrgProjectCategoriesQuery = function (
             }
             return record;
           });
-        }
+        },
       );
     },
     onError: (error) => {
@@ -124,14 +124,6 @@ export const useOrgProjectCategoriesQuery = function (
     },
   });
 
-  // watch(
-  //   props,
-  //   (newVal) => {
-  //     console.log('options changed', newVal)
-  //   },
-  //   { deep: true },
-  // )
-  // const data = computed(() => (Array.isArray(deptsData.value) ? deptsData.value : []))
   return {
     recordsQuery,
     createRecordMutation,

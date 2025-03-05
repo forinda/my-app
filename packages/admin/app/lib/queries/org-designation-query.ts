@@ -45,7 +45,7 @@ export const useOrgDesignationQuery = function (
   }
 
   async function createRecord(payload: CreateDesignationType) {
-   return await axios.post('/organization-designations', payload);
+    return await axios.post('/organization-designations', payload);
   }
 
   function updateRecord([id, payload]: UpdateRecordType) {
@@ -71,9 +71,18 @@ export const useOrgDesignationQuery = function (
   const createRecordMutation = useMutation({
     mutationFn: createRecord,
     onError: (error) => {
-      console.log(error);
+      swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: extractAxiosError(error),
+      });
     },
-    onSuccess: () => {
+    onSuccess: async (resp) => {
+      await swal.fire({
+        icon: 'success',
+        title: 'Success',
+        text: decodeArrayBuffer<any>(resp.data).message,
+      });
       queryClient.invalidateQueries({ queryKey: orgDesignationKeys.all });
     },
   });

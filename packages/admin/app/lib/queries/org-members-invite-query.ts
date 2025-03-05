@@ -57,12 +57,6 @@ export const useOrgMemberInvitesQuery = function (
   const respondToInviteMutation = useMutation({
     mutationFn: respondToInvite,
     onError: async (error) => {
-      // toast.add({
-      //   severity: 'error',
-      //   closable: true,
-      //   detail: extractAxiosError(error),
-      //   summary: 'Error',
-      // })
       await swal.fire({
         title: 'Error',
         text: extractAxiosError(error),
@@ -70,12 +64,6 @@ export const useOrgMemberInvitesQuery = function (
       });
     },
     onSuccess: async () => {
-      // toast.add({
-      //   severity: 'success',
-      //   closable: true,
-      //   detail: 'Successfully responded to invite',
-      //   summary: 'Success',
-      // })
       await swal.fire({
         title: 'Success',
         text: 'Successfully responded to invite',
