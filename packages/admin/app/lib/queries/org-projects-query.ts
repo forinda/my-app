@@ -1,19 +1,15 @@
 import { useState } from 'react';
-import type { CreateDesignationType } from '../schema/create-designation-schema';
-import type {
-  FetchOrganizationMemberDesignationResponseType,
-  FetchOrgProjectCategoryResponseType,
-} from '../types/org';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { useAxios } from '~/hooks/use-axios';
 import { decodeArrayBuffer } from '../utils/decode-array-buffer';
 import type { ResponseObject } from '../types';
 import { useNotification } from '~/hooks/use-notification';
 import { extractAxiosError } from '../utils/extract-axios-error';
-import type { CreateProjectCategoryType } from '../schema/create-org-project-category-schema';
+import type { CreateOrgProjectType } from '../schema/create-org-project-schema';
+import type { FetchOrgProjectsResponseType } from '../types/org';
 
 export const orgProjectCategoryKeys = {
-  all: ['org:project-categories'],
+  all: ['org:projects'],
   details: () => [orgProjectCategoryKeys.all, 'detail'],
   detail: (id: number) => [orgProjectCategoryKeys.details(), id],
   pagination: (page: number) => [orgProjectCategoryKeys.all, 'page', page],
@@ -26,8 +22,8 @@ type Options = {
   search?: string;
 };
 
-type UpdateRecordType = [number, CreateProjectCategoryType];
-export const useOrgProjectCategoriesQuery = function (
+type UpdateRecordType = [number, CreateOrgProjectType];
+export const useOrgProjectsQuery = function (
   props: Options = {
     page: 1,
     search: '',
@@ -36,27 +32,27 @@ export const useOrgProjectCategoriesQuery = function (
   const { swal } = useNotification();
   const [selectedRecordId, setSelectedRecordId] = useState<number | null>(null);
   const queryClient = useQueryClient();
-  type RecordType = FetchOrgProjectCategoryResponseType['data'][number];
+  type RecordType = FetchOrgProjectsResponseType['data'][number];
   const axios = useAxios();
 
   async function fetchRecords() {
-    const resp = await axios.get<ArrayBuffer>('/project-categories', {
+    const resp = await axios.get<ArrayBuffer>('/projects', {
       method: 'GET',
       responseType: 'arraybuffer',
     });
     return decodeArrayBuffer<ResponseObject<RecordType[]>>(resp.data).data;
   }
 
-  async function createRecord(payload: CreateProjectCategoryType) {
-    return await axios.post('/project-categories', payload);
+  async function createRecord(payload: CreateOrgProjectType) {
+    return await axios.post('/projects', payload);
   }
 
   function updateRecord([id, payload]: UpdateRecordType) {
-    return axios.put(`/project-categories/${id}`, payload);
+    return axios.put(`/projects/${id}`, payload);
   }
 
   function fetchSingleRecord(id: number) {
-    return axios.get(`/project-categories/${id}`);
+    return axios.get(`/projects/${id}`);
   }
 
   const recordsQuery = useQuery<RecordType[]>({
@@ -74,7 +70,6 @@ export const useOrgProjectCategoriesQuery = function (
   const createRecordMutation = useMutation({
     mutationFn: createRecord,
     onError: async (error) => {
-      console.log(error);
       await swal.fire({
         icon: 'error',
         title: 'Error',
@@ -116,9 +111,9 @@ export const useOrgProjectCategoriesQuery = function (
         },
       );
     },
-    onError: (error) => {
+    onError: async (error) => {
       updateRecordMutation.reset();
-      swal.fire({
+      await swal.fire({
         icon: 'error',
         title: 'Error',
         text: extractAxiosError(error),

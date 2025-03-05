@@ -31,7 +31,7 @@ export default [
           route('department-titles', 'routes/mock-department-titles.tsx'),
           route(
             'department-titles/add',
-            'routes/mock-add-department-title.tsx'
+            'routes/mock-add-department-title.tsx',
           ),
           // Departments
           route('departments', 'routes/mock-departments.tsx'),
@@ -39,6 +39,9 @@ export default [
           // Categories
           route('categories', 'routes/mock-project-categories.tsx'),
           route('categories/add', 'routes/mock-add-project-category.tsx'),
+          // Projects
+          route('projects', 'routes/mock-projects.tsx'),
+          route('projects/add', 'routes/mock-add-project.tsx'),
           // Catch all
           route('*', 'routes/mock-catch-all-routes.tsx'),
         ]),
