@@ -5,6 +5,8 @@ import type { ResponseObject } from '../types';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { useAxios } from '~/hooks/use-axios';
 import type { FetchDepartmentTitleResponseType } from '../types/org';
+import { useNotification } from '~/hooks/use-notification';
+import { extractAxiosError } from '../utils/extract-axios-error';
 
 export const departmentTitleQueryKeys = {
   all: ['org:department-titles'],
@@ -32,7 +34,7 @@ export const useDepartmentTitleQuery = function (
   const queryClient = useQueryClient();
   type DepartmentTitle = FetchDepartmentTitleResponseType['data'][number];
   const axios = useAxios();
-
+  const { swal } = useNotification();
   async function fetchRecords() {
     const resp = await axios.get<ArrayBuffer>('/department-titles', {
       method: 'GET',
@@ -42,7 +44,7 @@ export const useDepartmentTitleQuery = function (
   }
 
   async function createRecord(payload: CreateDepartmentTitleType) {
-    await axios.post('/department-titles', payload);
+    return await axios.post('/department-titles', payload);
   }
 
   function updateRecord([id, payload]: UpdateRecordType) {
@@ -68,9 +70,18 @@ export const useDepartmentTitleQuery = function (
   const createRecordMutation = useMutation({
     mutationFn: createRecord,
     onError: (error) => {
-      console.log(error);
+      swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: extractAxiosError(error),
+      });
     },
-    onSuccess: () => {
+    onSuccess: async (resp) => {
+      await swal.fire({
+        icon: 'success',
+        title: 'Success',
+        text: decodeArrayBuffer<any>(resp.data).data.message,
+      });
       queryClient.invalidateQueries({ queryKey: departmentTitleQueryKeys.all });
     },
   });

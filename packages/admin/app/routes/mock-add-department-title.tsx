@@ -1,17 +1,20 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router';
 import { css } from 'styled-system/css';
 import { Button } from '~/components/ui/button';
 import { Field } from '~/components/ui/field';
 import { Heading } from '~/components/ui/heading';
+import { useDepartmentTitleQuery } from '~/lib/queries/department-title-query';
 
 import {
   createDepartmentTitleSchema,
   type CreateDepartmentTitleType,
 } from '~/lib/schema/create-department-title-schema';
 
-export default function MockAddDesignation() {
+export default function MockAddDepartmentTitle() {
   const rootProps: Field.RootProps = {};
+  const { createRecordMutation } = useDepartmentTitleQuery();
   const {
     formState: { errors },
     register,
@@ -19,9 +22,14 @@ export default function MockAddDesignation() {
   } = useForm<CreateDepartmentTitleType>({
     resolver: zodResolver(createDepartmentTitleSchema),
   });
+  const navigate = useNavigate();
 
-  const submitForm = handleSubmit((data) => {
-    console.log(data);
+  const submitForm = handleSubmit(async (data) => {
+    await createRecordMutation.mutateAsync(data, {
+      onSuccess() {
+        navigate('/mock-dashboard/department-titles');
+      },
+    });
   });
   return (
     <div
