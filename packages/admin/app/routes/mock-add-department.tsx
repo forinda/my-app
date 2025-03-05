@@ -1,9 +1,11 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router';
 import { css } from 'styled-system/css';
 import { Button } from '~/components/ui/button';
 import { Field } from '~/components/ui/field';
 import { Heading } from '~/components/ui/heading';
+import { useDepartmentQuery } from '~/lib/queries/departments-query';
 import {
   createDepartmentSchema,
   type CreateDepartmentType,
@@ -11,6 +13,7 @@ import {
 
 export default function MockAddDesignation() {
   const rootProps: Field.RootProps = {};
+  const { createRecordMutation } = useDepartmentQuery();
   const {
     formState: { errors },
     register,
@@ -18,9 +21,13 @@ export default function MockAddDesignation() {
   } = useForm<CreateDepartmentType>({
     resolver: zodResolver(createDepartmentSchema),
   });
-
-  const submitForm = handleSubmit((data) => {
-    console.log(data);
+  const navigate = useNavigate();
+  const submitForm = handleSubmit(async (data) => {
+    await createRecordMutation.mutateAsync(data, {
+      onSuccess: () => {
+        navigate('/mock-dashboard/departments');
+      },
+    });
   });
   return (
     <div
@@ -28,7 +35,7 @@ export default function MockAddDesignation() {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        bg: 'gray.100',
+        bg: 'gray.1',
       })}
     >
       <div

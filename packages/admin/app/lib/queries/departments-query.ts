@@ -7,6 +7,7 @@ import { useNotification } from '~/hooks/use-notification';
 import type { ResponseObject } from '../types';
 import { decodeArrayBuffer } from '../utils/decode-array-buffer';
 import type { AddDepartmentRoleSchema } from '../schema/add-department-role-schema';
+import { extractAxiosError } from '../utils/extract-axios-error';
 
 export const departmentQueryKeys = {
   all: ['org:departments'],
@@ -52,7 +53,7 @@ export const useDepartmentQuery = function (
   }
 
   async function createRecord(payload: CreateDepartmentType) {
-    await axios.post('/departments', payload);
+   return await axios.post('/departments', payload);
   }
 
   function updateRecord([id, payload]: UpdateRecordType) {
@@ -86,9 +87,20 @@ export const useDepartmentQuery = function (
   const createRecordMutation = useMutation({
     mutationFn: createRecord,
     onError: (error) => {
-      console.log(error);
+      swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: extractAxiosError(error),
+      });
     },
-    onSuccess: () => {
+    onSuccess:async (resp) => {
+      console.log({resp});
+
+await swal.fire({
+  icon: 'success',
+  title: 'Success',
+  text: decodeArrayBuffer<any>(resp.data).data.message,
+})
       queryClient.invalidateQueries({ queryKey: departmentQueryKeys.all });
     },
   });

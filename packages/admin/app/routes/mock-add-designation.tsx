@@ -1,9 +1,11 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router';
 import { css } from 'styled-system/css';
 import { Button } from '~/components/ui/button';
 import { Field } from '~/components/ui/field';
 import { Heading } from '~/components/ui/heading';
+import { useOrgDesignationQuery } from '~/lib/queries/org-designation-query';
 import {
   createOrgDesignationSchema,
   type OrgDesignationModel,
@@ -11,6 +13,7 @@ import {
 
 export default function MockAddDesignation() {
   const rootProps: Field.RootProps = {};
+  const { createRecordMutation } = useOrgDesignationQuery();
   const {
     formState: { errors },
     register,
@@ -18,9 +21,14 @@ export default function MockAddDesignation() {
   } = useForm<OrgDesignationModel>({
     resolver: zodResolver(createOrgDesignationSchema),
   });
+  const navigate = useNavigate();
 
-  const submitForm = handleSubmit((data) => {
-    console.log(data);
+  const submitForm = handleSubmit(async (data) => {
+    await createRecordMutation.mutateAsync(data, {
+      onSuccess: () => {
+        navigate('/mock-dashboard/designations');
+      },
+    });
   });
   return (
     <div

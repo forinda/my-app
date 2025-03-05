@@ -45,7 +45,7 @@ export const useOrgDesignationQuery = function (
   }
 
   async function createRecord(payload: CreateDesignationType) {
-    await axios.post('/organization-designations', payload);
+   return await axios.post('/organization-designations', payload);
   }
 
   function updateRecord([id, payload]: UpdateRecordType) {

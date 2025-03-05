@@ -82,15 +82,6 @@ export const useOrgMembersQuery = function (
   const createRecordMutation = useMutation({
     mutationFn: createRecord,
     onError: async (error) => {
-      // toast.add({
-      //   // icon: 'error',
-      //   // title: 'Error',
-      //   // text: extractAxiosError(error),
-      //   severity: 'error',
-      //   closable: true,
-      //   detail: extractAxiosError(error),
-      //   summary: 'Error',
-      // });
       await swal.fire({
         title: 'Error',
         text: extractAxiosError(error),
@@ -103,15 +94,6 @@ export const useOrgMembersQuery = function (
         title: 'Success',
         text: 'Record created successfully',
       });
-      // toast.add({
-      //   // icon: 'success',
-      //   // title: 'Success',
-      //   // text: 'Record created successfully',
-      //   severity: 'success',
-      //   closable: true,
-      //   detail: 'Record created successfully',
-      //   summary: 'Success',
-      // });
 
       queryClient.invalidateQueries({ queryKey: orgMemberKeys.all });
     },

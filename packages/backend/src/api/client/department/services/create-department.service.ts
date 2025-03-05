@@ -30,7 +30,7 @@ export class DepartmentCreationService {
 
     if (existingDept) {
       throw new ApiError(
-        'Organization with same name already exists',
+        'Department with same name already exists',
         HttpStatus.CONFLICT,
         {}
       );
@@ -45,7 +45,7 @@ export class DepartmentCreationService {
     return {
       data: {},
       status: HttpStatus.CREATED,
-      message: 'Organization created successfully'
+      message: 'Department created successfully'
     };
   }
 }

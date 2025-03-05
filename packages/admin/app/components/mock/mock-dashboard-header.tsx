@@ -9,7 +9,6 @@ import { Text } from '../ui/text';
 import { Button } from '../ui/button';
 export default function MockDashboardHeader() {
   const { toggleSidebar, isCollapsed, sidebarWidthSizes } = useMockSidebar();
-  const { contentLeft } = sidebarWidthSizes(isCollapsed);
   return (
     <div
       className={css({
