@@ -2,5 +2,8 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/packages/backend" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/packages/react-client" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/packages/vue-client" vcs="Git" />
   </component>
 </project>
