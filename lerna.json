@@ -1,0 +1,35 @@
+{
+  "$schema": "node_modules/lerna/schemas/lerna-schema.json",
+  "version": "independent",
+  "npmClient": "pnpm",
+  "stream": true,
+  "useNx": true,
+  "packages": ["packages/*"],
+  "ignoreChanges": [
+    "**/*.md",
+    "**/*.test.ts",
+    "**/*.spec.ts",
+    "**/dist/**",
+    "**/build/**",
+    "**/coverage/**",
+    "**/.DS_Store",
+    "**/node_modules/**",
+    "**/.env*",
+    "**/deploy/**",
+    "**/*.log",
+    "**/Dockerfile",
+    "**/docker-compose*.yml"
+  ],
+  "command": {
+    "publish": {
+      "conventionalCommits": true,
+      "message": "chore(release): publish"
+    },
+    "version": {
+      "message": "chore(release): publish"
+    },
+    "run": {
+      "stream": true
+    }
+  }
+}

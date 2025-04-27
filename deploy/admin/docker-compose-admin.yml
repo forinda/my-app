@@ -1,7 +1,7 @@
 services:
   admin:
     build:
-      context: ../../packages/admin
+      context: ../../packages/react-client
       dockerfile: ./Dockerfile
     container_name: admin_ui
     env_file:

@@ -1,0 +1,5789 @@
+{
+  "version": "6.0",
+  "nxVersion": "20.8.1",
+  "pathMappings": {},
+  "nxJsonPlugins": [
+    {
+      "name": "@nx/eslint",
+      "version": "^20.8.1"
+    },
+    {
+      "name": "@nx/vite",
+      "version": "^20.8.1"
+    },
+    {
+      "name": "@nx/react",
+      "version": "^20.8.1"
+    },
+    {
+      "name": "@nx/playwright",
+      "version": "^20.8.1"
+    }
+  ],
+  "fileMap": {
+    "nonProjectFiles": [
+      {
+        "file": ".gitmodules",
+        "hash": "4379587479641700108"
+      },
+      {
+        "file": "packages/MONOREPO-GUIDE.md",
+        "hash": "2189612709957933282"
+      },
+      {
+        "file": "README.md",
+        "hash": "1418348619712860375"
+      },
+      {
+        "file": ".vscode/settings.json",
+        "hash": "3990533104076745289"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "13198928846976119129"
+      },
+      {
+        "file": "base-paths.ts",
+        "hash": "15877391244630200632"
+      },
+      {
+        "file": "packages/nx",
+        "hash": "17165975525224888679"
+      },
+      {
+        "file": ".idea/git_toolbox_blame.xml",
+        "hash": "10563179705875868391"
+      },
+      {
+        "file": "env.example",
+        "hash": "11144897828046073335"
+      },
+      {
+        "file": ".vscode/launch.json",
+        "hash": "8542633720944627288"
+      },
+      {
+        "file": "nx.json",
+        "hash": "7181963884297290270"
+      },
+      {
+        "file": "LERNA-GUIDE.md",
+        "hash": "12529677085994329494"
+      },
+      {
+        "file": "packages/.nx/nxw.js",
+        "hash": "11301648124127104610"
+      },
+      {
+        "file": "launch.mjs",
+        "hash": "15534240094301941799"
+      },
+      {
+        "file": "Guide.md",
+        "hash": "13897420328876630765"
+      },
+      {
+        "file": ".idea/inspectionProfiles/Project_Default.xml",
+        "hash": "8912173605315939135"
+      },
+      {
+        "file": "deploy/web/docker-compose-web.yml",
+        "hash": "3341054263510540512"
+      },
+      {
+        "file": ".nx-cache/run.json",
+        "hash": "10871255570405909120"
+      },
+      {
+        "file": "packages/visualize-deps.mjs",
+        "hash": "876395389948400672"
+      },
+      {
+        "file": ".idea/jsLibraryMappings.xml",
+        "hash": "463890270158677548"
+      },
+      {
+        "file": "scripts/build-admin.sh",
+        "hash": "1880709995665458260"
+      },
+      {
+        "file": ".nx-cache/terminalOutputs/2353738559901590722",
+        "hash": "9144151624343880725"
+      },
+      {
+        "file": "scripts/build-web.sh",
+        "hash": "1297855322565028845"
+      },
+      {
+        "file": "packages/launch.mjs",
+        "hash": "8163036843885606522"
+      },
+      {
+        "file": "tasks/docker-build.ts",
+        "hash": "7059618358054385290"
+      },
+      {
+        "file": "pnpm-lock.yaml",
+        "hash": "2514909273889349976"
+      },
+      {
+        "file": "deploy.mjs",
+        "hash": "17473644671676636552"
+      },
+      {
+        "file": "tasks/build-apps.ts",
+        "hash": "2584251519289375764"
+      },
+      {
+        "file": "ci/.gitkeep",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "packages/nx.bat",
+        "hash": "16119536321561623970"
+      },
+      {
+        "file": "scripts/build-backend.sh",
+        "hash": "7680132348724790110"
+      },
+      {
+        "file": ".idea/prettier.xml",
+        "hash": "13711802271405639796"
+      },
+      {
+        "file": ".idea/vcs.xml",
+        "hash": "189273673449710806"
+      },
+      {
+        "file": ".nx-cache/terminalOutputs/13119934910138146841",
+        "hash": "14307056588161344321"
+      },
+      {
+        "file": "pnpm-workspace.yaml",
+        "hash": "5493987537038211842"
+      },
+      {
+        "file": ".nx-cache/terminalOutputs/2773621091644518286",
+        "hash": "3418603171366758649"
+      },
+      {
+        "file": "packages/.gitignore",
+        "hash": "12990309872111536764"
+      },
+      {
+        "file": "package.json",
+        "hash": "7042031249158035075"
+      },
+      {
+        "file": "tasks/run-apps.ts",
+        "hash": "13513340915003326825"
+      },
+      {
+        "file": ".editorconfig",
+        "hash": "12491706513498544042"
+      },
+      {
+        "file": ".idea/my-app.iml",
+        "hash": "2091662290190038625"
+      },
+      {
+        "file": "lerna.json",
+        "hash": "6109422578379458478"
+      },
+      {
+        "file": ".idea/.gitignore",
+        "hash": "10286036308014790964"
+      },
+      {
+        "file": "deploy/backend/docker-compose-backend.yml",
+        "hash": "15161066082530267231"
+      },
+      {
+        "file": "packages/nx.json",
+        "hash": "4094110668604515755"
+      },
+      {
+        "file": "tsconfig.json",
+        "hash": "18199986230764114117"
+      },
+      {
+        "file": ".idea/modules.xml",
+        "hash": "9233024941013982027"
+      },
+      {
+        "file": ".github/workflows/npm-gulp.yml",
+        "hash": "4782586275473420573"
+      },
+      {
+        "file": "deploy/admin/docker-compose-admin.yml",
+        "hash": "10582520427984790600"
+      },
+      {
+        "file": ".vscode/extensions.json",
+        "hash": "17837299179963891856"
+      },
+      {
+        "file": "gulpfile.ts",
+        "hash": "4712067182833158420"
+      },
+      {
+        "file": ".idea/runConfigurations/dev_web.xml",
+        "hash": "13706341484657077667"
+      },
+      {
+        "file": "SubmoduleMigrationGuide.md",
+        "hash": "12113982988660277596"
+      }
+    ],
+    "projectFileMap": {
+      "@payroll/backend": [
+        {
+          "file": "packages/backend/.dockerignore",
+          "hash": "15020856843537813583"
+        },
+        {
+          "file": "packages/backend/.gitignore",
+          "hash": "16952778038453352411"
+        },
+        {
+          "file": "packages/backend/.idea/.gitignore",
+          "hash": "10286036308014790964"
+        },
+        {
+          "file": "packages/backend/.idea/backend.iml",
+          "hash": "2091662290190038625"
+        },
+        {
+          "file": "packages/backend/.idea/codeStyles/Project.xml",
+          "hash": "18097235675007435210"
+        },
+        {
+          "file": "packages/backend/.idea/codeStyles/codeStyleConfig.xml",
+          "hash": "4690022301721055948"
+        },
+        {
+          "file": "packages/backend/.idea/inspectionProfiles/Project_Default.xml",
+          "hash": "8912173605315939135"
+        },
+        {
+          "file": "packages/backend/.idea/modules.xml",
+          "hash": "13219601796849457668"
+        },
+        {
+          "file": "packages/backend/.idea/prettier.xml",
+          "hash": "13711802271405639796"
+        },
+        {
+          "file": "packages/backend/.idea/vcs.xml",
+          "hash": "14600148892634157659"
+        },
+        {
+          "file": "packages/backend/.prettierignore",
+          "hash": "10775296378414325657"
+        },
+        {
+          "file": "packages/backend/.prettierrc.json",
+          "hash": "5464826732564816923"
+        },
+        {
+          "file": "packages/backend/.vscode/extensions.json",
+          "hash": "17837299179963891856"
+        },
+        {
+          "file": "packages/backend/.vscode/launch.json",
+          "hash": "8542633720944627288"
+        },
+        {
+          "file": "packages/backend/.vscode/settings.json",
+          "hash": "9203515717813751814"
+        },
+        {
+          "file": "packages/backend/Dockerfile",
+          "hash": "11684748324819837669"
+        },
+        {
+          "file": "packages/backend/README.md",
+          "hash": "10517940750243985334"
+        },
+        {
+          "file": "packages/backend/drizzle.config.ts",
+          "hash": "17362382813822052368",
+          "deps": [
+            "npm:dotenv",
+            "npm:drizzle-kit"
+          ]
+        },
+        {
+          "file": "packages/backend/env.example",
+          "hash": "1436951269389037025"
+        },
+        {
+          "file": "packages/backend/eslint.config.mjs",
+          "hash": "6862728521525700990",
+          "deps": [
+            "npm:@eslint/js",
+            "npm:typescript-eslint",
+            "npm:eslint-plugin-prettier"
+          ]
+        },
+        {
+          "file": "packages/backend/nodemon.json",
+          "hash": "15481877056646597485"
+        },
+        {
+          "file": "packages/backend/package.json",
+          "hash": "12535941302672110231",
+          "deps": [
+            "npm:@eslint/js",
+            "npm:@types/bcryptjs",
+            "npm:@types/cookie-parser",
+            "npm:@types/cors",
+            "npm:@types/eslint__js",
+            "npm:@types/express",
+            "npm:@types/find-root",
+            "npm:@types/helmet",
+            "npm:@types/jsonwebtoken",
+            "npm:@types/morgan",
+            "npm:@types/node@22.13.9",
+            "npm:@types/nodemailer",
+            "npm:@types/pg",
+            "npm:@types/request-ip",
+            "npm:concurrently",
+            "npm:drizzle-kit",
+            "npm:eslint",
+            "npm:eslint-config-prettier@9.1.0",
+            "npm:eslint-plugin-prettier",
+            "npm:nodemon",
+            "npm:prettier@3.5.3",
+            "npm:rimraf",
+            "npm:swagger-ui-dist",
+            "npm:ts-node",
+            "npm:ts-patch",
+            "npm:tsx",
+            "npm:typescript@5.8.2",
+            "npm:typescript-eslint",
+            "npm:typescript-transform-paths",
+            "npm:vitest@2.1.9",
+            "npm:@types/swagger-jsdoc",
+            "npm:@types/swagger-ui-express",
+            "npm:bcryptjs",
+            "npm:chalk",
+            "npm:cookie-parser",
+            "npm:cors",
+            "npm:dotenv",
+            "npm:drizzle-orm",
+            "npm:drizzle-zod",
+            "npm:express",
+            "npm:find-root",
+            "npm:helmet",
+            "npm:inversify",
+            "npm:jsonwebtoken",
+            "npm:kleur",
+            "npm:moment",
+            "npm:morgan",
+            "npm:nodemailer",
+            "npm:pg",
+            "npm:reflect-metadata",
+            "npm:request-ip",
+            "npm:resend",
+            "npm:socket.io",
+            "npm:swagger-jsdoc",
+            "npm:swagger-ui-express",
+            "npm:uuid@11.1.0",
+            "npm:winston",
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/backend/paths.ts",
+          "hash": "83098936167306566",
+          "deps": [
+            "npm:dotenv",
+            "npm:find-root"
+          ]
+        },
+        {
+          "file": "packages/backend/scripts/run.sh",
+          "hash": "17039066155322805024"
+        },
+        {
+          "file": "packages/backend/src/api/client/auth/controllers/login.controller.ts",
+          "hash": "6637199184480265558",
+          "deps": [
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/auth/controllers/logout.controller.ts",
+          "hash": "8426655097091418738",
+          "deps": [
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/auth/controllers/register.controller.ts",
+          "hash": "4763871665890607641",
+          "deps": [
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/auth/controllers/session.controller.ts",
+          "hash": "9189688526675830438"
+        },
+        {
+          "file": "packages/backend/src/api/client/auth/controllers/set-current-organization.controller.ts",
+          "hash": "6873925035342806335",
+          "deps": [
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/auth/controllers/update-profile.controller.ts",
+          "hash": "8135035020713335136",
+          "deps": [
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/auth/docs.ts",
+          "hash": "13649017202889685324"
+        },
+        {
+          "file": "packages/backend/src/api/client/auth/entities/login-entity.ts",
+          "hash": "7672580004893102957"
+        },
+        {
+          "file": "packages/backend/src/api/client/auth/index.ts",
+          "hash": "2051877139932586336",
+          "deps": [
+            "npm:express"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/auth/schema/schema.ts",
+          "hash": "1272005703605980082",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/auth/services/login.service.ts",
+          "hash": "12866001184848396106",
+          "deps": [
+            "npm:inversify",
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/auth/services/register.service.ts",
+          "hash": "508114653811411941",
+          "deps": [
+            "npm:inversify",
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/auth/services/set-current-organization.service.ts",
+          "hash": "17574298438947541363",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/auth/services/update-profile.service.ts",
+          "hash": "17376195548304954430",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/auth/utils/get-client-ip.test.ts",
+          "hash": "3521325541118904650",
+          "deps": [
+            "npm:vitest@2.1.9"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/auth/utils/get-client-ip.ts",
+          "hash": "2959185934329836945"
+        },
+        {
+          "file": "packages/backend/src/api/client/auth/utils/module-permission-setup.ts",
+          "hash": "1980838021751981220"
+        },
+        {
+          "file": "packages/backend/src/api/client/department-roles/controllers/create-department-role.controller.ts",
+          "hash": "7998495837271506867",
+          "deps": [
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/department-roles/controllers/fetch-department-roles.controller.ts",
+          "hash": "12931658973098508666",
+          "deps": [
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/department-roles/index.ts",
+          "hash": "17401562025653353655",
+          "deps": [
+            "npm:express"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/department-roles/schema/schema.ts",
+          "hash": "17179264395252673514",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/department-roles/services/add-department-role.service.ts",
+          "hash": "14583781976451737503",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/department-roles/services/fetch-department-roles.service.ts",
+          "hash": "3573921352484939880",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/department-roles/utils/assign-role.ts",
+          "hash": "4682012268151994446"
+        },
+        {
+          "file": "packages/backend/src/api/client/department-title/controllers/create-department.controller.ts",
+          "hash": "3112303810189827272",
+          "deps": [
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/department-title/controllers/fetch-departments.controller.ts",
+          "hash": "16608688395805671890",
+          "deps": [
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/department-title/controllers/update-department-title.controller.ts",
+          "hash": "8558249532853599095",
+          "deps": [
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/department-title/index.ts",
+          "hash": "15669939966892400814",
+          "deps": [
+            "npm:express"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/department-title/schema/schema.ts",
+          "hash": "15636870783316710242",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/department-title/services/create-department-title.service.ts",
+          "hash": "15900579114363101455",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/department-title/services/fetch-department-title.service.ts",
+          "hash": "13903259387880131145",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/department-title/services/update-department.service.ts",
+          "hash": "6632760840445901099",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/department/controllers/add-users.controller.ts",
+          "hash": "9573608407678555690",
+          "deps": [
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/department/controllers/create.controller.ts",
+          "hash": "2844271413460404268",
+          "deps": [
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/department/controllers/fetch-by-id.controller.ts",
+          "hash": "11217213748843639316",
+          "deps": [
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/department/controllers/fetch-members.controller.ts",
+          "hash": "1327801035499877763",
+          "deps": [
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/department/controllers/fetch.controller.ts",
+          "hash": "4866307159263101887",
+          "deps": [
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/department/controllers/update.controller.ts",
+          "hash": "15287490843497591979",
+          "deps": [
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/department/index.ts",
+          "hash": "5527213247321614357",
+          "deps": [
+            "npm:express"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/department/schema/schema.ts",
+          "hash": "5126134958440589034",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/department/services/add-users.service.ts",
+          "hash": "15334863955834714715",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/department/services/create.service.ts",
+          "hash": "7688051969487776261",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/department/services/fetch-by-id.service.ts",
+          "hash": "14002720477663384817",
+          "deps": [
+            "npm:drizzle-orm",
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/department/services/fetch-members.service.ts",
+          "hash": "5392995284152104226",
+          "deps": [
+            "npm:drizzle-orm",
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/department/services/fetch.service.ts",
+          "hash": "13994340857999910735",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/department/services/update.service.ts",
+          "hash": "576020926722256133",
+          "deps": [
+            "npm:inversify",
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/designations/controllers/create.controller.ts",
+          "hash": "10886429579588491532",
+          "deps": [
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/designations/controllers/fetch.controller.ts",
+          "hash": "2578633299923733229",
+          "deps": [
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/designations/controllers/update.controller.ts",
+          "hash": "12856009388350729251",
+          "deps": [
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/designations/index.ts",
+          "hash": "7119799910491169580",
+          "deps": [
+            "npm:express"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/designations/schema/schema.ts",
+          "hash": "12074420865225831184",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/designations/services/create.service.ts",
+          "hash": "13863252615458997005",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/designations/services/fetch.service.ts",
+          "hash": "14928339547187377604",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/designations/services/update.service.ts",
+          "hash": "11081121942611870935",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/index.ts",
+          "hash": "11901546108312439175"
+        },
+        {
+          "file": "packages/backend/src/api/client/organization-members/controllers/add-member.controller.ts",
+          "hash": "13797585096844757613",
+          "deps": [
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/organization-members/controllers/fetch-by-id.controller.ts",
+          "hash": "674242092707994287",
+          "deps": [
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/organization-members/controllers/fetch-invites.controller.ts",
+          "hash": "6113434196910163259",
+          "deps": [
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/organization-members/controllers/fetch-members.controller.ts",
+          "hash": "7292782457233805899",
+          "deps": [
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/organization-members/controllers/init-member-profile.controller.ts",
+          "hash": "13813763686999967780",
+          "deps": [
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/organization-members/controllers/remove-member.controller.ts",
+          "hash": "18178629817200834199",
+          "deps": [
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/organization-members/controllers/respond-to-invite.controller.ts",
+          "hash": "1516605833276604282",
+          "deps": [
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/organization-members/controllers/update-personal-org-profile.controller.ts",
+          "hash": "6336276169276284285",
+          "deps": [
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/organization-members/index.ts",
+          "hash": "15911175205039611203",
+          "deps": [
+            "npm:express"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/organization-members/schema/addMemberToOrRemoveFromOrgSchema.ts",
+          "hash": "2132686452512448243",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/organization-members/schema/employmentTypeSchema.ts",
+          "hash": "8254651744706253404",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/organization-members/schema/existingMemberAction.ts",
+          "hash": "17198040950953725004",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/organization-members/schema/filterOrganizationMembersSchema.ts",
+          "hash": "2395329223776789845",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/organization-members/schema/index.ts",
+          "hash": "13229957111339470640",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/organization-members/schema/initializeUserOrgProfileSchema.ts",
+          "hash": "3099555333018669399",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/organization-members/schema/memberUpdatePersonalOrgProfileSchema.ts",
+          "hash": "15759190172382522308",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/organization-members/schema/orgMemberRoleSchema.ts",
+          "hash": "7074839960767083701",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/organization-members/schema/respondToOrgInviteSchema.ts",
+          "hash": "290162390005307886",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/organization-members/schema/salaryTypeSchema.ts",
+          "hash": "3842258167967715934",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/organization-members/services/add.service.ts",
+          "hash": "5712171384292010625",
+          "deps": [
+            "npm:inversify",
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/organization-members/services/fetch-by-id.service.ts",
+          "hash": "2665512512910851037",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/organization-members/services/fetch-invites.service.ts",
+          "hash": "5410113993564779455",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/organization-members/services/fetch-members.service.ts",
+          "hash": "1913518625973825737",
+          "deps": [
+            "npm:inversify",
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/organization-members/services/init-member-profile.service.ts",
+          "hash": "1732499929608561003",
+          "deps": [
+            "npm:inversify",
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/organization-members/services/remove-member.service.ts",
+          "hash": "16072711696154196534",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/organization-members/services/respond-to-invite.service.ts",
+          "hash": "10305155538936385756",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/organization-members/services/update-personal-org-profile.service.ts",
+          "hash": "18057226073552598254",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/organizations/controllers/create-organization.controller.ts",
+          "hash": "16188448015080414051",
+          "deps": [
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/organizations/controllers/fetch-by-id.controller.ts",
+          "hash": "15981274656329839136",
+          "deps": [
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/organizations/controllers/fetch-invites.controller.ts",
+          "hash": "711800174135527489",
+          "deps": [
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/organizations/controllers/get-organizations.controller.ts",
+          "hash": "8060375917327301584",
+          "deps": [
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/organizations/controllers/update-organization.controller.ts",
+          "hash": "5050707302934847992",
+          "deps": [
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/organizations/index.ts",
+          "hash": "9688587208165174502",
+          "deps": [
+            "npm:express"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/organizations/schema/schema.ts",
+          "hash": "9194636950491392722",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/organizations/services/create-organization.service.ts",
+          "hash": "13380293781538136222",
+          "deps": [
+            "npm:drizzle-orm",
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/organizations/services/fetch-by-id.service.ts",
+          "hash": "12053464914115359312",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/organizations/services/fetch-invites.service.ts",
+          "hash": "3653707903240986398",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/organizations/services/get-organizations.service.ts",
+          "hash": "12399972711340768205",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/organizations/services/update-organization.service.ts",
+          "hash": "14355083268717701641",
+          "deps": [
+            "npm:drizzle-orm",
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/project-categories/controllers/create.controller.ts",
+          "hash": "6277662768064708932",
+          "deps": [
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/project-categories/controllers/fetch-by-id.controller.ts",
+          "hash": "13910939024309055231",
+          "deps": [
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/project-categories/controllers/fetch.controller.ts",
+          "hash": "4570312656380223886",
+          "deps": [
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/project-categories/controllers/update.controller.ts",
+          "hash": "8525190533923262887",
+          "deps": [
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/project-categories/index.ts",
+          "hash": "1952023120037201157",
+          "deps": [
+            "npm:express"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/project-categories/schema/schema.ts",
+          "hash": "1232260923919741583",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/project-categories/services/create.service.ts",
+          "hash": "5635218006566707888",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/project-categories/services/fetch-by-id.service.ts",
+          "hash": "16684616985765737719",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/project-categories/services/fetch.service.ts",
+          "hash": "662004885289723325",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/project-categories/services/update.service.ts",
+          "hash": "14401302846994646731",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/projects/controllers/add-time-log-category.controller.ts",
+          "hash": "4766580575696483270",
+          "deps": [
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/projects/controllers/add-users.controller.ts",
+          "hash": "15282058851017327266",
+          "deps": [
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/projects/controllers/change-timelog-category-status.controller.ts",
+          "hash": "11868562591400766142",
+          "deps": [
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/projects/controllers/create.controller.ts",
+          "hash": "15908557074365430553",
+          "deps": [
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/projects/controllers/fetch-by-id.controller.ts",
+          "hash": "15778433507556975999",
+          "deps": [
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/projects/controllers/fetch-time-categories.controller.ts",
+          "hash": "9279655264742643904",
+          "deps": [
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/projects/controllers/fetch.controller.ts",
+          "hash": "14078269408632536785",
+          "deps": [
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/projects/controllers/remove-users.controller.ts",
+          "hash": "12620924517405525858",
+          "deps": [
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/projects/controllers/update.controller.ts",
+          "hash": "6161292638424076925",
+          "deps": [
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/projects/index.ts",
+          "hash": "17767289394373952407",
+          "deps": [
+            "npm:express"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/projects/schema/schema.ts",
+          "hash": "7032307408454307573",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/projects/services/add-time-log-category.service.ts",
+          "hash": "9569795650887375720",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/projects/services/add-users.service.ts",
+          "hash": "6859505120354387240",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/projects/services/change-timelog-category-status.service.ts",
+          "hash": "10016025171501516467",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/projects/services/create.service.ts",
+          "hash": "437465997471910544",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/projects/services/fetch-by-id.service.ts",
+          "hash": "9384816311384614838",
+          "deps": [
+            "npm:drizzle-orm",
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/projects/services/fetch-time-categories.service.ts",
+          "hash": "10018563829830267351",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/projects/services/fetch.service.ts",
+          "hash": "13618893698221603444",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/projects/services/remove-users.service.ts",
+          "hash": "13034007214034338999",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/projects/services/update.service.ts",
+          "hash": "13655625814304649730",
+          "deps": [
+            "npm:inversify",
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/subscription-plans/controllers/fetch.controller.ts",
+          "hash": "413646458865306652",
+          "deps": [
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/subscription-plans/index.ts",
+          "hash": "4531644068626511373",
+          "deps": [
+            "npm:express"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/subscription-plans/schema/schema.ts",
+          "hash": "14834217910862644523",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/subscription-plans/services/fetch.service.ts",
+          "hash": "9703058042967884092",
+          "deps": [
+            "npm:drizzle-orm",
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/subscription-plans/utils/plans.ts",
+          "hash": "15117956242441968874"
+        },
+        {
+          "file": "packages/backend/src/api/client/subscription-plans/utils/setup-plans.ts",
+          "hash": "10558268150792373484",
+          "deps": [
+            "npm:inversify",
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/tasks/controllers/add-comment.controller.ts",
+          "hash": "16478250142251146969",
+          "deps": [
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/tasks/controllers/assign.controller.ts",
+          "hash": "9057744203944499999",
+          "deps": [
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/tasks/controllers/create.controller.ts",
+          "hash": "3829211010150813108",
+          "deps": [
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/tasks/controllers/fetch-by-id.controller.ts",
+          "hash": "15945219366392127086",
+          "deps": [
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/tasks/controllers/fetch.controller.ts",
+          "hash": "16657418587332309062",
+          "deps": [
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/tasks/controllers/unassign.controller.ts",
+          "hash": "6841313744876864597",
+          "deps": [
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/tasks/controllers/update-comment.controller.ts",
+          "hash": "18127500921624826816",
+          "deps": [
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/tasks/controllers/update.controller.ts",
+          "hash": "10340869742444663653",
+          "deps": [
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/tasks/index.ts",
+          "hash": "16496292274223172470",
+          "deps": [
+            "npm:express"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/tasks/schema/schema.ts",
+          "hash": "12110629533335874198",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/tasks/services/add-comment.service.ts",
+          "hash": "18337327044491394284",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/tasks/services/assign.service.ts",
+          "hash": "16856595319391334083",
+          "deps": [
+            "npm:inversify",
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/tasks/services/create.service.ts",
+          "hash": "14595491666979553555",
+          "deps": [
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/tasks/services/fetch-by-id.service.ts",
+          "hash": "1267097510102843709",
+          "deps": [
+            "npm:drizzle-orm",
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/tasks/services/fetch.service.ts",
+          "hash": "6864460540937252408",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/tasks/services/unassign.service.ts",
+          "hash": "5376658143247326138",
+          "deps": [
+            "npm:inversify",
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/tasks/services/update-comment.service.ts",
+          "hash": "8292353467143801823",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/tasks/services/update.service.ts",
+          "hash": "2513609377840139176",
+          "deps": [
+            "npm:inversify",
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/tasks/utils/task-creation-checks.ts",
+          "hash": "12905721079232040348",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/time-log-categories/controllers/create.controller.ts",
+          "hash": "12744392720960870400",
+          "deps": [
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/time-log-categories/controllers/fetch.controller.ts",
+          "hash": "18277406302391050154",
+          "deps": [
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/time-log-categories/controllers/update.controller.ts",
+          "hash": "16550826261713376836",
+          "deps": [
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/time-log-categories/index.ts",
+          "hash": "12751779313699065643",
+          "deps": [
+            "npm:express"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/time-log-categories/schema/schema.ts",
+          "hash": "5177438466313398742",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/time-log-categories/services/create.service.ts",
+          "hash": "12219065494765048309",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/time-log-categories/services/fetch.service.ts",
+          "hash": "11064817647273450450",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/time-log-categories/services/update.service.ts",
+          "hash": "9888558041331395186",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/time-logs/controllers/create.controller.ts",
+          "hash": "2797498204769006008",
+          "deps": [
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/time-logs/controllers/delete.controller.ts",
+          "hash": "18204275883388960991",
+          "deps": [
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/time-logs/controllers/fetch.controller.ts",
+          "hash": "14530656129892613557",
+          "deps": [
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/time-logs/controllers/update-status.controller.ts",
+          "hash": "6726283728630134560",
+          "deps": [
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/time-logs/controllers/update.controller.ts",
+          "hash": "4278901667440616026",
+          "deps": [
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/time-logs/index.ts",
+          "hash": "17810884297143595786",
+          "deps": [
+            "npm:express"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/time-logs/schema/schema.ts",
+          "hash": "11533063332430620874",
+          "deps": [
+            "npm:moment",
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/time-logs/services/create.service.ts",
+          "hash": "6729905731253478319",
+          "deps": [
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/time-logs/services/delete.service.ts",
+          "hash": "18437049572327304460",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/time-logs/services/fetch.service.ts",
+          "hash": "1384689423649851230",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/time-logs/services/update-status.service.ts",
+          "hash": "15303314228113247142",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/time-logs/services/update.service.ts",
+          "hash": "7468681860113675005",
+          "deps": [
+            "npm:inversify",
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/time-logs/utils/prerequisite-checks.ts",
+          "hash": "7750935073621395610",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/workspaces/controllers/add-users.controller.ts",
+          "hash": "17761062186781494276",
+          "deps": [
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/workspaces/controllers/create.controller.ts",
+          "hash": "10334024251261923960",
+          "deps": [
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/workspaces/controllers/fetch-by-id.controller.ts",
+          "hash": "10858502786366080551",
+          "deps": [
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/workspaces/controllers/fetch-members.controller.ts",
+          "hash": "8913237463868352186",
+          "deps": [
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/workspaces/controllers/fetch.controller.ts",
+          "hash": "13845709205762003285",
+          "deps": [
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/workspaces/controllers/remove-users.controller.ts",
+          "hash": "14580728878296774169",
+          "deps": [
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/workspaces/controllers/update.controller.ts",
+          "hash": "11466841920744805145",
+          "deps": [
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/workspaces/index.ts",
+          "hash": "15393931352381756553",
+          "deps": [
+            "npm:express"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/workspaces/schema/schema.ts",
+          "hash": "1253909439261294374",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/workspaces/services/add-users.service.ts",
+          "hash": "2956456223004289134",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/workspaces/services/create.service.ts",
+          "hash": "11875207382864123760",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/workspaces/services/fetch-by-id.service.ts",
+          "hash": "13903416013306829924",
+          "deps": [
+            "npm:drizzle-orm",
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/workspaces/services/fetch-members.service.ts",
+          "hash": "10909117511790534122",
+          "deps": [
+            "npm:drizzle-orm",
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/workspaces/services/fetch.service.ts",
+          "hash": "13726394369640810550",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/workspaces/services/remove-users.service.ts",
+          "hash": "1489238668906330108",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/client/workspaces/services/update.service.ts",
+          "hash": "14195586102565944580",
+          "deps": [
+            "npm:inversify",
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/api/v1.ts",
+          "hash": "8012500442130584196",
+          "deps": [
+            "npm:express"
+          ]
+        },
+        {
+          "file": "packages/backend/src/app/index.ts",
+          "hash": "5424098857012757830",
+          "deps": [
+            "npm:express",
+            "npm:cors",
+            "npm:inversify",
+            "npm:morgan",
+            "npm:helmet",
+            "npm:cookie-parser"
+          ]
+        },
+        {
+          "file": "packages/backend/src/common/bases/controller.ts",
+          "hash": "8155905377831182250",
+          "deps": [
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/common/config/index.ts",
+          "hash": "10853712808759844501",
+          "deps": [
+            "npm:dotenv"
+          ]
+        },
+        {
+          "file": "packages/backend/src/common/constants/company-sizes.ts",
+          "hash": "9983888731967573959"
+        },
+        {
+          "file": "packages/backend/src/common/constants/currencies.ts",
+          "hash": "8169544946330411622"
+        },
+        {
+          "file": "packages/backend/src/common/constants/org-member-roles.ts",
+          "hash": "13820346258539802527"
+        },
+        {
+          "file": "packages/backend/src/common/constants/persmission-table.ts",
+          "hash": "3144895908383339686"
+        },
+        {
+          "file": "packages/backend/src/common/decorators/controller.decorator.ts",
+          "hash": "7755734110654218331",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/backend/src/common/decorators/inversify-decorators.ts",
+          "hash": "2261356154063086422"
+        },
+        {
+          "file": "packages/backend/src/common/decorators/login-required.decorator.ts",
+          "hash": "2507419313613795466"
+        },
+        {
+          "file": "packages/backend/src/common/decorators/service-transaction.ts",
+          "hash": "12012744543911061078"
+        },
+        {
+          "file": "packages/backend/src/common/di/auto-bind.ts",
+          "hash": "6313371407024075698"
+        },
+        {
+          "file": "packages/backend/src/common/di/index.ts",
+          "hash": "928427475820341836",
+          "deps": [
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/common/errors/base.ts",
+          "hash": "5761851294348054084"
+        },
+        {
+          "file": "packages/backend/src/common/errors/route-err-handler.ts",
+          "hash": "16627270021331178098",
+          "deps": [
+            "npm:express"
+          ]
+        },
+        {
+          "file": "packages/backend/src/common/http/index.ts",
+          "hash": "8193870654143007807",
+          "deps": [
+            "npm:express"
+          ]
+        },
+        {
+          "file": "packages/backend/src/common/interfaces/controller.ts",
+          "hash": "12771343288765936438",
+          "deps": [
+            "npm:express"
+          ]
+        },
+        {
+          "file": "packages/backend/src/common/interfaces/helpers.ts",
+          "hash": "6454364499681805853"
+        },
+        {
+          "file": "packages/backend/src/common/logger/index.ts",
+          "hash": "10102493910592861734",
+          "deps": [
+            "npm:kleur"
+          ]
+        },
+        {
+          "file": "packages/backend/src/common/schema/env.schema.ts",
+          "hash": "10811709066270920795",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/backend/src/common/schema/gender.ts",
+          "hash": "2012435493724672039",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/backend/src/common/schema/search-query-string.ts",
+          "hash": "15469574777911641701",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/backend/src/common/schema/task-ref.ts",
+          "hash": "12599870104669820393",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/backend/src/common/schema/validator.ts",
+          "hash": "6672897140570640809",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/backend/src/common/swagger/setup.ts",
+          "hash": "1833329777310181803",
+          "deps": [
+            "npm:express",
+            "npm:swagger-ui-express"
+          ]
+        },
+        {
+          "file": "packages/backend/src/common/swagger/swagger.config.ts",
+          "hash": "15850119021135644374",
+          "deps": [
+            "npm:swagger-jsdoc"
+          ]
+        },
+        {
+          "file": "packages/backend/src/common/utils/avatar.ts",
+          "hash": "5556279315556925641"
+        },
+        {
+          "file": "packages/backend/src/common/utils/controller-auth.ts",
+          "hash": "10820564480748806811"
+        },
+        {
+          "file": "packages/backend/src/common/utils/cookie.ts",
+          "hash": "16638501336559217773"
+        },
+        {
+          "file": "packages/backend/src/common/utils/drizzle.ts",
+          "hash": "3298088219377506203",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/common/utils/file-manager.ts",
+          "hash": "16372937852611265819"
+        },
+        {
+          "file": "packages/backend/src/common/utils/get-sesion-user.ts",
+          "hash": "12424124497414460176",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/common/utils/jwt.ts",
+          "hash": "8473222325584401872",
+          "deps": [
+            "npm:inversify",
+            "npm:jsonwebtoken"
+          ]
+        },
+        {
+          "file": "packages/backend/src/common/utils/node-mailer.ts",
+          "hash": "15529964596939021625",
+          "deps": [
+            "npm:inversify",
+            "npm:nodemailer"
+          ]
+        },
+        {
+          "file": "packages/backend/src/common/utils/numbers.ts",
+          "hash": "4313978781988824596"
+        },
+        {
+          "file": "packages/backend/src/common/utils/pagination.ts",
+          "hash": "2458550571930254330"
+        },
+        {
+          "file": "packages/backend/src/common/utils/password.ts",
+          "hash": "5642360963973592205",
+          "deps": [
+            "npm:bcryptjs"
+          ]
+        },
+        {
+          "file": "packages/backend/src/common/utils/permission-generator.ts",
+          "hash": "11235256584458023704"
+        },
+        {
+          "file": "packages/backend/src/common/utils/phone-number-format.ts",
+          "hash": "9084046037245810995"
+        },
+        {
+          "file": "packages/backend/src/common/utils/resend-mailer.ts",
+          "hash": "16503911735247844369",
+          "deps": [
+            "npm:inversify",
+            "npm:resend"
+          ]
+        },
+        {
+          "file": "packages/backend/src/common/utils/responder.ts",
+          "hash": "11396136176370912076"
+        },
+        {
+          "file": "packages/backend/src/common/utils/user-request-audit.ts",
+          "hash": "420575723538248470"
+        },
+        {
+          "file": "packages/backend/src/common/utils/uuid.ts",
+          "hash": "6677865680080386686",
+          "deps": [
+            "npm:uuid@11.1.0"
+          ]
+        },
+        {
+          "file": "packages/backend/src/db/index.ts",
+          "hash": "2829764992702401731",
+          "deps": [
+            "npm:dotenv",
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/db/migrations/0000_talented_hulk.sql",
+          "hash": "2682639583470981628"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/0001_fearless_vulture.sql",
+          "hash": "5473616574348840741"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/0002_equal_stardust.sql",
+          "hash": "6868080653995583845"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/0003_rich_wildside.sql",
+          "hash": "9181180447080501961"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/0004_glorious_archangel.sql",
+          "hash": "18132467213731701928"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/0005_sparkling_ender_wiggin.sql",
+          "hash": "15258606634357553693"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/0006_crazy_vulcan.sql",
+          "hash": "15560090619662903384"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/0007_deep_inhumans.sql",
+          "hash": "3288518035472948598"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/0008_fair_romulus.sql",
+          "hash": "7005351556003436408"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/0009_mysterious_whizzer.sql",
+          "hash": "10990121443154111071"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/0010_warm_scorpion.sql",
+          "hash": "16703639604802363906"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/1739598973_brave_jackpot.sql",
+          "hash": "15489993540587985832"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/1739599160_solid_dreadnoughts.sql",
+          "hash": "3073786232868535659"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/1739599231_late_roland_deschain.sql",
+          "hash": "9561343476708931993"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/1739599636_simple_marvel_zombies.sql",
+          "hash": "231600037822964887"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/1739599888_quiet_blonde_phantom.sql",
+          "hash": "9365353114157434242"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/1739601105_sudden_goliath.sql",
+          "hash": "14278843088751980165"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/1739601533_concerned_magus.sql",
+          "hash": "18075262511001116404"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/1739635845_long_silk_fever.sql",
+          "hash": "8752626340579037480"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/1739636221_slimy_ravenous.sql",
+          "hash": "2798451855419595434"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/1739722406_flippant_smiling_tiger.sql",
+          "hash": "4558814473597009877"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/1739725294_sticky_doctor_strange.sql",
+          "hash": "12907509464408645466"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/1740448955_dizzy_wallow.sql",
+          "hash": "7241339005132704674"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/1740460856_red_susan_delgado.sql",
+          "hash": "6705098957004830415"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/1740507507_zippy_fantastic_four.sql",
+          "hash": "8512473003869416085"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/1740522456_motionless_speed.sql",
+          "hash": "12140526237981400397"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/1740641133_mushy_luke_cage.sql",
+          "hash": "7968984090182565814"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/1740642247_daily_prowler.sql",
+          "hash": "9747592257399363120"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/1740659371_woozy_risque.sql",
+          "hash": "6191114415008670402"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/1740659437_round_chronomancer.sql",
+          "hash": "12174231317781287514"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/1740659679_true_toad.sql",
+          "hash": "1178188077573710141"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/1740659739_quiet_layla_miller.sql",
+          "hash": "15315229074598668393"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/1740659896_majestic_hellion.sql",
+          "hash": "15322690329329436602"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/1740660940_exotic_sasquatch.sql",
+          "hash": "10324706966016110705"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/1740661978_orange_katie_power.sql",
+          "hash": "17851612290346178669"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/1741547188_cultured_changeling.sql",
+          "hash": "12278807080038031354"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/1741580588_pink_omega_sentinel.sql",
+          "hash": "13165662434553889263"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/1741587901_public_the_hand.sql",
+          "hash": "13596279239902871610"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/1741588540_short_infant_terrible.sql",
+          "hash": "4850955287075878486"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/1741589561_melodic_echo.sql",
+          "hash": "16661300154006539779"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/1741589609_talented_the_enforcers.sql",
+          "hash": "6024950886223055497"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/1741595439_careful_lila_cheney.sql",
+          "hash": "16945637215395760274"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/1741596168_equal_thunderbolt_ross.sql",
+          "hash": "11994641165298098775"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/1741598988_violet_killer_shrike.sql",
+          "hash": "2527628469530821809"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/1742082319_tearful_scream.sql",
+          "hash": "3261037180300344651"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/1742082646_useful_mac_gargan.sql",
+          "hash": "14368130731208372230"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/1742084083_fine_riptide.sql",
+          "hash": "4363170561167296075"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/1742084362_bent_genesis.sql",
+          "hash": "8754899603884577330"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/1742089316_adorable_masked_marvel.sql",
+          "hash": "9482227633973275654"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/1742110960_foamy_union_jack.sql",
+          "hash": "775369891695457863"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/1742111547_brown_human_cannonball.sql",
+          "hash": "9078888132756674832"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/1742111655_clear_sebastian_shaw.sql",
+          "hash": "12447198303406584861"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/1742177074_empty_moonstone.sql",
+          "hash": "2778988698929115856"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/1742190977_worried_martin_li.sql",
+          "hash": "6108141335659790819"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/1742191578_spotty_shaman.sql",
+          "hash": "1441495251994380027"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/1742193684_sudden_molten_man.sql",
+          "hash": "8663441672471182532"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/1742536317_lazy_gamora.sql",
+          "hash": "12811886153634040863"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/1742536704_chilly_runaways.sql",
+          "hash": "7110231868393930256"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/1742536770_fluffy_valeria_richards.sql",
+          "hash": "14194902271539287135"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/1742766554_naive_thunderbolt.sql",
+          "hash": "10036164462066231298"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/1742771803_fresh_enchantress.sql",
+          "hash": "17984508503697870020"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/1742801800_gorgeous_wraith.sql",
+          "hash": "9909311342457634824"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/1742986995_cuddly_polaris.sql",
+          "hash": "6060511132633723599"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/1743053796_funny_morlun.sql",
+          "hash": "2440290997751648519"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/1743216414_clear_karen_page.sql",
+          "hash": "3625630619656378492"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/1743218412_slippery_goblin_queen.sql",
+          "hash": "18207878783749964488"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/1743219015_adorable_mentallo.sql",
+          "hash": "2700180012035663867"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/1743232420_flimsy_hellfire_club.sql",
+          "hash": "17621684069147934208"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/1743304629_same_avengers.sql",
+          "hash": "4132472362958653065"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/1744217378_mean_spacker_dave.sql",
+          "hash": "744737288366447603"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/1745682625_crazy_randall.sql",
+          "hash": "52125745279453205"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/1745683052_absent_echo.sql",
+          "hash": "8831965139718188654"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/1745684096_silent_carnage.sql",
+          "hash": "9760117487342430170"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/1745685359_powerful_prodigy.sql",
+          "hash": "8701651579076940678"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/meta/0000_snapshot.json",
+          "hash": "7869905497672938449"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/meta/0001_snapshot.json",
+          "hash": "1564515469563132364"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/meta/0002_snapshot.json",
+          "hash": "15572968608416345603"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/meta/0003_snapshot.json",
+          "hash": "17155595302555288293"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/meta/0004_snapshot.json",
+          "hash": "18413401330855503684"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/meta/0005_snapshot.json",
+          "hash": "16820099463134922526"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/meta/0006_snapshot.json",
+          "hash": "17282662820311328172"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/meta/0007_snapshot.json",
+          "hash": "8499869386157110258"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/meta/0008_snapshot.json",
+          "hash": "16994938767019238397"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/meta/0009_snapshot.json",
+          "hash": "12284149406858419144"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/meta/0010_snapshot.json",
+          "hash": "8703128970897443935"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/meta/1739598973_snapshot.json",
+          "hash": "16869694680880250889"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/meta/1739599160_snapshot.json",
+          "hash": "3630538186808398493"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/meta/1739599231_snapshot.json",
+          "hash": "9014948921326978300"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/meta/1739599636_snapshot.json",
+          "hash": "10278804054603113775"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/meta/1739599888_snapshot.json",
+          "hash": "17661847591075583452"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/meta/1739601105_snapshot.json",
+          "hash": "5833089922676396001"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/meta/1739601533_snapshot.json",
+          "hash": "1992161445876337662"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/meta/1739635845_snapshot.json",
+          "hash": "4806411947368623424"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/meta/1739636221_snapshot.json",
+          "hash": "5473037058985830299"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/meta/1739722406_snapshot.json",
+          "hash": "11498656477289949661"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/meta/1739725294_snapshot.json",
+          "hash": "1709491842634491258"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/meta/1740448955_snapshot.json",
+          "hash": "419566214864762690"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/meta/1740460856_snapshot.json",
+          "hash": "13028243509116609285"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/meta/1740507507_snapshot.json",
+          "hash": "15737601620782227444"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/meta/1740522456_snapshot.json",
+          "hash": "6851732673982207362"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/meta/1740641133_snapshot.json",
+          "hash": "16355066860546964428"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/meta/1740642247_snapshot.json",
+          "hash": "7494505994747482771"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/meta/1740659371_snapshot.json",
+          "hash": "13918701906120010413"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/meta/1740659437_snapshot.json",
+          "hash": "6205050828289535035"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/meta/1740659679_snapshot.json",
+          "hash": "6068547202099917676"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/meta/1740659739_snapshot.json",
+          "hash": "16064002825801259904"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/meta/1740659896_snapshot.json",
+          "hash": "9931911247001284357"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/meta/1740660940_snapshot.json",
+          "hash": "7668884589391267516"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/meta/1740661978_snapshot.json",
+          "hash": "8771347297003594681"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/meta/1741547188_snapshot.json",
+          "hash": "7358409436241373027"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/meta/1741580588_snapshot.json",
+          "hash": "16173329927054443641"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/meta/1741587901_snapshot.json",
+          "hash": "5002432579708244174"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/meta/1741588540_snapshot.json",
+          "hash": "3497784541659330127"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/meta/1741589561_snapshot.json",
+          "hash": "8065647274332521496"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/meta/1741589609_snapshot.json",
+          "hash": "15873945685001430182"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/meta/1741595439_snapshot.json",
+          "hash": "3496339645296916911"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/meta/1741596168_snapshot.json",
+          "hash": "5733241992187178808"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/meta/1741598988_snapshot.json",
+          "hash": "17022114342340064824"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/meta/1742082319_snapshot.json",
+          "hash": "592454262588016207"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/meta/1742082646_snapshot.json",
+          "hash": "10303754797329943651"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/meta/1742084083_snapshot.json",
+          "hash": "7982757378310780912"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/meta/1742084362_snapshot.json",
+          "hash": "8307246774372071200"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/meta/1742089316_snapshot.json",
+          "hash": "4449663158402611536"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/meta/1742110960_snapshot.json",
+          "hash": "11308250367642230951"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/meta/1742111547_snapshot.json",
+          "hash": "10530122944401154593"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/meta/1742111655_snapshot.json",
+          "hash": "16826097737169650391"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/meta/1742177074_snapshot.json",
+          "hash": "6862923273805434839"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/meta/1742190977_snapshot.json",
+          "hash": "17883767697367715501"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/meta/1742191578_snapshot.json",
+          "hash": "18160796113688686418"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/meta/1742193684_snapshot.json",
+          "hash": "12456782405438825964"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/meta/1742536317_snapshot.json",
+          "hash": "4227813770734281893"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/meta/1742536704_snapshot.json",
+          "hash": "7542129686004215609"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/meta/1742536770_snapshot.json",
+          "hash": "10143920425814150248"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/meta/1742766554_snapshot.json",
+          "hash": "3248084079561225597"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/meta/1742771803_snapshot.json",
+          "hash": "9835628751520157165"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/meta/1742801800_snapshot.json",
+          "hash": "5331299502551910272"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/meta/1742986995_snapshot.json",
+          "hash": "14083256812293223364"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/meta/1743053796_snapshot.json",
+          "hash": "12492574961055733699"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/meta/1743216414_snapshot.json",
+          "hash": "5124586825704465778"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/meta/1743218412_snapshot.json",
+          "hash": "1677036385313810776"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/meta/1743219015_snapshot.json",
+          "hash": "12124859073537307607"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/meta/1743232420_snapshot.json",
+          "hash": "12369338921730816171"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/meta/1743304629_snapshot.json",
+          "hash": "981434002858560289"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/meta/1744217378_snapshot.json",
+          "hash": "7727736495280600355"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/meta/1745682625_snapshot.json",
+          "hash": "8863097657608864177"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/meta/1745683052_snapshot.json",
+          "hash": "15077123160015390920"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/meta/1745684096_snapshot.json",
+          "hash": "7981109431750999902"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/meta/1745685359_snapshot.json",
+          "hash": "15493345269934957865"
+        },
+        {
+          "file": "packages/backend/src/db/migrations/meta/_journal.json",
+          "hash": "18090149139775298749"
+        },
+        {
+          "file": "packages/backend/src/db/schema/auth-module.ts",
+          "hash": "548518354060818366",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/db/schema/auth-permission.ts",
+          "hash": "4688794339384986711",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/db/schema/auth-role.ts",
+          "hash": "2251924094647820724",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/db/schema/auth-session.ts",
+          "hash": "17830424808709307985",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/db/schema/department-member.ts",
+          "hash": "16748246044400190035",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/db/schema/department-role-title.ts",
+          "hash": "13069349625178151168",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/db/schema/department-user-role.ts",
+          "hash": "9620781604274541337",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/db/schema/department.ts",
+          "hash": "11053018774851047793",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/db/schema/index.ts",
+          "hash": "15883843519861530299"
+        },
+        {
+          "file": "packages/backend/src/db/schema/org-feature-subscription-mapping.ts",
+          "hash": "1452060081554575759",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/db/schema/org-financial-year-quarter.ts",
+          "hash": "13113243354464641863",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/db/schema/org-financial-years.ts",
+          "hash": "7247723282709096637",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/db/schema/org-project-category.ts",
+          "hash": "9686552074869618997",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/db/schema/org-project-member.ts",
+          "hash": "11746077364639421996",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/db/schema/org-project.ts",
+          "hash": "1927596462089371214",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/db/schema/org-subscription-feature.ts",
+          "hash": "4065138046649551480",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/db/schema/org-subscription.ts",
+          "hash": "9370268714149633528",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/db/schema/org-task-comments.ts",
+          "hash": "8331370622807867688",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/db/schema/org-task.ts",
+          "hash": "9341366834676958229",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/db/schema/org-user-invoice-item.ts",
+          "hash": "18391641631013984838",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/db/schema/org-user-invoice.ts",
+          "hash": "5938191761849053296",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/db/schema/org-user-time-log.ts",
+          "hash": "7174679185510267644",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/db/schema/org-workspace-member.ts",
+          "hash": "15504249901726926969",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/db/schema/org-workspace.ts",
+          "hash": "7370614550912348485",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/db/schema/organization-invite.ts",
+          "hash": "5724339783933925053",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/db/schema/organization-member-designation.ts",
+          "hash": "1499735977085498625",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/db/schema/organization-member.ts",
+          "hash": "6017843376539525577",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/db/schema/organization-project-time-log-category.ts",
+          "hash": "15951534812556799646",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/db/schema/organization-time-log-category.ts",
+          "hash": "15317338516996226862",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/db/schema/organization.ts",
+          "hash": "6969366661114217343",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/db/schema/role-permission.ts",
+          "hash": "16280510145562977118",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/db/schema/user-role.ts",
+          "hash": "11869135210904618535",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/db/schema/user.ts",
+          "hash": "10668867342694720578",
+          "deps": [
+            "npm:drizzle-orm"
+          ]
+        },
+        {
+          "file": "packages/backend/src/index.ts",
+          "hash": "9906490566614227670",
+          "deps": [
+            "npm:reflect-metadata"
+          ]
+        },
+        {
+          "file": "packages/backend/src/server/index.ts",
+          "hash": "6535943891478483734",
+          "deps": [
+            "npm:express",
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/backend/src/server/socket-server.test.ts",
+          "hash": "9329883051429817018",
+          "deps": [
+            "npm:vitest@2.1.9",
+            "npm:socket.io"
+          ]
+        },
+        {
+          "file": "packages/backend/src/server/socket-server.ts",
+          "hash": "16639561299837290822",
+          "deps": [
+            "npm:socket.io",
+            "npm:chalk"
+          ]
+        },
+        {
+          "file": "packages/backend/src/test/setup.ts",
+          "hash": "10762920043107197735",
+          "deps": [
+            "npm:reflect-metadata"
+          ]
+        },
+        {
+          "file": "packages/backend/tsconfig.dev.json",
+          "hash": "7498737024737175149"
+        },
+        {
+          "file": "packages/backend/tsconfig.json",
+          "hash": "5331431188104670346"
+        },
+        {
+          "file": "packages/backend/vitest.config.ts",
+          "hash": "1986041537147622002",
+          "deps": [
+            "npm:reflect-metadata",
+            "npm:vitest@2.1.9"
+          ]
+        },
+        {
+          "file": "packages/backend/yarn.lock",
+          "hash": "2064062025101735010"
+        }
+      ],
+      "@payroll/admin": [
+        {
+          "file": "packages/react-client/.dockerignore",
+          "hash": "18086761999540443386"
+        },
+        {
+          "file": "packages/react-client/.gitignore",
+          "hash": "17859797529360227470"
+        },
+        {
+          "file": "packages/react-client/.idea/.gitignore",
+          "hash": "10286036308014790964"
+        },
+        {
+          "file": "packages/react-client/.idea/jsLibraryMappings.xml",
+          "hash": "463890270158677548"
+        },
+        {
+          "file": "packages/react-client/.idea/modules.xml",
+          "hash": "3168826760053841231"
+        },
+        {
+          "file": "packages/react-client/.idea/react-client.iml",
+          "hash": "2091662290190038625"
+        },
+        {
+          "file": "packages/react-client/.idea/runConfigurations/dev.xml",
+          "hash": "12340417005083805480"
+        },
+        {
+          "file": "packages/react-client/.idea/vcs.xml",
+          "hash": "14600148892634157659"
+        },
+        {
+          "file": "packages/react-client/.vscode/settings.json",
+          "hash": "14478285050112920513"
+        },
+        {
+          "file": "packages/react-client/Dockerfile",
+          "hash": "13050733377553641400"
+        },
+        {
+          "file": "packages/react-client/README.md",
+          "hash": "12328888106816686107"
+        },
+        {
+          "file": "packages/react-client/app/app.css",
+          "hash": "10148172916452274443"
+        },
+        {
+          "file": "packages/react-client/app/auth.routes.ts",
+          "hash": "9918996389740146407",
+          "deps": [
+            "npm:@react-router/dev"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/add-project-member-modal.tsx",
+          "hash": "4585246851401959662",
+          "deps": [
+            "npm:react",
+            "npm:zod",
+            "npm:react-hook-form",
+            "npm:@hookform/resolvers"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/add-user-to-project-combobox.tsx",
+          "hash": "3721081508850771975",
+          "deps": [
+            "npm:@tanstack/react-query",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/create-task-loading.tsx",
+          "hash": "11104311757542215936"
+        },
+        {
+          "file": "packages/react-client/app/components/custom-toast.tsx",
+          "hash": "8372501459355463559",
+          "deps": [
+            "npm:react",
+            "npm:react-hot-toast",
+            "npm:lucide-react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/dashboard-sidebar.tsx",
+          "hash": "8930730333132389237",
+          "deps": [
+            "npm:react",
+            "npm:lucide-react",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/department-card.tsx",
+          "hash": "14163271231574946878",
+          "deps": [
+            "npm:react",
+            "npm:lucide-react",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/edit-department-loading.tsx",
+          "hash": "8378963984955811925"
+        },
+        {
+          "file": "packages/react-client/app/components/edit-project-loading.tsx",
+          "hash": "9623042242105248521"
+        },
+        {
+          "file": "packages/react-client/app/components/edit-single-time-entry-loading.tsx",
+          "hash": "5548225038727451959"
+        },
+        {
+          "file": "packages/react-client/app/components/error.tsx",
+          "hash": "14212890590497702043",
+          "deps": [
+            "npm:react",
+            "npm:framer-motion",
+            "npm:lucide-react",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/landing/about-section.tsx",
+          "hash": "12021341815471371005",
+          "deps": [
+            "npm:framer-motion",
+            "npm:lucide-react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/landing/contact-section.tsx",
+          "hash": "16551496571444318515",
+          "deps": [
+            "npm:react",
+            "npm:framer-motion",
+            "npm:lucide-react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/landing/footer.tsx",
+          "hash": "8348545028845023065",
+          "deps": [
+            "npm:lucide-react",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/landing/header.tsx",
+          "hash": "4596438435907995298",
+          "deps": [
+            "npm:react",
+            "npm:lucide-react",
+            "npm:framer-motion",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/landing/hero-section.tsx",
+          "hash": "7701558601671911981",
+          "deps": [
+            "npm:framer-motion",
+            "npm:lucide-react",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/landing/mockups/dashboard-mockup.tsx",
+          "hash": "5648025985262730418",
+          "deps": [
+            "npm:framer-motion",
+            "npm:react",
+            "npm:lucide-react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/landing/pricing-section-loader.tsx",
+          "hash": "4326850301394156914"
+        },
+        {
+          "file": "packages/react-client/app/components/landing/pricing-section.tsx",
+          "hash": "11407668931847291820",
+          "deps": [
+            "npm:react",
+            "npm:lucide-react",
+            "npm:framer-motion"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/landing/services-section.tsx",
+          "hash": "4686819784865096020",
+          "deps": [
+            "npm:framer-motion",
+            "npm:lucide-react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/landing/team-section.tsx",
+          "hash": "10902862507498802815",
+          "deps": [
+            "npm:framer-motion",
+            "npm:lucide-react",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/landing/testimonials-section.tsx",
+          "hash": "16486667767535119088",
+          "deps": [
+            "npm:react",
+            "npm:framer-motion",
+            "npm:lucide-react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/landing/trusted-by-section.tsx",
+          "hash": "17085656443860660410",
+          "deps": [
+            "npm:framer-motion"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/list-time-entries-loading.tsx",
+          "hash": "14837992028307699942"
+        },
+        {
+          "file": "packages/react-client/app/components/org-invite-members-loading.tsx",
+          "hash": "7646490308729835006"
+        },
+        {
+          "file": "packages/react-client/app/components/organization-card.tsx",
+          "hash": "2473769219113964721",
+          "deps": [
+            "npm:lucide-react",
+            "npm:react-router",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/organization-invite-card.tsx",
+          "hash": "13850188501692361916",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/organization-invite-form.tsx",
+          "hash": "2449377584572412830",
+          "deps": [
+            "npm:react",
+            "npm:react-hook-form",
+            "npm:@hookform/resolvers",
+            "npm:zod",
+            "npm:lucide-react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/rich-text-editor.tsx",
+          "hash": "3255116129851598265",
+          "deps": [
+            "npm:react",
+            "npm:lucide-react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/single-org/base-dashboard-cards.tsx",
+          "hash": "18006444004687903520",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/single-org/setup-org-member-profile-form.tsx",
+          "hash": "9038807480242042716",
+          "deps": [
+            "npm:react",
+            "npm:react-hook-form",
+            "npm:@hookform/resolvers",
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/single-org/single-org-activity-feed.tsx",
+          "hash": "16244894558569002532"
+        },
+        {
+          "file": "packages/react-client/app/components/single-org/single-org-department-performance.tsx",
+          "hash": "12176746098973110638"
+        },
+        {
+          "file": "packages/react-client/app/components/single-org/single-org-header.tsx",
+          "hash": "9714086746373828234",
+          "deps": [
+            "npm:lucide-react",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/single-org/single-org-mobile-sidebar.tsx",
+          "hash": "14332766548695347535",
+          "deps": [
+            "npm:lucide-react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/single-org/single-org-quick-actions.tsx",
+          "hash": "6641991553331273108",
+          "deps": [
+            "npm:lucide-react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/single-org/single-org-sidebar-nav-item.tsx",
+          "hash": "4081522910352959436",
+          "deps": [
+            "npm:lucide-react",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/single-org/single-org-sidebar-toggle.tsx",
+          "hash": "15567665497700255589",
+          "deps": [
+            "npm:lucide-react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/single-org/single-org-sidebar.tsx",
+          "hash": "4187589913566797302",
+          "deps": [
+            "npm:lucide-react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/single-org/single-org-stats-cards.tsx",
+          "hash": "211249019849406156",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/single-org/single-org-upcoming-events.tsx",
+          "hash": "6644981550197205258",
+          "deps": [
+            "npm:lucide-react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/single-time-entry-loading.tsx",
+          "hash": "5526443145894122466"
+        },
+        {
+          "file": "packages/react-client/app/components/task-calendar.tsx",
+          "hash": "17272036032017718977",
+          "deps": [
+            "npm:react",
+            "npm:react-big-calendar",
+            "npm:date-fns",
+            "npm:lucide-react",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/task-item.tsx",
+          "hash": "12607925095378922836",
+          "deps": [
+            "npm:lucide-react",
+            "npm:react-router",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/task-log-category-combobox.tsx",
+          "hash": "15429843395053828905",
+          "deps": [
+            "npm:@tanstack/react-query",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/task-log-project-combobox.tsx",
+          "hash": "11267413852961056341",
+          "deps": [
+            "npm:@tanstack/react-query",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/tasks-combobox.tsx",
+          "hash": "16320444318710158430",
+          "deps": [
+            "npm:@tanstack/react-query",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/theme-demo.tsx",
+          "hash": "13983558445728470171",
+          "deps": [
+            "npm:lucide-react",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/theme-provider.tsx",
+          "hash": "13432393501997083559",
+          "deps": [
+            "npm:react",
+            "npm:next-themes"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/theme-switcher.tsx",
+          "hash": "16138855789675999958",
+          "deps": [
+            "npm:lucide-react",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/time-categories-loading.tsx",
+          "hash": "715653827366624234",
+          "deps": [
+            "npm:lucide-react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/ui/accordion.tsx",
+          "hash": "11744336998720495788",
+          "deps": [
+            "npm:react",
+            "npm:@radix-ui/react-accordion",
+            "npm:lucide-react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/ui/alert.tsx",
+          "hash": "1243390012219388615",
+          "deps": [
+            "npm:react",
+            "npm:class-variance-authority"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/ui/avatar.tsx",
+          "hash": "4786249066752106838",
+          "deps": [
+            "npm:react",
+            "npm:@radix-ui/react-avatar"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/ui/badge.tsx",
+          "hash": "1003659400474908844",
+          "deps": [
+            "npm:react",
+            "npm:@radix-ui/react-slot@1.1.2",
+            "npm:class-variance-authority"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/ui/button.tsx",
+          "hash": "11725180588446955470",
+          "deps": [
+            "npm:react",
+            "npm:@radix-ui/react-slot@1.1.2",
+            "npm:class-variance-authority"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/ui/calendar.tsx",
+          "hash": "3739746173290004152",
+          "deps": [
+            "npm:react",
+            "npm:lucide-react",
+            "npm:react-day-picker"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/ui/card.tsx",
+          "hash": "14982304557044488122",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/ui/checkbox.tsx",
+          "hash": "15601880509421530978",
+          "deps": [
+            "npm:react",
+            "npm:@radix-ui/react-checkbox",
+            "npm:lucide-react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/ui/collapsible.tsx",
+          "hash": "17074057275547707461",
+          "deps": [
+            "npm:@radix-ui/react-collapsible"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/ui/combobox.tsx",
+          "hash": "16046123240838899713",
+          "deps": [
+            "npm:react",
+            "npm:lucide-react",
+            "npm:use-debounce"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/ui/command.tsx",
+          "hash": "6624498556991377543",
+          "deps": [
+            "npm:react",
+            "npm:cmdk",
+            "npm:lucide-react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/ui/data-table.tsx",
+          "hash": "12671349747654985299",
+          "deps": [
+            "npm:react",
+            "npm:@tanstack/react-table",
+            "npm:lucide-react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/ui/date-picker.tsx",
+          "hash": "15416720102797956953",
+          "deps": [
+            "npm:react",
+            "npm:date-fns"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/ui/dialog.tsx",
+          "hash": "17576746418432706579",
+          "deps": [
+            "npm:react",
+            "npm:@radix-ui/react-dialog@1.1.6",
+            "npm:lucide-react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/ui/dropdown-menu.tsx",
+          "hash": "475712427442974183",
+          "deps": [
+            "npm:react",
+            "npm:@radix-ui/react-dropdown-menu",
+            "npm:lucide-react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/ui/form.tsx",
+          "hash": "3944182723260437683",
+          "deps": [
+            "npm:react",
+            "npm:@radix-ui/react-label",
+            "npm:@radix-ui/react-slot@1.1.2",
+            "npm:react-hook-form"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/ui/input.tsx",
+          "hash": "15384202102697789699",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/ui/label.tsx",
+          "hash": "14144447109484577277",
+          "deps": [
+            "npm:react",
+            "npm:@radix-ui/react-label"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/ui/popover.tsx",
+          "hash": "3193430002828061707",
+          "deps": [
+            "npm:react",
+            "npm:@radix-ui/react-popover"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/ui/progress.tsx",
+          "hash": "8834890989747110650",
+          "deps": [
+            "npm:react",
+            "npm:@radix-ui/react-progress"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/ui/scroll-area.tsx",
+          "hash": "3342614715857192816",
+          "deps": [
+            "npm:react",
+            "npm:@radix-ui/react-scroll-area"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/ui/select.tsx",
+          "hash": "10658650079453258308",
+          "deps": [
+            "npm:react",
+            "npm:@radix-ui/react-select",
+            "npm:lucide-react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/ui/separator.tsx",
+          "hash": "4975452594646211802",
+          "deps": [
+            "npm:react",
+            "npm:@radix-ui/react-separator"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/ui/skeleton.tsx",
+          "hash": "18050643321378768076"
+        },
+        {
+          "file": "packages/react-client/app/components/ui/sonner.tsx",
+          "hash": "12825831522213888195",
+          "deps": [
+            "npm:next-themes",
+            "npm:sonner"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/ui/switch.tsx",
+          "hash": "3800146758908562026",
+          "deps": [
+            "npm:react",
+            "npm:@radix-ui/react-switch"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/ui/table.tsx",
+          "hash": "13696063787168995198",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/ui/tabs.tsx",
+          "hash": "15975035872512272053",
+          "deps": [
+            "npm:react",
+            "npm:@radix-ui/react-tabs"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/ui/tag-input.tsx",
+          "hash": "5030227721742930872",
+          "deps": [
+            "npm:react",
+            "npm:lucide-react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/ui/textarea.tsx",
+          "hash": "13811420647167213382",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/user-dropdown.tsx",
+          "hash": "5511697116012570290",
+          "deps": [
+            "npm:lucide-react",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/workspace-calendar-loading.tsx",
+          "hash": "9280610070788592936"
+        },
+        {
+          "file": "packages/react-client/app/components/workspace-card.tsx",
+          "hash": "15894624627214247837",
+          "deps": [
+            "npm:lucide-react",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/workspaces/invite-org-users-to-workspace-form.tsx",
+          "hash": "2563718112931369081",
+          "deps": [
+            "npm:@hookform/resolvers",
+            "npm:react-hook-form",
+            "npm:react-router",
+            "npm:react",
+            "npm:lucide-react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/workspaces/workspace-card.tsx",
+          "hash": "6741708194441982022",
+          "deps": [
+            "npm:lucide-react",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/workspaces/workspace-grid.tsx",
+          "hash": "7377253602383392023"
+        },
+        {
+          "file": "packages/react-client/app/department.routes.ts",
+          "hash": "16568091423993429466",
+          "deps": [
+            "npm:@react-router/dev"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/hooks/use-auth.tsx",
+          "hash": "6052248391917665564",
+          "deps": [
+            "npm:react",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/hooks/use-axios.tsx",
+          "hash": "15898411569650978944",
+          "deps": [
+            "npm:axios@1.8.1"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/hooks/use-current-org.tsx",
+          "hash": "1795481017658342808",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/hooks/use-dark-mode.tsx",
+          "hash": "15543066790042362490",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/hooks/use-debounce.tsx",
+          "hash": "18445268904510683163",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/hooks/use-mock-sidebar.tsx",
+          "hash": "7907852855169541820",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/hooks/use-notification.tsx",
+          "hash": "14959333338022003052",
+          "deps": [
+            "npm:sweetalert2"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/hooks/use-render-mode.tsx",
+          "hash": "13280288520407493792"
+        },
+        {
+          "file": "packages/react-client/app/hooks/use-theme.tsx",
+          "hash": "6275071784305827547",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/layouts/auth-layout.tsx",
+          "hash": "6667946014250939561",
+          "deps": [
+            "npm:react",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/layouts/base-layout.tsx",
+          "hash": "9648492300147998402",
+          "deps": [
+            "npm:@tanstack/react-query",
+            "npm:@tanstack/react-query-devtools",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/layouts/no-auth-layout.tsx",
+          "hash": "1594828588883025860",
+          "deps": [
+            "npm:react",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/layouts/single-org-layout.tsx",
+          "hash": "9275237848276042831",
+          "deps": [
+            "npm:react",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/layouts/single-workspace-layout.tsx",
+          "hash": "9270184959609391203",
+          "deps": [
+            "npm:lucide-react",
+            "npm:react-router",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/constants/countries.tsx",
+          "hash": "9410253841107821973"
+        },
+        {
+          "file": "packages/react-client/app/lib/constants/member-roles.tsx",
+          "hash": "11751330757743173248"
+        },
+        {
+          "file": "packages/react-client/app/lib/constants/pagination.ts",
+          "hash": "3971011231754081485"
+        },
+        {
+          "file": "packages/react-client/app/lib/constants/task-options.tsx",
+          "hash": "7251707854978654565",
+          "deps": [
+            "npm:lucide-react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/data/company-sizes.tsx",
+          "hash": "3558099523160181783"
+        },
+        {
+          "file": "packages/react-client/app/lib/data/mock-sidebar-links.tsx",
+          "hash": "2596019825345210254"
+        },
+        {
+          "file": "packages/react-client/app/lib/data/project-category-colors.tsx",
+          "hash": "15678150328618235838"
+        },
+        {
+          "file": "packages/react-client/app/lib/data/single-org-layout-data.tsx",
+          "hash": "5747430853353710568",
+          "deps": [
+            "npm:lucide-react",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/data/testimonial.tsx",
+          "hash": "15249161701330450324"
+        },
+        {
+          "file": "packages/react-client/app/lib/data/themes.tsx",
+          "hash": "4053717348104602406"
+        },
+        {
+          "file": "packages/react-client/app/lib/data/workspace-sidebar-links.tsx",
+          "hash": "16155230745869173666",
+          "deps": [
+            "npm:lucide-react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/queries/department-title-query.ts",
+          "hash": "4738667188555446306",
+          "deps": [
+            "npm:react",
+            "npm:@tanstack/react-query"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/queries/departments-query.ts",
+          "hash": "1609951199005329672",
+          "deps": [
+            "npm:react",
+            "npm:@tanstack/react-query"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/queries/org-designation-query.tsx",
+          "hash": "17583941524508305311",
+          "deps": [
+            "npm:react",
+            "npm:axios@1.8.1",
+            "npm:@tanstack/react-query"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/queries/org-members-invite-query.ts",
+          "hash": "10114608298586812172",
+          "deps": [
+            "npm:@tanstack/react-query",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/queries/org-members-query.tsx",
+          "hash": "10303134340322817840",
+          "deps": [
+            "npm:react",
+            "npm:@tanstack/react-query"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/queries/org-project-category-query.ts",
+          "hash": "18247050239203989951",
+          "deps": [
+            "npm:react",
+            "npm:@tanstack/react-query"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/queries/org-projects-query.ts",
+          "hash": "16968606276128428724",
+          "deps": [
+            "npm:react",
+            "npm:@tanstack/react-query"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/queries/subscription-plans-query.ts",
+          "hash": "14952614350489866071",
+          "deps": [
+            "npm:react",
+            "npm:@tanstack/react-query"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/queries/use-department-roles-query.tsx",
+          "hash": "5661234917308014770",
+          "deps": [
+            "npm:react",
+            "npm:@tanstack/react-query",
+            "npm:axios@1.8.1"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/queries/use-org-invitations.tsx",
+          "hash": "9845853347598305559",
+          "deps": [
+            "npm:react",
+            "npm:lucide-react",
+            "npm:axios@1.8.1",
+            "npm:@tanstack/react-query"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/queries/use-organization.ts",
+          "hash": "15066819150207230285",
+          "deps": [
+            "npm:react",
+            "npm:@tanstack/react-query"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/queries/use-project-time-log-categories.tsx",
+          "hash": "15256887787970154797",
+          "deps": [
+            "npm:react",
+            "npm:lucide-react",
+            "npm:axios@1.8.1",
+            "npm:@tanstack/react-query"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/queries/use-tasks.tsx",
+          "hash": "1607354879910721462",
+          "deps": [
+            "npm:react",
+            "npm:lucide-react",
+            "npm:axios@1.8.1",
+            "npm:@tanstack/react-query"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/queries/use-time-log-categories.tsx",
+          "hash": "1271738544203946078",
+          "deps": [
+            "npm:react",
+            "npm:axios@1.8.1",
+            "npm:@tanstack/react-query"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/queries/use-time-logs.tsx",
+          "hash": "12296996244261991484",
+          "deps": [
+            "npm:react",
+            "npm:axios@1.8.1",
+            "npm:@tanstack/react-query"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/queries/workspace-members-query.tsx",
+          "hash": "16097716142946945264",
+          "deps": [
+            "npm:react",
+            "npm:@tanstack/react-query"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/queries/workspace-query.ts",
+          "hash": "13588403934233334499",
+          "deps": [
+            "npm:react",
+            "npm:@tanstack/react-query"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/schema/add-department-role-schema.ts",
+          "hash": "16188337270230752439",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/schema/add-to-or-remove-user-from-org-schema.ts",
+          "hash": "420016061953394080",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/schema/add-user-to-department-schema.ts",
+          "hash": "16720579979458377059",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/schema/add-user-to-workspace-schema.ts",
+          "hash": "17589455500079732544",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/schema/create-department-schema.ts",
+          "hash": "4095165398600580152",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/schema/create-department-title-schema.ts",
+          "hash": "18011457180299700036",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/schema/create-designation-schema.ts",
+          "hash": "4395138126047179380",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/schema/create-org-designation-schema.ts",
+          "hash": "12341595937312043204",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/schema/create-org-project-category-schema.ts",
+          "hash": "2803252412845254825",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/schema/create-org-project-schema.ts",
+          "hash": "8028358679606018531",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/schema/create-organization-schema.ts",
+          "hash": "7795705774675750611",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/schema/create-task-schema.ts",
+          "hash": "15591502808125513601",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/schema/create-time-log-category-schema.ts",
+          "hash": "5681268532364950283",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/schema/create-time-log-schema.ts",
+          "hash": "6465769715981536480",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/schema/create-workspace-schema.ts",
+          "hash": "11765295448645939143",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/schema/forgot-password-schema.ts",
+          "hash": "263916253200185109",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/schema/gender-schema.ts",
+          "hash": "12861022043283433063",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/schema/login-schema.ts",
+          "hash": "3649922555095085467",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/schema/password-schema.ts",
+          "hash": "4452850975884538807",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/schema/project-time-log-category-schema.ts",
+          "hash": "170834923215230447",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/schema/register-user-schema.ts",
+          "hash": "11408478560529780880",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/schema/setup-org-user-profile-schema.tsx",
+          "hash": "13074895639615558197",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/table-cols/department-member-cols.tsx",
+          "hash": "13005807306534894425",
+          "deps": [
+            "npm:@tanstack/react-table"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/table-cols/departments-col.tsx",
+          "hash": "8781248818164117995",
+          "deps": [
+            "npm:@tanstack/react-table"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/table-cols/designation-cols.tsx",
+          "hash": "18080464710237415345",
+          "deps": [
+            "npm:@tanstack/react-table",
+            "npm:lucide-react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/table-cols/org-department-title-col.tsx",
+          "hash": "4492423799563622604",
+          "deps": [
+            "npm:@tanstack/react-table"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/table-cols/org-invitations-cols.tsx",
+          "hash": "11602839993745731707",
+          "deps": [
+            "npm:@tanstack/react-table",
+            "npm:moment",
+            "npm:lucide-react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/table-cols/org-member-cols.tsx",
+          "hash": "10234600817595372143",
+          "deps": [
+            "npm:@tanstack/react-table",
+            "npm:lucide-react",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/table-cols/org-project-cols.tsx",
+          "hash": "11705109646218155949",
+          "deps": [
+            "npm:@tanstack/react-table"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/table-cols/project-categories-cols.tsx",
+          "hash": "7104108547533104241",
+          "deps": [
+            "npm:@tanstack/react-table"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/table-cols/time-log-categories-cols.tsx",
+          "hash": "926971971278192136",
+          "deps": [
+            "npm:@tanstack/react-table",
+            "npm:lucide-react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/table-cols/time-log-cols.tsx",
+          "hash": "8096140528381532257",
+          "deps": [
+            "npm:@tanstack/react-table",
+            "npm:lucide-react",
+            "npm:moment",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/table-cols/workspace-members-cols.tsx",
+          "hash": "1598174757446361272",
+          "deps": [
+            "npm:lucide-react",
+            "npm:@tanstack/react-table"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/types/department.ts",
+          "hash": "672896568455504173"
+        },
+        {
+          "file": "packages/react-client/app/lib/types/forms.ts",
+          "hash": "1951965309653185566"
+        },
+        {
+          "file": "packages/react-client/app/lib/types/index.ts",
+          "hash": "6619826494576933393"
+        },
+        {
+          "file": "packages/react-client/app/lib/types/mock-sidebar.ts",
+          "hash": "14579411077147532614"
+        },
+        {
+          "file": "packages/react-client/app/lib/types/org-member.ts",
+          "hash": "15644081863343433283"
+        },
+        {
+          "file": "packages/react-client/app/lib/types/organization.ts",
+          "hash": "5177250112132114810"
+        },
+        {
+          "file": "packages/react-client/app/lib/types/project-category.ts",
+          "hash": "8088005256622981007"
+        },
+        {
+          "file": "packages/react-client/app/lib/types/project.ts",
+          "hash": "11512302726784780770"
+        },
+        {
+          "file": "packages/react-client/app/lib/types/response.ts",
+          "hash": "16823976033408444288"
+        },
+        {
+          "file": "packages/react-client/app/lib/types/session.ts",
+          "hash": "8410956461609431408"
+        },
+        {
+          "file": "packages/react-client/app/lib/types/single-org.ts",
+          "hash": "4767064501596351080"
+        },
+        {
+          "file": "packages/react-client/app/lib/types/subscription-plan.ts",
+          "hash": "13231006174444513488"
+        },
+        {
+          "file": "packages/react-client/app/lib/types/time-logging.ts",
+          "hash": "9045940610299198407"
+        },
+        {
+          "file": "packages/react-client/app/lib/types/workspace.ts",
+          "hash": "3022278920142161279"
+        },
+        {
+          "file": "packages/react-client/app/lib/utils.ts",
+          "hash": "6483145186850064023",
+          "deps": [
+            "npm:clsx@2.1.1",
+            "npm:tailwind-merge"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/utils/clean-empty-object.ts",
+          "hash": "1730682372518847989"
+        },
+        {
+          "file": "packages/react-client/app/lib/utils/debounce.ts",
+          "hash": "12424165143057027448"
+        },
+        {
+          "file": "packages/react-client/app/lib/utils/decode-array-buffer.ts",
+          "hash": "3962028788043760599"
+        },
+        {
+          "file": "packages/react-client/app/lib/utils/extract-axios-error.ts",
+          "hash": "13095488595025349736",
+          "deps": [
+            "npm:axios@1.8.1"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/utils/sidebar-icon-size.ts",
+          "hash": "6900457342711588833"
+        },
+        {
+          "file": "packages/react-client/app/lib/utils/toster.tsx",
+          "hash": "17867043996277382718",
+          "deps": [
+            "npm:sonner"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/organization.routes.ts",
+          "hash": "9036442504816222118",
+          "deps": [
+            "npm:@react-router/dev"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/project-categories.routes.ts",
+          "hash": "15919871501049623070",
+          "deps": [
+            "npm:@react-router/dev"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/projects.routes.ts",
+          "hash": "1071180893569014703",
+          "deps": [
+            "npm:@react-router/dev"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/providers/current-organization-context.tsx",
+          "hash": "10375353721219730505",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/providers/sidebar-context.tsx",
+          "hash": "2741980228486275641",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/providers/theme-context.tsx",
+          "hash": "5403202174576344541",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/root.tsx",
+          "hash": "2583870807466811303",
+          "deps": [
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes.ts",
+          "hash": "14008920809059786155",
+          "deps": [
+            "npm:@react-router/dev"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/404.tsx",
+          "hash": "444013645961088374",
+          "deps": [
+            "npm:framer-motion",
+            "npm:lucide-react",
+            "npm:react",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/auth/forgot-password-page.tsx",
+          "hash": "4470271122749694121",
+          "deps": [
+            "npm:react",
+            "npm:@hookform/resolvers",
+            "npm:react-hook-form",
+            "npm:zod",
+            "npm:lucide-react",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/auth/login-page.tsx",
+          "hash": "16556116493837354266",
+          "deps": [
+            "npm:react",
+            "npm:@hookform/resolvers",
+            "npm:react-hook-form",
+            "npm:zod",
+            "npm:lucide-react",
+            "npm:sonner",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/auth/register-page.tsx",
+          "hash": "17163097905872507482",
+          "deps": [
+            "npm:react",
+            "npm:@hookform/resolvers",
+            "npm:react-hook-form",
+            "npm:zod",
+            "npm:lucide-react",
+            "npm:react-router",
+            "npm:sonner"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/auth/user-profile-page.tsx",
+          "hash": "10377015505410602041",
+          "deps": [
+            "npm:react",
+            "npm:lucide-react",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/department-title/create-department-title-page.tsx",
+          "hash": "17647666527174426199",
+          "deps": [
+            "npm:@hookform/resolvers",
+            "npm:react-hook-form",
+            "npm:zod",
+            "npm:lucide-react",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/department/assign-department-role-page.tsx",
+          "hash": "14286189426742633499",
+          "deps": [
+            "npm:react-hook-form",
+            "npm:@hookform/resolvers",
+            "npm:lucide-react",
+            "npm:react-router",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/department/create-department-page.tsx",
+          "hash": "15361175476811640309",
+          "deps": [
+            "npm:@hookform/resolvers",
+            "npm:react-hook-form",
+            "npm:zod",
+            "npm:lucide-react",
+            "npm:react-router",
+            "npm:sonner"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/department/department-members-page.tsx",
+          "hash": "18247363266458227222",
+          "deps": [
+            "npm:lucide-react",
+            "npm:@tanstack/react-table",
+            "npm:react-router",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/department/department-roles-page.tsx",
+          "hash": "9194316833092278060",
+          "deps": [
+            "npm:lucide-react",
+            "npm:@tanstack/react-table",
+            "npm:react-router",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/department/edit-department-page.tsx",
+          "hash": "13966440247158471555",
+          "deps": [
+            "npm:react",
+            "npm:react-router",
+            "npm:@hookform/resolvers",
+            "npm:react-hook-form",
+            "npm:lucide-react",
+            "npm:sonner"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/department/invite-department-members-page.tsx",
+          "hash": "2514109495276036860",
+          "deps": [
+            "npm:react",
+            "npm:react-hook-form",
+            "npm:@hookform/resolvers",
+            "npm:zod",
+            "npm:lucide-react",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/department/list-departments-page.tsx",
+          "hash": "14724324525698054581",
+          "deps": [
+            "npm:lucide-react",
+            "npm:react-router",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/department/single-department-page.tsx",
+          "hash": "10850829476386640354",
+          "deps": [
+            "npm:lucide-react",
+            "npm:react-router",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/designations/list-designations-page.tsx",
+          "hash": "4444714344404247011",
+          "deps": [
+            "npm:react",
+            "npm:lucide-react",
+            "npm:react-hook-form",
+            "npm:@hookform/resolvers"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/landing-page.tsx",
+          "hash": "8722941744290800380"
+        },
+        {
+          "file": "packages/react-client/app/routes/layout-404.tsx",
+          "hash": "13068722511258377722",
+          "deps": [
+            "npm:framer-motion",
+            "npm:lucide-react",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/org/create-organization-page.tsx",
+          "hash": "1938644507913171933",
+          "deps": [
+            "npm:react",
+            "npm:@hookform/resolvers",
+            "npm:react-hook-form",
+            "npm:zod",
+            "npm:lucide-react",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/org/list-organizations-page.tsx",
+          "hash": "10314300550876792004",
+          "deps": [
+            "npm:lucide-react",
+            "npm:react-router",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/org/org-invitations-page.tsx",
+          "hash": "17042274995650290553",
+          "deps": [
+            "npm:react",
+            "npm:lucide-react",
+            "npm:react-router",
+            "npm:@tanstack/react-table",
+            "npm:date-fns",
+            "npm:moment"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/org/org-invite-members-page.tsx",
+          "hash": "10162197789400131049",
+          "deps": [
+            "npm:react",
+            "npm:react-hook-form",
+            "npm:@hookform/resolvers",
+            "npm:zod",
+            "npm:lucide-react",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/org/org-member-list-page.tsx",
+          "hash": "8285310864907288026",
+          "deps": [
+            "npm:react",
+            "npm:react-router",
+            "npm:lucide-react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/org/org-profile-page.tsx",
+          "hash": "11517978565864505202",
+          "deps": [
+            "npm:lucide-react",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/org/org-settings-page.tsx",
+          "hash": "7132391877801640428",
+          "deps": [
+            "npm:lucide-react",
+            "npm:react-router",
+            "npm:react-hook-form",
+            "npm:@hookform/resolvers",
+            "npm:zod",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/org/setup-org-user-profile.tsx",
+          "hash": "6656619284591902810",
+          "deps": [
+            "npm:@hookform/resolvers",
+            "npm:react",
+            "npm:react-hook-form",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/org/single-organization-page.tsx",
+          "hash": "1612745537578600242",
+          "deps": [
+            "npm:lucide-react",
+            "npm:react-router",
+            "npm:moment",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/project-categories/create-project-category-page.tsx",
+          "hash": "8973433508455586284",
+          "deps": [
+            "npm:react-hook-form",
+            "npm:@hookform/resolvers",
+            "npm:zod",
+            "npm:lucide-react",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/project-categories/edit-project-category-page.tsx",
+          "hash": "13168150095373462613",
+          "deps": [
+            "npm:react",
+            "npm:react-hook-form",
+            "npm:@hookform/resolvers",
+            "npm:lucide-react",
+            "npm:react-router",
+            "npm:sonner"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/project-categories/project-categories-page.tsx",
+          "hash": "340212539012747062",
+          "deps": [
+            "npm:lucide-react",
+            "npm:react-router",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/project-categories/single-project-category-page.tsx",
+          "hash": "8203755002412460126",
+          "deps": [
+            "npm:lucide-react",
+            "npm:react-router",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/projects/create-project-page.tsx",
+          "hash": "16612145446265750439",
+          "deps": [
+            "npm:react",
+            "npm:react-hook-form",
+            "npm:@hookform/resolvers",
+            "npm:lucide-react",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/projects/edit-project-page.tsx",
+          "hash": "4859851665267736328",
+          "deps": [
+            "npm:react",
+            "npm:lucide-react",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/projects/list-projects-page.tsx",
+          "hash": "14626786098288920678",
+          "deps": [
+            "npm:lucide-react",
+            "npm:react-router",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/projects/project-time-categories-page.tsx",
+          "hash": "5495318664740056168",
+          "deps": [
+            "npm:react",
+            "npm:lucide-react",
+            "npm:react-hook-form",
+            "npm:@hookform/resolvers",
+            "npm:zod",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/projects/single-project-page.tsx",
+          "hash": "16240050983229479420",
+          "deps": [
+            "npm:lucide-react",
+            "npm:react-router",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/tasks/create-task-page.tsx",
+          "hash": "17109338254510595091",
+          "deps": [
+            "npm:@hookform/resolvers",
+            "npm:react-hook-form",
+            "npm:lucide-react",
+            "npm:date-fns",
+            "npm:react-router",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/tasks/list-tasks-page.tsx",
+          "hash": "3922236671617407319",
+          "deps": [
+            "npm:react",
+            "npm:lucide-react",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/tasks/single-task-page.tsx",
+          "hash": "12740135316294096365",
+          "deps": [
+            "npm:lucide-react",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/theme-demo-page.tsx",
+          "hash": "227957072216408382"
+        },
+        {
+          "file": "packages/react-client/app/routes/time-categories/create-time-category-page.tsx",
+          "hash": "15395934558916034897",
+          "deps": [
+            "npm:@hookform/resolvers",
+            "npm:react-hook-form",
+            "npm:zod",
+            "npm:react",
+            "npm:lucide-react",
+            "npm:sonner",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/time-categories/edit-time-category-page.tsx",
+          "hash": "11934736264997571631",
+          "deps": [
+            "npm:react",
+            "npm:@hookform/resolvers",
+            "npm:react-hook-form",
+            "npm:zod",
+            "npm:lucide-react",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/time-categories/list-time-categories-page.tsx",
+          "hash": "993841470566161793",
+          "deps": [
+            "npm:react",
+            "npm:lucide-react",
+            "npm:react-hook-form",
+            "npm:@hookform/resolvers"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/time-logs/create-time-entry-page.tsx",
+          "hash": "16197310239342105730",
+          "deps": [
+            "npm:@hookform/resolvers",
+            "npm:react-hook-form",
+            "npm:lucide-react",
+            "npm:react-router",
+            "npm:moment"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/time-logs/list-time-entries-page.tsx",
+          "hash": "7973988478448575069",
+          "deps": [
+            "npm:lucide-react",
+            "npm:@tanstack/react-table",
+            "npm:react-router",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/time-logs/single-time-entry-page.tsx",
+          "hash": "16261758727412680108",
+          "deps": [
+            "npm:react",
+            "npm:lucide-react",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/workspace/create-workspace-page.tsx",
+          "hash": "14078808039430838583",
+          "deps": [
+            "npm:react-hook-form",
+            "npm:@hookform/resolvers",
+            "npm:zod",
+            "npm:lucide-react",
+            "npm:react-router",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/workspace/invite-workspace-members-page.tsx",
+          "hash": "5932573699653869002",
+          "deps": [
+            "npm:react",
+            "npm:zod",
+            "npm:lucide-react",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/workspace/single-workspace-page.tsx",
+          "hash": "10130437546042002552",
+          "deps": [
+            "npm:lucide-react",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/workspace/workspace-calendar-page.tsx",
+          "hash": "10327260339058708331",
+          "deps": [
+            "npm:react",
+            "npm:lucide-react",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/workspace/workspace-chat-page.tsx",
+          "hash": "10462702336036363796",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/workspace/workspace-members-page.tsx",
+          "hash": "8048489791852597284",
+          "deps": [
+            "npm:lucide-react",
+            "npm:react-router",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/task.routes.ts",
+          "hash": "11305873435485669669",
+          "deps": [
+            "npm:@react-router/dev"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/workspace.routes.ts",
+          "hash": "2319828524393071822",
+          "deps": [
+            "npm:@react-router/dev"
+          ]
+        },
+        {
+          "file": "packages/react-client/components.json",
+          "hash": "10431854158761024805"
+        },
+        {
+          "file": "packages/react-client/env.example",
+          "hash": "13471603539237672529"
+        },
+        {
+          "file": "packages/react-client/package.json",
+          "hash": "17015775042209482049",
+          "deps": [
+            "npm:@react-router/dev",
+            "npm:@tailwindcss/vite",
+            "npm:@tanstack/eslint-plugin-query",
+            "npm:@types/node@20.17.23",
+            "npm:@types/react",
+            "npm:@types/react-big-calendar",
+            "npm:@types/react-dom",
+            "npm:changelogen",
+            "npm:react-router-devtools",
+            "npm:tailwindcss",
+            "npm:typescript@5.8.2",
+            "npm:vite@5.4.14",
+            "npm:vite-tsconfig-paths",
+            "npm:@hookform/resolvers",
+            "npm:@iconify/react",
+            "npm:@radix-ui/react-accordion",
+            "npm:@radix-ui/react-avatar",
+            "npm:@radix-ui/react-checkbox",
+            "npm:@radix-ui/react-collapsible",
+            "npm:@radix-ui/react-dialog@1.1.6",
+            "npm:@radix-ui/react-dropdown-menu",
+            "npm:@radix-ui/react-label",
+            "npm:@radix-ui/react-popover",
+            "npm:@radix-ui/react-progress",
+            "npm:@radix-ui/react-scroll-area",
+            "npm:@radix-ui/react-select",
+            "npm:@radix-ui/react-separator",
+            "npm:@radix-ui/react-slot@1.1.2",
+            "npm:@radix-ui/react-switch",
+            "npm:@radix-ui/react-tabs",
+            "npm:@react-router/node",
+            "npm:@react-router/serve",
+            "npm:@tanstack/react-query",
+            "npm:@tanstack/react-query-devtools",
+            "npm:@tanstack/react-table",
+            "npm:apexcharts",
+            "npm:axios@1.8.1",
+            "npm:class-variance-authority",
+            "npm:clsx@2.1.1",
+            "npm:cmdk",
+            "npm:date-fns",
+            "npm:framer-motion",
+            "npm:isbot",
+            "npm:lucide-react",
+            "npm:moment",
+            "npm:next-themes",
+            "npm:react",
+            "npm:react-apexcharts",
+            "npm:react-big-calendar",
+            "npm:react-day-picker",
+            "npm:react-dom",
+            "npm:react-hook-form",
+            "npm:react-hot-toast",
+            "npm:react-router",
+            "npm:recharts",
+            "npm:sonner",
+            "npm:sweetalert2",
+            "npm:tailwind-merge",
+            "npm:tailwindcss-animate",
+            "npm:use-debounce",
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/react-client/public/about.txt",
+          "hash": "2820409964087929433"
+        },
+        {
+          "file": "packages/react-client/public/android-chrome-192x192.png",
+          "hash": "4827334801061981845"
+        },
+        {
+          "file": "packages/react-client/public/android-chrome-512x512.png",
+          "hash": "17824776475744734904"
+        },
+        {
+          "file": "packages/react-client/public/apple-touch-icon.png",
+          "hash": "17350938325705923200"
+        },
+        {
+          "file": "packages/react-client/public/favicon-16x16.png",
+          "hash": "17251832287083600508"
+        },
+        {
+          "file": "packages/react-client/public/favicon-32x32.png",
+          "hash": "1023498117539373582"
+        },
+        {
+          "file": "packages/react-client/public/favicon.ico",
+          "hash": "9776500805907380675"
+        },
+        {
+          "file": "packages/react-client/public/site.webmanifest",
+          "hash": "11205980641497128048"
+        },
+        {
+          "file": "packages/react-client/react-router.config.ts",
+          "hash": "16121537494293359736",
+          "deps": [
+            "npm:@react-router/dev"
+          ]
+        },
+        {
+          "file": "packages/react-client/tsconfig.json",
+          "hash": "6510785847667570402"
+        },
+        {
+          "file": "packages/react-client/vite.config.ts",
+          "hash": "10049235645496830499",
+          "deps": [
+            "npm:@react-router/dev",
+            "npm:@tailwindcss/vite",
+            "npm:vite@5.4.14",
+            "npm:vite-tsconfig-paths"
+          ]
+        }
+      ],
+      "@payroll/web": [
+        {
+          "file": "packages/vue-client/.dockerignore",
+          "hash": "18427201681645605579"
+        },
+        {
+          "file": "packages/vue-client/.editorconfig",
+          "hash": "17691529951626141374"
+        },
+        {
+          "file": "packages/vue-client/.env.example",
+          "hash": "13471603539237672529"
+        },
+        {
+          "file": "packages/vue-client/.gitattributes",
+          "hash": "8203086421481795821"
+        },
+        {
+          "file": "packages/vue-client/.gitignore",
+          "hash": "9658677263618781569"
+        },
+        {
+          "file": "packages/vue-client/.prettierrc.json",
+          "hash": "8428552694870592208"
+        },
+        {
+          "file": "packages/vue-client/.vscode/extensions.json",
+          "hash": "7178013227113420734"
+        },
+        {
+          "file": "packages/vue-client/Dockerfile",
+          "hash": "7531819452635187895"
+        },
+        {
+          "file": "packages/vue-client/README.md",
+          "hash": "14016986492164532210"
+        },
+        {
+          "file": "packages/vue-client/e2e/tsconfig.json",
+          "hash": "9053533936770482818"
+        },
+        {
+          "file": "packages/vue-client/e2e/vue.spec.ts",
+          "hash": "17014913996048076390",
+          "deps": [
+            "npm:@playwright/test"
+          ]
+        },
+        {
+          "file": "packages/vue-client/env.d.ts",
+          "hash": "12946363841406869089"
+        },
+        {
+          "file": "packages/vue-client/eslint.config.ts",
+          "hash": "2386764341649295210",
+          "deps": [
+            "npm:eslint-plugin-vue",
+            "npm:@vue/eslint-config-typescript",
+            "npm:@vitest/eslint-plugin",
+            "npm:eslint-plugin-playwright",
+            "npm:@vue/eslint-config-prettier"
+          ]
+        },
+        {
+          "file": "packages/vue-client/index.html",
+          "hash": "6295303952615207352"
+        },
+        {
+          "file": "packages/vue-client/nginx/nginx.conf",
+          "hash": "7607466815305913928"
+        },
+        {
+          "file": "packages/vue-client/package.json",
+          "hash": "4394153705067789117",
+          "deps": [
+            "npm:@playwright/test",
+            "npm:@primevue/auto-import-resolver",
+            "npm:@tsconfig/node22",
+            "npm:@types/jsdom",
+            "npm:@types/node@22.13.9",
+            "npm:@vitejs/plugin-vue",
+            "npm:@vitejs/plugin-vue-jsx",
+            "npm:@vitest/eslint-plugin",
+            "npm:@vue/eslint-config-prettier",
+            "npm:@vue/eslint-config-typescript",
+            "npm:@vue/test-utils",
+            "npm:@vue/tsconfig",
+            "npm:eslint",
+            "npm:eslint-plugin-playwright",
+            "npm:eslint-plugin-vue",
+            "npm:jiti",
+            "npm:jsdom",
+            "npm:npm-run-all2",
+            "npm:prettier@3.5.3",
+            "npm:typescript@5.5.4",
+            "npm:unplugin-vue-components",
+            "npm:vite@6.2.0",
+            "npm:vite-plugin-vue-devtools",
+            "npm:vitest@3.0.7",
+            "npm:vue-tsc",
+            "npm:@headlessui/vue",
+            "npm:@iconify/vue",
+            "npm:@primevue/forms",
+            "npm:@primevue/themes",
+            "npm:@tailwindcss/postcss",
+            "npm:@tailwindcss/vite",
+            "npm:@tanstack/vue-query",
+            "npm:@tanstack/vue-query-devtools",
+            "npm:@tanstack/vue-table",
+            "npm:@vee-validate/zod",
+            "npm:axios@1.8.1",
+            "npm:moment",
+            "npm:pinia",
+            "npm:postcss",
+            "npm:primeicons",
+            "npm:primevue",
+            "npm:sweetalert2",
+            "npm:tailwindcss",
+            "npm:vee-validate",
+            "npm:vue",
+            "npm:vue-router",
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/vue-client/playwright.config.ts",
+          "hash": "16098158862002948297",
+          "deps": [
+            "npm:@playwright/test"
+          ]
+        },
+        {
+          "file": "packages/vue-client/postcss.config.mjs",
+          "hash": "3353885786474150661"
+        },
+        {
+          "file": "packages/vue-client/public/favicon.ico",
+          "hash": "18282137866655320110"
+        },
+        {
+          "file": "packages/vue-client/src/App.vue",
+          "hash": "1798668271345569988"
+        },
+        {
+          "file": "packages/vue-client/src/assets/img/banner-user.png",
+          "hash": "3402485498301662889"
+        },
+        {
+          "file": "packages/vue-client/src/assets/img/card-pay.jpeg",
+          "hash": "15157103833727001474"
+        },
+        {
+          "file": "packages/vue-client/src/assets/img/tm-1.png",
+          "hash": "7134188942542901373"
+        },
+        {
+          "file": "packages/vue-client/src/assets/logo.svg",
+          "hash": "9991375553522856255"
+        },
+        {
+          "file": "packages/vue-client/src/assets/main.css",
+          "hash": "10978080793768676962"
+        },
+        {
+          "file": "packages/vue-client/src/assets/primeui/index.css",
+          "hash": "2412375522439723012"
+        },
+        {
+          "file": "packages/vue-client/src/assets/primeui/theme/colors.css",
+          "hash": "16731037097575657697"
+        },
+        {
+          "file": "packages/vue-client/src/assets/primeui/theme/keyframes.css",
+          "hash": "662923770272681449"
+        },
+        {
+          "file": "packages/vue-client/src/assets/primeui/utils/animation.css",
+          "hash": "886467396915354423"
+        },
+        {
+          "file": "packages/vue-client/src/assets/primeui/utils/backface.css",
+          "hash": "7081101831152493108"
+        },
+        {
+          "file": "packages/vue-client/src/assets/primeui/utils/delay.css",
+          "hash": "9733244346298148126"
+        },
+        {
+          "file": "packages/vue-client/src/assets/primeui/utils/direction.css",
+          "hash": "1083055397556049663"
+        },
+        {
+          "file": "packages/vue-client/src/assets/primeui/utils/duration.css",
+          "hash": "6661462756286544845"
+        },
+        {
+          "file": "packages/vue-client/src/assets/primeui/utils/enterleave.css",
+          "hash": "18016066811161109579"
+        },
+        {
+          "file": "packages/vue-client/src/assets/primeui/utils/fillMode.css",
+          "hash": "5714431108618216510"
+        },
+        {
+          "file": "packages/vue-client/src/assets/primeui/utils/iterationCount.css",
+          "hash": "13735140479957757083"
+        },
+        {
+          "file": "packages/vue-client/src/assets/primeui/utils/playState.css",
+          "hash": "6023372783038600028"
+        },
+        {
+          "file": "packages/vue-client/src/assets/primeui/utils/preset.css",
+          "hash": "16372507469275998439"
+        },
+        {
+          "file": "packages/vue-client/src/assets/primeui/utils/timingFunction.css",
+          "hash": "6085855817274458914"
+        },
+        {
+          "file": "packages/vue-client/src/assets/theme.css",
+          "hash": "15034834898333240410"
+        },
+        {
+          "file": "packages/vue-client/src/components/base-hui-modal.vue",
+          "hash": "11678654041096190222"
+        },
+        {
+          "file": "packages/vue-client/src/components/d-table-t-body.vue",
+          "hash": "16371797267044685309"
+        },
+        {
+          "file": "packages/vue-client/src/components/d-table-t-head.vue",
+          "hash": "5160390510260921559"
+        },
+        {
+          "file": "packages/vue-client/src/components/d-table-t-pagination.vue",
+          "hash": "6654476978413348881"
+        },
+        {
+          "file": "packages/vue-client/src/components/d-table.vue",
+          "hash": "18404153474183438736"
+        },
+        {
+          "file": "packages/vue-client/src/components/form-password-input.vue",
+          "hash": "13794149544565344029"
+        },
+        {
+          "file": "packages/vue-client/src/components/form-taglist.vue",
+          "hash": "2443585471685958893"
+        },
+        {
+          "file": "packages/vue-client/src/components/form-text-input.vue",
+          "hash": "15235448978631408778"
+        },
+        {
+          "file": "packages/vue-client/src/components/hello-world.vue",
+          "hash": "11040179043955211192"
+        },
+        {
+          "file": "packages/vue-client/src/components/hmp-banner.spec.ts",
+          "hash": "11783350950604995222",
+          "deps": [
+            "npm:vitest@3.0.7",
+            "npm:@vue/test-utils"
+          ]
+        },
+        {
+          "file": "packages/vue-client/src/components/hmp-banner.vue",
+          "hash": "16939338776183814571"
+        },
+        {
+          "file": "packages/vue-client/src/components/hmp-team-member.spec.ts",
+          "hash": "12104478238146869260",
+          "deps": [
+            "npm:vitest@3.0.7",
+            "npm:@vue/test-utils"
+          ]
+        },
+        {
+          "file": "packages/vue-client/src/components/hmp-team-member.vue",
+          "hash": "8501963872102962774"
+        },
+        {
+          "file": "packages/vue-client/src/components/hmp-team.spec.ts",
+          "hash": "9273447017332173468",
+          "deps": [
+            "npm:vitest@3.0.7",
+            "npm:@vue/test-utils"
+          ]
+        },
+        {
+          "file": "packages/vue-client/src/components/hmp-team.vue",
+          "hash": "10251878831661553698"
+        },
+        {
+          "file": "packages/vue-client/src/components/hmp-why-choice.vue",
+          "hash": "17809101747920380723"
+        },
+        {
+          "file": "packages/vue-client/src/components/icons/IconCommunity.vue",
+          "hash": "13677159598623475801"
+        },
+        {
+          "file": "packages/vue-client/src/components/icons/IconDocumentation.vue",
+          "hash": "18236295658572451706"
+        },
+        {
+          "file": "packages/vue-client/src/components/icons/IconEcosystem.vue",
+          "hash": "15980754303377160206"
+        },
+        {
+          "file": "packages/vue-client/src/components/icons/IconSupport.vue",
+          "hash": "15808468652280814992"
+        },
+        {
+          "file": "packages/vue-client/src/components/icons/IconTooling.vue",
+          "hash": "4609695526839923136"
+        },
+        {
+          "file": "packages/vue-client/src/components/loading-component.vue",
+          "hash": "7205546867133105518"
+        },
+        {
+          "file": "packages/vue-client/src/components/modal-add-department-member.vue",
+          "hash": "16462117483738873057"
+        },
+        {
+          "file": "packages/vue-client/src/components/modal-assign-dept-role.vue",
+          "hash": "12330099943866571533"
+        },
+        {
+          "file": "packages/vue-client/src/components/modal-create-designation.vue",
+          "hash": "13600692782490957171"
+        },
+        {
+          "file": "packages/vue-client/src/components/modal-create-or-update-department-title.vue",
+          "hash": "18045752101671176290"
+        },
+        {
+          "file": "packages/vue-client/src/components/modal-create-or-update-department.vue",
+          "hash": "12332032768319075789"
+        },
+        {
+          "file": "packages/vue-client/src/components/modal-create-or-update-org-designation.vue",
+          "hash": "12912462596437755966"
+        },
+        {
+          "file": "packages/vue-client/src/components/modal-form-create-org.vue",
+          "hash": "6010396051441885955"
+        },
+        {
+          "file": "packages/vue-client/src/components/modal-invite-users-to-org.vue",
+          "hash": "5532817392835547532"
+        },
+        {
+          "file": "packages/vue-client/src/components/modal-view-department.vue",
+          "hash": "4549195844405558018"
+        },
+        {
+          "file": "packages/vue-client/src/components/nav-bar-item.vue",
+          "hash": "3984134952906290318"
+        },
+        {
+          "file": "packages/vue-client/src/components/nav-bar.vue",
+          "hash": "8148984093736213909"
+        },
+        {
+          "file": "packages/vue-client/src/components/org-create.vue",
+          "hash": "1846685574100030594"
+        },
+        {
+          "file": "packages/vue-client/src/components/org-dashboard-header.vue",
+          "hash": "4815693156379625752"
+        },
+        {
+          "file": "packages/vue-client/src/components/org-dashboard-sidebar.vue",
+          "hash": "8920915181525775854"
+        },
+        {
+          "file": "packages/vue-client/src/components/org-department-listing.vue",
+          "hash": "4647106417296814967"
+        },
+        {
+          "file": "packages/vue-client/src/components/org-department-title-listing.vue",
+          "hash": "7978462987035436969"
+        },
+        {
+          "file": "packages/vue-client/src/components/org-layout-header.vue",
+          "hash": "6364572718891232338"
+        },
+        {
+          "file": "packages/vue-client/src/components/org-sidebar-menu-item.vue",
+          "hash": "446869499844305433"
+        },
+        {
+          "file": "packages/vue-client/src/components/t-action-buttons.vue",
+          "hash": "18385695904601330809"
+        },
+        {
+          "file": "packages/vue-client/src/components/the-welcome.vue",
+          "hash": "7875651101851109365"
+        },
+        {
+          "file": "packages/vue-client/src/components/v-table.vue",
+          "hash": "9637503578255410496"
+        },
+        {
+          "file": "packages/vue-client/src/components/welcome-item.vue",
+          "hash": "12329010385993129720"
+        },
+        {
+          "file": "packages/vue-client/src/composables/use-axios.ts",
+          "hash": "14437198297691618225",
+          "deps": [
+            "npm:axios@1.8.1"
+          ]
+        },
+        {
+          "file": "packages/vue-client/src/composables/use-layout.ts",
+          "hash": "16432422701526182787",
+          "deps": [
+            "npm:vue"
+          ]
+        },
+        {
+          "file": "packages/vue-client/src/composables/use-notification.ts",
+          "hash": "4423983245013580750",
+          "deps": [
+            "npm:sweetalert2"
+          ]
+        },
+        {
+          "file": "packages/vue-client/src/composables/use-organization-members.ts",
+          "hash": "11178940339165403535",
+          "deps": [
+            "npm:axios@1.8.1",
+            "npm:vue"
+          ]
+        },
+        {
+          "file": "packages/vue-client/src/layouts/default-layout.vue",
+          "hash": "8608593159064391975"
+        },
+        {
+          "file": "packages/vue-client/src/layouts/empty-layout.vue",
+          "hash": "4598525932236138297"
+        },
+        {
+          "file": "packages/vue-client/src/layouts/org-layout.vue",
+          "hash": "18186428051610287857"
+        },
+        {
+          "file": "packages/vue-client/src/layouts/single-org-layout.vue",
+          "hash": "13703407631803476684"
+        },
+        {
+          "file": "packages/vue-client/src/layouts/suspense-layout.vue",
+          "hash": "2651867314657347172"
+        },
+        {
+          "file": "packages/vue-client/src/lib/cols/departments-col.ts",
+          "hash": "13800428914337092253",
+          "deps": [
+            "npm:@iconify/vue",
+            "npm:@tanstack/vue-table",
+            "npm:vue"
+          ]
+        },
+        {
+          "file": "packages/vue-client/src/lib/cols/designation-cols.ts",
+          "hash": "10506216607757521574",
+          "deps": [
+            "npm:@iconify/vue",
+            "npm:@tanstack/vue-table",
+            "npm:vue"
+          ]
+        },
+        {
+          "file": "packages/vue-client/src/lib/cols/org-department-title-col.ts",
+          "hash": "12196744824729297132",
+          "deps": [
+            "npm:@iconify/vue",
+            "npm:@tanstack/vue-table",
+            "npm:vue"
+          ]
+        },
+        {
+          "file": "packages/vue-client/src/lib/cols/org-member-cols.ts",
+          "hash": "16691930944264582732",
+          "deps": [
+            "npm:@iconify/vue",
+            "npm:@tanstack/vue-table",
+            "npm:vue"
+          ]
+        },
+        {
+          "file": "packages/vue-client/src/lib/constants/api.ts",
+          "hash": "12869304410414359767"
+        },
+        {
+          "file": "packages/vue-client/src/lib/data/nav.ts",
+          "hash": "7418163753246540461",
+          "deps": [
+            "npm:vue"
+          ]
+        },
+        {
+          "file": "packages/vue-client/src/lib/data/organization-setup-tabs.ts",
+          "hash": "1739735845265097458"
+        },
+        {
+          "file": "packages/vue-client/src/lib/data/sample-staff.json",
+          "hash": "17519821848496018170"
+        },
+        {
+          "file": "packages/vue-client/src/lib/data/team.ts",
+          "hash": "1356539115082641844"
+        },
+        {
+          "file": "packages/vue-client/src/lib/data/why-choose-us.ts",
+          "hash": "15657912183585879041"
+        },
+        {
+          "file": "packages/vue-client/src/main.ts",
+          "hash": "5546782999317616445",
+          "deps": [
+            "npm:vue",
+            "npm:@tanstack/vue-query",
+            "npm:primeicons"
+          ]
+        },
+        {
+          "file": "packages/vue-client/src/plugins/pinia.ts",
+          "hash": "17507534419392774525",
+          "deps": [
+            "npm:pinia",
+            "npm:vue",
+            "npm:vue-router"
+          ]
+        },
+        {
+          "file": "packages/vue-client/src/plugins/primevue.ts",
+          "hash": "9822180915945990867",
+          "deps": [
+            "npm:primevue",
+            "npm:@primevue/themes",
+            "npm:@primevue/forms",
+            "npm:vue"
+          ]
+        },
+        {
+          "file": "packages/vue-client/src/queries/department-title-query.ts",
+          "hash": "16771750601192437120",
+          "deps": [
+            "npm:@tanstack/vue-query",
+            "npm:vue"
+          ]
+        },
+        {
+          "file": "packages/vue-client/src/queries/departments-query.ts",
+          "hash": "12772069783757308568",
+          "deps": [
+            "npm:@tanstack/vue-query",
+            "npm:primevue",
+            "npm:vue"
+          ]
+        },
+        {
+          "file": "packages/vue-client/src/queries/org-designation-query.ts",
+          "hash": "14877413293677534183",
+          "deps": [
+            "npm:@tanstack/vue-query",
+            "npm:vue"
+          ]
+        },
+        {
+          "file": "packages/vue-client/src/queries/org-members-invite-query.ts",
+          "hash": "15183090377652533208",
+          "deps": [
+            "npm:@tanstack/vue-query",
+            "npm:primevue",
+            "npm:vue"
+          ]
+        },
+        {
+          "file": "packages/vue-client/src/queries/org-members-query.ts",
+          "hash": "5146175350510722436",
+          "deps": [
+            "npm:@tanstack/vue-query",
+            "npm:primevue",
+            "npm:vue"
+          ]
+        },
+        {
+          "file": "packages/vue-client/src/router/before-and-after-each.ts",
+          "hash": "16537068226714750482",
+          "deps": [
+            "npm:vue-router",
+            "npm:pinia"
+          ]
+        },
+        {
+          "file": "packages/vue-client/src/router/index.ts",
+          "hash": "2617424879169522846",
+          "deps": [
+            "npm:vue-router"
+          ]
+        },
+        {
+          "file": "packages/vue-client/src/schema/add-department-role-schema.ts",
+          "hash": "14066642372039620643",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/vue-client/src/schema/add-to-or-remove-user-from-org-schema copy.ts",
+          "hash": "18124125688430264291",
+          "deps": [
+            "npm:@vee-validate/zod",
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/vue-client/src/schema/create-department-schema.ts",
+          "hash": "3132727277045658422",
+          "deps": [
+            "npm:@vee-validate/zod",
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/vue-client/src/schema/create-department-title-schema.ts",
+          "hash": "13817094502355747063",
+          "deps": [
+            "npm:@vee-validate/zod",
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/vue-client/src/schema/create-designation-schema.ts",
+          "hash": "4395138126047179380",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/vue-client/src/schema/create-org-designation-schema.ts",
+          "hash": "5304300180321012573",
+          "deps": [
+            "npm:@vee-validate/zod",
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/vue-client/src/schema/create-organization-schema.ts",
+          "hash": "11384036220684238041",
+          "deps": [
+            "npm:@vee-validate/zod",
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/vue-client/src/schema/gender-schema.ts",
+          "hash": "12861022043283433063",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/vue-client/src/schema/login-schema.ts",
+          "hash": "4274927257209343833",
+          "deps": [
+            "npm:@vee-validate/zod",
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/vue-client/src/schema/register-user-schema.ts",
+          "hash": "9787783363633200791",
+          "deps": [
+            "npm:@vee-validate/zod",
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/vue-client/src/stores/auth-store.ts",
+          "hash": "10296594622094076743",
+          "deps": [
+            "npm:pinia",
+            "npm:vue"
+          ]
+        },
+        {
+          "file": "packages/vue-client/src/stores/counter.ts",
+          "hash": "3590648083828400687",
+          "deps": [
+            "npm:vue",
+            "npm:pinia"
+          ]
+        },
+        {
+          "file": "packages/vue-client/src/stores/organization-store.ts",
+          "hash": "2480440090494943011",
+          "deps": [
+            "npm:pinia",
+            "npm:vue",
+            "npm:@tanstack/vue-query"
+          ]
+        },
+        {
+          "file": "packages/vue-client/src/types/dash.d.ts",
+          "hash": "13710666802756732252"
+        },
+        {
+          "file": "packages/vue-client/src/types/org.d.ts",
+          "hash": "8242803562444520318"
+        },
+        {
+          "file": "packages/vue-client/src/types/resp.d.ts",
+          "hash": "4843069276403655663"
+        },
+        {
+          "file": "packages/vue-client/src/types/session.d.ts",
+          "hash": "5946313950171497832",
+          "deps": [
+            "npm:vue-router"
+          ]
+        },
+        {
+          "file": "packages/vue-client/src/types/utils.d.ts",
+          "hash": "15054626094195553407"
+        },
+        {
+          "file": "packages/vue-client/src/utils/decode-array-buffer.ts",
+          "hash": "3962028788043760599"
+        },
+        {
+          "file": "packages/vue-client/src/utils/extract-axios-error.ts",
+          "hash": "6482747012970916048",
+          "deps": [
+            "npm:axios@1.8.1"
+          ]
+        },
+        {
+          "file": "packages/vue-client/src/utils/state-update.ts",
+          "hash": "4366597207139140109",
+          "deps": [
+            "npm:@tanstack/vue-table",
+            "npm:vue"
+          ]
+        },
+        {
+          "file": "packages/vue-client/src/views/about-view.vue",
+          "hash": "322860496764757219"
+        },
+        {
+          "file": "packages/vue-client/src/views/auth/auth-login.vue",
+          "hash": "14644605746932690772"
+        },
+        {
+          "file": "packages/vue-client/src/views/auth/auth-logout.vue",
+          "hash": "9856652665307553204"
+        },
+        {
+          "file": "packages/vue-client/src/views/auth/auth-register.vue",
+          "hash": "10525106512431383704"
+        },
+        {
+          "file": "packages/vue-client/src/views/index-page.vue",
+          "hash": "5656529190770515334"
+        },
+        {
+          "file": "packages/vue-client/src/views/org/id/organization-id-list-workspaces.vue",
+          "hash": "4604977376505610592"
+        },
+        {
+          "file": "packages/vue-client/src/views/org/id/organizations-id-members.vue",
+          "hash": "4545113909895185369"
+        },
+        {
+          "file": "packages/vue-client/src/views/org/id/organizations-id-settings.vue",
+          "hash": "11165394388792255538"
+        },
+        {
+          "file": "packages/vue-client/src/views/org/id/organizations-id-workspaces.vue",
+          "hash": "11374426785323836266"
+        },
+        {
+          "file": "packages/vue-client/src/views/org/id/single-organization-id.vue",
+          "hash": "5351893800589253505"
+        },
+        {
+          "file": "packages/vue-client/src/views/org/index-organizations.vue",
+          "hash": "9722696886725704175"
+        },
+        {
+          "file": "packages/vue-client/src/views/org/org-not-found.vue",
+          "hash": "6054143804021887126"
+        },
+        {
+          "file": "packages/vue-client/src/views/org/setup/org-departments-display.vue",
+          "hash": "1727091006643355506"
+        },
+        {
+          "file": "packages/vue-client/src/views/org/setup/org-member-designation.vue",
+          "hash": "8926586047398778532"
+        },
+        {
+          "file": "packages/vue-client/src/views/org/setup/org-members-display.vue",
+          "hash": "743105092714032480"
+        },
+        {
+          "file": "packages/vue-client/src/views/org/setup/organization-id-setup.vue",
+          "hash": "15605264305290980057"
+        },
+        {
+          "file": "packages/vue-client/tsconfig.app.json",
+          "hash": "16437467957171672317"
+        },
+        {
+          "file": "packages/vue-client/tsconfig.json",
+          "hash": "1496314514702048299"
+        },
+        {
+          "file": "packages/vue-client/tsconfig.node.json",
+          "hash": "11605045521695316322"
+        },
+        {
+          "file": "packages/vue-client/tsconfig.vitest.json",
+          "hash": "2673612455564606942"
+        },
+        {
+          "file": "packages/vue-client/vite.config.ts",
+          "hash": "8959431040746461274",
+          "deps": [
+            "npm:vite@6.2.0",
+            "npm:@vitejs/plugin-vue",
+            "npm:@vitejs/plugin-vue-jsx",
+            "npm:vite-plugin-vue-devtools",
+            "npm:unplugin-vue-components",
+            "npm:@primevue/auto-import-resolver"
+          ]
+        },
+        {
+          "file": "packages/vue-client/vitest.config.ts",
+          "hash": "13489945383606657410",
+          "deps": [
+            "npm:vitest@3.0.7"
+          ]
+        }
+      ]
+    }
+  }
+}

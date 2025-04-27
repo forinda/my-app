@@ -1,0 +1,162 @@
+{
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "nx/tasks-runners/default",
+      "options": {
+        "cacheableOperations": ["build", "test", "lint"],
+        "parallel": 3,
+        "cacheDirectory": ".nx-cache",
+        "runtimeCacheInputs": ["node -v", "pnpm -v"]
+      }
+    }
+  },
+  "targetDefaults": {
+    "build": {
+      "dependsOn": ["^build"],
+      "cache": true
+    },
+    "test": {
+      "cache": true,
+      "dependsOn": ["^test"]
+    },
+    "lint": {
+      "cache": true,
+      "dependsOn": []
+    },
+    "ts:dev": {
+      "dependsOn": []
+    },
+    "start:dev": {
+      "dependsOn": []
+    },
+    "dev": {
+      "dependsOn": []
+    },
+    "clean": {
+      "dependsOn": []
+    },
+    "prebuild": {
+      "dependsOn": []
+    },
+    "prestart": {
+      "dependsOn": []
+    },
+    "start": {
+      "dependsOn": ["^start"]
+    },
+    "prepare": {
+      "dependsOn": []
+    },
+    "lint:fix": {
+      "dependsOn": []
+    },
+    "format": {
+      "dependsOn": []
+    },
+    "migrate:new": {
+      "dependsOn": []
+    },
+    "migrate:deploy": {
+      "dependsOn": []
+    },
+    "db:view": {
+      "dependsOn": ["^db:view"]
+    },
+    "typecheck": {
+      "dependsOn": ["^typecheck"]
+    },
+    "prerelease": {
+      "dependsOn": []
+    },
+    "release": {
+      "dependsOn": []
+    },
+    "preview": {
+      "dependsOn": []
+    },
+    "test:unit": {
+      "dependsOn": []
+    },
+    "test:e2e": {
+      "dependsOn": []
+    },
+    "build-only": {
+      "dependsOn": []
+    },
+    "type-check": {
+      "dependsOn": []
+    }
+  },
+  "namedInputs": {
+    "default": ["{projectRoot}/**/*", "!{projectRoot}/**/node_modules/**"],
+    "production": ["default"]
+  },
+  "nxCloudAccessToken": "",
+  "plugins": ["@nx/eslint", "@nx/vite", "@nx/react", "@nx/playwright"],
+  "workspaceLayout": {
+    "projectNameAndRootFormat": "derived",
+    "appsDir": "packages",
+    "libsDir": "packages"
+  },
+  "workspace": {
+    "projects": {
+      "@payroll/backend": {
+        "root": "packages/backend",
+        "targets": {
+          "build": {
+            "executor": "nx:run-commands",
+            "options": {
+              "command": "pnpm build",
+              "cwd": "packages/backend"
+            }
+          },
+          "dev": {
+            "executor": "nx:run-commands",
+            "options": {
+              "command": "pnpm dev",
+              "cwd": "packages/backend"
+            }
+          }
+        }
+      },
+      "@payroll/admin": {
+        "root": "packages/react-client",
+        "targets": {
+          "build": {
+            "executor": "nx:run-commands",
+            "options": {
+              "command": "pnpm build",
+              "cwd": "packages/react-client"
+            }
+          },
+          "dev": {
+            "executor": "nx:run-commands",
+            "options": {
+              "command": "pnpm dev",
+              "cwd": "packages/react-client"
+            }
+          }
+        }
+      },
+      "@payroll/web": {
+        "root": "packages/vue-client",
+        "targets": {
+          "build": {
+            "executor": "nx:run-commands",
+            "options": {
+              "command": "pnpm build",
+              "cwd": "packages/vue-client"
+            }
+          },
+          "dev": {
+            "executor": "nx:run-commands",
+            "options": {
+              "command": "pnpm dev",
+              "cwd": "packages/vue-client"
+            }
+          }
+        }
+      }
+    }
+  }
+}

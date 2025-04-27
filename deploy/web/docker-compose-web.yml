@@ -1,7 +1,7 @@
 services:
   web:
     build:
-      context: ../../packages/web
+      context: ../../packages/vue-client
       dockerfile: ./Dockerfile
     container_name: web_ui
     env_file:
