@@ -23,156 +23,212 @@
   "fileMap": {
     "nonProjectFiles": [
       {
-        "file": ".gitmodules",
-        "hash": "4379587479641700108"
-      },
-      {
-        "file": "packages/MONOREPO-GUIDE.md",
-        "hash": "2189612709957933282"
-      },
-      {
-        "file": "README.md",
-        "hash": "1418348619712860375"
-      },
-      {
-        "file": ".vscode/settings.json",
-        "hash": "3990533104076745289"
-      },
-      {
-        "file": ".gitignore",
-        "hash": "13198928846976119129"
-      },
-      {
-        "file": "base-paths.ts",
-        "hash": "15877391244630200632"
-      },
-      {
-        "file": "packages/nx",
-        "hash": "17165975525224888679"
-      },
-      {
-        "file": ".idea/git_toolbox_blame.xml",
-        "hash": "10563179705875868391"
-      },
-      {
-        "file": "env.example",
-        "hash": "11144897828046073335"
-      },
-      {
-        "file": ".vscode/launch.json",
-        "hash": "8542633720944627288"
-      },
-      {
         "file": "nx.json",
         "hash": "7181963884297290270"
-      },
-      {
-        "file": "LERNA-GUIDE.md",
-        "hash": "12529677085994329494"
-      },
-      {
-        "file": "packages/.nx/nxw.js",
-        "hash": "11301648124127104610"
-      },
-      {
-        "file": "launch.mjs",
-        "hash": "15534240094301941799"
-      },
-      {
-        "file": "Guide.md",
-        "hash": "13897420328876630765"
-      },
-      {
-        "file": ".idea/inspectionProfiles/Project_Default.xml",
-        "hash": "8912173605315939135"
-      },
-      {
-        "file": "deploy/web/docker-compose-web.yml",
-        "hash": "3341054263510540512"
-      },
-      {
-        "file": ".nx-cache/run.json",
-        "hash": "10871255570405909120"
-      },
-      {
-        "file": "packages/visualize-deps.mjs",
-        "hash": "876395389948400672"
-      },
-      {
-        "file": ".idea/jsLibraryMappings.xml",
-        "hash": "463890270158677548"
-      },
-      {
-        "file": "scripts/build-admin.sh",
-        "hash": "1880709995665458260"
-      },
-      {
-        "file": ".nx-cache/terminalOutputs/2353738559901590722",
-        "hash": "9144151624343880725"
-      },
-      {
-        "file": "scripts/build-web.sh",
-        "hash": "1297855322565028845"
-      },
-      {
-        "file": "packages/launch.mjs",
-        "hash": "8163036843885606522"
       },
       {
         "file": "tasks/docker-build.ts",
         "hash": "7059618358054385290"
       },
       {
-        "file": "pnpm-lock.yaml",
-        "hash": "2514909273889349976"
-      },
-      {
-        "file": "deploy.mjs",
-        "hash": "17473644671676636552"
-      },
-      {
-        "file": "tasks/build-apps.ts",
-        "hash": "2584251519289375764"
-      },
-      {
         "file": "ci/.gitkeep",
         "hash": "3244421341483603138"
       },
       {
-        "file": "packages/nx.bat",
-        "hash": "16119536321561623970"
+        "file": ".vscode/extensions.json",
+        "hash": "17837299179963891856"
       },
       {
-        "file": "scripts/build-backend.sh",
-        "hash": "7680132348724790110"
-      },
-      {
-        "file": ".idea/prettier.xml",
-        "hash": "13711802271405639796"
-      },
-      {
-        "file": ".idea/vcs.xml",
-        "hash": "189273673449710806"
+        "file": "base-paths.ts",
+        "hash": "15877391244630200632"
       },
       {
         "file": ".nx-cache/terminalOutputs/13119934910138146841",
         "hash": "14307056588161344321"
       },
       {
-        "file": "pnpm-workspace.yaml",
-        "hash": "5493987537038211842"
+        "file": "deploy/backend/docker-compose-backend.yml",
+        "hash": "15161066082530267231"
       },
       {
-        "file": ".nx-cache/terminalOutputs/2773621091644518286",
-        "hash": "3418603171366758649"
+        "file": ".gitmodules",
+        "hash": "4379587479641700108"
+      },
+      {
+        "file": ".idea/my-app.iml",
+        "hash": "2091662290190038625"
       },
       {
         "file": "packages/.gitignore",
         "hash": "12990309872111536764"
       },
       {
+        "file": "packages/.nx/nxw.js",
+        "hash": "11301648124127104610"
+      },
+      {
+        "file": "packages/nx.json",
+        "hash": "4094110668604515755"
+      },
+      {
+        "file": "deploy.mjs",
+        "hash": "17473644671676636552"
+      },
+      {
+        "file": "Guide.md",
+        "hash": "13897420328876630765"
+      },
+      {
+        "file": "README.md",
+        "hash": "1418348619712860375"
+      },
+      {
+        "file": ".idea/runConfigurations/dev_web.xml",
+        "hash": "13706341484657077667"
+      },
+      {
+        "file": "scripts/build-backend.sh",
+        "hash": "7680132348724790110"
+      },
+      {
+        "file": "deploy/admin/docker-compose-admin.yml",
+        "hash": "10582520427984790600"
+      },
+      {
+        "file": ".vscode/settings.json",
+        "hash": "3990533104076745289"
+      },
+      {
+        "file": "lerna.json",
+        "hash": "6109422578379458478"
+      },
+      {
+        "file": "packages/launch.mjs",
+        "hash": "8163036843885606522"
+      },
+      {
+        "file": ".idea/inspectionProfiles/Project_Default.xml",
+        "hash": "8912173605315939135"
+      },
+      {
+        "file": "packages/visualize-deps.mjs",
+        "hash": "876395389948400672"
+      },
+      {
+        "file": ".idea/vcs.xml",
+        "hash": "189273673449710806"
+      },
+      {
+        "file": "packages/nx.bat",
+        "hash": "16119536321561623970"
+      },
+      {
+        "file": "gulpfile.ts",
+        "hash": "4712067182833158420"
+      },
+      {
+        "file": "env.example",
+        "hash": "11144897828046073335"
+      },
+      {
+        "file": ".nx-cache/terminalOutputs/14461450819765362386",
+        "hash": "2425677295384591567"
+      },
+      {
+        "file": ".idea/prettier.xml",
+        "hash": "13711802271405639796"
+      },
+      {
+        "file": ".nx-cache/terminalOutputs/2773621091644518286",
+        "hash": "3418603171366758649"
+      },
+      {
+        "file": ".nx-cache/terminalOutputs/2353738559901590722",
+        "hash": "9144151624343880725"
+      },
+      {
+        "file": ".vscode/launch.json",
+        "hash": "8542633720944627288"
+      },
+      {
+        "file": "scripts/build-admin.sh",
+        "hash": "1880709995665458260"
+      },
+      {
+        "file": ".idea/.gitignore",
+        "hash": "10286036308014790964"
+      },
+      {
+        "file": ".idea/git_toolbox_blame.xml",
+        "hash": "10563179705875868391"
+      },
+      {
+        "file": "deploy/web/docker-compose-web.yml",
+        "hash": "3341054263510540512"
+      },
+      {
+        "file": "scripts/build-web.sh",
+        "hash": "1297855322565028845"
+      },
+      {
+        "file": ".github/workflows/npm-gulp.yml",
+        "hash": "4782586275473420573"
+      },
+      {
+        "file": "tsconfig.json",
+        "hash": "18199986230764114117"
+      },
+      {
+        "file": ".nx-cache/run.json",
+        "hash": "10871255570405909120"
+      },
+      {
+        "file": "LERNA-GUIDE.md",
+        "hash": "12529677085994329494"
+      },
+      {
+        "file": "packages/nx",
+        "hash": "17165975525224888679"
+      },
+      {
+        "file": "packages/MONOREPO-GUIDE.md",
+        "hash": "2189612709957933282"
+      },
+      {
+        "file": "tasks/build-apps.ts",
+        "hash": "2584251519289375764"
+      },
+      {
+        "file": "pnpm-workspace.yaml",
+        "hash": "5493987537038211842"
+      },
+      {
+        "file": ".idea/jsLibraryMappings.xml",
+        "hash": "463890270158677548"
+      },
+      {
         "file": "package.json",
         "hash": "7042031249158035075"
+      },
+      {
+        "file": "launch.mjs",
+        "hash": "15534240094301941799"
+      },
+      {
+        "file": ".idea/modules.xml",
+        "hash": "9233024941013982027"
+      },
+      {
+        "file": "SubmoduleMigrationGuide.md",
+        "hash": "12113982988660277596"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "13198928846976119129"
+      },
+      {
+        "file": "pnpm-lock.yaml",
+        "hash": "9196659524079323386"
       },
       {
         "file": "tasks/run-apps.ts",
@@ -181,61 +237,2199 @@
       {
         "file": ".editorconfig",
         "hash": "12491706513498544042"
-      },
-      {
-        "file": ".idea/my-app.iml",
-        "hash": "2091662290190038625"
-      },
-      {
-        "file": "lerna.json",
-        "hash": "6109422578379458478"
-      },
-      {
-        "file": ".idea/.gitignore",
-        "hash": "10286036308014790964"
-      },
-      {
-        "file": "deploy/backend/docker-compose-backend.yml",
-        "hash": "15161066082530267231"
-      },
-      {
-        "file": "packages/nx.json",
-        "hash": "4094110668604515755"
-      },
-      {
-        "file": "tsconfig.json",
-        "hash": "18199986230764114117"
-      },
-      {
-        "file": ".idea/modules.xml",
-        "hash": "9233024941013982027"
-      },
-      {
-        "file": ".github/workflows/npm-gulp.yml",
-        "hash": "4782586275473420573"
-      },
-      {
-        "file": "deploy/admin/docker-compose-admin.yml",
-        "hash": "10582520427984790600"
-      },
-      {
-        "file": ".vscode/extensions.json",
-        "hash": "17837299179963891856"
-      },
-      {
-        "file": "gulpfile.ts",
-        "hash": "4712067182833158420"
-      },
-      {
-        "file": ".idea/runConfigurations/dev_web.xml",
-        "hash": "13706341484657077667"
-      },
-      {
-        "file": "SubmoduleMigrationGuide.md",
-        "hash": "12113982988660277596"
       }
     ],
     "projectFileMap": {
+      "@payroll/admin": [
+        {
+          "file": "packages/react-client/.dockerignore",
+          "hash": "18086761999540443386"
+        },
+        {
+          "file": "packages/react-client/.gitignore",
+          "hash": "17859797529360227470"
+        },
+        {
+          "file": "packages/react-client/.idea/.gitignore",
+          "hash": "10286036308014790964"
+        },
+        {
+          "file": "packages/react-client/.idea/jsLibraryMappings.xml",
+          "hash": "463890270158677548"
+        },
+        {
+          "file": "packages/react-client/.idea/modules.xml",
+          "hash": "3168826760053841231"
+        },
+        {
+          "file": "packages/react-client/.idea/react-client.iml",
+          "hash": "2091662290190038625"
+        },
+        {
+          "file": "packages/react-client/.idea/runConfigurations/dev.xml",
+          "hash": "12340417005083805480"
+        },
+        {
+          "file": "packages/react-client/.idea/vcs.xml",
+          "hash": "14600148892634157659"
+        },
+        {
+          "file": "packages/react-client/.vscode/settings.json",
+          "hash": "14478285050112920513"
+        },
+        {
+          "file": "packages/react-client/Dockerfile",
+          "hash": "13050733377553641400"
+        },
+        {
+          "file": "packages/react-client/README.md",
+          "hash": "12328888106816686107"
+        },
+        {
+          "file": "packages/react-client/app/app.css",
+          "hash": "8512598161719909963"
+        },
+        {
+          "file": "packages/react-client/app/auth.routes.ts",
+          "hash": "9918996389740146407",
+          "deps": [
+            "npm:@react-router/dev"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/add-project-member-modal.tsx",
+          "hash": "4585246851401959662",
+          "deps": [
+            "npm:react",
+            "npm:zod",
+            "npm:react-hook-form",
+            "npm:@hookform/resolvers"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/add-user-to-project-combobox.tsx",
+          "hash": "3721081508850771975",
+          "deps": [
+            "npm:@tanstack/react-query",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/create-task-loading.tsx",
+          "hash": "11104311757542215936"
+        },
+        {
+          "file": "packages/react-client/app/components/custom-toast.tsx",
+          "hash": "8372501459355463559",
+          "deps": [
+            "npm:react",
+            "npm:react-hot-toast",
+            "npm:lucide-react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/dashboard-sidebar.tsx",
+          "hash": "8930730333132389237",
+          "deps": [
+            "npm:react",
+            "npm:lucide-react",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/department-card.tsx",
+          "hash": "14163271231574946878",
+          "deps": [
+            "npm:react",
+            "npm:lucide-react",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/edit-department-loading.tsx",
+          "hash": "8378963984955811925"
+        },
+        {
+          "file": "packages/react-client/app/components/edit-project-loading.tsx",
+          "hash": "9623042242105248521"
+        },
+        {
+          "file": "packages/react-client/app/components/edit-single-time-entry-loading.tsx",
+          "hash": "5548225038727451959"
+        },
+        {
+          "file": "packages/react-client/app/components/editor/editor-bubble-menu.tsx",
+          "hash": "4956078401375332297",
+          "deps": [
+            "npm:react",
+            "npm:lucide-react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/editor/editor-extensions.tsx",
+          "hash": "3526215577383879662"
+        },
+        {
+          "file": "packages/react-client/app/components/editor/editor-extentions.tsx",
+          "hash": "8747118658497739965"
+        },
+        {
+          "file": "packages/react-client/app/components/editor/editor-table-menu.tsx",
+          "hash": "1241940741721717223",
+          "deps": [
+            "npm:lucide-react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/editor/editor-toolbar.tsx",
+          "hash": "17780914771936913361",
+          "deps": [
+            "npm:lucide-react",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/editor/index.tsx",
+          "hash": "1672544577916715808",
+          "deps": [
+            "npm:lucide-react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/editor/mention-suggestion.tsx",
+          "hash": "7950363641361285804"
+        },
+        {
+          "file": "packages/react-client/app/components/editor/mention.tsx",
+          "hash": "2705730114491583457"
+        },
+        {
+          "file": "packages/react-client/app/components/error.tsx",
+          "hash": "14212890590497702043",
+          "deps": [
+            "npm:react",
+            "npm:framer-motion",
+            "npm:lucide-react",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/landing/about-section.tsx",
+          "hash": "12021341815471371005",
+          "deps": [
+            "npm:framer-motion",
+            "npm:lucide-react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/landing/contact-section.tsx",
+          "hash": "16551496571444318515",
+          "deps": [
+            "npm:react",
+            "npm:framer-motion",
+            "npm:lucide-react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/landing/footer.tsx",
+          "hash": "8348545028845023065",
+          "deps": [
+            "npm:lucide-react",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/landing/header.tsx",
+          "hash": "4596438435907995298",
+          "deps": [
+            "npm:react",
+            "npm:lucide-react",
+            "npm:framer-motion",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/landing/hero-section.tsx",
+          "hash": "7701558601671911981",
+          "deps": [
+            "npm:framer-motion",
+            "npm:lucide-react",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/landing/mockups/dashboard-mockup.tsx",
+          "hash": "5648025985262730418",
+          "deps": [
+            "npm:framer-motion",
+            "npm:react",
+            "npm:lucide-react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/landing/pricing-section-loader.tsx",
+          "hash": "4326850301394156914"
+        },
+        {
+          "file": "packages/react-client/app/components/landing/pricing-section.tsx",
+          "hash": "11407668931847291820",
+          "deps": [
+            "npm:react",
+            "npm:lucide-react",
+            "npm:framer-motion"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/landing/services-section.tsx",
+          "hash": "4686819784865096020",
+          "deps": [
+            "npm:framer-motion",
+            "npm:lucide-react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/landing/team-section.tsx",
+          "hash": "10902862507498802815",
+          "deps": [
+            "npm:framer-motion",
+            "npm:lucide-react",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/landing/testimonials-section.tsx",
+          "hash": "16486667767535119088",
+          "deps": [
+            "npm:react",
+            "npm:framer-motion",
+            "npm:lucide-react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/landing/trusted-by-section.tsx",
+          "hash": "17085656443860660410",
+          "deps": [
+            "npm:framer-motion"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/list-time-entries-loading.tsx",
+          "hash": "14837992028307699942"
+        },
+        {
+          "file": "packages/react-client/app/components/notification-bell.tsx",
+          "hash": "14564286900337410579",
+          "deps": [
+            "npm:lucide-react",
+            "npm:date-fns"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/org-invite-members-loading.tsx",
+          "hash": "7646490308729835006"
+        },
+        {
+          "file": "packages/react-client/app/components/organization-card.tsx",
+          "hash": "2473769219113964721",
+          "deps": [
+            "npm:lucide-react",
+            "npm:react-router",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/organization-invite-card.tsx",
+          "hash": "13850188501692361916",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/organization-invite-form.tsx",
+          "hash": "2449377584572412830",
+          "deps": [
+            "npm:react",
+            "npm:react-hook-form",
+            "npm:@hookform/resolvers",
+            "npm:zod",
+            "npm:lucide-react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/rich-text-editor.tsx",
+          "hash": "3255116129851598265",
+          "deps": [
+            "npm:react",
+            "npm:lucide-react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/single-org/base-dashboard-cards.tsx",
+          "hash": "18006444004687903520",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/single-org/setup-org-member-profile-form.tsx",
+          "hash": "9038807480242042716",
+          "deps": [
+            "npm:react",
+            "npm:react-hook-form",
+            "npm:@hookform/resolvers",
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/single-org/single-org-activity-feed.tsx",
+          "hash": "16244894558569002532"
+        },
+        {
+          "file": "packages/react-client/app/components/single-org/single-org-department-performance.tsx",
+          "hash": "12176746098973110638"
+        },
+        {
+          "file": "packages/react-client/app/components/single-org/single-org-header.tsx",
+          "hash": "9714086746373828234",
+          "deps": [
+            "npm:lucide-react",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/single-org/single-org-mobile-sidebar.tsx",
+          "hash": "14332766548695347535",
+          "deps": [
+            "npm:lucide-react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/single-org/single-org-quick-actions.tsx",
+          "hash": "6641991553331273108",
+          "deps": [
+            "npm:lucide-react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/single-org/single-org-sidebar-nav-item.tsx",
+          "hash": "4081522910352959436",
+          "deps": [
+            "npm:lucide-react",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/single-org/single-org-sidebar-toggle.tsx",
+          "hash": "15567665497700255589",
+          "deps": [
+            "npm:lucide-react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/single-org/single-org-sidebar.tsx",
+          "hash": "4187589913566797302",
+          "deps": [
+            "npm:lucide-react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/single-org/single-org-stats-cards.tsx",
+          "hash": "211249019849406156",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/single-org/single-org-upcoming-events.tsx",
+          "hash": "6644981550197205258",
+          "deps": [
+            "npm:lucide-react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/single-time-entry-loading.tsx",
+          "hash": "5526443145894122466"
+        },
+        {
+          "file": "packages/react-client/app/components/task-calendar.tsx",
+          "hash": "17272036032017718977",
+          "deps": [
+            "npm:react",
+            "npm:react-big-calendar",
+            "npm:date-fns",
+            "npm:lucide-react",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/task-item.tsx",
+          "hash": "12607925095378922836",
+          "deps": [
+            "npm:lucide-react",
+            "npm:react-router",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/task-log-category-combobox.tsx",
+          "hash": "15429843395053828905",
+          "deps": [
+            "npm:@tanstack/react-query",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/task-log-project-combobox.tsx",
+          "hash": "11267413852961056341",
+          "deps": [
+            "npm:@tanstack/react-query",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/tasks-combobox.tsx",
+          "hash": "16320444318710158430",
+          "deps": [
+            "npm:@tanstack/react-query",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/theme-demo.tsx",
+          "hash": "13983558445728470171",
+          "deps": [
+            "npm:lucide-react",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/theme-provider.tsx",
+          "hash": "13432393501997083559",
+          "deps": [
+            "npm:react",
+            "npm:next-themes"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/theme-switcher.tsx",
+          "hash": "16138855789675999958",
+          "deps": [
+            "npm:lucide-react",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/time-categories-loading.tsx",
+          "hash": "715653827366624234",
+          "deps": [
+            "npm:lucide-react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/ui/accordion.tsx",
+          "hash": "11744336998720495788",
+          "deps": [
+            "npm:react",
+            "npm:@radix-ui/react-accordion",
+            "npm:lucide-react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/ui/alert.tsx",
+          "hash": "1243390012219388615",
+          "deps": [
+            "npm:react",
+            "npm:class-variance-authority"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/ui/avatar.tsx",
+          "hash": "4786249066752106838",
+          "deps": [
+            "npm:react",
+            "npm:@radix-ui/react-avatar"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/ui/badge.tsx",
+          "hash": "1003659400474908844",
+          "deps": [
+            "npm:react",
+            "npm:@radix-ui/react-slot@1.1.2",
+            "npm:class-variance-authority"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/ui/button.tsx",
+          "hash": "11725180588446955470",
+          "deps": [
+            "npm:react",
+            "npm:@radix-ui/react-slot@1.1.2",
+            "npm:class-variance-authority"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/ui/calendar.tsx",
+          "hash": "3739746173290004152",
+          "deps": [
+            "npm:react",
+            "npm:lucide-react",
+            "npm:react-day-picker"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/ui/card.tsx",
+          "hash": "14982304557044488122",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/ui/checkbox.tsx",
+          "hash": "15601880509421530978",
+          "deps": [
+            "npm:react",
+            "npm:@radix-ui/react-checkbox",
+            "npm:lucide-react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/ui/collapsible.tsx",
+          "hash": "17074057275547707461",
+          "deps": [
+            "npm:@radix-ui/react-collapsible"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/ui/combobox.tsx",
+          "hash": "16046123240838899713",
+          "deps": [
+            "npm:react",
+            "npm:lucide-react",
+            "npm:use-debounce"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/ui/command.tsx",
+          "hash": "6624498556991377543",
+          "deps": [
+            "npm:react",
+            "npm:cmdk",
+            "npm:lucide-react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/ui/data-table.tsx",
+          "hash": "12671349747654985299",
+          "deps": [
+            "npm:react",
+            "npm:@tanstack/react-table",
+            "npm:lucide-react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/ui/date-picker.tsx",
+          "hash": "15416720102797956953",
+          "deps": [
+            "npm:react",
+            "npm:date-fns"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/ui/dialog.tsx",
+          "hash": "17576746418432706579",
+          "deps": [
+            "npm:react",
+            "npm:@radix-ui/react-dialog@1.1.6",
+            "npm:lucide-react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/ui/dropdown-menu.tsx",
+          "hash": "475712427442974183",
+          "deps": [
+            "npm:react",
+            "npm:@radix-ui/react-dropdown-menu",
+            "npm:lucide-react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/ui/form.tsx",
+          "hash": "3944182723260437683",
+          "deps": [
+            "npm:react",
+            "npm:@radix-ui/react-label",
+            "npm:@radix-ui/react-slot@1.1.2",
+            "npm:react-hook-form"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/ui/input.tsx",
+          "hash": "15384202102697789699",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/ui/label.tsx",
+          "hash": "14144447109484577277",
+          "deps": [
+            "npm:react",
+            "npm:@radix-ui/react-label"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/ui/popover.tsx",
+          "hash": "3193430002828061707",
+          "deps": [
+            "npm:react",
+            "npm:@radix-ui/react-popover"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/ui/progress.tsx",
+          "hash": "8834890989747110650",
+          "deps": [
+            "npm:react",
+            "npm:@radix-ui/react-progress"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/ui/scroll-area.tsx",
+          "hash": "3342614715857192816",
+          "deps": [
+            "npm:react",
+            "npm:@radix-ui/react-scroll-area"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/ui/select.tsx",
+          "hash": "10658650079453258308",
+          "deps": [
+            "npm:react",
+            "npm:@radix-ui/react-select",
+            "npm:lucide-react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/ui/separator.tsx",
+          "hash": "4975452594646211802",
+          "deps": [
+            "npm:react",
+            "npm:@radix-ui/react-separator"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/ui/skeleton.tsx",
+          "hash": "18050643321378768076"
+        },
+        {
+          "file": "packages/react-client/app/components/ui/sonner.tsx",
+          "hash": "12825831522213888195",
+          "deps": [
+            "npm:next-themes",
+            "npm:sonner"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/ui/switch.tsx",
+          "hash": "3800146758908562026",
+          "deps": [
+            "npm:react",
+            "npm:@radix-ui/react-switch"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/ui/table.tsx",
+          "hash": "13696063787168995198",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/ui/tabs.tsx",
+          "hash": "15975035872512272053",
+          "deps": [
+            "npm:react",
+            "npm:@radix-ui/react-tabs"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/ui/tag-input.tsx",
+          "hash": "5030227721742930872",
+          "deps": [
+            "npm:react",
+            "npm:lucide-react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/ui/textarea.tsx",
+          "hash": "13811420647167213382",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/ui/toggle.tsx",
+          "hash": "10497961822325880596",
+          "deps": [
+            "npm:react",
+            "npm:class-variance-authority"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/ui/tooltip.tsx",
+          "hash": "15226150016888746366",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/user-dropdown.tsx",
+          "hash": "5511697116012570290",
+          "deps": [
+            "npm:lucide-react",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/workspace-calendar-loading.tsx",
+          "hash": "9280610070788592936"
+        },
+        {
+          "file": "packages/react-client/app/components/workspace-card.tsx",
+          "hash": "15894624627214247837",
+          "deps": [
+            "npm:lucide-react",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/workspaces/invite-org-users-to-workspace-form.tsx",
+          "hash": "2563718112931369081",
+          "deps": [
+            "npm:@hookform/resolvers",
+            "npm:react-hook-form",
+            "npm:react-router",
+            "npm:react",
+            "npm:lucide-react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/workspaces/workspace-card.tsx",
+          "hash": "6741708194441982022",
+          "deps": [
+            "npm:lucide-react",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/components/workspaces/workspace-grid.tsx",
+          "hash": "7377253602383392023"
+        },
+        {
+          "file": "packages/react-client/app/department.routes.ts",
+          "hash": "16568091423993429466",
+          "deps": [
+            "npm:@react-router/dev"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/hooks/use-auth.tsx",
+          "hash": "6052248391917665564",
+          "deps": [
+            "npm:react",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/hooks/use-axios.tsx",
+          "hash": "15898411569650978944",
+          "deps": [
+            "npm:axios@1.8.1"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/hooks/use-current-org.tsx",
+          "hash": "1795481017658342808",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/hooks/use-dark-mode.tsx",
+          "hash": "15543066790042362490",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/hooks/use-debounce.tsx",
+          "hash": "18445268904510683163",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/hooks/use-mock-sidebar.tsx",
+          "hash": "7907852855169541820",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/hooks/use-notification.tsx",
+          "hash": "14959333338022003052",
+          "deps": [
+            "npm:sweetalert2"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/hooks/use-render-mode.tsx",
+          "hash": "13280288520407493792"
+        },
+        {
+          "file": "packages/react-client/app/hooks/use-theme.tsx",
+          "hash": "6275071784305827547",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/layouts/auth-layout.tsx",
+          "hash": "6667946014250939561",
+          "deps": [
+            "npm:react",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/layouts/base-layout.tsx",
+          "hash": "9648492300147998402",
+          "deps": [
+            "npm:@tanstack/react-query",
+            "npm:@tanstack/react-query-devtools",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/layouts/no-auth-layout.tsx",
+          "hash": "1594828588883025860",
+          "deps": [
+            "npm:react",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/layouts/single-org-layout.tsx",
+          "hash": "9275237848276042831",
+          "deps": [
+            "npm:react",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/layouts/single-workspace-layout.tsx",
+          "hash": "9270184959609391203",
+          "deps": [
+            "npm:lucide-react",
+            "npm:react-router",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/constants/countries.tsx",
+          "hash": "9410253841107821973"
+        },
+        {
+          "file": "packages/react-client/app/lib/constants/member-roles.tsx",
+          "hash": "11751330757743173248"
+        },
+        {
+          "file": "packages/react-client/app/lib/constants/pagination.ts",
+          "hash": "3971011231754081485"
+        },
+        {
+          "file": "packages/react-client/app/lib/constants/task-options.tsx",
+          "hash": "7251707854978654565",
+          "deps": [
+            "npm:lucide-react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/data/company-sizes.tsx",
+          "hash": "3558099523160181783"
+        },
+        {
+          "file": "packages/react-client/app/lib/data/mock-sidebar-links.tsx",
+          "hash": "2596019825345210254"
+        },
+        {
+          "file": "packages/react-client/app/lib/data/project-category-colors.tsx",
+          "hash": "15678150328618235838"
+        },
+        {
+          "file": "packages/react-client/app/lib/data/single-org-layout-data.tsx",
+          "hash": "1897090059022359134",
+          "deps": [
+            "npm:lucide-react",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/data/testimonial.tsx",
+          "hash": "15249161701330450324"
+        },
+        {
+          "file": "packages/react-client/app/lib/data/themes.tsx",
+          "hash": "4053717348104602406"
+        },
+        {
+          "file": "packages/react-client/app/lib/data/workspace-sidebar-links.tsx",
+          "hash": "16155230745869173666",
+          "deps": [
+            "npm:lucide-react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/queries/department-title-query.ts",
+          "hash": "4738667188555446306",
+          "deps": [
+            "npm:react",
+            "npm:@tanstack/react-query"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/queries/departments-query.ts",
+          "hash": "1609951199005329672",
+          "deps": [
+            "npm:react",
+            "npm:@tanstack/react-query"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/queries/org-designation-query.tsx",
+          "hash": "17583941524508305311",
+          "deps": [
+            "npm:react",
+            "npm:axios@1.8.1",
+            "npm:@tanstack/react-query"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/queries/org-members-invite-query.ts",
+          "hash": "10114608298586812172",
+          "deps": [
+            "npm:@tanstack/react-query",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/queries/org-members-query.tsx",
+          "hash": "10303134340322817840",
+          "deps": [
+            "npm:react",
+            "npm:@tanstack/react-query"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/queries/org-project-category-query.ts",
+          "hash": "18247050239203989951",
+          "deps": [
+            "npm:react",
+            "npm:@tanstack/react-query"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/queries/org-projects-query.ts",
+          "hash": "16968606276128428724",
+          "deps": [
+            "npm:react",
+            "npm:@tanstack/react-query"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/queries/subscription-plans-query.ts",
+          "hash": "14952614350489866071",
+          "deps": [
+            "npm:react",
+            "npm:@tanstack/react-query"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/queries/use-approvable-time-logs.tsx",
+          "hash": "17454020843185074397",
+          "deps": [
+            "npm:react",
+            "npm:axios@1.8.1",
+            "npm:@tanstack/react-query"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/queries/use-department-roles-query.tsx",
+          "hash": "5661234917308014770",
+          "deps": [
+            "npm:react",
+            "npm:@tanstack/react-query",
+            "npm:axios@1.8.1"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/queries/use-org-invitations.tsx",
+          "hash": "9845853347598305559",
+          "deps": [
+            "npm:react",
+            "npm:lucide-react",
+            "npm:axios@1.8.1",
+            "npm:@tanstack/react-query"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/queries/use-organization.ts",
+          "hash": "15066819150207230285",
+          "deps": [
+            "npm:react",
+            "npm:@tanstack/react-query"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/queries/use-project-time-log-categories.tsx",
+          "hash": "15256887787970154797",
+          "deps": [
+            "npm:react",
+            "npm:lucide-react",
+            "npm:axios@1.8.1",
+            "npm:@tanstack/react-query"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/queries/use-tasks.tsx",
+          "hash": "1607354879910721462",
+          "deps": [
+            "npm:react",
+            "npm:lucide-react",
+            "npm:axios@1.8.1",
+            "npm:@tanstack/react-query"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/queries/use-time-log-categories.tsx",
+          "hash": "2211223721017549708",
+          "deps": [
+            "npm:react",
+            "npm:axios@1.8.1",
+            "npm:@tanstack/react-query"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/queries/use-time-logs copy.tsx",
+          "hash": "12296996244261991484",
+          "deps": [
+            "npm:react",
+            "npm:axios@1.8.1",
+            "npm:@tanstack/react-query"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/queries/use-time-logs.tsx",
+          "hash": "13840061923006564700",
+          "deps": [
+            "npm:react",
+            "npm:axios@1.8.1",
+            "npm:@tanstack/react-query"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/queries/workspace-members-query.tsx",
+          "hash": "16097716142946945264",
+          "deps": [
+            "npm:react",
+            "npm:@tanstack/react-query"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/queries/workspace-query.ts",
+          "hash": "13588403934233334499",
+          "deps": [
+            "npm:react",
+            "npm:@tanstack/react-query"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/schema/add-department-role-schema.ts",
+          "hash": "16188337270230752439",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/schema/add-to-or-remove-user-from-org-schema.ts",
+          "hash": "420016061953394080",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/schema/add-user-to-department-schema.ts",
+          "hash": "16720579979458377059",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/schema/add-user-to-workspace-schema.ts",
+          "hash": "17589455500079732544",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/schema/create-department-schema.ts",
+          "hash": "4095165398600580152",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/schema/create-department-title-schema.ts",
+          "hash": "18011457180299700036",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/schema/create-designation-schema.ts",
+          "hash": "4395138126047179380",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/schema/create-org-designation-schema.ts",
+          "hash": "12341595937312043204",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/schema/create-org-project-category-schema.ts",
+          "hash": "2803252412845254825",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/schema/create-org-project-schema.ts",
+          "hash": "8028358679606018531",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/schema/create-organization-schema.ts",
+          "hash": "7795705774675750611",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/schema/create-task-schema.ts",
+          "hash": "15591502808125513601",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/schema/create-time-log-category-schema.ts",
+          "hash": "5681268532364950283",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/schema/create-time-log-schema.ts",
+          "hash": "6465769715981536480",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/schema/create-workspace-schema.ts",
+          "hash": "11765295448645939143",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/schema/forgot-password-schema.ts",
+          "hash": "263916253200185109",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/schema/gender-schema.ts",
+          "hash": "12861022043283433063",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/schema/login-schema.ts",
+          "hash": "3649922555095085467",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/schema/password-schema.ts",
+          "hash": "4452850975884538807",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/schema/project-time-log-category-schema.ts",
+          "hash": "170834923215230447",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/schema/register-user-schema.ts",
+          "hash": "11408478560529780880",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/schema/setup-org-user-profile-schema.tsx",
+          "hash": "13074895639615558197",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/services/chat-service.ts",
+          "hash": "13909782751328775385"
+        },
+        {
+          "file": "packages/react-client/app/lib/services/notification-service.ts",
+          "hash": "13070715051071874956"
+        },
+        {
+          "file": "packages/react-client/app/lib/table-cols/department-member-cols.tsx",
+          "hash": "13005807306534894425",
+          "deps": [
+            "npm:@tanstack/react-table"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/table-cols/departments-col.tsx",
+          "hash": "8781248818164117995",
+          "deps": [
+            "npm:@tanstack/react-table"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/table-cols/designation-cols.tsx",
+          "hash": "18080464710237415345",
+          "deps": [
+            "npm:@tanstack/react-table",
+            "npm:lucide-react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/table-cols/get-time-management-cols.tsx",
+          "hash": "7259486821461149631",
+          "deps": [
+            "npm:@tanstack/react-table"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/table-cols/org-department-title-col.tsx",
+          "hash": "4492423799563622604",
+          "deps": [
+            "npm:@tanstack/react-table"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/table-cols/org-invitations-cols.tsx",
+          "hash": "11602839993745731707",
+          "deps": [
+            "npm:@tanstack/react-table",
+            "npm:moment",
+            "npm:lucide-react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/table-cols/org-member-cols.tsx",
+          "hash": "10234600817595372143",
+          "deps": [
+            "npm:@tanstack/react-table",
+            "npm:lucide-react",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/table-cols/org-project-cols.tsx",
+          "hash": "11705109646218155949",
+          "deps": [
+            "npm:@tanstack/react-table"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/table-cols/project-categories-cols.tsx",
+          "hash": "7104108547533104241",
+          "deps": [
+            "npm:@tanstack/react-table"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/table-cols/time-log-categories-cols.tsx",
+          "hash": "926971971278192136",
+          "deps": [
+            "npm:@tanstack/react-table",
+            "npm:lucide-react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/table-cols/time-log-cols.tsx",
+          "hash": "8096140528381532257",
+          "deps": [
+            "npm:@tanstack/react-table",
+            "npm:lucide-react",
+            "npm:moment",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/table-cols/workspace-members-cols.tsx",
+          "hash": "1598174757446361272",
+          "deps": [
+            "npm:lucide-react",
+            "npm:@tanstack/react-table"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/types/department.ts",
+          "hash": "672896568455504173"
+        },
+        {
+          "file": "packages/react-client/app/lib/types/forms.ts",
+          "hash": "1951965309653185566"
+        },
+        {
+          "file": "packages/react-client/app/lib/types/index.ts",
+          "hash": "6619826494576933393"
+        },
+        {
+          "file": "packages/react-client/app/lib/types/mock-sidebar.ts",
+          "hash": "14579411077147532614"
+        },
+        {
+          "file": "packages/react-client/app/lib/types/org-member.ts",
+          "hash": "15644081863343433283"
+        },
+        {
+          "file": "packages/react-client/app/lib/types/organization.ts",
+          "hash": "5177250112132114810"
+        },
+        {
+          "file": "packages/react-client/app/lib/types/project-category.ts",
+          "hash": "8088005256622981007"
+        },
+        {
+          "file": "packages/react-client/app/lib/types/project.ts",
+          "hash": "11512302726784780770"
+        },
+        {
+          "file": "packages/react-client/app/lib/types/response.ts",
+          "hash": "16823976033408444288"
+        },
+        {
+          "file": "packages/react-client/app/lib/types/session.ts",
+          "hash": "8410956461609431408"
+        },
+        {
+          "file": "packages/react-client/app/lib/types/single-org.ts",
+          "hash": "4767064501596351080"
+        },
+        {
+          "file": "packages/react-client/app/lib/types/subscription-plan.ts",
+          "hash": "13231006174444513488"
+        },
+        {
+          "file": "packages/react-client/app/lib/types/time-logging.ts",
+          "hash": "9045940610299198407"
+        },
+        {
+          "file": "packages/react-client/app/lib/types/workspace.ts",
+          "hash": "3022278920142161279"
+        },
+        {
+          "file": "packages/react-client/app/lib/utils.ts",
+          "hash": "6483145186850064023",
+          "deps": [
+            "npm:clsx@2.1.1",
+            "npm:tailwind-merge"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/utils/clean-empty-object.ts",
+          "hash": "1730682372518847989"
+        },
+        {
+          "file": "packages/react-client/app/lib/utils/debounce.ts",
+          "hash": "12424165143057027448"
+        },
+        {
+          "file": "packages/react-client/app/lib/utils/decode-array-buffer.ts",
+          "hash": "3962028788043760599"
+        },
+        {
+          "file": "packages/react-client/app/lib/utils/extract-axios-error.ts",
+          "hash": "13095488595025349736",
+          "deps": [
+            "npm:axios@1.8.1"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/lib/utils/sidebar-icon-size.ts",
+          "hash": "6900457342711588833"
+        },
+        {
+          "file": "packages/react-client/app/lib/utils/toster.tsx",
+          "hash": "17867043996277382718",
+          "deps": [
+            "npm:sonner"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/organization.routes.ts",
+          "hash": "6754342885206885936",
+          "deps": [
+            "npm:@react-router/dev"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/project-categories.routes.ts",
+          "hash": "15919871501049623070",
+          "deps": [
+            "npm:@react-router/dev"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/projects.routes.ts",
+          "hash": "1071180893569014703",
+          "deps": [
+            "npm:@react-router/dev"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/providers/current-organization-context.tsx",
+          "hash": "10375353721219730505",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/providers/sidebar-context.tsx",
+          "hash": "2741980228486275641",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/providers/theme-context.tsx",
+          "hash": "5403202174576344541",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/root.tsx",
+          "hash": "2583870807466811303",
+          "deps": [
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes.ts",
+          "hash": "14008920809059786155",
+          "deps": [
+            "npm:@react-router/dev"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/404.tsx",
+          "hash": "444013645961088374",
+          "deps": [
+            "npm:framer-motion",
+            "npm:lucide-react",
+            "npm:react",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/auth/forgot-password-page.tsx",
+          "hash": "4470271122749694121",
+          "deps": [
+            "npm:react",
+            "npm:@hookform/resolvers",
+            "npm:react-hook-form",
+            "npm:zod",
+            "npm:lucide-react",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/auth/login-page.tsx",
+          "hash": "16556116493837354266",
+          "deps": [
+            "npm:react",
+            "npm:@hookform/resolvers",
+            "npm:react-hook-form",
+            "npm:zod",
+            "npm:lucide-react",
+            "npm:sonner",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/auth/register-page.tsx",
+          "hash": "17163097905872507482",
+          "deps": [
+            "npm:react",
+            "npm:@hookform/resolvers",
+            "npm:react-hook-form",
+            "npm:zod",
+            "npm:lucide-react",
+            "npm:react-router",
+            "npm:sonner"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/auth/user-profile-page.tsx",
+          "hash": "10377015505410602041",
+          "deps": [
+            "npm:react",
+            "npm:lucide-react",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/department-title/create-department-title-page.tsx",
+          "hash": "17647666527174426199",
+          "deps": [
+            "npm:@hookform/resolvers",
+            "npm:react-hook-form",
+            "npm:zod",
+            "npm:lucide-react",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/department/assign-department-role-page.tsx",
+          "hash": "14286189426742633499",
+          "deps": [
+            "npm:react-hook-form",
+            "npm:@hookform/resolvers",
+            "npm:lucide-react",
+            "npm:react-router",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/department/create-department-page.tsx",
+          "hash": "15361175476811640309",
+          "deps": [
+            "npm:@hookform/resolvers",
+            "npm:react-hook-form",
+            "npm:zod",
+            "npm:lucide-react",
+            "npm:react-router",
+            "npm:sonner"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/department/department-members-page.tsx",
+          "hash": "18247363266458227222",
+          "deps": [
+            "npm:lucide-react",
+            "npm:@tanstack/react-table",
+            "npm:react-router",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/department/department-roles-page.tsx",
+          "hash": "9194316833092278060",
+          "deps": [
+            "npm:lucide-react",
+            "npm:@tanstack/react-table",
+            "npm:react-router",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/department/edit-department-page.tsx",
+          "hash": "13966440247158471555",
+          "deps": [
+            "npm:react",
+            "npm:react-router",
+            "npm:@hookform/resolvers",
+            "npm:react-hook-form",
+            "npm:lucide-react",
+            "npm:sonner"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/department/invite-department-members-page.tsx",
+          "hash": "2514109495276036860",
+          "deps": [
+            "npm:react",
+            "npm:react-hook-form",
+            "npm:@hookform/resolvers",
+            "npm:zod",
+            "npm:lucide-react",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/department/list-departments-page.tsx",
+          "hash": "14724324525698054581",
+          "deps": [
+            "npm:lucide-react",
+            "npm:react-router",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/department/single-department-page.tsx",
+          "hash": "10850829476386640354",
+          "deps": [
+            "npm:lucide-react",
+            "npm:react-router",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/designations/list-designations-page.tsx",
+          "hash": "4444714344404247011",
+          "deps": [
+            "npm:react",
+            "npm:lucide-react",
+            "npm:react-hook-form",
+            "npm:@hookform/resolvers"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/landing-page.tsx",
+          "hash": "8722941744290800380"
+        },
+        {
+          "file": "packages/react-client/app/routes/layout-404.tsx",
+          "hash": "13068722511258377722",
+          "deps": [
+            "npm:framer-motion",
+            "npm:lucide-react",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/org/create-organization-page.tsx",
+          "hash": "1938644507913171933",
+          "deps": [
+            "npm:react",
+            "npm:@hookform/resolvers",
+            "npm:react-hook-form",
+            "npm:zod",
+            "npm:lucide-react",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/org/list-organizations-page.tsx",
+          "hash": "10314300550876792004",
+          "deps": [
+            "npm:lucide-react",
+            "npm:react-router",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/org/org-invitations-page.tsx",
+          "hash": "17042274995650290553",
+          "deps": [
+            "npm:react",
+            "npm:lucide-react",
+            "npm:react-router",
+            "npm:@tanstack/react-table",
+            "npm:date-fns",
+            "npm:moment"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/org/org-invite-members-page.tsx",
+          "hash": "10162197789400131049",
+          "deps": [
+            "npm:react",
+            "npm:react-hook-form",
+            "npm:@hookform/resolvers",
+            "npm:zod",
+            "npm:lucide-react",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/org/org-member-list-page.tsx",
+          "hash": "8285310864907288026",
+          "deps": [
+            "npm:react",
+            "npm:react-router",
+            "npm:lucide-react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/org/org-profile-page.tsx",
+          "hash": "11517978565864505202",
+          "deps": [
+            "npm:lucide-react",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/org/org-settings-page.tsx",
+          "hash": "7132391877801640428",
+          "deps": [
+            "npm:lucide-react",
+            "npm:react-router",
+            "npm:react-hook-form",
+            "npm:@hookform/resolvers",
+            "npm:zod",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/org/setup-org-user-profile.tsx",
+          "hash": "6656619284591902810",
+          "deps": [
+            "npm:@hookform/resolvers",
+            "npm:react",
+            "npm:react-hook-form",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/org/single-organization-page.tsx",
+          "hash": "1612745537578600242",
+          "deps": [
+            "npm:lucide-react",
+            "npm:react-router",
+            "npm:moment",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/project-categories/create-project-category-page.tsx",
+          "hash": "8973433508455586284",
+          "deps": [
+            "npm:react-hook-form",
+            "npm:@hookform/resolvers",
+            "npm:zod",
+            "npm:lucide-react",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/project-categories/edit-project-category-page.tsx",
+          "hash": "13168150095373462613",
+          "deps": [
+            "npm:react",
+            "npm:react-hook-form",
+            "npm:@hookform/resolvers",
+            "npm:lucide-react",
+            "npm:react-router",
+            "npm:sonner"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/project-categories/project-categories-page.tsx",
+          "hash": "340212539012747062",
+          "deps": [
+            "npm:lucide-react",
+            "npm:react-router",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/project-categories/single-project-category-page.tsx",
+          "hash": "8203755002412460126",
+          "deps": [
+            "npm:lucide-react",
+            "npm:react-router",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/projects/create-project-page.tsx",
+          "hash": "901886644173909166",
+          "deps": [
+            "npm:react",
+            "npm:react-hook-form",
+            "npm:@hookform/resolvers",
+            "npm:lucide-react",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/projects/edit-project-page.tsx",
+          "hash": "4859851665267736328",
+          "deps": [
+            "npm:react",
+            "npm:lucide-react",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/projects/list-projects-page.tsx",
+          "hash": "14626786098288920678",
+          "deps": [
+            "npm:lucide-react",
+            "npm:react-router",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/projects/project-time-categories-page.tsx",
+          "hash": "5495318664740056168",
+          "deps": [
+            "npm:react",
+            "npm:lucide-react",
+            "npm:react-hook-form",
+            "npm:@hookform/resolvers",
+            "npm:zod",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/projects/single-project-page.tsx",
+          "hash": "16240050983229479420",
+          "deps": [
+            "npm:lucide-react",
+            "npm:react-router",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/tasks/create-task-page.tsx",
+          "hash": "17109338254510595091",
+          "deps": [
+            "npm:@hookform/resolvers",
+            "npm:react-hook-form",
+            "npm:lucide-react",
+            "npm:date-fns",
+            "npm:react-router",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/tasks/list-tasks-page.tsx",
+          "hash": "3922236671617407319",
+          "deps": [
+            "npm:react",
+            "npm:lucide-react",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/tasks/single-task-page.tsx",
+          "hash": "12740135316294096365",
+          "deps": [
+            "npm:lucide-react",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/theme-demo-page.tsx",
+          "hash": "227957072216408382"
+        },
+        {
+          "file": "packages/react-client/app/routes/time-categories/create-time-category-page.tsx",
+          "hash": "15395934558916034897",
+          "deps": [
+            "npm:@hookform/resolvers",
+            "npm:react-hook-form",
+            "npm:zod",
+            "npm:react",
+            "npm:lucide-react",
+            "npm:sonner",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/time-categories/edit-time-category-page.tsx",
+          "hash": "11934736264997571631",
+          "deps": [
+            "npm:react",
+            "npm:@hookform/resolvers",
+            "npm:react-hook-form",
+            "npm:zod",
+            "npm:lucide-react",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/time-categories/list-time-categories-page.tsx",
+          "hash": "993841470566161793",
+          "deps": [
+            "npm:react",
+            "npm:lucide-react",
+            "npm:react-hook-form",
+            "npm:@hookform/resolvers"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/time-logs/create-time-entry-page.tsx",
+          "hash": "16197310239342105730",
+          "deps": [
+            "npm:@hookform/resolvers",
+            "npm:react-hook-form",
+            "npm:lucide-react",
+            "npm:react-router",
+            "npm:moment"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/time-logs/list-time-entries-page.tsx",
+          "hash": "7973988478448575069",
+          "deps": [
+            "npm:lucide-react",
+            "npm:@tanstack/react-table",
+            "npm:react-router",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/time-logs/single-time-entry-page.tsx",
+          "hash": "16261758727412680108",
+          "deps": [
+            "npm:react",
+            "npm:lucide-react",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/time-management/bulk-time-management-page.tsx",
+          "hash": "11938399189982262287",
+          "deps": [
+            "npm:react",
+            "npm:lucide-react",
+            "npm:react-router",
+            "npm:@tanstack/react-table",
+            "npm:sonner",
+            "npm:date-fns"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/workspace/create-workspace-page.tsx",
+          "hash": "14078808039430838583",
+          "deps": [
+            "npm:react-hook-form",
+            "npm:@hookform/resolvers",
+            "npm:zod",
+            "npm:lucide-react",
+            "npm:react-router",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/workspace/invite-workspace-members-page.tsx",
+          "hash": "5932573699653869002",
+          "deps": [
+            "npm:react",
+            "npm:zod",
+            "npm:lucide-react",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/workspace/single-workspace-page.tsx",
+          "hash": "10130437546042002552",
+          "deps": [
+            "npm:lucide-react",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/workspace/workspace-calendar-page.tsx",
+          "hash": "10327260339058708331",
+          "deps": [
+            "npm:react",
+            "npm:lucide-react",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/workspace/workspace-chat-page.tsx",
+          "hash": "441606637900993654",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/routes/workspace/workspace-members-page.tsx",
+          "hash": "8048489791852597284",
+          "deps": [
+            "npm:lucide-react",
+            "npm:react-router",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/task.routes.ts",
+          "hash": "11305873435485669669",
+          "deps": [
+            "npm:@react-router/dev"
+          ]
+        },
+        {
+          "file": "packages/react-client/app/workspace.routes.ts",
+          "hash": "2319828524393071822",
+          "deps": [
+            "npm:@react-router/dev"
+          ]
+        },
+        {
+          "file": "packages/react-client/components.json",
+          "hash": "10431854158761024805"
+        },
+        {
+          "file": "packages/react-client/env.example",
+          "hash": "13471603539237672529"
+        },
+        {
+          "file": "packages/react-client/package.json",
+          "hash": "17799205498951292413",
+          "deps": [
+            "npm:@react-router/dev",
+            "npm:@tailwindcss/vite",
+            "npm:@tanstack/eslint-plugin-query",
+            "npm:@types/node@20.17.23",
+            "npm:@types/react",
+            "npm:@types/react-big-calendar",
+            "npm:@types/react-dom",
+            "npm:changelogen",
+            "npm:react-router-devtools",
+            "npm:tailwindcss",
+            "npm:typescript@5.8.2",
+            "npm:vite@5.4.14",
+            "npm:vite-tsconfig-paths",
+            "npm:@hookform/resolvers",
+            "npm:@iconify/react",
+            "npm:@radix-ui/react-accordion",
+            "npm:@radix-ui/react-avatar",
+            "npm:@radix-ui/react-checkbox",
+            "npm:@radix-ui/react-collapsible",
+            "npm:@radix-ui/react-dialog@1.1.6",
+            "npm:@radix-ui/react-dropdown-menu",
+            "npm:@radix-ui/react-label",
+            "npm:@radix-ui/react-popover",
+            "npm:@radix-ui/react-progress",
+            "npm:@radix-ui/react-scroll-area",
+            "npm:@radix-ui/react-select",
+            "npm:@radix-ui/react-separator",
+            "npm:@radix-ui/react-slot@1.1.2",
+            "npm:@radix-ui/react-switch",
+            "npm:@radix-ui/react-tabs",
+            "npm:@react-router/node",
+            "npm:@react-router/serve",
+            "npm:@tanstack/react-query",
+            "npm:@tanstack/react-query-devtools",
+            "npm:@tanstack/react-table",
+            "npm:apexcharts",
+            "npm:axios@1.8.1",
+            "npm:class-variance-authority",
+            "npm:clsx@2.1.1",
+            "npm:cmdk",
+            "npm:date-fns",
+            "npm:framer-motion",
+            "npm:isbot",
+            "npm:lucide-react",
+            "npm:moment",
+            "npm:next-themes",
+            "npm:react",
+            "npm:react-apexcharts",
+            "npm:react-big-calendar",
+            "npm:react-day-picker",
+            "npm:react-dom",
+            "npm:react-hook-form",
+            "npm:react-hot-toast",
+            "npm:react-router",
+            "npm:recharts",
+            "npm:sonner",
+            "npm:sweetalert2",
+            "npm:tailwind-merge",
+            "npm:tailwindcss-animate",
+            "npm:use-debounce",
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/react-client/public/about.txt",
+          "hash": "2820409964087929433"
+        },
+        {
+          "file": "packages/react-client/public/android-chrome-192x192.png",
+          "hash": "4827334801061981845"
+        },
+        {
+          "file": "packages/react-client/public/android-chrome-512x512.png",
+          "hash": "17824776475744734904"
+        },
+        {
+          "file": "packages/react-client/public/apple-touch-icon.png",
+          "hash": "17350938325705923200"
+        },
+        {
+          "file": "packages/react-client/public/favicon-16x16.png",
+          "hash": "17251832287083600508"
+        },
+        {
+          "file": "packages/react-client/public/favicon-32x32.png",
+          "hash": "1023498117539373582"
+        },
+        {
+          "file": "packages/react-client/public/favicon.ico",
+          "hash": "9776500805907380675"
+        },
+        {
+          "file": "packages/react-client/public/site.webmanifest",
+          "hash": "11205980641497128048"
+        },
+        {
+          "file": "packages/react-client/react-router.config.ts",
+          "hash": "16121537494293359736",
+          "deps": [
+            "npm:@react-router/dev"
+          ]
+        },
+        {
+          "file": "packages/react-client/tsconfig.json",
+          "hash": "6510785847667570402"
+        },
+        {
+          "file": "packages/react-client/vite.config.ts",
+          "hash": "10049235645496830499",
+          "deps": [
+            "npm:@react-router/dev",
+            "npm:@tailwindcss/vite",
+            "npm:vite@5.4.14",
+            "npm:vite-tsconfig-paths"
+          ]
+        }
+      ],
       "@payroll/backend": [
         {
           "file": "packages/backend/.dockerignore",
@@ -2853,2082 +5047,6 @@
         {
           "file": "packages/backend/yarn.lock",
           "hash": "2064062025101735010"
-        }
-      ],
-      "@payroll/admin": [
-        {
-          "file": "packages/react-client/.dockerignore",
-          "hash": "18086761999540443386"
-        },
-        {
-          "file": "packages/react-client/.gitignore",
-          "hash": "17859797529360227470"
-        },
-        {
-          "file": "packages/react-client/.idea/.gitignore",
-          "hash": "10286036308014790964"
-        },
-        {
-          "file": "packages/react-client/.idea/jsLibraryMappings.xml",
-          "hash": "463890270158677548"
-        },
-        {
-          "file": "packages/react-client/.idea/modules.xml",
-          "hash": "3168826760053841231"
-        },
-        {
-          "file": "packages/react-client/.idea/react-client.iml",
-          "hash": "2091662290190038625"
-        },
-        {
-          "file": "packages/react-client/.idea/runConfigurations/dev.xml",
-          "hash": "12340417005083805480"
-        },
-        {
-          "file": "packages/react-client/.idea/vcs.xml",
-          "hash": "14600148892634157659"
-        },
-        {
-          "file": "packages/react-client/.vscode/settings.json",
-          "hash": "14478285050112920513"
-        },
-        {
-          "file": "packages/react-client/Dockerfile",
-          "hash": "13050733377553641400"
-        },
-        {
-          "file": "packages/react-client/README.md",
-          "hash": "12328888106816686107"
-        },
-        {
-          "file": "packages/react-client/app/app.css",
-          "hash": "10148172916452274443"
-        },
-        {
-          "file": "packages/react-client/app/auth.routes.ts",
-          "hash": "9918996389740146407",
-          "deps": [
-            "npm:@react-router/dev"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/components/add-project-member-modal.tsx",
-          "hash": "4585246851401959662",
-          "deps": [
-            "npm:react",
-            "npm:zod",
-            "npm:react-hook-form",
-            "npm:@hookform/resolvers"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/components/add-user-to-project-combobox.tsx",
-          "hash": "3721081508850771975",
-          "deps": [
-            "npm:@tanstack/react-query",
-            "npm:react"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/components/create-task-loading.tsx",
-          "hash": "11104311757542215936"
-        },
-        {
-          "file": "packages/react-client/app/components/custom-toast.tsx",
-          "hash": "8372501459355463559",
-          "deps": [
-            "npm:react",
-            "npm:react-hot-toast",
-            "npm:lucide-react"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/components/dashboard-sidebar.tsx",
-          "hash": "8930730333132389237",
-          "deps": [
-            "npm:react",
-            "npm:lucide-react",
-            "npm:react-router"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/components/department-card.tsx",
-          "hash": "14163271231574946878",
-          "deps": [
-            "npm:react",
-            "npm:lucide-react",
-            "npm:react-router"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/components/edit-department-loading.tsx",
-          "hash": "8378963984955811925"
-        },
-        {
-          "file": "packages/react-client/app/components/edit-project-loading.tsx",
-          "hash": "9623042242105248521"
-        },
-        {
-          "file": "packages/react-client/app/components/edit-single-time-entry-loading.tsx",
-          "hash": "5548225038727451959"
-        },
-        {
-          "file": "packages/react-client/app/components/error.tsx",
-          "hash": "14212890590497702043",
-          "deps": [
-            "npm:react",
-            "npm:framer-motion",
-            "npm:lucide-react",
-            "npm:react-router"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/components/landing/about-section.tsx",
-          "hash": "12021341815471371005",
-          "deps": [
-            "npm:framer-motion",
-            "npm:lucide-react"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/components/landing/contact-section.tsx",
-          "hash": "16551496571444318515",
-          "deps": [
-            "npm:react",
-            "npm:framer-motion",
-            "npm:lucide-react"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/components/landing/footer.tsx",
-          "hash": "8348545028845023065",
-          "deps": [
-            "npm:lucide-react",
-            "npm:react-router"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/components/landing/header.tsx",
-          "hash": "4596438435907995298",
-          "deps": [
-            "npm:react",
-            "npm:lucide-react",
-            "npm:framer-motion",
-            "npm:react-router"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/components/landing/hero-section.tsx",
-          "hash": "7701558601671911981",
-          "deps": [
-            "npm:framer-motion",
-            "npm:lucide-react",
-            "npm:react-router"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/components/landing/mockups/dashboard-mockup.tsx",
-          "hash": "5648025985262730418",
-          "deps": [
-            "npm:framer-motion",
-            "npm:react",
-            "npm:lucide-react"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/components/landing/pricing-section-loader.tsx",
-          "hash": "4326850301394156914"
-        },
-        {
-          "file": "packages/react-client/app/components/landing/pricing-section.tsx",
-          "hash": "11407668931847291820",
-          "deps": [
-            "npm:react",
-            "npm:lucide-react",
-            "npm:framer-motion"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/components/landing/services-section.tsx",
-          "hash": "4686819784865096020",
-          "deps": [
-            "npm:framer-motion",
-            "npm:lucide-react"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/components/landing/team-section.tsx",
-          "hash": "10902862507498802815",
-          "deps": [
-            "npm:framer-motion",
-            "npm:lucide-react",
-            "npm:react-router"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/components/landing/testimonials-section.tsx",
-          "hash": "16486667767535119088",
-          "deps": [
-            "npm:react",
-            "npm:framer-motion",
-            "npm:lucide-react"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/components/landing/trusted-by-section.tsx",
-          "hash": "17085656443860660410",
-          "deps": [
-            "npm:framer-motion"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/components/list-time-entries-loading.tsx",
-          "hash": "14837992028307699942"
-        },
-        {
-          "file": "packages/react-client/app/components/org-invite-members-loading.tsx",
-          "hash": "7646490308729835006"
-        },
-        {
-          "file": "packages/react-client/app/components/organization-card.tsx",
-          "hash": "2473769219113964721",
-          "deps": [
-            "npm:lucide-react",
-            "npm:react-router",
-            "npm:react"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/components/organization-invite-card.tsx",
-          "hash": "13850188501692361916",
-          "deps": [
-            "npm:zod"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/components/organization-invite-form.tsx",
-          "hash": "2449377584572412830",
-          "deps": [
-            "npm:react",
-            "npm:react-hook-form",
-            "npm:@hookform/resolvers",
-            "npm:zod",
-            "npm:lucide-react"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/components/rich-text-editor.tsx",
-          "hash": "3255116129851598265",
-          "deps": [
-            "npm:react",
-            "npm:lucide-react"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/components/single-org/base-dashboard-cards.tsx",
-          "hash": "18006444004687903520",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/components/single-org/setup-org-member-profile-form.tsx",
-          "hash": "9038807480242042716",
-          "deps": [
-            "npm:react",
-            "npm:react-hook-form",
-            "npm:@hookform/resolvers",
-            "npm:zod"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/components/single-org/single-org-activity-feed.tsx",
-          "hash": "16244894558569002532"
-        },
-        {
-          "file": "packages/react-client/app/components/single-org/single-org-department-performance.tsx",
-          "hash": "12176746098973110638"
-        },
-        {
-          "file": "packages/react-client/app/components/single-org/single-org-header.tsx",
-          "hash": "9714086746373828234",
-          "deps": [
-            "npm:lucide-react",
-            "npm:react-router"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/components/single-org/single-org-mobile-sidebar.tsx",
-          "hash": "14332766548695347535",
-          "deps": [
-            "npm:lucide-react"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/components/single-org/single-org-quick-actions.tsx",
-          "hash": "6641991553331273108",
-          "deps": [
-            "npm:lucide-react"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/components/single-org/single-org-sidebar-nav-item.tsx",
-          "hash": "4081522910352959436",
-          "deps": [
-            "npm:lucide-react",
-            "npm:react-router"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/components/single-org/single-org-sidebar-toggle.tsx",
-          "hash": "15567665497700255589",
-          "deps": [
-            "npm:lucide-react"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/components/single-org/single-org-sidebar.tsx",
-          "hash": "4187589913566797302",
-          "deps": [
-            "npm:lucide-react"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/components/single-org/single-org-stats-cards.tsx",
-          "hash": "211249019849406156",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/components/single-org/single-org-upcoming-events.tsx",
-          "hash": "6644981550197205258",
-          "deps": [
-            "npm:lucide-react"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/components/single-time-entry-loading.tsx",
-          "hash": "5526443145894122466"
-        },
-        {
-          "file": "packages/react-client/app/components/task-calendar.tsx",
-          "hash": "17272036032017718977",
-          "deps": [
-            "npm:react",
-            "npm:react-big-calendar",
-            "npm:date-fns",
-            "npm:lucide-react",
-            "npm:react-router"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/components/task-item.tsx",
-          "hash": "12607925095378922836",
-          "deps": [
-            "npm:lucide-react",
-            "npm:react-router",
-            "npm:react"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/components/task-log-category-combobox.tsx",
-          "hash": "15429843395053828905",
-          "deps": [
-            "npm:@tanstack/react-query",
-            "npm:react"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/components/task-log-project-combobox.tsx",
-          "hash": "11267413852961056341",
-          "deps": [
-            "npm:@tanstack/react-query",
-            "npm:react"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/components/tasks-combobox.tsx",
-          "hash": "16320444318710158430",
-          "deps": [
-            "npm:@tanstack/react-query",
-            "npm:react"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/components/theme-demo.tsx",
-          "hash": "13983558445728470171",
-          "deps": [
-            "npm:lucide-react",
-            "npm:react-router"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/components/theme-provider.tsx",
-          "hash": "13432393501997083559",
-          "deps": [
-            "npm:react",
-            "npm:next-themes"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/components/theme-switcher.tsx",
-          "hash": "16138855789675999958",
-          "deps": [
-            "npm:lucide-react",
-            "npm:react-router"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/components/time-categories-loading.tsx",
-          "hash": "715653827366624234",
-          "deps": [
-            "npm:lucide-react"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/components/ui/accordion.tsx",
-          "hash": "11744336998720495788",
-          "deps": [
-            "npm:react",
-            "npm:@radix-ui/react-accordion",
-            "npm:lucide-react"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/components/ui/alert.tsx",
-          "hash": "1243390012219388615",
-          "deps": [
-            "npm:react",
-            "npm:class-variance-authority"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/components/ui/avatar.tsx",
-          "hash": "4786249066752106838",
-          "deps": [
-            "npm:react",
-            "npm:@radix-ui/react-avatar"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/components/ui/badge.tsx",
-          "hash": "1003659400474908844",
-          "deps": [
-            "npm:react",
-            "npm:@radix-ui/react-slot@1.1.2",
-            "npm:class-variance-authority"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/components/ui/button.tsx",
-          "hash": "11725180588446955470",
-          "deps": [
-            "npm:react",
-            "npm:@radix-ui/react-slot@1.1.2",
-            "npm:class-variance-authority"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/components/ui/calendar.tsx",
-          "hash": "3739746173290004152",
-          "deps": [
-            "npm:react",
-            "npm:lucide-react",
-            "npm:react-day-picker"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/components/ui/card.tsx",
-          "hash": "14982304557044488122",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/components/ui/checkbox.tsx",
-          "hash": "15601880509421530978",
-          "deps": [
-            "npm:react",
-            "npm:@radix-ui/react-checkbox",
-            "npm:lucide-react"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/components/ui/collapsible.tsx",
-          "hash": "17074057275547707461",
-          "deps": [
-            "npm:@radix-ui/react-collapsible"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/components/ui/combobox.tsx",
-          "hash": "16046123240838899713",
-          "deps": [
-            "npm:react",
-            "npm:lucide-react",
-            "npm:use-debounce"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/components/ui/command.tsx",
-          "hash": "6624498556991377543",
-          "deps": [
-            "npm:react",
-            "npm:cmdk",
-            "npm:lucide-react"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/components/ui/data-table.tsx",
-          "hash": "12671349747654985299",
-          "deps": [
-            "npm:react",
-            "npm:@tanstack/react-table",
-            "npm:lucide-react"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/components/ui/date-picker.tsx",
-          "hash": "15416720102797956953",
-          "deps": [
-            "npm:react",
-            "npm:date-fns"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/components/ui/dialog.tsx",
-          "hash": "17576746418432706579",
-          "deps": [
-            "npm:react",
-            "npm:@radix-ui/react-dialog@1.1.6",
-            "npm:lucide-react"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/components/ui/dropdown-menu.tsx",
-          "hash": "475712427442974183",
-          "deps": [
-            "npm:react",
-            "npm:@radix-ui/react-dropdown-menu",
-            "npm:lucide-react"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/components/ui/form.tsx",
-          "hash": "3944182723260437683",
-          "deps": [
-            "npm:react",
-            "npm:@radix-ui/react-label",
-            "npm:@radix-ui/react-slot@1.1.2",
-            "npm:react-hook-form"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/components/ui/input.tsx",
-          "hash": "15384202102697789699",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/components/ui/label.tsx",
-          "hash": "14144447109484577277",
-          "deps": [
-            "npm:react",
-            "npm:@radix-ui/react-label"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/components/ui/popover.tsx",
-          "hash": "3193430002828061707",
-          "deps": [
-            "npm:react",
-            "npm:@radix-ui/react-popover"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/components/ui/progress.tsx",
-          "hash": "8834890989747110650",
-          "deps": [
-            "npm:react",
-            "npm:@radix-ui/react-progress"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/components/ui/scroll-area.tsx",
-          "hash": "3342614715857192816",
-          "deps": [
-            "npm:react",
-            "npm:@radix-ui/react-scroll-area"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/components/ui/select.tsx",
-          "hash": "10658650079453258308",
-          "deps": [
-            "npm:react",
-            "npm:@radix-ui/react-select",
-            "npm:lucide-react"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/components/ui/separator.tsx",
-          "hash": "4975452594646211802",
-          "deps": [
-            "npm:react",
-            "npm:@radix-ui/react-separator"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/components/ui/skeleton.tsx",
-          "hash": "18050643321378768076"
-        },
-        {
-          "file": "packages/react-client/app/components/ui/sonner.tsx",
-          "hash": "12825831522213888195",
-          "deps": [
-            "npm:next-themes",
-            "npm:sonner"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/components/ui/switch.tsx",
-          "hash": "3800146758908562026",
-          "deps": [
-            "npm:react",
-            "npm:@radix-ui/react-switch"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/components/ui/table.tsx",
-          "hash": "13696063787168995198",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/components/ui/tabs.tsx",
-          "hash": "15975035872512272053",
-          "deps": [
-            "npm:react",
-            "npm:@radix-ui/react-tabs"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/components/ui/tag-input.tsx",
-          "hash": "5030227721742930872",
-          "deps": [
-            "npm:react",
-            "npm:lucide-react"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/components/ui/textarea.tsx",
-          "hash": "13811420647167213382",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/components/user-dropdown.tsx",
-          "hash": "5511697116012570290",
-          "deps": [
-            "npm:lucide-react",
-            "npm:react-router"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/components/workspace-calendar-loading.tsx",
-          "hash": "9280610070788592936"
-        },
-        {
-          "file": "packages/react-client/app/components/workspace-card.tsx",
-          "hash": "15894624627214247837",
-          "deps": [
-            "npm:lucide-react",
-            "npm:react-router"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/components/workspaces/invite-org-users-to-workspace-form.tsx",
-          "hash": "2563718112931369081",
-          "deps": [
-            "npm:@hookform/resolvers",
-            "npm:react-hook-form",
-            "npm:react-router",
-            "npm:react",
-            "npm:lucide-react"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/components/workspaces/workspace-card.tsx",
-          "hash": "6741708194441982022",
-          "deps": [
-            "npm:lucide-react",
-            "npm:react-router"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/components/workspaces/workspace-grid.tsx",
-          "hash": "7377253602383392023"
-        },
-        {
-          "file": "packages/react-client/app/department.routes.ts",
-          "hash": "16568091423993429466",
-          "deps": [
-            "npm:@react-router/dev"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/hooks/use-auth.tsx",
-          "hash": "6052248391917665564",
-          "deps": [
-            "npm:react",
-            "npm:react-router"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/hooks/use-axios.tsx",
-          "hash": "15898411569650978944",
-          "deps": [
-            "npm:axios@1.8.1"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/hooks/use-current-org.tsx",
-          "hash": "1795481017658342808",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/hooks/use-dark-mode.tsx",
-          "hash": "15543066790042362490",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/hooks/use-debounce.tsx",
-          "hash": "18445268904510683163",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/hooks/use-mock-sidebar.tsx",
-          "hash": "7907852855169541820",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/hooks/use-notification.tsx",
-          "hash": "14959333338022003052",
-          "deps": [
-            "npm:sweetalert2"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/hooks/use-render-mode.tsx",
-          "hash": "13280288520407493792"
-        },
-        {
-          "file": "packages/react-client/app/hooks/use-theme.tsx",
-          "hash": "6275071784305827547",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/layouts/auth-layout.tsx",
-          "hash": "6667946014250939561",
-          "deps": [
-            "npm:react",
-            "npm:react-router"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/layouts/base-layout.tsx",
-          "hash": "9648492300147998402",
-          "deps": [
-            "npm:@tanstack/react-query",
-            "npm:@tanstack/react-query-devtools",
-            "npm:react-router"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/layouts/no-auth-layout.tsx",
-          "hash": "1594828588883025860",
-          "deps": [
-            "npm:react",
-            "npm:react-router"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/layouts/single-org-layout.tsx",
-          "hash": "9275237848276042831",
-          "deps": [
-            "npm:react",
-            "npm:react-router"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/layouts/single-workspace-layout.tsx",
-          "hash": "9270184959609391203",
-          "deps": [
-            "npm:lucide-react",
-            "npm:react-router",
-            "npm:react"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/lib/constants/countries.tsx",
-          "hash": "9410253841107821973"
-        },
-        {
-          "file": "packages/react-client/app/lib/constants/member-roles.tsx",
-          "hash": "11751330757743173248"
-        },
-        {
-          "file": "packages/react-client/app/lib/constants/pagination.ts",
-          "hash": "3971011231754081485"
-        },
-        {
-          "file": "packages/react-client/app/lib/constants/task-options.tsx",
-          "hash": "7251707854978654565",
-          "deps": [
-            "npm:lucide-react"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/lib/data/company-sizes.tsx",
-          "hash": "3558099523160181783"
-        },
-        {
-          "file": "packages/react-client/app/lib/data/mock-sidebar-links.tsx",
-          "hash": "2596019825345210254"
-        },
-        {
-          "file": "packages/react-client/app/lib/data/project-category-colors.tsx",
-          "hash": "15678150328618235838"
-        },
-        {
-          "file": "packages/react-client/app/lib/data/single-org-layout-data.tsx",
-          "hash": "5747430853353710568",
-          "deps": [
-            "npm:lucide-react",
-            "npm:react"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/lib/data/testimonial.tsx",
-          "hash": "15249161701330450324"
-        },
-        {
-          "file": "packages/react-client/app/lib/data/themes.tsx",
-          "hash": "4053717348104602406"
-        },
-        {
-          "file": "packages/react-client/app/lib/data/workspace-sidebar-links.tsx",
-          "hash": "16155230745869173666",
-          "deps": [
-            "npm:lucide-react"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/lib/queries/department-title-query.ts",
-          "hash": "4738667188555446306",
-          "deps": [
-            "npm:react",
-            "npm:@tanstack/react-query"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/lib/queries/departments-query.ts",
-          "hash": "1609951199005329672",
-          "deps": [
-            "npm:react",
-            "npm:@tanstack/react-query"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/lib/queries/org-designation-query.tsx",
-          "hash": "17583941524508305311",
-          "deps": [
-            "npm:react",
-            "npm:axios@1.8.1",
-            "npm:@tanstack/react-query"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/lib/queries/org-members-invite-query.ts",
-          "hash": "10114608298586812172",
-          "deps": [
-            "npm:@tanstack/react-query",
-            "npm:react"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/lib/queries/org-members-query.tsx",
-          "hash": "10303134340322817840",
-          "deps": [
-            "npm:react",
-            "npm:@tanstack/react-query"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/lib/queries/org-project-category-query.ts",
-          "hash": "18247050239203989951",
-          "deps": [
-            "npm:react",
-            "npm:@tanstack/react-query"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/lib/queries/org-projects-query.ts",
-          "hash": "16968606276128428724",
-          "deps": [
-            "npm:react",
-            "npm:@tanstack/react-query"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/lib/queries/subscription-plans-query.ts",
-          "hash": "14952614350489866071",
-          "deps": [
-            "npm:react",
-            "npm:@tanstack/react-query"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/lib/queries/use-department-roles-query.tsx",
-          "hash": "5661234917308014770",
-          "deps": [
-            "npm:react",
-            "npm:@tanstack/react-query",
-            "npm:axios@1.8.1"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/lib/queries/use-org-invitations.tsx",
-          "hash": "9845853347598305559",
-          "deps": [
-            "npm:react",
-            "npm:lucide-react",
-            "npm:axios@1.8.1",
-            "npm:@tanstack/react-query"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/lib/queries/use-organization.ts",
-          "hash": "15066819150207230285",
-          "deps": [
-            "npm:react",
-            "npm:@tanstack/react-query"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/lib/queries/use-project-time-log-categories.tsx",
-          "hash": "15256887787970154797",
-          "deps": [
-            "npm:react",
-            "npm:lucide-react",
-            "npm:axios@1.8.1",
-            "npm:@tanstack/react-query"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/lib/queries/use-tasks.tsx",
-          "hash": "1607354879910721462",
-          "deps": [
-            "npm:react",
-            "npm:lucide-react",
-            "npm:axios@1.8.1",
-            "npm:@tanstack/react-query"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/lib/queries/use-time-log-categories.tsx",
-          "hash": "1271738544203946078",
-          "deps": [
-            "npm:react",
-            "npm:axios@1.8.1",
-            "npm:@tanstack/react-query"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/lib/queries/use-time-logs.tsx",
-          "hash": "12296996244261991484",
-          "deps": [
-            "npm:react",
-            "npm:axios@1.8.1",
-            "npm:@tanstack/react-query"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/lib/queries/workspace-members-query.tsx",
-          "hash": "16097716142946945264",
-          "deps": [
-            "npm:react",
-            "npm:@tanstack/react-query"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/lib/queries/workspace-query.ts",
-          "hash": "13588403934233334499",
-          "deps": [
-            "npm:react",
-            "npm:@tanstack/react-query"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/lib/schema/add-department-role-schema.ts",
-          "hash": "16188337270230752439",
-          "deps": [
-            "npm:zod"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/lib/schema/add-to-or-remove-user-from-org-schema.ts",
-          "hash": "420016061953394080",
-          "deps": [
-            "npm:zod"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/lib/schema/add-user-to-department-schema.ts",
-          "hash": "16720579979458377059",
-          "deps": [
-            "npm:zod"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/lib/schema/add-user-to-workspace-schema.ts",
-          "hash": "17589455500079732544",
-          "deps": [
-            "npm:zod"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/lib/schema/create-department-schema.ts",
-          "hash": "4095165398600580152",
-          "deps": [
-            "npm:zod"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/lib/schema/create-department-title-schema.ts",
-          "hash": "18011457180299700036",
-          "deps": [
-            "npm:zod"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/lib/schema/create-designation-schema.ts",
-          "hash": "4395138126047179380",
-          "deps": [
-            "npm:zod"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/lib/schema/create-org-designation-schema.ts",
-          "hash": "12341595937312043204",
-          "deps": [
-            "npm:zod"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/lib/schema/create-org-project-category-schema.ts",
-          "hash": "2803252412845254825",
-          "deps": [
-            "npm:zod"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/lib/schema/create-org-project-schema.ts",
-          "hash": "8028358679606018531",
-          "deps": [
-            "npm:zod"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/lib/schema/create-organization-schema.ts",
-          "hash": "7795705774675750611",
-          "deps": [
-            "npm:zod"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/lib/schema/create-task-schema.ts",
-          "hash": "15591502808125513601",
-          "deps": [
-            "npm:zod"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/lib/schema/create-time-log-category-schema.ts",
-          "hash": "5681268532364950283",
-          "deps": [
-            "npm:zod"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/lib/schema/create-time-log-schema.ts",
-          "hash": "6465769715981536480",
-          "deps": [
-            "npm:zod"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/lib/schema/create-workspace-schema.ts",
-          "hash": "11765295448645939143",
-          "deps": [
-            "npm:zod"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/lib/schema/forgot-password-schema.ts",
-          "hash": "263916253200185109",
-          "deps": [
-            "npm:zod"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/lib/schema/gender-schema.ts",
-          "hash": "12861022043283433063",
-          "deps": [
-            "npm:zod"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/lib/schema/login-schema.ts",
-          "hash": "3649922555095085467",
-          "deps": [
-            "npm:zod"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/lib/schema/password-schema.ts",
-          "hash": "4452850975884538807",
-          "deps": [
-            "npm:zod"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/lib/schema/project-time-log-category-schema.ts",
-          "hash": "170834923215230447",
-          "deps": [
-            "npm:zod"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/lib/schema/register-user-schema.ts",
-          "hash": "11408478560529780880",
-          "deps": [
-            "npm:zod"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/lib/schema/setup-org-user-profile-schema.tsx",
-          "hash": "13074895639615558197",
-          "deps": [
-            "npm:zod"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/lib/table-cols/department-member-cols.tsx",
-          "hash": "13005807306534894425",
-          "deps": [
-            "npm:@tanstack/react-table"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/lib/table-cols/departments-col.tsx",
-          "hash": "8781248818164117995",
-          "deps": [
-            "npm:@tanstack/react-table"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/lib/table-cols/designation-cols.tsx",
-          "hash": "18080464710237415345",
-          "deps": [
-            "npm:@tanstack/react-table",
-            "npm:lucide-react"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/lib/table-cols/org-department-title-col.tsx",
-          "hash": "4492423799563622604",
-          "deps": [
-            "npm:@tanstack/react-table"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/lib/table-cols/org-invitations-cols.tsx",
-          "hash": "11602839993745731707",
-          "deps": [
-            "npm:@tanstack/react-table",
-            "npm:moment",
-            "npm:lucide-react"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/lib/table-cols/org-member-cols.tsx",
-          "hash": "10234600817595372143",
-          "deps": [
-            "npm:@tanstack/react-table",
-            "npm:lucide-react",
-            "npm:react-router"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/lib/table-cols/org-project-cols.tsx",
-          "hash": "11705109646218155949",
-          "deps": [
-            "npm:@tanstack/react-table"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/lib/table-cols/project-categories-cols.tsx",
-          "hash": "7104108547533104241",
-          "deps": [
-            "npm:@tanstack/react-table"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/lib/table-cols/time-log-categories-cols.tsx",
-          "hash": "926971971278192136",
-          "deps": [
-            "npm:@tanstack/react-table",
-            "npm:lucide-react"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/lib/table-cols/time-log-cols.tsx",
-          "hash": "8096140528381532257",
-          "deps": [
-            "npm:@tanstack/react-table",
-            "npm:lucide-react",
-            "npm:moment",
-            "npm:react-router"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/lib/table-cols/workspace-members-cols.tsx",
-          "hash": "1598174757446361272",
-          "deps": [
-            "npm:lucide-react",
-            "npm:@tanstack/react-table"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/lib/types/department.ts",
-          "hash": "672896568455504173"
-        },
-        {
-          "file": "packages/react-client/app/lib/types/forms.ts",
-          "hash": "1951965309653185566"
-        },
-        {
-          "file": "packages/react-client/app/lib/types/index.ts",
-          "hash": "6619826494576933393"
-        },
-        {
-          "file": "packages/react-client/app/lib/types/mock-sidebar.ts",
-          "hash": "14579411077147532614"
-        },
-        {
-          "file": "packages/react-client/app/lib/types/org-member.ts",
-          "hash": "15644081863343433283"
-        },
-        {
-          "file": "packages/react-client/app/lib/types/organization.ts",
-          "hash": "5177250112132114810"
-        },
-        {
-          "file": "packages/react-client/app/lib/types/project-category.ts",
-          "hash": "8088005256622981007"
-        },
-        {
-          "file": "packages/react-client/app/lib/types/project.ts",
-          "hash": "11512302726784780770"
-        },
-        {
-          "file": "packages/react-client/app/lib/types/response.ts",
-          "hash": "16823976033408444288"
-        },
-        {
-          "file": "packages/react-client/app/lib/types/session.ts",
-          "hash": "8410956461609431408"
-        },
-        {
-          "file": "packages/react-client/app/lib/types/single-org.ts",
-          "hash": "4767064501596351080"
-        },
-        {
-          "file": "packages/react-client/app/lib/types/subscription-plan.ts",
-          "hash": "13231006174444513488"
-        },
-        {
-          "file": "packages/react-client/app/lib/types/time-logging.ts",
-          "hash": "9045940610299198407"
-        },
-        {
-          "file": "packages/react-client/app/lib/types/workspace.ts",
-          "hash": "3022278920142161279"
-        },
-        {
-          "file": "packages/react-client/app/lib/utils.ts",
-          "hash": "6483145186850064023",
-          "deps": [
-            "npm:clsx@2.1.1",
-            "npm:tailwind-merge"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/lib/utils/clean-empty-object.ts",
-          "hash": "1730682372518847989"
-        },
-        {
-          "file": "packages/react-client/app/lib/utils/debounce.ts",
-          "hash": "12424165143057027448"
-        },
-        {
-          "file": "packages/react-client/app/lib/utils/decode-array-buffer.ts",
-          "hash": "3962028788043760599"
-        },
-        {
-          "file": "packages/react-client/app/lib/utils/extract-axios-error.ts",
-          "hash": "13095488595025349736",
-          "deps": [
-            "npm:axios@1.8.1"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/lib/utils/sidebar-icon-size.ts",
-          "hash": "6900457342711588833"
-        },
-        {
-          "file": "packages/react-client/app/lib/utils/toster.tsx",
-          "hash": "17867043996277382718",
-          "deps": [
-            "npm:sonner"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/organization.routes.ts",
-          "hash": "9036442504816222118",
-          "deps": [
-            "npm:@react-router/dev"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/project-categories.routes.ts",
-          "hash": "15919871501049623070",
-          "deps": [
-            "npm:@react-router/dev"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/projects.routes.ts",
-          "hash": "1071180893569014703",
-          "deps": [
-            "npm:@react-router/dev"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/providers/current-organization-context.tsx",
-          "hash": "10375353721219730505",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/providers/sidebar-context.tsx",
-          "hash": "2741980228486275641",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/providers/theme-context.tsx",
-          "hash": "5403202174576344541",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/root.tsx",
-          "hash": "2583870807466811303",
-          "deps": [
-            "npm:react-router"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/routes.ts",
-          "hash": "14008920809059786155",
-          "deps": [
-            "npm:@react-router/dev"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/routes/404.tsx",
-          "hash": "444013645961088374",
-          "deps": [
-            "npm:framer-motion",
-            "npm:lucide-react",
-            "npm:react",
-            "npm:react-router"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/routes/auth/forgot-password-page.tsx",
-          "hash": "4470271122749694121",
-          "deps": [
-            "npm:react",
-            "npm:@hookform/resolvers",
-            "npm:react-hook-form",
-            "npm:zod",
-            "npm:lucide-react",
-            "npm:react-router"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/routes/auth/login-page.tsx",
-          "hash": "16556116493837354266",
-          "deps": [
-            "npm:react",
-            "npm:@hookform/resolvers",
-            "npm:react-hook-form",
-            "npm:zod",
-            "npm:lucide-react",
-            "npm:sonner",
-            "npm:react-router"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/routes/auth/register-page.tsx",
-          "hash": "17163097905872507482",
-          "deps": [
-            "npm:react",
-            "npm:@hookform/resolvers",
-            "npm:react-hook-form",
-            "npm:zod",
-            "npm:lucide-react",
-            "npm:react-router",
-            "npm:sonner"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/routes/auth/user-profile-page.tsx",
-          "hash": "10377015505410602041",
-          "deps": [
-            "npm:react",
-            "npm:lucide-react",
-            "npm:react-router"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/routes/department-title/create-department-title-page.tsx",
-          "hash": "17647666527174426199",
-          "deps": [
-            "npm:@hookform/resolvers",
-            "npm:react-hook-form",
-            "npm:zod",
-            "npm:lucide-react",
-            "npm:react-router"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/routes/department/assign-department-role-page.tsx",
-          "hash": "14286189426742633499",
-          "deps": [
-            "npm:react-hook-form",
-            "npm:@hookform/resolvers",
-            "npm:lucide-react",
-            "npm:react-router",
-            "npm:react"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/routes/department/create-department-page.tsx",
-          "hash": "15361175476811640309",
-          "deps": [
-            "npm:@hookform/resolvers",
-            "npm:react-hook-form",
-            "npm:zod",
-            "npm:lucide-react",
-            "npm:react-router",
-            "npm:sonner"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/routes/department/department-members-page.tsx",
-          "hash": "18247363266458227222",
-          "deps": [
-            "npm:lucide-react",
-            "npm:@tanstack/react-table",
-            "npm:react-router",
-            "npm:react"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/routes/department/department-roles-page.tsx",
-          "hash": "9194316833092278060",
-          "deps": [
-            "npm:lucide-react",
-            "npm:@tanstack/react-table",
-            "npm:react-router",
-            "npm:react"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/routes/department/edit-department-page.tsx",
-          "hash": "13966440247158471555",
-          "deps": [
-            "npm:react",
-            "npm:react-router",
-            "npm:@hookform/resolvers",
-            "npm:react-hook-form",
-            "npm:lucide-react",
-            "npm:sonner"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/routes/department/invite-department-members-page.tsx",
-          "hash": "2514109495276036860",
-          "deps": [
-            "npm:react",
-            "npm:react-hook-form",
-            "npm:@hookform/resolvers",
-            "npm:zod",
-            "npm:lucide-react",
-            "npm:react-router"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/routes/department/list-departments-page.tsx",
-          "hash": "14724324525698054581",
-          "deps": [
-            "npm:lucide-react",
-            "npm:react-router",
-            "npm:react"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/routes/department/single-department-page.tsx",
-          "hash": "10850829476386640354",
-          "deps": [
-            "npm:lucide-react",
-            "npm:react-router",
-            "npm:react"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/routes/designations/list-designations-page.tsx",
-          "hash": "4444714344404247011",
-          "deps": [
-            "npm:react",
-            "npm:lucide-react",
-            "npm:react-hook-form",
-            "npm:@hookform/resolvers"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/routes/landing-page.tsx",
-          "hash": "8722941744290800380"
-        },
-        {
-          "file": "packages/react-client/app/routes/layout-404.tsx",
-          "hash": "13068722511258377722",
-          "deps": [
-            "npm:framer-motion",
-            "npm:lucide-react",
-            "npm:react"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/routes/org/create-organization-page.tsx",
-          "hash": "1938644507913171933",
-          "deps": [
-            "npm:react",
-            "npm:@hookform/resolvers",
-            "npm:react-hook-form",
-            "npm:zod",
-            "npm:lucide-react",
-            "npm:react-router"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/routes/org/list-organizations-page.tsx",
-          "hash": "10314300550876792004",
-          "deps": [
-            "npm:lucide-react",
-            "npm:react-router",
-            "npm:react"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/routes/org/org-invitations-page.tsx",
-          "hash": "17042274995650290553",
-          "deps": [
-            "npm:react",
-            "npm:lucide-react",
-            "npm:react-router",
-            "npm:@tanstack/react-table",
-            "npm:date-fns",
-            "npm:moment"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/routes/org/org-invite-members-page.tsx",
-          "hash": "10162197789400131049",
-          "deps": [
-            "npm:react",
-            "npm:react-hook-form",
-            "npm:@hookform/resolvers",
-            "npm:zod",
-            "npm:lucide-react",
-            "npm:react-router"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/routes/org/org-member-list-page.tsx",
-          "hash": "8285310864907288026",
-          "deps": [
-            "npm:react",
-            "npm:react-router",
-            "npm:lucide-react"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/routes/org/org-profile-page.tsx",
-          "hash": "11517978565864505202",
-          "deps": [
-            "npm:lucide-react",
-            "npm:react-router"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/routes/org/org-settings-page.tsx",
-          "hash": "7132391877801640428",
-          "deps": [
-            "npm:lucide-react",
-            "npm:react-router",
-            "npm:react-hook-form",
-            "npm:@hookform/resolvers",
-            "npm:zod",
-            "npm:react"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/routes/org/setup-org-user-profile.tsx",
-          "hash": "6656619284591902810",
-          "deps": [
-            "npm:@hookform/resolvers",
-            "npm:react",
-            "npm:react-hook-form",
-            "npm:react-router"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/routes/org/single-organization-page.tsx",
-          "hash": "1612745537578600242",
-          "deps": [
-            "npm:lucide-react",
-            "npm:react-router",
-            "npm:moment",
-            "npm:react"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/routes/project-categories/create-project-category-page.tsx",
-          "hash": "8973433508455586284",
-          "deps": [
-            "npm:react-hook-form",
-            "npm:@hookform/resolvers",
-            "npm:zod",
-            "npm:lucide-react",
-            "npm:react-router"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/routes/project-categories/edit-project-category-page.tsx",
-          "hash": "13168150095373462613",
-          "deps": [
-            "npm:react",
-            "npm:react-hook-form",
-            "npm:@hookform/resolvers",
-            "npm:lucide-react",
-            "npm:react-router",
-            "npm:sonner"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/routes/project-categories/project-categories-page.tsx",
-          "hash": "340212539012747062",
-          "deps": [
-            "npm:lucide-react",
-            "npm:react-router",
-            "npm:react"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/routes/project-categories/single-project-category-page.tsx",
-          "hash": "8203755002412460126",
-          "deps": [
-            "npm:lucide-react",
-            "npm:react-router",
-            "npm:react"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/routes/projects/create-project-page.tsx",
-          "hash": "16612145446265750439",
-          "deps": [
-            "npm:react",
-            "npm:react-hook-form",
-            "npm:@hookform/resolvers",
-            "npm:lucide-react",
-            "npm:react-router"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/routes/projects/edit-project-page.tsx",
-          "hash": "4859851665267736328",
-          "deps": [
-            "npm:react",
-            "npm:lucide-react",
-            "npm:react-router"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/routes/projects/list-projects-page.tsx",
-          "hash": "14626786098288920678",
-          "deps": [
-            "npm:lucide-react",
-            "npm:react-router",
-            "npm:react"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/routes/projects/project-time-categories-page.tsx",
-          "hash": "5495318664740056168",
-          "deps": [
-            "npm:react",
-            "npm:lucide-react",
-            "npm:react-hook-form",
-            "npm:@hookform/resolvers",
-            "npm:zod",
-            "npm:react-router"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/routes/projects/single-project-page.tsx",
-          "hash": "16240050983229479420",
-          "deps": [
-            "npm:lucide-react",
-            "npm:react-router",
-            "npm:react"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/routes/tasks/create-task-page.tsx",
-          "hash": "17109338254510595091",
-          "deps": [
-            "npm:@hookform/resolvers",
-            "npm:react-hook-form",
-            "npm:lucide-react",
-            "npm:date-fns",
-            "npm:react-router",
-            "npm:react"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/routes/tasks/list-tasks-page.tsx",
-          "hash": "3922236671617407319",
-          "deps": [
-            "npm:react",
-            "npm:lucide-react",
-            "npm:react-router"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/routes/tasks/single-task-page.tsx",
-          "hash": "12740135316294096365",
-          "deps": [
-            "npm:lucide-react",
-            "npm:react"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/routes/theme-demo-page.tsx",
-          "hash": "227957072216408382"
-        },
-        {
-          "file": "packages/react-client/app/routes/time-categories/create-time-category-page.tsx",
-          "hash": "15395934558916034897",
-          "deps": [
-            "npm:@hookform/resolvers",
-            "npm:react-hook-form",
-            "npm:zod",
-            "npm:react",
-            "npm:lucide-react",
-            "npm:sonner",
-            "npm:react-router"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/routes/time-categories/edit-time-category-page.tsx",
-          "hash": "11934736264997571631",
-          "deps": [
-            "npm:react",
-            "npm:@hookform/resolvers",
-            "npm:react-hook-form",
-            "npm:zod",
-            "npm:lucide-react",
-            "npm:react-router"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/routes/time-categories/list-time-categories-page.tsx",
-          "hash": "993841470566161793",
-          "deps": [
-            "npm:react",
-            "npm:lucide-react",
-            "npm:react-hook-form",
-            "npm:@hookform/resolvers"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/routes/time-logs/create-time-entry-page.tsx",
-          "hash": "16197310239342105730",
-          "deps": [
-            "npm:@hookform/resolvers",
-            "npm:react-hook-form",
-            "npm:lucide-react",
-            "npm:react-router",
-            "npm:moment"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/routes/time-logs/list-time-entries-page.tsx",
-          "hash": "7973988478448575069",
-          "deps": [
-            "npm:lucide-react",
-            "npm:@tanstack/react-table",
-            "npm:react-router",
-            "npm:react"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/routes/time-logs/single-time-entry-page.tsx",
-          "hash": "16261758727412680108",
-          "deps": [
-            "npm:react",
-            "npm:lucide-react",
-            "npm:react-router"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/routes/workspace/create-workspace-page.tsx",
-          "hash": "14078808039430838583",
-          "deps": [
-            "npm:react-hook-form",
-            "npm:@hookform/resolvers",
-            "npm:zod",
-            "npm:lucide-react",
-            "npm:react-router",
-            "npm:react"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/routes/workspace/invite-workspace-members-page.tsx",
-          "hash": "5932573699653869002",
-          "deps": [
-            "npm:react",
-            "npm:zod",
-            "npm:lucide-react",
-            "npm:react-router"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/routes/workspace/single-workspace-page.tsx",
-          "hash": "10130437546042002552",
-          "deps": [
-            "npm:lucide-react",
-            "npm:react-router"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/routes/workspace/workspace-calendar-page.tsx",
-          "hash": "10327260339058708331",
-          "deps": [
-            "npm:react",
-            "npm:lucide-react",
-            "npm:react-router"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/routes/workspace/workspace-chat-page.tsx",
-          "hash": "10462702336036363796",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/routes/workspace/workspace-members-page.tsx",
-          "hash": "8048489791852597284",
-          "deps": [
-            "npm:lucide-react",
-            "npm:react-router",
-            "npm:react"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/task.routes.ts",
-          "hash": "11305873435485669669",
-          "deps": [
-            "npm:@react-router/dev"
-          ]
-        },
-        {
-          "file": "packages/react-client/app/workspace.routes.ts",
-          "hash": "2319828524393071822",
-          "deps": [
-            "npm:@react-router/dev"
-          ]
-        },
-        {
-          "file": "packages/react-client/components.json",
-          "hash": "10431854158761024805"
-        },
-        {
-          "file": "packages/react-client/env.example",
-          "hash": "13471603539237672529"
-        },
-        {
-          "file": "packages/react-client/package.json",
-          "hash": "17015775042209482049",
-          "deps": [
-            "npm:@react-router/dev",
-            "npm:@tailwindcss/vite",
-            "npm:@tanstack/eslint-plugin-query",
-            "npm:@types/node@20.17.23",
-            "npm:@types/react",
-            "npm:@types/react-big-calendar",
-            "npm:@types/react-dom",
-            "npm:changelogen",
-            "npm:react-router-devtools",
-            "npm:tailwindcss",
-            "npm:typescript@5.8.2",
-            "npm:vite@5.4.14",
-            "npm:vite-tsconfig-paths",
-            "npm:@hookform/resolvers",
-            "npm:@iconify/react",
-            "npm:@radix-ui/react-accordion",
-            "npm:@radix-ui/react-avatar",
-            "npm:@radix-ui/react-checkbox",
-            "npm:@radix-ui/react-collapsible",
-            "npm:@radix-ui/react-dialog@1.1.6",
-            "npm:@radix-ui/react-dropdown-menu",
-            "npm:@radix-ui/react-label",
-            "npm:@radix-ui/react-popover",
-            "npm:@radix-ui/react-progress",
-            "npm:@radix-ui/react-scroll-area",
-            "npm:@radix-ui/react-select",
-            "npm:@radix-ui/react-separator",
-            "npm:@radix-ui/react-slot@1.1.2",
-            "npm:@radix-ui/react-switch",
-            "npm:@radix-ui/react-tabs",
-            "npm:@react-router/node",
-            "npm:@react-router/serve",
-            "npm:@tanstack/react-query",
-            "npm:@tanstack/react-query-devtools",
-            "npm:@tanstack/react-table",
-            "npm:apexcharts",
-            "npm:axios@1.8.1",
-            "npm:class-variance-authority",
-            "npm:clsx@2.1.1",
-            "npm:cmdk",
-            "npm:date-fns",
-            "npm:framer-motion",
-            "npm:isbot",
-            "npm:lucide-react",
-            "npm:moment",
-            "npm:next-themes",
-            "npm:react",
-            "npm:react-apexcharts",
-            "npm:react-big-calendar",
-            "npm:react-day-picker",
-            "npm:react-dom",
-            "npm:react-hook-form",
-            "npm:react-hot-toast",
-            "npm:react-router",
-            "npm:recharts",
-            "npm:sonner",
-            "npm:sweetalert2",
-            "npm:tailwind-merge",
-            "npm:tailwindcss-animate",
-            "npm:use-debounce",
-            "npm:zod"
-          ]
-        },
-        {
-          "file": "packages/react-client/public/about.txt",
-          "hash": "2820409964087929433"
-        },
-        {
-          "file": "packages/react-client/public/android-chrome-192x192.png",
-          "hash": "4827334801061981845"
-        },
-        {
-          "file": "packages/react-client/public/android-chrome-512x512.png",
-          "hash": "17824776475744734904"
-        },
-        {
-          "file": "packages/react-client/public/apple-touch-icon.png",
-          "hash": "17350938325705923200"
-        },
-        {
-          "file": "packages/react-client/public/favicon-16x16.png",
-          "hash": "17251832287083600508"
-        },
-        {
-          "file": "packages/react-client/public/favicon-32x32.png",
-          "hash": "1023498117539373582"
-        },
-        {
-          "file": "packages/react-client/public/favicon.ico",
-          "hash": "9776500805907380675"
-        },
-        {
-          "file": "packages/react-client/public/site.webmanifest",
-          "hash": "11205980641497128048"
-        },
-        {
-          "file": "packages/react-client/react-router.config.ts",
-          "hash": "16121537494293359736",
-          "deps": [
-            "npm:@react-router/dev"
-          ]
-        },
-        {
-          "file": "packages/react-client/tsconfig.json",
-          "hash": "6510785847667570402"
-        },
-        {
-          "file": "packages/react-client/vite.config.ts",
-          "hash": "10049235645496830499",
-          "deps": [
-            "npm:@react-router/dev",
-            "npm:@tailwindcss/vite",
-            "npm:vite@5.4.14",
-            "npm:vite-tsconfig-paths"
-          ]
         }
       ],
       "@payroll/web": [
